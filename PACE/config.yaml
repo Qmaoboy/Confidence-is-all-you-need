@@ -1,0 +1,31 @@
+Trainconfig:
+    learning_rate: 1e-4
+    num_epochs: 10
+    checkpoint_interval: 1
+    dataset_path: "../response_dataset/gpt-3.5-turbo-0125_normal.json"
+    huggin_token : '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'
+    Huggingface_model_name : "meta-llama/Meta-Llama-3-8B-Instruct"
+    batch_size: 1
+    max_length: 1024
+
+bart_config:
+    vocab_size : 128000  # Size of the vocabulary
+    max_position_embeddings : 1024
+    encoder_layers : 2
+    encoder_ffn_dim : 1024
+    encoder_attention_heads : 16
+    decoder_layers : 2
+    decoder_ffn_dim : 1024
+    decoder_attention_heads : 16
+    d_model : 1024
+    pad_token_id : 128001
+    bos_token_id : 128000
+    eos_token_id : 128001
+    decoder_start_token_id : 2
+    forced_eos_token_id : 2
+
+trian_bert_config:
+    epoch: 3
+    lr: 5e-5
+    model_name: "google-bert/bert-base-uncased"
+    tokenizer_name: "google-bert/bert-base-uncased"
