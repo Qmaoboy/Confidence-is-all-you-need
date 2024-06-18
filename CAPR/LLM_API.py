@@ -42,10 +42,10 @@ class openai_GPT:
                             claim_text= json.loads(response.choices[0].message.content)
                             return claim_text
                         except json.JSONDecodeError as e:
-                            logger.error(f"{th.current_thread().name}JSON decoding failed: {e} {Instruction} : {input_text} {response}")
+                            # logger.error(f"{th.current_thread().name}JSON decoding failed: {e} {Instruction} : {input_text} {response}")
                             continue
                         except Exception as e:
-                            logger.error(f"{th.current_thread().name}Unexpected error: {e} {Instruction} : {input_text} {response}")
+                            # logger.error(f"{th.current_thread().name}Unexpected error: {e} {Instruction} : {input_text} {response}")
                             continue
 
                 except openai.APIStatusError as e:

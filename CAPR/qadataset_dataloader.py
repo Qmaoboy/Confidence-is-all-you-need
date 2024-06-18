@@ -105,6 +105,7 @@ class eval_dataloader:
 
         elif purpose=="refine":
             sep_index=int(len(self.dataset)*0.8)
+            # sep_index=10
             self.trainloader=DataLoader(list(self.dataset)[:sep_index],batch_size=batch_size,collate_fn=self.refine_collect_fn,shuffle=self.shuffle,num_workers=1,drop_last=True,persistent_workers=True)
             self.testloader=DataLoader(list(self.dataset)[sep_index:],batch_size=batch_size,collate_fn=self.refine_collect_fn,shuffle=self.shuffle,num_workers=1,drop_last=True,persistent_workers=True)
 
@@ -136,7 +137,7 @@ class eval_dataloader:
         instruc_gpt_='Below is an instruction that describes a task. Write a better Instruction base on the Instruction and Question.'
 
         instruct=[f'''<s>[INST] <<SYS>>
-        You are a Instruction generator task to rewrite the basic_instruction for the question to generate more accurate result in long form generation. Only Give me the new_Instruction, do not give any other infomation.<</SYS>>
+        You are a Instruction generator task to briefly rewrite the basic_instruction for the question to generate more accurate Answer in long form generation. Only Give me the new_Instruction, do not give any other infomation.<</SYS>>
         basic_instruction:"{i['Prompt']['Instruction']}"\nQuestion:{i['Prompt']['Question']}\n
         [/INST]new_Instruction:\n''' for i in batch]
 

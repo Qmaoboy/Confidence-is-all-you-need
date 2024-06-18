@@ -13,17 +13,6 @@ if os.path.isfile("api_key.yml"):
     with open("api_key.yml","r") as f:
         key=yaml.safe_load(f)
 
-def vanilla_prompt(question:list,Instruction:str)-> dict:
-    question=question
-
-    confidence_define_prompt="Note: The confidence indicates how likely you think your Answer is true and correct,from 0.00 (worst) to 1.00 (best)"
-
-    system_prompt="This is a long form QA task, please provide Answer with more details to the question and confidence to the Answer in json"
-
-    input_text=f'''Question:{question}\n\n\nplease answer this question and provide your confidence .\nOnly give me the reply according to response format, don't give me any other words."response format :\nAnswer: [Your final Answer here],\nConfidence : [Your final Confidence here]\n'''
-
-    return {"system_prompt":system_prompt,'Instruction':Instruction,'input_text':input_text,"assit_prompt":confidence_define_prompt}
-
 def generate_worker(share_list,key,prompt,id):
     # print(prompt)
     model=GPT_API("gpt-3.5-turbo-0125",key,"confidence",prompt)
@@ -89,7 +78,7 @@ def reward_function(result_batch,Ground_truth,Document):
     acc_list=[]
     hit=0
     # print(len(result_batch))
-    for result,ground,doc in (r:=tqdm(zip(result_batch,Ground_truth,Document))):
+    for result,ground,doc in (r:=tqdm(zip(result_batch,Ground_truth,Document),leave=False)):
 
         with torch.set_grad_enabled(False):
             if result is not None:
@@ -115,14 +104,15 @@ def reward_function(result_batch,Ground_truth,Document):
 
         r.set_postfix_str(f"Hit Rate {hit/len(result_batch):.2f}")
 
-    ece_score=get_ece(conf_list,acc_list)
-    Final_ece_score=get_ece(Final_conf_list,acc_list)
-    ece_list=torch.abs(torch.stack(acc_list)-torch.stack(Final_conf_list))
+    # ece_score=get_ece(conf_list,acc_list)
+    # ece_list=get_ece(Final_conf_list,acc_list)
+    ece_list=torch.abs(torch.stack(acc_list)-torch.stack(conf_list))
+    Final_ece_list=torch.abs(torch.stack(acc_list)-torch.stack(Final_conf_list))
     reward_list=[ece_acc_ratio*-ece+(1.0-ece_acc_ratio)*acc for acc,ece in zip(acc_list,ece_list)]
 
-    r.set_description_str(f"reward {max(reward_list).item():.4f}/{min(reward_list).item():.4f},acc {max(acc_list).item():.4f}/{min(acc_list).item():.4f},ece {ece_score:.4f}/{ece_score:.4f}")
+    r.set_description_str(f"reward {max(reward_list).item():.4f}/{min(reward_list).item():.4f},acc {max(acc_list).item():.4f}/{min(acc_list).item():.4f},ece {max(ece_list):.4f}/{min(ece_list):.4f}")
 
-    return reward_list,ece_list,[ece_score],acc_list,Final_conf_list,conf_list
+    return reward_list,Final_ece_list,ece_list,acc_list,Final_conf_list,conf_list
 
 def get_ece(y_confs,y_true):
     y_confs=np.array([i.item() for i in y_confs])
@@ -136,7 +126,6 @@ def get_ece(y_confs,y_true):
     ece_score = ece.measure(y_confs, y_true)
 
     return torch.tensor(ece_score)
-
 
 
 class rl_writer:

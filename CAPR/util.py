@@ -412,13 +412,6 @@ def Update_Fig(activate_time,shuffle=True):
 
                         show_histogram_graph([Final_conf_list],activate_time=activate_time,title=f"{k} {sim} Final Confidence",stretagy=k,sim=f"{sim}",datafile_name=f"{dataset_path}_{isshuffle_str}_{sim}_{k}_PACE_Confidence",label=[f"{isshuffle_str}"])
 
-def Show_mean_result(Save_result_path):
-    if os.path.isfile(Save_result_path):
-        with open(Save_result_path,'r') as f:
-            result=json.load(f)
-        for k,v in result.items():
-            print(f"{k} : {np.mean(np.array(v)):.6f}")
-
 
 if __name__=="__main__":
 
@@ -444,7 +437,4 @@ if __name__=="__main__":
     # print(torch.tensor(eval_me.compute_acc(pred,ref)))
     # keyword = "Artificial Intelligence"
     # search_wikipedia_by_keyward("Human Development Index")
-
-    Save_result_path="din0s_asqa_Vanilla.json"
-    Show_mean_result(Save_result_path)
 

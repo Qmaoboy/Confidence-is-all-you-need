@@ -14,7 +14,7 @@ PACE/model_weight/
 PACE/bert_model_weight/
 PACE/natural_qa_dataet/
 PACE/*.json
+PACE/picture/histogram/
 
-
-
+20240601/
 api_key.yml
