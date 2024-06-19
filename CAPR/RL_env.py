@@ -69,7 +69,7 @@ def reward_function(result_batch,Ground_truth,Document):
     simi=simi_metric("Cos_sim")
     lambda_value=0.7
     ## Balance Between ECE and ACC
-    ece_acc_ratio=1.0
+    ece_acc_ratio=0.0
     ## ece_acc_ratio*-ece+(1.0-ece_acc_ratio)*acc
     assert len(result_batch)==len(Ground_truth)==len(Document)
     ## result_batch dict(confidece,Answer) / None

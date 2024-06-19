@@ -216,7 +216,8 @@ class acc_metric:
                         idf=False,  # Whether to use IDF scaling
                         batch_size=64,  # Batch size
                         lang=None,  # Language of the texts, auto-detect based on model if None
-                        rescale_with_baseline=False  # Whether to rescale scores with baselines
+                        rescale_with_baseline=False,  # Whether to rescale scores with baselines
+                        device='cuda:1'  # Specify the CUDA device
                     )
 
         elif self.metric in ['wer','exact_match']:

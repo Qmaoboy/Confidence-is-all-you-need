@@ -59,16 +59,19 @@ def area_under_risk_coverage_score(confids, correct):
     return sum([(risks[i] + risks[i + 1]) * 0.5 * weights[i] for i in range(len(weights))])* AURC_DISPLAY_SCALE
 
 
-def compute_conf_metrics(y_true, y_confs,Stretagy):
+def compute_conf_metrics(y_acc, y_confs,Stretagy):
 
     result_matrics = {}
     # ACC
     # accuracy = sum(y_true) / len(y_true)
-    accuracy = np.mean(y_true)
+    accuracy = np.mean(y_acc)
     print("accuracy: ", accuracy)
     result_matrics['acc'] = accuracy
-    ## TODO varify binary result
-    y_true=np.where(y_true < accuracy,0,1) ## change to binary
+
+    ## change to binary
+    ## F1 : 0.5
+    ## Bertscore : 0.8
+    y_true=np.where(y_acc < 0.5,0,1)
     # use np to test if y_confs are all in [0, 1]
 
     assert all([x >= 0 and x <= 1 for x in y_confs]), y_confs ## makesure conf >0
@@ -103,7 +106,11 @@ def compute_conf_metrics(y_true, y_confs,Stretagy):
     ece = ECE(n_bins)
     ece_score = ece.measure(np.array(y_confs), np.array(y_true))
     print("ECE:", ece_score)
-    result_matrics['ece'] = ece_score
+    # result_matrics['ece'] = ece_score
+
+    ece_all=np.mean(np.abs(np.array(y_acc)-np.array(y_confs)))
+    print("ECE:", ece_all)
+    result_matrics['ece'] = ece_all
 
     return result_matrics
 
@@ -176,20 +183,20 @@ def evaluate_score(api_model,dataset_path,Stretagy,sim_model,acc_model,activatio
     # print(pace_conf_array)
     ####################
     print("*"*100)
-    print(f"{dataset_path}")
+    print(f"{dataset_path} {Stretagy} {sim_model}")
     print("*"*50)
-    print(f"{sim_model} Similarity Mean:{np.mean(sim_array)}")
+    print(f"Similarity Mean:{np.mean(sim_array)}")
 
     print("*"*50)
-    print(f"{sim_model} Confidence Mean:{np.mean(conf_array)}")
+    print(f"Confidence Mean:{np.mean(conf_array)}")
     print("*"*50)
-    print(f"{sim_model} PACE Confidence Mean: {np.mean(pace_conf_array)}")
+    print(f"PACE Confidence Mean: {np.mean(pace_conf_array)}")
     ## ECE and AUROC
     print("*"*50)
-    print(f"{sim_model} Without PACE")
+    print(f"{sim_model} {Stretagy} Without PACE")
     eval_result=compute_conf_metrics(acc_array,conf_array,Stretagy)
     print("*"*50)
-    print(f"{sim_model} With PACE")
+    print(f"{sim_model} {Stretagy} With PACE")
     eval_pace_result=compute_conf_metrics(acc_array,pace_conf_array,Stretagy)
     print("*"*100)
 
@@ -302,10 +309,10 @@ def Savefig(File_name):
             show_bar(aurc_result,f"AURC_result_{acc_model}_{sim_model}_{File_name}")
 
 if __name__=="__main__":
-    activate_time="20240601_No_shuffle"
+    activate_time="20240601"
     # sim_model=["Cos_sim"]
-    # acc_model="bertscore"
-    # dataset=["din0s_asqa","natural_questions"]
+    # acc_model="f1"
+    # dataset=["din0s_asqa"]
     # stretagy=["vanilla","cot","multi_step"]
     # api_model="gpt-3.5-turbo-0125"
     # task={
@@ -315,7 +322,7 @@ if __name__=="__main__":
     # for k in stretagy:
     #     for j in dataset:
     #         for i in sim_model:
-    #             acc_path=f"response_result/{activate_time}/{j}_{api_model}_{k}_{task[j]}_{i}_{acc_model}.json"
+    #             acc_path=f"response_result/{activate_time}/{j}_{api_model}_{k}_{task[j]}_{i}_No_Shuffle_{acc_model}.json"
     #             if os.path.isfile(acc_path):
     #                 print(acc_path)
     #                 config={
@@ -327,7 +334,8 @@ if __name__=="__main__":
     #                     "task":f"{task[j]}",
     #                     'Stretagy':f"{k}",
     #                     "acc_datapath":acc_path,
-    #                     "lambda_value":0.5
+    #                     "lambda_value":0.5,
+    #                     "shuffle":False
     #                 }
     #                 evaluate_score(**config)
     #             else:
@@ -336,7 +344,7 @@ if __name__=="__main__":
     # show(20240521,"gpt-3.5-turbo-0125","bertscore","snli")
     # show(20240520,"gpt-3.5-turbo-0125","f1","gpt-3.5-turbo-0125")
     # show(20240521,"gpt-3.5-turbo-0125","wer","gpt-3.5-turbo-0125")
-    Savefig(activate_time)
+    Savefig(f"{activate_time}_No_shuffle")
     # spent=Get_Cost()
     # print(f"Sprent {spent} USD {spent*30} NTD\n")
 

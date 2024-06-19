@@ -116,7 +116,7 @@ class Confidence:
                 if len(Share_list)>=self.data_prompt_amount:
                     break
                 if Ground_truth is not None and None not in batch:
-                    progress.set_description_str(f"{self.stretagy}\{self.api_model}")
+                    progress.set_description_str(f"{self.stretagy};{self.api_model}")
                     try:
                         args=[(Share_list,b,g,len(batch)) for b,g in zip(batch,Ground_truth)]
 
