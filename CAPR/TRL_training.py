@@ -13,11 +13,12 @@ import torch.multiprocessing as t_mp
 import torch.distributed as dist
 from random import randint
 from inference import inference
-from torch.optim.lr_scheduler import ConstantLR,PolynomialLR,SequentialLR,StepLR
+from torch.optim.lr_scheduler import ConstantLR,ExponentialLR,PolynomialLR,SequentialLR,StepLR
 import json
 from RL_env import Environment,reward_function,rl_writer,Parallel_Environment
 import glob,os,torch,yaml
 from huggingface_hub import login
+import wandb
 
 if os.path.isfile("api_key.yml"):
     with open("api_key.yml","r") as f:
@@ -26,6 +27,8 @@ if os.path.isfile("api_key.yml"):
 if os.path.isfile("default_config.yaml"):
     with open("default_config.yaml","r") as f:
         ac_config=yaml.safe_load(f)
+
+wandb.login(key=key['wandb']["api_key"])
 
 login(token=key['hugginface']["token"])
 
@@ -59,6 +62,8 @@ def trainer(Batch_accumulate_size, max_epoch, model, tokenizer,Dataloader,genera
     reward_list=[]
     query_tensors_list=[]
     response_tensors_list=[]
+    show_result=True
+    example_list=[]
     for epoch in (t:=tqdm(range(max_epoch), "epoch: ")):
 
         for prompt,instruct,instruct_token,ans,ground_Truth,ground_Truth_token,Confidence,Document in (bar:=tqdm(Dataloader,leave=True)):
@@ -73,36 +78,63 @@ def trainer(Batch_accumulate_size, max_epoch, model, tokenizer,Dataloader,genera
 
             response = [tokenizer.decode(r[len(i):],skip_special_tokens=True) for r,i  in zip(response_tensors, instruct_token.input_ids)]
             assert len(prompt)==len(response)
-            ## replace generated Instruction
-            if len(reward_list)>=ppostep_size:
-                show_index=randint(0,len(response)-1)
-                print(f"Sample id {show_index}:")
-                print(f"Instruct:\n{prompt[show_index]['Instruction']}")
-                print(f"Question:\n{prompt[show_index]['Question']}\n")
-                print(f"After:\n{response[show_index]}")
+            show_index=randint(0,len(response)-1)
+            ##################### Show Result
+            if show_result:
+                example={
+                    'Epoch':epoch,
+                    'Sample_id':show_index,
+                    'Ori_instruct':prompt[show_index]['Instruction'],
+                    'Question':prompt[show_index]['Question'],
+                    'Question':prompt[show_index]['Question'],
+                    'New_instruct':response[show_index]
+                }
 
+            ## replace generated Instruction
             for idx,p_instruc in enumerate(response):
                 prompt[idx]['Instruction']=str(p_instruc)
-                prompt[idx]['system_prompt']="This is a Long form generation QA task, please answer the Question base on the Instruction to the question and confidence to the Answer in json."
+                prompt[idx]['system_prompt']="This is a Long form [generation QA task, please answer the Question base on the Instruction to the question and confidence to the Answer in json."
 
             ## Environment Get Answer and Confidence
             bar.set_postfix_str("get Environment")
 
             result_batch=Parallel_Environment(prompt,'gpt-3.5-turbo-0125')
+
+
             bar.set_postfix_str("get Reward")
             # print(result_batch)
             #### Compute reward score
             Reward,ece,origin_ece,acc,pace_conf,conf = reward_function(result_batch,ground_Truth,Document)
+            ##################### Show Result
+            if show_result:
+                try:
+                    get_result=result_batch[show_index]['Answer']
+                except:
+                    get_result=result_batch[show_index]
 
-            #####################
+                example.update({
+                    'result':get_result,
+                    'ground_Truth':ground_Truth[show_index],
+                    'Accuracy':acc[show_index].item(),
+                    'Confidence':conf[show_index].item(),
+                    'PACE Confidence':pace_conf[show_index].item(),
+                    'ECE':ece[show_index].item()
+                })
+
+            if show_result:
+                example_list.append(example)
+                with open('exmaple.json','w+') as f:
+                    json.dump(example_list,f)
+
             reward_list+=Reward
             query_tensors_list+=query_tensors
             response_tensors_list+=response_tensors
             bar.set_description_str(f"Epoch {epoch},{len(reward_list)},grad step:{ppostep_size}")
             #### Run PPO step
             if len(reward_list)>=ppostep_size:
+                bar.set_postfix_str("PPO Step")
                 stats = ppo_trainer.step(query_tensors_list[:ppostep_size], response_tensors_list[:ppostep_size], reward_list[:ppostep_size])
-                #####################
+
                 ### Record the result
                 writer.get([stats['ppo/val/error']],measure='mean',key='Val_error')
                 writer.get([stats['ppo/learning_rate']],measure='mean',key='learning_rate')
@@ -117,14 +149,17 @@ def trainer(Batch_accumulate_size, max_epoch, model, tokenizer,Dataloader,genera
                 writer.get(pace_conf,measure='mean',key='Pace_Verbalized_Confidence')
                 writer.get(conf,measure='mean',key='Verbalized_Confidence')
                 writer.write()
-                print(f"\nTraining:{epoch}/{max_epoch},\nAccuracy {writer.data_value_writer['Accuracy'][-1]:.4f}\nECE {writer.data_value_writer['ECE'][-1]:.4f}\nReward {writer.data_value_writer['reward'][-1]:.4f}\n")
+                #####################
+                show_result=True
                 reward_list=[]
                 query_tensors_list=[]
                 response_tensors_list=[]
                 #####################
+            else:
+                show_result=False
 
         ppo_trainer.save_pretrained(f"Agent_weight/PPO_Agent_{writer.determint}_{epoch}_{stats['ppo/loss/total']:.4f}")
-        if epoch in [1,3,5,9]:
+        if epoch in [3,5,7]:
             input(f"Epoch {epoch}, Press Enter to continue training, You can check the training result now...")
 
         ppo_trainer.log_stats(stats, instruct_token, Reward,columns_to_log=["query", "response"])
@@ -140,8 +175,8 @@ def main():
 
     Training_Config={
         "dataset_path":f'response_result/20240601/din0s_asqa_gpt-3.5-turbo-0125_vanilla_Long_QA.json',
-        'deliminator':"06122032_vanilla_f1_r5",
-        'max_epoch': 15,
+        'deliminator':"06122032_vanilla_f1_r9",
+        'max_epoch': 10,
         'trian_batch_size':8,
         'Batch_accumulate_size':64 # min : 128, Max: 64
     }
@@ -164,7 +199,7 @@ def main():
     ###
     config = PPOConfig(
         model_name="meta-llama/Llama-2-7b-chat-hf",
-        # log_with="tensorboard",
+        world_size=2,
         batch_size=Training_Config['trian_batch_size']*Training_Config['Batch_accumulate_size'],
         mini_batch_size=16,
         optimize_cuda_cache=True,
@@ -175,8 +210,10 @@ def main():
         gradient_accumulation_steps=8,
         ppo_epochs=8,
         is_peft_model=True,
-        ratio_threshold= 200.0,
+        ratio_threshold= 10.0,
         max_grad_norm=1,
+        compare_steps=1
+        # log_with = "wandb",
     )
 
     # set_seed(config.seed)
@@ -184,7 +221,7 @@ def main():
     # current_device=1
     device_map = {"": Accelerator().local_process_index}
     # device_map = {"": 1}
-    peft_config = peft.AdaptionPromptConfig(adapter_len = 32, adapter_layers = 24)
+    peft_config = peft.AdaptionPromptConfig(adapter_len = 48, adapter_layers = 24)
 
     if os.path.isdir(pretrained_model_path):
         model = AutoModelForCausalLMWithValueHead.from_pretrained(pretrained_model_path,token=key['hugginface']["token"],torch_dtype=torch.float16,use_cache=True,device_map=device_map)
@@ -211,8 +248,11 @@ def main():
     Dataloader=eval_dataloader(dataset_path=Training_Config['dataset_path'], batch_size=Training_Config['trian_batch_size'], purpose='refine',tokenizer=tokenizer,shuffle=True).trainloader
 
     optim = torch.optim.AdamW(optim_confg, eps = 1e-4,weight_decay=0.02)
+    print(f"Total Step: {len(Dataloader)*Dataloader.batch_size*Training_Config['max_epoch']//config.batch_size}")
     # scheduler1 = StepLR(optim, step_size=9, gamma=0.9)
-    scheduler2 = PolynomialLR(optim,  total_iters=len(Dataloader)*Training_Config['max_epoch'], power=1.5)
+
+    scheduler2 = PolynomialLR(optim,  total_iters=len(Dataloader)*Dataloader.batch_size*Training_Config['max_epoch']//config.batch_size, power=2)
+    # scheduler3 = ExponentialLR(optim, gamma=0.9)
 
     # main_schedualer=SequentialLR(optim, schedulers=[scheduler1, scheduler2], milestones=[54])
     # optim = torch.optim.SGD(model.parameters(), lr=config.learning_rate)
@@ -232,8 +272,8 @@ def main():
     generation_kwargs = {
         "min_length": -1,
         'temperature': 1,
-        # "max_length": 512,
-        "max_new_tokens": 128, # before : 128
+        "max_length": 256,
+        # "max_new_tokens": 96, # before : 128
         "top_k": 50,
         "top_p": 0.9,
         "do_sample": True,

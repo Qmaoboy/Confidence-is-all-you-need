@@ -1,0 +1,21 @@
+/root/miniconda3/envs/pace/lib/python3.12/site-packages/trl/trainer/ppo_trainer.py:266: UserWarning: No dataset is provided. Make sure to set config.batch_size to the correct value before training.
+  warnings.warn(
+epoch:   0%|                                                                                               | 0/15 [00:00<?, ?it/s]You're using a LlamaTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+  0%|                                                                                       | 0/433 [00:00<?, ?it/s, get Response]
+
+  warnings.warn(                                                                              | 0/433 [00:17<?, ?it/s, get Reward]
+  0%|                                                                                         | 0/433 [00:20<?, ?it/s, get Reward]
+epoch:   0%|                                                                                               | 0/15 [00:20<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/qmaothesis/CAPR/TRL_training.py", line 253, in <module>
+    main()
+  File "/home/qmaothesis/CAPR/TRL_training.py", line 246, in main
+    Agent_addres=trainer(Training_Config['Batch_accumulate_size'], Training_Config['max_epoch'], ppo_trainer, tokenizer,Dataloader,generation_kwargs,writer)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/qmaothesis/CAPR/TRL_training.py", line 95, in trainer
+    Reward,ece,origin_ece,acc,pace_conf,conf = reward_function(result_batch,ground_Truth,Document)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/qmaothesis/CAPR/RL_env.py", line 88, in reward_function
+    acc_batch=torch.tensor(eval_acc.compute_acc([answer],[ground])).squeeze()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Could not infer dtype of NoneType

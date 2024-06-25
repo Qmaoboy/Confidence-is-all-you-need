@@ -59,7 +59,7 @@ def area_under_risk_coverage_score(confids, correct):
     return sum([(risks[i] + risks[i + 1]) * 0.5 * weights[i] for i in range(len(weights))])* AURC_DISPLAY_SCALE
 
 
-def compute_conf_metrics(y_acc, y_confs,Stretagy):
+def compute_conf_metrics(y_acc, y_confs,Stretagy,acc_model):
 
     result_matrics = {}
     # ACC
@@ -69,9 +69,13 @@ def compute_conf_metrics(y_acc, y_confs,Stretagy):
     result_matrics['acc'] = accuracy
 
     ## change to binary
-    ## F1 : 0.5
-    ## Bertscore : 0.8
-    y_true=np.where(y_acc < 0.5,0,1)
+    accuracy_bound={
+        "f1" : 0.5,
+        "bertscore" : 0.8,
+        "rougeL" : 0.3
+    }
+    ##
+    y_true=np.where(y_acc < accuracy_bound[acc_model],0,1)
     # use np to test if y_confs are all in [0, 1]
 
     assert all([x >= 0 and x <= 1 for x in y_confs]), y_confs ## makesure conf >0
@@ -194,10 +198,10 @@ def evaluate_score(api_model,dataset_path,Stretagy,sim_model,acc_model,activatio
     ## ECE and AUROC
     print("*"*50)
     print(f"{sim_model} {Stretagy} Without PACE")
-    eval_result=compute_conf_metrics(acc_array,conf_array,Stretagy)
+    eval_result=compute_conf_metrics(acc_array,conf_array,Stretagy,acc_model)
     print("*"*50)
     print(f"{sim_model} {Stretagy} With PACE")
-    eval_pace_result=compute_conf_metrics(acc_array,pace_conf_array,Stretagy)
+    eval_pace_result=compute_conf_metrics(acc_array,pace_conf_array,Stretagy,acc_model)
     print("*"*100)
 
     ## MacroCE
@@ -237,8 +241,8 @@ def evaluate_score(api_model,dataset_path,Stretagy,sim_model,acc_model,activatio
     Update_file(list(evaluate_result),eval_datapath)
 
 
-def show(actime=20240520,API_model="",acc_model="",sim_model=""):
-    with open(f"response_result/Evaluate_Result_{actime}.json",'r') as f:
+def show(actime=20240601,API_model="",acc_model="",sim_model=""):
+    with open(f"response_result/Evaluate_Result_{actime}_No_shuffle.json",'r') as f:
         data=json.load(f)
     path=f"Evaluate_show_{acc_model}_{actime}.json"
     with open(path,'w+') as f:
@@ -265,7 +269,7 @@ def count_down(path):
 def Savefig(File_name):
     data_path=f"response_result/Evaluate_Result_{File_name}.json"
     dataset=["din0s/asqa"]
-    acc_model="f1"
+    acc_model="rougeL"
     sim_models=["Cos_sim"]
     stretagy_name_for_all=["vanilla","cot","multi_step"]
     for sim_model in sim_models:
@@ -344,7 +348,8 @@ if __name__=="__main__":
     # show(20240521,"gpt-3.5-turbo-0125","bertscore","snli")
     # show(20240520,"gpt-3.5-turbo-0125","f1","gpt-3.5-turbo-0125")
     # show(20240521,"gpt-3.5-turbo-0125","wer","gpt-3.5-turbo-0125")
-    Savefig(f"{activate_time}_No_shuffle")
+    show(20240601,"gpt-3.5-turbo-0125","rougeL","gpt-3.5-turbo-0125")
+    # Savefig(f"{activate_time}_No_shuffle")
     # spent=Get_Cost()
     # print(f"Sprent {spent} USD {spent*30} NTD\n")
 

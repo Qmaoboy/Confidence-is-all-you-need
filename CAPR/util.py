@@ -222,7 +222,7 @@ class acc_metric:
         elif self.metric in ['wer','exact_match']:
             self.eval_model=load(self.metric)
 
-        elif self.metric in ['rouge']:
+        elif self.metric in ['rouge1','rouge2','rougeL']:
             self.eval_model = rouge_scorer.RougeScorer(['rouge1', 'rouge2', 'rougeL'], use_stemmer=True)
 
     def compute_acc(self,pred:list,ans:list)->list:
@@ -245,8 +245,8 @@ class acc_metric:
         elif self.metric=='bool_acc':
             return self.bool_acc(pred,ans)
 
-        elif self.metric=='rouge':
-            return self.eval_model.score(pred, ans)['rougeL'].precision
+        elif self.metric in ['rouge1','rouge2','rougeL']:
+            return [self.eval_model.score(p, a)[self.metric].fmeasure for p,a in zip(pred,ans)]
 
     def bool_acc(self,pred:list,ans:list):
         correct_matches = [1 if p == r else 0 for p, r in zip(pred, ans)]

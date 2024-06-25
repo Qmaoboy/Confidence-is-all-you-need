@@ -1,0 +1,97 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    python_version: 3.12.3
+    cli_version: 0.17.2
+    framework: huggingface
+    huggingface_version: 4.41.2
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1718783890
+    t:
+      1:
+      - 1
+      - 5
+      - 11
+      - 49
+      - 51
+      - 53
+      - 55
+      - 71
+      - 75
+      - 84
+      - 95
+      - 98
+      - 100
+      2:
+      - 1
+      - 5
+      - 11
+      - 49
+      - 51
+      - 53
+      - 55
+      - 71
+      - 75
+      - 84
+      - 95
+      - 98
+      - 100
+      3:
+      - 23
+      4: 3.12.3
+      5: 0.17.2
+      6: 4.41.2
+      8:
+      - 5
+      13: linux-x86_64
+trl_ppo_trainer_config:
+  desc: null
+  value:
+    exp_name: TRL_training
+    seed: 0
+    log_with: wandb
+    task_name: null
+    model_name: meta-llama/Llama-2-7b-chat-hf
+    query_dataset: imdb
+    reward_model: sentiment-analysis:lvwerra/distilbert-imdb
+    remove_unused_columns: true
+    tracker_project_name: trl
+    steps: 20000
+    learning_rate: 1.41e-05
+    adap_kl_ctrl: true
+    init_kl_coef: 0.01
+    kl_penalty: kl
+    target: 6
+    horizon: 10000
+    gamma: 1
+    lam: 0.95
+    cliprange: 0.2
+    cliprange_value: 0.2
+    vf_coef: 0.1
+    batch_size: 512
+    forward_batch_size: null
+    mini_batch_size: 16
+    gradient_accumulation_steps: 8
+    world_size: 1
+    ppo_epochs: 8
+    max_grad_norm: 1
+    optimize_cuda_cache: true
+    optimize_device_cache: false
+    early_stopping: true
+    target_kl: 0.9
+    compare_steps: 1
+    ratio_threshold: 200.0
+    use_score_scaling: false
+    use_score_norm: false
+    score_clip: null
+    whiten_rewards: false
+    gradient_checkpointing: false
+    is_encoder_decoder: false
+    is_peft_model: true
+    backward_batch_size: 128
+    global_backward_batch_size: 128
+    global_batch_size: 512
+    total_ppo_epochs: 40

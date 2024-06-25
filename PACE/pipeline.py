@@ -8,10 +8,12 @@ import yaml
 from PACE_Confidence import Confidence
 from PACE_Similarity import Similarity
 from PACE_accuracy import Accuracy
+# import wandb
 os.environ["TOKENIZERS_PARALLELISM"] = "True"
 # activation_time=datetime.now().strftime("%Y%m%d")
 activation_time='20240601'
 logger = setup_logger(f'log/response_{activation_time}.log')
+# wandb.init(project='PACE',resume='allow')
 
 tasks = {
 
@@ -50,7 +52,7 @@ def main():
     # 'natural_questions',
     datasets = ['din0s/asqa']
     strategies = ['vanilla', 'cot',"multi_step"]
-    acc_models = ['f1']
+    acc_models = ['rougeL']
 
     api_model = 'gpt-3.5-turbo-0125'
     sim_models = ['Cos_sim']

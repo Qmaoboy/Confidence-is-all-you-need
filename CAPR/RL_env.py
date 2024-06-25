@@ -65,11 +65,11 @@ def reward_function(result_batch,Ground_truth,Document):
         Document_List: Batch* K
     '''
 
-    eval_acc=acc_metric('f1')
+    eval_acc=acc_metric('rougeL')
     simi=simi_metric("Cos_sim")
     lambda_value=0.7
     ## Balance Between ECE and ACC
-    ece_acc_ratio=0.0
+    ece_acc_ratio=1.0
     ## ece_acc_ratio*-ece+(1.0-ece_acc_ratio)*acc
     assert len(result_batch)==len(Ground_truth)==len(Document)
     ## result_batch dict(confidece,Answer) / None
@@ -99,8 +99,8 @@ def reward_function(result_batch,Ground_truth,Document):
                 hit+=1
             else:
                 conf_list.append(torch.tensor(1.0))
-                acc_list.append(torch.tensor(0.0))
                 Final_conf_list.append(torch.tensor(1.0))
+                acc_list.append(torch.tensor(0.0))
 
         r.set_postfix_str(f"Hit Rate {hit/len(result_batch):.2f}")
 
@@ -108,7 +108,7 @@ def reward_function(result_batch,Ground_truth,Document):
     # ece_list=get_ece(Final_conf_list,acc_list)
     ece_list=torch.abs(torch.stack(acc_list)-torch.stack(conf_list))
     Final_ece_list=torch.abs(torch.stack(acc_list)-torch.stack(Final_conf_list))
-    reward_list=[ece_acc_ratio*-ece+(1.0-ece_acc_ratio)*acc for acc,ece in zip(acc_list,ece_list)]
+    reward_list=[(1.0-ece_acc_ratio)*acc+ece_acc_ratio*(-ece) for acc,ece in zip(acc_list,ece_list)]
 
     r.set_description_str(f"reward {max(reward_list).item():.4f}/{min(reward_list).item():.4f},acc {max(acc_list).item():.4f}/{min(acc_list).item():.4f},ece {max(ece_list):.4f}/{min(ece_list):.4f}")
 

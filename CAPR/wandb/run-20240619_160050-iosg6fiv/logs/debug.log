@@ -1,0 +1,29 @@
+2024-06-19 16:00:50,715 INFO    MainThread:3651375 [wandb_setup.py:_flush():76] Current SDK version is 0.17.2
+2024-06-19 16:00:50,715 INFO    MainThread:3651375 [wandb_setup.py:_flush():76] Configure stats pid to 3651375
+2024-06-19 16:00:50,715 INFO    MainThread:3651375 [wandb_setup.py:_flush():76] Loading settings from /root/.config/wandb/settings
+2024-06-19 16:00:50,715 INFO    MainThread:3651375 [wandb_setup.py:_flush():76] Loading settings from /home/qmaothesis/CAPR/wandb/settings
+2024-06-19 16:00:50,715 INFO    MainThread:3651375 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-06-19 16:00:50,716 INFO    MainThread:3651375 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-06-19 16:00:50,716 INFO    MainThread:3651375 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'CAPR/TRL_training.py', 'program_abspath': '/home/qmaothesis/CAPR/TRL_training.py', 'program': '/home/qmaothesis/CAPR/TRL_training.py'}
+2024-06-19 16:00:50,716 INFO    MainThread:3651375 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-06-19 16:00:50,716 INFO    MainThread:3651375 [wandb_init.py:_log_setup():520] Logging user logs to /home/qmaothesis/CAPR/wandb/run-20240619_160050-iosg6fiv/logs/debug.log
+2024-06-19 16:00:50,716 INFO    MainThread:3651375 [wandb_init.py:_log_setup():521] Logging internal logs to /home/qmaothesis/CAPR/wandb/run-20240619_160050-iosg6fiv/logs/debug-internal.log
+2024-06-19 16:00:50,716 INFO    MainThread:3651375 [wandb_init.py:init():560] calling init triggers
+2024-06-19 16:00:50,716 INFO    MainThread:3651375 [wandb_init.py:init():567] wandb.init called with sweep_config: {}
+config: {}
+2024-06-19 16:00:50,716 INFO    MainThread:3651375 [wandb_init.py:init():610] starting backend
+2024-06-19 16:00:50,716 INFO    MainThread:3651375 [wandb_init.py:init():614] setting up manager
+2024-06-19 16:00:50,717 INFO    MainThread:3651375 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-06-19 16:00:50,718 INFO    MainThread:3651375 [wandb_init.py:init():622] backend started and connected
+2024-06-19 16:00:50,721 INFO    MainThread:3651375 [wandb_init.py:init():711] updated telemetry
+2024-06-19 16:00:50,728 INFO    MainThread:3651375 [wandb_init.py:init():744] communicating run to backend with 90.0 second timeout
+2024-06-19 16:00:51,204 INFO    MainThread:3651375 [wandb_run.py:_on_init():2402] communicating current version
+2024-06-19 16:00:51,380 INFO    MainThread:3651375 [wandb_run.py:_on_init():2411] got version response 
+2024-06-19 16:00:51,381 INFO    MainThread:3651375 [wandb_init.py:init():795] starting run threads in backend
+2024-06-19 16:00:54,305 INFO    MainThread:3651375 [wandb_run.py:_console_start():2380] atexit reg
+2024-06-19 16:00:54,305 INFO    MainThread:3651375 [wandb_run.py:_redirect():2235] redirect: wrap_raw
+2024-06-19 16:00:54,305 INFO    MainThread:3651375 [wandb_run.py:_redirect():2300] Wrapping output streams.
+2024-06-19 16:00:54,305 INFO    MainThread:3651375 [wandb_run.py:_redirect():2325] Redirects installed.
+2024-06-19 16:00:54,307 INFO    MainThread:3651375 [wandb_init.py:init():838] run started, returning control to user process
+2024-06-19 16:00:54,307 INFO    MainThread:3651375 [wandb_run.py:_config_callback():1382] config_cb None None {'trl_ppo_trainer_config': {'exp_name': 'TRL_training', 'seed': 0, 'log_with': 'wandb', 'task_name': None, 'model_name': 'meta-llama/Llama-2-7b-chat-hf', 'query_dataset': 'imdb', 'reward_model': 'sentiment-analysis:lvwerra/distilbert-imdb', 'remove_unused_columns': True, 'tracker_project_name': 'trl', 'steps': 20000, 'learning_rate': 1.41e-05, 'adap_kl_ctrl': True, 'init_kl_coef': 0.01, 'kl_penalty': 'kl', 'target': 6, 'horizon': 10000, 'gamma': 1, 'lam': 0.95, 'cliprange': 0.2, 'cliprange_value': 0.2, 'vf_coef': 0.1, 'batch_size': 512, 'forward_batch_size': None, 'mini_batch_size': 16, 'gradient_accumulation_steps': 8, 'world_size': 1, 'ppo_epochs': 8, 'max_grad_norm': 1, 'optimize_cuda_cache': True, 'optimize_device_cache': False, 'early_stopping': True, 'target_kl': 0.9, 'compare_steps': 1, 'ratio_threshold': 200.0, 'use_score_scaling': False, 'use_score_norm': False, 'score_clip': None, 'whiten_rewards': False, 'gradient_checkpointing': False, 'is_encoder_decoder': False, 'is_peft_model': True, 'backward_batch_size': 128, 'global_backward_batch_size': 128, 'global_batch_size': 512, 'total_ppo_epochs': 40}}
+2024-06-19 19:46:48,453 WARNING MsgRouterThr:3651375 [router.py:message_loop():77] message_loop has been closed

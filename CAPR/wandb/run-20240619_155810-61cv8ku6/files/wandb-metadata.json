@@ -1,0 +1,212 @@
+{
+    "os": "Linux-6.5.0-35-generic-x86_64-with-glibc2.31",
+    "python": "3.12.3",
+    "heartbeatAt": "2024-06-19T07:58:11.570409",
+    "startedAt": "2024-06-19T07:58:10.838062",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/qmaothesis/CAPR/TRL_training.py",
+    "codePathLocal": "TRL_training.py",
+    "codePath": "CAPR/TRL_training.py",
+    "git": {
+        "remote": "https://github.com/Qmaoboy/qmaothesis.git",
+        "commit": "a431f563fcca66e4b6fc711b6483d4c5296385ce"
+    },
+    "email": "will0010077@gmail.com",
+    "root": "/home/qmaothesis",
+    "host": "3c0a43515d59",
+    "username": "root",
+    "executable": "/root/miniconda3/envs/pace/bin/python",
+    "cpu_count": 16,
+    "cpu_count_logical": 32,
+    "cpu_freq": {
+        "current": 2.5981562500000006,
+        "min": 2200.0,
+        "max": 3500.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1.842,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 4.116,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 3.299,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.2,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.511,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1.995,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.2,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1.997,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 3.88,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 3.5,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.058,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.263,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1.848,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1.847,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 3.5,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 4.13,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1.844,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.2,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 3.301,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1.846,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.721,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.044,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1.865,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1.972,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 4.115,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 3.525,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.062,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.359,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2.2,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1.834,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 4.121,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 4.124,
+            "min": 2200.0,
+            "max": 3500.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 1876.218734741211,
+            "used": 199.84835815429688
+        }
+    },
+    "gpu": "NVIDIA RTX A6000",
+    "gpu_count": 2,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA RTX A6000",
+            "memory_total": 51527024640
+        },
+        {
+            "name": "NVIDIA RTX A6000",
+            "memory_total": 51527024640
+        }
+    ],
+    "memory": {
+        "total": 125.62932586669922
+    }
+}
