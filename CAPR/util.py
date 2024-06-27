@@ -19,7 +19,8 @@ from rouge_score import rouge_scorer
 import matplotlib.pyplot as plt
 
 
-
+activation_time=datetime.now().strftime("%Y_%m_%d")
+logger = setup_logger(f'log/response_{activation_time}.log')
 
 def shuffle_theans(ll):
     # random.seed(42)
@@ -38,7 +39,7 @@ def shuffle_theans(ll):
     return ll
 
 def setup_logger(logfile):
-    os.makedirs("log",exist_ok=True)
+
     logger = logging.getLogger(__name__)
     if not logger.handlers:
         logger.setLevel(logging.DEBUG)  # 设置日志记录器的级别为DEBUG
@@ -59,8 +60,6 @@ def setup_logger(logfile):
 
     return logger
 
-activation_time=datetime.now().strftime("%Y_%m_%d")
-logger = setup_logger(f'log/response_{activation_time}.log')
 
 def load_checkpoint(datapath:str)->list:
     datares=[]

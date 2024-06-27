@@ -20,7 +20,7 @@ class openai_GPT:
         self.prompt_tokens=0
         self.re_gen_times=1
 
-    def  ChatGPT_reply(self,system_prompt='',Instruction='',Question='',input_text='',temperature=0,max_tokens=4096,assit_prompt=""):
+    def  ChatGPT_reply(self,system_prompt='',Instruction='',question='',input_text='',temperature=0,max_tokens=4096,assit_prompt=""):
         if input_text:
             for _ in range(self.re_gen_times):
                 try:
@@ -28,7 +28,7 @@ class openai_GPT:
                     model=self.model_name,
                     messages= [
                         {"role": "system", "content":f"{str(system_prompt)}"},
-                        {"role": "user", "content":f"{str(Instruction)} {str(Question)} {str(input_text)}"},
+                        {"role": "user", "content":f"{str(Instruction)} {str(question)} {str(input_text)}"},
                         {"role": "assistant", "content": f"{str(assit_prompt)}"}
                         ],
 
@@ -190,6 +190,7 @@ def ans_parser(parser_task,result):
                     "Confidence":float(conf),
                     "Explanation":str(explain)
                 }
+
                 return final_result
             except:
                 return None
@@ -204,7 +205,7 @@ def ans_parser(parser_task,result):
                 if f"Step" in k:
                     multi_result[k]=v
             final_result={
-                "Step_result":multi_result,
+                "Explanation":multi_result,
                 "Confidence":result.get("Confidence",0),
                 "Answer":result.get("Answer","")
                 }
@@ -278,26 +279,25 @@ class GPT_API:
         # self.api_key=self.api_key['openai']['api_key']
         for _ in range(self.re_gen_times):
             if "gpt" in self.api_name:
-                result=openai_GPT(self.api_name,self.api_key).ChatGPT_reply(system_prompt=self.system_prompt,Instruction=self.Instruction,question=self.question,input_text=self.input_text,assit_prompt=self.assit_prompt)
+                str_response=openai_GPT(self.api_name,self.api_key).ChatGPT_reply(system_prompt=self.system_prompt,Instruction=self.Instruction,question=self.question,input_text=self.input_text,assit_prompt=self.assit_prompt)
+
+                result=str_response
 
             elif 'claude' in self.api_name:
                 str_response=anthropic_GPT(self.api_name,self.api_key).claude_reply(system_prompt=self.system_prompt,Instruction=self.Instruction,question=self.question,input_text=self.input_text,assit_prompt=self.assit_prompt)
-                try:
-                    result=json.loads(str_response)
-                except:
-                    result=str_response
+                str_response=str_response.replace("\n","").replace("[","").replace("]","")
+                print(str_response)
+                result=json.loads(str_response)
 
             if result is not None:
                 final_res=ans_parser(self.ans_parser,result)
-
                 if final_res is not None:
                     return final_res
                 else:
                     continue
         else:
             logger.error(f"Generate fail exit()\n{self.question}\n{self.Instruction}")
-
-        return None
+            return None
 
 if __name__=="__main__":
     pass

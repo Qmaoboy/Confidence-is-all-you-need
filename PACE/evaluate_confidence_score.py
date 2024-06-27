@@ -113,7 +113,7 @@ def compute_conf_metrics(y_acc, y_confs,Stretagy,acc_model):
     # result_matrics['ece'] = ece_score
 
     ece_all=np.mean(np.abs(np.array(y_acc)-np.array(y_confs)))
-    print("ECE:", ece_all)
+    print("ECE elements:", ece_all)
     result_matrics['ece'] = ece_all
 
     return result_matrics

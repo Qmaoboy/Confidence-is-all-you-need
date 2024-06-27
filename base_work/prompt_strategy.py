@@ -17,6 +17,8 @@ class prompter:
 
         self.acc_prompt="Note: The accuracy indicates how likely you think your Answer and document is semantic accuracy,from 0.00 (worst) to 1.00 (best)"
 
+        self.responseformat="response format:\n'Answer':[ONLY Your final Answer here],\n'Confidence':[Your final Confidence here]"
+
     def setup_task(self,task):
         if task:
             if task=="QA":
@@ -64,6 +66,9 @@ class prompter:
         elif stretagy=="multi_step":
             return self.multi_step(query,document)
 
+        elif stretagy=="topk":
+            return self.topk_prompt(query,document)
+
         elif stretagy=="similarity":
             return self.document_answer_similarity(query,document)
 
@@ -81,45 +86,69 @@ class prompter:
         document_str="\n".join(document)
         answer="".join(answer)
         Instruction=f"Compare the semantic similarity between given groudtruth and Answer"
-        input_text=f"groudtruth:{document_str},\nAnswer:{answer},\n\nresponse format :\nsimilarity:[Your final similarity here]"
+        similarty_froamt="{similarity:[Your final similarity here]}"
+        input_text=f"groudtruth:{document_str},\nAnswer:{answer},\n\nresponse format :{similarty_froamt}\n"
+
         return {"system_prompt":self.system_prompt,'Instruction':Instruction,"Question":"",'input_text':input_text,"assit_prompt":self.similarity_prompt}
+
+
+    def topk_prompt(self,question:list,document:list)-> dict:
+        question=question.pop()
+
+        Instruction=f"Now, Read the Question and {self.answer_type}\n"
+
+        vanilla_prompt=f'''\nOnly give me one reply according to response format in json, don't give me any other words.\n\n{self.responseformat}'''
+
+        return {"system_prompt":self.system_prompt,'Instruction':Instruction,"Question":f"Question : {question}",'input_text':vanilla_prompt,"assit_prompt":self.confidence_define_prompt}
+
+
 
     def vanilla_prompt(self,question:list,document:list)-> dict:
         question=question.pop()
 
         Instruction=f"Now, Read the Question and {self.answer_type}\n"
-        vanilla_prompt=f'''\nOnly give me the reply according to response format, don't give me any other words.\n\nresponse format :\nAnswer: [Your final Answer here],\nConfidence : [Your final Confidence here]\n'''
+
+        vanilla_prompt=f'''\nOnly give me one reply according to response format in json, don't give me any other words.\n\n{self.responseformat}'''
 
         return {"system_prompt":self.system_prompt,'Instruction':Instruction,"Question":f"Question : {question}",'input_text':vanilla_prompt,"assit_prompt":self.confidence_define_prompt}
 
     def chain_of_thought(self,question:list,document:list)-> dict:
         question=question.pop()
 
-        Instruction=f"Now, Read the Question and Let's think it step by step.{self.answer_type} and give the Explanation to the Answer\n"
+        self.cotresponseformat="response format:\nAnswer:[ONLY Your final Answer here],\nConfidence:[Your final Confidence here]\Explanation:[Your Explanation here]"
 
-        cot_prompt = f'''\nOnly give me the reply according to response format, don't give me any other words.\n\nresponse format:\nAnswer:[Your Answer here],\nConfidence:[Your Confidence here],\nExplanation:[Your final Explanation here]\n'''
+        Instruction=f"Now, Read the Question and {self.answer_type}. Let's think step by step and give the Explanation to the Answer\n"
+
+        cot_prompt = f'''\nOnly give me one reply according to response format in json, don't give me any other words.\n\n{self.cotresponseformat}'''
 
         return {"system_prompt":self.system_prompt,'Instruction':Instruction,"Question":f"Question : {question}",'input_text':cot_prompt,"assit_prompt":self.confidence_define_prompt}
 
     def multi_step(self,question:list,document:list)->dict:
         question=question.pop()
+
+        self.multistepresponseformat="response format:\nAnswer:[ONLY Your final Answer here],\nConfidence:[Your final Confidence here]\Step_result:[Your Explanation here]"
+
         step_prompt=f"Step 1: [Your reasoning]... Step k : [Your reasoning]"
 
         Instruction=f"Read the question, break down the problem into K steps, think step by step, give your confidence in each step, and then {self.answer_type}\n"
 
-        multi_step_prompt = f'''\nOnly give me the reply according to response format, don't give me any other words.\n\nresponse format:\n{step_prompt}\nAnswer:[ONLY Your Final Answer here],\nConfidence:[Your Overall Confidence here]'''
+        multi_step_prompt = f'''\nOnly give me one reply according to response format in json, don't give me any other words.\n\n{step_prompt}\n{self.multistepresponseformat}'''
 
         return {"system_prompt":self.system_prompt,'Instruction':Instruction,"Question":f"Question : {question}",'input_text':multi_step_prompt,"assit_prompt":self.confidence_define_prompt}
 
     def self_polish_prompt(self,question:list)->dict:
         question=question.pop()
 
-        rewrite_prompt="\nOnly give me the reply according to response format, don't give me any other words.\n\nresponse format :\nNew_Question: [Your New_Question here]\n"
+        polish_format="response format:\nNew_Question: [Your New Question here]"
+
+        rewrite_prompt=f"\nOnly give me one reply don't give me any other words.\n{polish_format}"
 
         return {"system_prompt":self.system_prompt,'Instruction':"","Question":f"Question : {question}",'input_text':rewrite_prompt,"assit_prompt":""}
 
     def RaR_prompt(self,question:list)->dict:
         question=question.pop()
-        rar_prompt="\nRephrase and expand the question, and respond Answer and Confidence\nOnly give me the reply according to response format, don't give me any other words.\n\nresponse format:\nExpanded_Question: [Your Expanded Question here]\nAnswer: [Your Answer here]\nConfidence: [Your Confidence here]"
+
+        rar_responsformat="response format:\nExpanded_Question: [Your Expanded Question here]\nAnswer: [Your Answer here]\nConfidence: [Your Confidence here]"
+        rar_prompt=f"\nRephrase and expand the question, and respond Answer and Confidence\nOnly give me the reply according to response format in json, don't give me any other words.\n\n{rar_responsformat}\n"
 
         return {"system_prompt":self.system_prompt,'Instruction':"","Question":f"Question : {question}",'input_text':rar_prompt,"assit_prompt":self.confidence_define_prompt}

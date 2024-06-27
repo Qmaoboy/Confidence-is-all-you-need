@@ -9,9 +9,22 @@ import yaml
 import multiprocessing as mp
 from sklearn.metrics import roc_auc_score
 
+
+
 if os.path.isfile("api_key.yml"):
     with open("api_key.yml","r") as f:
         key=yaml.safe_load(f)
+
+ ## gpt-3.5-turbo-0125, gpt-4-turbo
+## "claude-3-5-sonnet-20240620"
+
+api_model='claude-3-5-sonnet-20240620'
+api_key=key['claude']['api_key']
+
+# api_model='gpt-4-turbo'
+# api_key=key['openai']['api_key']
+
+
 
 
 def Load_cot_exmple():
@@ -30,11 +43,7 @@ def Get_auroc(accuracy,confidence_scores):
     return roc_auc_score(np.array(y_true), np.array(confidence_scores))
 
 def get_from_gpt(prompt,parser_stretagy):
-    result=GPT_API('gpt-4-turbo',key['openai']['api_key'],parser_stretagy,prompt).generate()
-    return result
-
-def get_from_calude(prompt,parser_stretagy):
-    result=GPT_API('claude-3-5-sonnet-20240620',key['openai']['api_key'],parser_stretagy,prompt).generate()
+    result=GPT_API(api_model,api_key,parser_stretagy,prompt).generate()
     return result
 
 def ans_scorer(new_ans,original_ans):
@@ -100,13 +109,13 @@ def rewrite_worker(share_list,idx,original_question,ground_truth,documnet,baseli
             })
 
 def evaluate_result(baseline):
-    with open(f'{baseline}.json','r') as f:
+    with open(f'{api_model}_{baseline}.json','r') as f:
         data=json.load(f)
 
     acc=np.array([float(i['rouge_score']) for i in data])
     conf=np.array([float(i['Confidence']) for i in data])
     ece_score=np.abs(acc-conf)
-    print(baseline)
+    print(f"{api_model}:{baseline}")
     print(f"rouge_score mean :{np.mean(acc)}")
     print(f"ECE mean :{np.mean(ece_score)}")
     print(f"Auroc mean :{Get_auroc(acc,conf)}")
@@ -129,11 +138,11 @@ def main(baseline):
     mp_pool.close()
     mp_pool.join()
 
-    with open(f'{baseline}.json','w+') as f:
+    with open(f'{api_model}_{baseline}.json','w+') as f:
         json.dump(list(share_list),f)
 
 
 if __name__=="__main__":
-    baseline='vanilla'
+    baseline='RaR'
     main(baseline)
     evaluate_result(baseline)

@@ -2,9 +2,9 @@ from openai import OpenAI
 import openai,time,os,threading as th,json
 from util import setup_logger
 import yaml,torch
-from prompt_strategy import prompter
-from qadataset_dataloader import qadataset_dataloader
 from transformers import AutoTokenizer, AutoModelForCausalLM
+import anthropic
+
 logger = setup_logger('log/gpt_class.log')
 import multiprocessing as mp
 
@@ -15,11 +15,10 @@ class openai_GPT:
         self.api_key=api_key
         self.openai_client = OpenAI(
             api_key=self.api_key,)
-        self.gpt_lock=th.Lock()
         self.APIValidation=False
         self.complete_tokens=0
         self.prompt_tokens=0
-        self.re_gen_times=10
+        self.re_gen_times=1
 
     def  ChatGPT_reply(self,system_prompt='',Instruction='',question='',input_text='',temperature=0,max_tokens=4096,assit_prompt=""):
         if input_text:
@@ -28,9 +27,9 @@ class openai_GPT:
                     response=self.openai_client.chat.completions.create(
                     model=self.model_name,
                     messages= [
-                        {"role": "system", "content":system_prompt},
-                        {"role": "user", "content":f"{Instruction}\n{question}\n{input_text}"},
-                        {"role": "assistant", "content": f"{assit_prompt}"}
+                        {"role": "system", "content":f"{str(system_prompt)}"},
+                        {"role": "user", "content":f"{str(Instruction)} {str(question)} {str(input_text)}"},
+                        {"role": "assistant", "content": f"{str(assit_prompt)}"}
                         ],
 
                     temperature=temperature,
@@ -41,12 +40,12 @@ class openai_GPT:
                         self.APIValidation=True
                         try:
                             claim_text= json.loads(response.choices[0].message.content)
-                            return claim_text,response.usage.completion_tokens,response.usage.prompt_tokens
+                            return claim_text
                         except json.JSONDecodeError as e:
-                            logger.error(f"{th.current_thread().name}JSON decoding failed: {e} {Instruction} : {input_text} {response}")
+                            # logger.error(f"{th.current_thread().name}JSON decoding failed: {e} {Instruction} : {input_text} {response}")
                             continue
                         except Exception as e:
-                            logger.error(f"{th.current_thread().name}Unexpected error: {e} {Instruction} : {input_text} {response}")
+                            # logger.error(f"{th.current_thread().name}Unexpected error: {e} {Instruction} : {input_text} {response}")
                             continue
 
                 except openai.APIStatusError as e:
@@ -54,7 +53,45 @@ class openai_GPT:
                     continue
         else:
             logger.debug("Text input empty, please check your input text")
-            return 1
+            return None
+        return None
+
+class anthropic_GPT:
+    def __init__(self,model,api_key):
+        self.model_name=model
+        self.api_key=api_key
+        self.anthropic_client = anthropic.Anthropic(api_key=self.api_key,)
+        self.APIValidation=False
+        self.complete_tokens=0
+        self.prompt_tokens=0
+        self.re_gen_times=1
+
+    def  claude_reply(self,system_prompt='',Instruction='',question='',input_text='',temperature=0,max_tokens=4096,assit_prompt=""):
+        if input_text:
+            for _ in range(self.re_gen_times):
+                try:
+                    response = self.anthropic_client.messages.create(
+                        model=self.model_name,
+                        max_tokens=1000,
+                        temperature=0,
+                        system=f"{str(system_prompt)}\n{str(assit_prompt)}",
+                        messages=[
+
+                            {
+                                "role": "user",
+                                "content": [
+                                    {"type": "text",
+                                    "text":f"{str(Instruction)} {str(question)} {str(input_text)}"
+                                    }
+                                            ]
+                            }
+                        ]
+                    )
+                    claim_text=response.content[0].text
+                    return claim_text
+                except:
+                    return None
+
 
 def LlamaChatCompletion(model_name, prompt, max_tokens):
 
@@ -133,8 +170,11 @@ def ans_parser(parser_task,result):
     if parser_task=="similarity":
         simi=result.get("similarity",None)
         if simi is not None:
-            final_result={"similarity":simi}
-            return final_result
+            try:
+                final_result={"similarity":float(simi)}
+                return final_result
+            except:
+                return None
         else:
             logger.info(f"{parser_task} Fail : {result}")
             return None
@@ -144,12 +184,16 @@ def ans_parser(parser_task,result):
         conf=result.get("Confidence",None)
         explain=result.get("Explanation",None)
         if ans is not None and conf is not None:
-            final_result={
-                "Answer":ans,
-                "Confidence":conf,
-                "Explanation":explain
-            }
-            return final_result
+            try:
+                final_result={
+                    "Answer":str(ans),
+                    "Confidence":float(conf),
+                    "Explanation":str(explain)
+                }
+
+                return final_result
+            except:
+                return None
         else:
             logger.info(f"{parser_task} Fail : {result}")
             return None
@@ -161,7 +205,7 @@ def ans_parser(parser_task,result):
                 if f"Step" in k:
                     multi_result[k]=v
             final_result={
-                "Step_result":multi_result,
+                "Explanation":multi_result,
                 "Confidence":result.get("Confidence",0),
                 "Answer":result.get("Answer","")
                 }
@@ -178,8 +222,35 @@ def ans_parser(parser_task,result):
                 }
             return final_result
         else:
-            logger.info(f"{parser_task} Fail : {result}")
+            # logger.info(f"{parser_task} Fail : {result}")
             return None
+
+    elif parser_task=='self_polish':
+        pp=result.get("New_Question",None)
+        if pp is not None :
+            final_result={
+                "New_Question":pp
+                }
+            return final_result
+        else:
+            # logger.info(f"{parser_task} Fail : {result}")
+            return None
+
+    elif parser_task=='RaR':
+        pp=result.get("Expanded_Question",None)
+        ans=result.get("Answer",None)
+        Conf=result.get("Confidence",None)
+        if pp is not None:
+            final_result={
+                "Expanded_Question":pp,
+                'Answer':ans,
+                'Confidence':Conf
+                }
+            return final_result
+        else:
+            # logger.info(f"{parser_task} Fail : {result}")
+            return None
+
 class GPT_API:
     def __init__(self,api_name,api_key,ans_parser,prompt):
         '''
@@ -205,22 +276,28 @@ class GPT_API:
         self.api=OpenAI(api_key=api_key)
 
     def generate(self):
-        self.api_key=self.api_key['openai']['api_key']
+        # self.api_key=self.api_key['openai']['api_key']
         for _ in range(self.re_gen_times):
-            result,indi_complete_tokens,indi_Prompt_tokens=openai_GPT(self.api_name,self.api_key).ChatGPT_reply(system_prompt=self.system_prompt,Instruction=self.Instruction,question=self.question,input_text=self.input_text,assit_prompt=self.assit_prompt)
+            if "gpt" in self.api_name:
+                str_response=openai_GPT(self.api_name,self.api_key).ChatGPT_reply(system_prompt=self.system_prompt,Instruction=self.Instruction,question=self.question,input_text=self.input_text,assit_prompt=self.assit_prompt)
 
-            final_res=ans_parser(self.ans_parser,result)
+                result=str_response
 
-            if final_res is not None:
-                return final_res,indi_complete_tokens,indi_Prompt_tokens
-            else:
-                continue
+            elif 'claude' in self.api_name:
+                str_response=anthropic_GPT(self.api_name,self.api_key).claude_reply(system_prompt=self.system_prompt,Instruction=self.Instruction,question=self.question,input_text=self.input_text,assit_prompt=self.assit_prompt)
+                str_response=str_response.replace("\n","").replace("[","").replace("]","")
+                print(str_response)
+                result=json.loads(str_response)
+
+            if result is not None:
+                final_res=ans_parser(self.ans_parser,result)
+                if final_res is not None:
+                    return final_res
+                else:
+                    continue
         else:
-            logger.error(f"{mp.current_process().name} generate fail exit() : {result}")
-
-        return None,0,0
-
-
+            logger.error(f"Generate fail exit()\n{self.question}\n{self.Instruction}")
+            return None
 
 if __name__=="__main__":
     pass
