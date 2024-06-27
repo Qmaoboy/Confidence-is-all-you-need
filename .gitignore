@@ -6,6 +6,7 @@ CAPR/log/
 CAPR/Agent_weight/
 CAPR/*.json
 CAPR/PPO_State*
+CAPR/api_key.yaml
 
 PACE/__pycache__/
 PACE/response_result/
@@ -15,6 +16,7 @@ PACE/bert_model_weight/
 PACE/natural_qa_dataet/
 PACE/*.json
 PACE/picture/histogram/
+PACE/api_key.yaml
 
 20240601/
-api_key.yml
+base_work/api_key.yaml
