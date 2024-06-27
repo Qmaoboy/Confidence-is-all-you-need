@@ -136,10 +136,16 @@ class eval_dataloader:
 
         instruc_gpt_='Below is an instruction that describes a task. Write a better Instruction base on the Instruction and Question.'
 
-        instruct=[f'''<s>[INST] <<SYS>>
-        You are a Instruction generator task to briefly rewrite the basic_instruction for the question to generate more accurate Answer in long form generation. Only Give me the new_Instruction, do not give any other infomation.<</SYS>>
-        basic_instruction:"{i['Prompt']['Instruction']}"\nQuestion:{i['Prompt']['Question']}\n
-        [/INST]new_Instruction:\n''' for i in batch]
+        # instruct=[f'''<s>[INST] <<SYS>>You are a Instruction generator excel at rewriting the basic_instruction according to the question in order to generate more detail Answer for long form QA task. Only Give me the new_Instruction, do not give any other infomation.<</SYS>>\nbasic_instruction:"{i['Prompt']['Instruction']}"\nQuestion:{i['Prompt']['Question']}\n
+        # [/INST]new_Instruction:\n''' for i in batch]
+
+        instruct=[f'''[INST] <<SYS>>
+                    Rewrite the following basic instruction to help a large language model generate a more detailed and comprehensive answer for a long-form QA task. Ensure the rewritten instruction is clear and concise, prompting the model to provide a thorough and well-structured response of at least 300 tokens to the given question. The new instruction should be within 256 tokens.
+
+                    Basic Instruction: "{i['Prompt']['Instruction']}"
+                    Question: "{i['Prompt']['Question']}"
+                    [/INST]
+                    new instruction:''' for i in batch]
 
 
         # gpt2_instruct=[f"{basic_instruct}\n\n \#\#\#Instruction:\n {i['Prompt']['Instruction']},Question:{i['Prompt']['Question']}\,Now Start to generate better Instruction :\n" for i in batch]

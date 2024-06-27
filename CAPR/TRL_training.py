@@ -13,7 +13,7 @@ import torch.multiprocessing as t_mp
 import torch.distributed as dist
 from random import randint
 from inference import inference
-from torch.optim.lr_scheduler import ConstantLR,ExponentialLR,PolynomialLR,SequentialLR,StepLR
+from torch.optim.lr_scheduler import ConstantLR,ExponentialLR,PolynomialLR,SequentialLR,StepLR,LinearLR
 import json
 from RL_env import Environment,reward_function,rl_writer,Parallel_Environment
 import glob,os,torch,yaml
@@ -64,6 +64,7 @@ def trainer(Batch_accumulate_size, max_epoch, model, tokenizer,Dataloader,genera
     response_tensors_list=[]
     show_result=True
     example_list=[]
+
     for epoch in (t:=tqdm(range(max_epoch), "epoch: ")):
 
         for prompt,instruct,instruct_token,ans,ground_Truth,ground_Truth_token,Confidence,Document in (bar:=tqdm(Dataloader,leave=True)):
@@ -123,13 +124,13 @@ def trainer(Batch_accumulate_size, max_epoch, model, tokenizer,Dataloader,genera
 
             if show_result:
                 example_list.append(example)
-                with open('exmaple.json','w+') as f:
+                with open(f'{writer.determint}.json','w+') as f:
                     json.dump(example_list,f)
 
             reward_list+=Reward
             query_tensors_list+=query_tensors
             response_tensors_list+=response_tensors
-            bar.set_description_str(f"Epoch {epoch},{len(reward_list)},grad step:{ppostep_size}")
+            bar.set_description_str(f"Epoch {epoch},{len(reward_list)},grad step:{ppostep_size} acc {torch.mean(torch.stack(acc)).item():.5f}")
             #### Run PPO step
             if len(reward_list)>=ppostep_size:
                 bar.set_postfix_str("PPO Step")
@@ -175,12 +176,11 @@ def main():
 
     Training_Config={
         "dataset_path":f'response_result/20240601/din0s_asqa_gpt-3.5-turbo-0125_vanilla_Long_QA.json',
-        'deliminator':"06122032_vanilla_f1_r9",
+        'deliminator':"06122032_vanilla_f1_r11",
         'max_epoch': 10,
         'trian_batch_size':8,
-        'Batch_accumulate_size':64 # min : 128, Max: 64
+        'Batch_accumulate_size':32 # min : 128, Max: 64
     }
-
 
     # pretrained_model_path=""
     pretrained_model_path=f"Agent_weight/PPO_Agent_{Training_Config['deliminator']}_2_0.0090"
@@ -201,13 +201,13 @@ def main():
         model_name="meta-llama/Llama-2-7b-chat-hf",
         world_size=2,
         batch_size=Training_Config['trian_batch_size']*Training_Config['Batch_accumulate_size'],
-        mini_batch_size=16,
+        mini_batch_size=8,
         optimize_cuda_cache=True,
         early_stopping=True,
         target_kl=0.9,
         init_kl_coef=0.01,
         adap_kl_ctrl=True,
-        gradient_accumulation_steps=8,
+        gradient_accumulation_steps=16,
         ppo_epochs=8,
         is_peft_model=True,
         ratio_threshold= 10.0,
@@ -221,7 +221,7 @@ def main():
     # current_device=1
     device_map = {"": Accelerator().local_process_index}
     # device_map = {"": 1}
-    peft_config = peft.AdaptionPromptConfig(adapter_len = 48, adapter_layers = 24)
+    peft_config = peft.AdaptionPromptConfig(adapter_len = 10, adapter_layers = 30)
 
     if os.path.isdir(pretrained_model_path):
         model = AutoModelForCausalLMWithValueHead.from_pretrained(pretrained_model_path,token=key['hugginface']["token"],torch_dtype=torch.float16,use_cache=True,device_map=device_map)
@@ -247,21 +247,25 @@ def main():
 
     Dataloader=eval_dataloader(dataset_path=Training_Config['dataset_path'], batch_size=Training_Config['trian_batch_size'], purpose='refine',tokenizer=tokenizer,shuffle=True).trainloader
 
-    optim = torch.optim.AdamW(optim_confg, eps = 1e-4,weight_decay=0.02)
+    optim = torch.optim.AdamW(optim_confg, eps = 1e-4,weight_decay=0.01)
     print(f"Total Step: {len(Dataloader)*Dataloader.batch_size*Training_Config['max_epoch']//config.batch_size}")
     # scheduler1 = StepLR(optim, step_size=9, gamma=0.9)
-
-    scheduler2 = PolynomialLR(optim,  total_iters=len(Dataloader)*Dataloader.batch_size*Training_Config['max_epoch']//config.batch_size, power=2)
+    ## Overall Iter
+    Overalliter=len(Dataloader)*Dataloader.batch_size*Training_Config['max_epoch']//config.batch_size
+    ##
+    scheduler2 = PolynomialLR(optim,  total_iters=Overalliter, power=2)
     # scheduler3 = ExponentialLR(optim, gamma=0.9)
+    warmup = LinearLR(optim, start_factor=1e-2,end_factor=1,total_iters=int(Overalliter*0.02)+1)
 
-    # main_schedualer=SequentialLR(optim, schedulers=[scheduler1, scheduler2], milestones=[54])
+    main_schedualer=SequentialLR(optim, schedulers=[warmup, scheduler2], milestones=[warmup.total_iters])
+
     # optim = torch.optim.SGD(model.parameters(), lr=config.learning_rate)
     ppo_trainer = PPOTrainer(
         model=model,
         config=config,
         tokenizer=tokenizer,
         optimizer=optim,
-        lr_scheduler=scheduler2,
+        lr_scheduler=main_schedualer,
         )
 
     # device = 0 if torch.cuda.is_available() else "cpu"

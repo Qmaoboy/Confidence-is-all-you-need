@@ -32,7 +32,7 @@ os.environ['TOKENIZERS_PARALLELISM'] = 'true'
 device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
 
 def Get_auroc(accuracy,confidence_scores):
-    y_true=np.where(np.array(accuracy) < 0.6,0,1)
+    y_true=np.where(np.array(accuracy) < 0.3,0,1)
     return roc_auc_score(np.array(y_true), np.array(confidence_scores))
 
 

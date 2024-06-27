@@ -20,21 +20,17 @@ class prompter:
     def setup_task(self,task):
         if task:
             if task=="QA":
-                task_type="QA"
                 self.answer_type="provide Answer to the question and confidence to the Answer"
+                self.system_prompt=f"This is a QA task, please {self.answer_type} in json."
 
             elif task=="Long_QA":
-                task_type="Long form generation QA"
-                self.answer_type="provide very long Answer with more details to the question and confidence to the Answer"
+                # self.answer_type="provide very long Answer with more details to the question and confidence to the Answer"
+                self.answer_type="provide Answer to the question and confidence to the Answer"
+                self.system_prompt=f"This is a QA task, please {self.answer_type} in json."
 
             elif task=="similarity":
-                task_type="similarity compare"
+                self.system_prompt=f"This is a similarity compare task, please {self.answer_type} in json."
 
-            # elif task=="acc":
-            #     task_type="accuracy evaluate"
-            #     self.answer_type="Compare the given groudtruth and Answer accuracy"
-
-            self.system_prompt=f"This is a {task_type} task, please {self.answer_type} in json."
         else:
             raise ValueError("task Not Recognized")
 
