@@ -5,6 +5,7 @@ from rouge_score import rouge_scorer
 from prompt_strategy import prompter
 from tqdm import tqdm
 from util import *
+import yaml
 import multiprocessing as mp
 from sklearn.metrics import roc_auc_score
 
@@ -23,13 +24,17 @@ def question_to_prompt(question,task="self_polish",stretagy='self_polish'):
     p.setup_task(task)
     return p.get_prompt(question,[],stretagy)
 
-
+f
 def Get_auroc(accuracy,confidence_scores):
     y_true=np.where(np.array(accuracy) < 0.3,0,1)
     return roc_auc_score(np.array(y_true), np.array(confidence_scores))
 
 def get_from_gpt(prompt,parser_stretagy):
-    result=GPT_API('gpt-3.5-turbo-0125',key['hugginface']['token'],parser_stretagy,prompt).generate()
+    result=GPT_API('gpt-4-turbo',key['openai']['api_key'],parser_stretagy,prompt).generate()
+    return result
+
+def get_from_calude(prompt,parser_stretagy):
+    result=GPT_API('claude-3-5-sonnet-20240620',key['openai']['api_key'],parser_stretagy,prompt).generate()
     return result
 
 def ans_scorer(new_ans,original_ans):
@@ -87,20 +92,21 @@ def rewrite_worker(share_list,idx,original_question,ground_truth,documnet,baseli
                 'Id':idx,
                 'Original_question':original_question,
                 'Expanded_question':Answer_result['Expanded_Question'],
-                'Documnet':documnet,
-                'Ground_truth':ground_truth,
                 'Answer':Answer_result['Answer'],
+                'Ground_truth':ground_truth,
                 'Confidence':Answer_result['Confidence'],
                 'rouge_score':rouge_score,
+                'Documnet':documnet,
             })
 
 def evaluate_result(baseline):
     with open(f'{baseline}.json','r') as f:
         data=json.load(f)
 
-    acc=np.array([i['rouge_score'] for i in data])
-    conf=np.array([i['Confidence'] for i in data])
+    acc=np.array([float(i['rouge_score']) for i in data])
+    conf=np.array([float(i['Confidence']) for i in data])
     ece_score=np.abs(acc-conf)
+    print(baseline)
     print(f"rouge_score mean :{np.mean(acc)}")
     print(f"ECE mean :{np.mean(ece_score)}")
     print(f"Auroc mean :{Get_auroc(acc,conf)}")
@@ -128,6 +134,6 @@ def main(baseline):
 
 
 if __name__=="__main__":
-    baseline='self_polish'
+    baseline='vanilla'
     main(baseline)
     evaluate_result(baseline)

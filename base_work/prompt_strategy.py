@@ -24,21 +24,22 @@ class prompter:
                 self.system_prompt=f"This is a QA task, please {self.answer_type} in json."
 
             elif task=="Long_QA":
-                task_type="Long form generation QA"
+
                 self.answer_type="provide very long Answer with more details to the question and confidence to the Answer"
                 self.system_prompt=f"This is a Long form generation QA task, {self.answer_type} in json."
 
             elif task=="similarity":
-                task_type="similarity compare"
+
                 self.system_prompt=f"This is a similarity compare task, please {self.answer_type} in json."
 
             elif task=="self_polish":
 
-                self.system_prompt=f"Rewrite new versions of the original long form question to be more understandable and easy to answer. Don't omit any useful information. and please maintain their original meaning when polysemous words appear in json."
+                self.system_prompt=f"Rewrite new versions of the original question to be more understandable and easy to answer. Don't omit any useful information. and please maintain their original meaning when polysemous words appear in json."
 
             elif task=="RaR":
 
-                self.system_prompt="respnse in json"
+                self.answer_type='answer the question'
+                self.system_prompt=f"{self.answer_type} in json"
 
             elif task=="pure":
 
@@ -119,6 +120,6 @@ class prompter:
 
     def RaR_prompt(self,question:list)->dict:
         question=question.pop()
-        rar_prompt="\nRephrase and expand the question, and respond Answer and Confidence in json\nOnly give me the reply according to response format, don't give me any other words.\n\nresponse format:\nExpanded_Question: [Your Expanded Question here]\nAnswer: [Your Answer here]\nConfidence: [Your Confidence here]"
+        rar_prompt="\nRephrase and expand the question, and respond Answer and Confidence\nOnly give me the reply according to response format, don't give me any other words.\n\nresponse format:\nExpanded_Question: [Your Expanded Question here]\nAnswer: [Your Answer here]\nConfidence: [Your Confidence here]"
 
         return {"system_prompt":self.system_prompt,'Instruction':"","Question":f"Question : {question}",'input_text':rar_prompt,"assit_prompt":self.confidence_define_prompt}
