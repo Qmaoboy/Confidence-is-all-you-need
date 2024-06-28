@@ -51,38 +51,31 @@ class Confidence:
                     if document != ["No knowledge"]:
                         if document:
                             document=chunk_document("".join(document),self.tokens_per_part,self.doc_tokenizer_name)
-
                         self.prompter.setup_task(self.task)
                         ## (prompt)
                         p=self.prompter.get_prompt(query=[question],document=document,stretagy=self.stretagy)
-
-                        result=GPT_API(self.api_model,self.api_key,self.ans_parser,p).generate()
+                        if self.stretagy =="topk": ## topk
+                            response_candidiate=[]
+                            for _ in range(3):
+                                result=GPT_API(self.api_model,self.api_key,self.ans_parser,p).generate()
+                                response_candidiate.append(result)
+                        else:
+                            result=GPT_API(self.api_model,self.api_key,self.ans_parser,p).generate()
                         if result is not None:
-                            ans=result.get("Answer",None)
-                            conf=result.get("Confidence",None)
-                            explain=result.get("Explanation",None)
-                            try:
-                                if ans is not None and conf is not None:
-                                    if self.dataset_path=="ChilleD/StrategyQA":
-                                        ans =False if "No" in ans else True
+                            if self.dataset_path=="ChilleD/StrategyQA":
+                                ans =False if "No" in ans else True
 
-                                    Share_list.append({
-                                        'Prompt':p,
-                                        'Question':question,
-                                        'Document':document,
-                                        'Explanation':explain,
-                                        'Answer':ans,
-                                        'Confidence':float(conf),
-                                        'Ground_Truth':label,
-                                        'Complete_tokens':indi_complete_tokens,
-                                        'Prompt_tokens':indi_Prompt_tokens
-                                                            })
-                                    # logger.info(f"{len(Share_list)}/{batch_size} Conf:{float(conf)},tokens: {indi_complete_tokens+indi_Prompt_tokens}")
-                                else:
-                                    logger.info(f"{result} not found")
-
-                            except Exception as e:
-                                logger.error(f"{e}")
+                            Share_list.append({
+                                'Prompt':p,
+                                'Question':question,
+                                'Document':document,
+                                'Explanation':result["Explanation"],
+                                'Answer':result["Answer"],
+                                'Confidence':float(result["Confidence"]),
+                                'Ground_Truth':label,
+                                'Complete_tokens':0,
+                                'Prompt_tokens':0
+                                                    })
                         else:
                             logger.info(f"{mp.current_process().name} {question} return None")
                 else:
@@ -108,39 +101,29 @@ class Confidence:
 
         logger.info(f"{self.stretagy} Prompt Stretagy get conf and answer from {self.api_model}")
 
-        if self.api_model=="gpt-3.5-turbo-0125":
 
-            for idx,(batch,Ground_truth) in enumerate(progress:=tqdm(self.train_dataloader)):
-                ## [[question, Doc ,isurl],ground_truth,wer]
-                ### MultiProcess Parallel
-                if len(Share_list)>=self.data_prompt_amount:
-                    break
-                if Ground_truth is not None and None not in batch:
-                    progress.set_description_str(f"{self.stretagy};{self.api_model}")
-                    try:
-                        args=[(Share_list,b,g,len(batch)) for b,g in zip(batch,Ground_truth)]
+        for idx,(batch,Ground_truth) in enumerate(progress:=tqdm(self.train_dataloader)):
+            ## [[question, Doc ,isurl],ground_truth,wer]
+            ### MultiProcess Parallel
+            if len(Share_list)>=self.data_prompt_amount:
+                break
+            if Ground_truth is not None and None not in batch:
+                progress.set_description_str(f"{self.stretagy};{self.api_model}")
+                args=[(Share_list,b,g,len(batch)) for b,g in zip(batch,Ground_truth)]
+                mp_pool.starmap(self.confidence_worker,args)
 
-                        mp_pool.starmap(self.confidence_worker,args)
-                    except:
-                        print(f"{batch}:{Ground_truth}")
-
-                    progress.set_postfix_str(f"{old_data_size}")
-                    if idx%self.update_freq==0:
-                        Update_file(list(Share_list),self.Confident_datapath)
-                        old_data_size=len(Share_list)
-
-            else:
-                Update_file(list(Share_list),self.Confident_datapath)
-
-            logger.info(f"{self.stretagy} Prompt END {self.api_model}")
-            mp_pool.close()
-            mp_pool.join()
+                progress.set_postfix_str(f"{old_data_size}")
+                if idx%self.update_freq==0:
+                    Update_file(list(Share_list),self.Confident_datapath)
+                    old_data_size=len(Share_list)
 
 
-        elif self.api_model=="llama3":
-            for idx,(batch,Ground_truth) in enumerate(progress:=tqdm(self.train_dataloader)):
-                ## [[question, Doc ,isurl],ground_truth,wer]
-                pass
+            Update_file(list(Share_list),self.Confident_datapath)
+
+        logger.info(f"{self.stretagy} Prompt END {self.api_model}")
+        mp_pool.close()
+        mp_pool.join()
+
 
         self.clean_conf_data(self.Confident_datapath)
         return self.Confident_datapath

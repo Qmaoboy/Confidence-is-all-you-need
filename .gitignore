@@ -1,11 +1,20 @@
-CAPR/__pycache__/
+20240601/
 .vscode/
+__pycache__/
+pre_experiment.ipynb
+prac.py
+*.json
+*.txt
+*.png
 
+
+CAPR/__pycache__/
 CAPR/response_result/
 CAPR/log/
 CAPR/Agent_weight/
 CAPR/*.json
 CAPR/PPO_State*
+CAPR/api_key.yml
 
 PACE/__pycache__/
 PACE/response_result/
@@ -15,6 +24,9 @@ PACE/bert_model_weight/
 PACE/natural_qa_dataet/
 PACE/*.json
 PACE/picture/histogram/
+PACE/api_key.yml
 
-20240601/
-api_key.yml
+base_work/__pycache__/
+base_work/api_key.yml
+base_work/*.json
+base_work/log/

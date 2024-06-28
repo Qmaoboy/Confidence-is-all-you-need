@@ -1,0 +1,25 @@
+2024-06-27 14:58:18,959 - ERROR - MainThread code : 401_Error code: 401 - {'error': {'message': 'Incorrect API key provided: hf_KEsrA*************************aySB. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2024-06-27 14:58:19,275 - ERROR - MainThread code : 401_Error code: 401 - {'error': {'message': 'Incorrect API key provided: hf_KEsrA*************************aySB. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2024-06-27 14:58:19,535 - ERROR - MainThread code : 401_Error code: 401 - {'error': {'message': 'Incorrect API key provided: hf_KEsrA*************************aySB. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2024-06-27 14:58:19,535 - ERROR - Generate fail exit()
+Question : Who was the first act on live aid?
+
+2024-06-27 14:59:00,313 - ERROR - MainThread code : 401_Error code: 401 - {'error': {'message': 'Incorrect API key provided: hf_KEsrA*************************aySB. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2024-06-27 14:59:00,607 - ERROR - MainThread code : 401_Error code: 401 - {'error': {'message': 'Incorrect API key provided: hf_KEsrA*************************aySB. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2024-06-27 14:59:00,916 - ERROR - MainThread code : 401_Error code: 401 - {'error': {'message': 'Incorrect API key provided: hf_KEsrA*************************aySB. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2024-06-27 14:59:00,917 - ERROR - Generate fail exit()
+Question : Who played kelly on the drew carey show?
+
+2024-06-27 14:59:51,968 - ERROR - MainThread code : 401_Error code: 401 - {'error': {'message': 'Incorrect API key provided: hf_KEsrA*************************aySB. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2024-06-27 14:59:52,224 - ERROR - MainThread code : 401_Error code: 401 - {'error': {'message': 'Incorrect API key provided: hf_KEsrA*************************aySB. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2024-06-27 14:59:52,485 - ERROR - MainThread code : 401_Error code: 401 - {'error': {'message': 'Incorrect API key provided: hf_KEsrA*************************aySB. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2024-06-27 14:59:52,486 - ERROR - Generate fail exit()
+Question : Who wrote the south carolina ordinance of secession?
+
+2024-06-27 17:04:54,627 - ERROR - Generate fail exit()
+Question : Who did ed sheeran wrote nancy mulligan about?
+Now, Read the Question and answer the question
+
+2024-06-27 17:52:03,758 - ERROR - Generate fail exit()
+Question : Who played tony in only fools and horses?
+

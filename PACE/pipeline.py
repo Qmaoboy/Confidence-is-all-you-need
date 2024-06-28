@@ -12,6 +12,7 @@ from PACE_accuracy import Accuracy
 os.environ["TOKENIZERS_PARALLELISM"] = "True"
 # activation_time=datetime.now().strftime("%Y%m%d")
 activation_time='20240601'
+os.makedirs('./log/',exist_ok=True)
 logger = setup_logger(f'log/response_{activation_time}.log')
 # wandb.init(project='PACE',resume='allow')
 
@@ -21,6 +22,12 @@ tasks = {
     'natural_questions': 'QA'
 
     }
+
+api_model_key_mapping={
+    "gpt-4-turbo":"openai",
+    "gpt-3.5-turbo-0125":"openai",
+    'claude-3-5-sonnet-20240620':"claude"
+}
 
 ans_parser_dict= {
 
@@ -45,20 +52,25 @@ def pipeline(qa_dataset,api_model,tasks,Stretagy,data_prompt_amount,train_batch_
 def main():
     torch.cuda.empty_cache()
     os.makedirs(f'response_result/{activation_time}', exist_ok=True)
-    os.makedirs('log', exist_ok=True)
+    os.makedirs('log',exist_ok=True)
     if os.path.isfile("api_key.yml"):
         with open("api_key.yml","r") as f:
             key=yaml.safe_load(f)
     # 'natural_questions',
     datasets = ['din0s/asqa']
-    strategies = ['vanilla', 'cot',"multi_step"]
+    strategies = ['vanilla','multi_step','cot']
     acc_models = ['rougeL']
 
-    api_model = 'gpt-3.5-turbo-0125'
+    # api_model = 'gpt-3.5-turbo-0125'
+    # api_model = 'gpt-4-turbo'
+    api_model = 'claude-3-5-sonnet-20240620'
+
+    api_key=key[api_model_key_mapping[api_model]]['api_key']
+
     sim_models = ['Cos_sim']
     shuffle=False
-    data_count = 4000
-    train_batch_size = 200
+    data_count = 200
+    train_batch_size = 1
     eval_batch_size = data_count*2 ## No_use
     lambda_value=0.5
     for qa_dataset in datasets:
@@ -66,7 +78,7 @@ def main():
             for acc_model in acc_models:
                 for sim_model in sim_models:
                     logger.info(f"Start With {mp.cpu_count()} CPUs :  {qa_dataset} {strategy} {acc_model}")
-                    pipeline(qa_dataset,api_model,tasks,strategy,data_count,train_batch_size,key,eval_batch_size,sim_model,acc_model,ans_parser_dict[strategy],shuffle,lambda_value)
+                    pipeline(qa_dataset,api_model,tasks,strategy,data_count,train_batch_size,api_key,eval_batch_size,sim_model,acc_model,ans_parser_dict[strategy],shuffle,lambda_value)
 
     shuffle_str="shuffle" if shuffle else "No_shuffle"
     Savefig(f"{activation_time}_{shuffle_str}")
