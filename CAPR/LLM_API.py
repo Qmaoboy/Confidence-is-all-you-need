@@ -273,10 +273,8 @@ class GPT_API:
         self.input_text=prompt["input_text"]
         self.question=prompt["Question"]
         self.assit_prompt=prompt["assit_prompt"]
-        self.api=OpenAI(api_key=api_key)
 
     def generate(self):
-        # self.api_key=self.api_key['openai']['api_key']
         for _ in range(self.re_gen_times):
             if "gpt" in self.api_name:
                 str_response=openai_GPT(self.api_name,self.api_key).ChatGPT_reply(system_prompt=self.system_prompt,Instruction=self.Instruction,question=self.question,input_text=self.input_text,assit_prompt=self.assit_prompt)

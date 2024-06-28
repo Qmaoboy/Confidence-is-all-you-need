@@ -81,7 +81,7 @@ class inference:
             prompt[idx]['Instruction']=p_instruc
             prompt[idx]['system_prompt']="This is a Long form [generation QA task, please answer the Question base on the Instruction to the question and confidence to the Answer in json."
 
-        result_batch=Parallel_Environment(prompt,'gpt-3.5-turbo-0125')
+        result_batch=Parallel_Environment(prompt,'gpt-4-turbo')
         _,pace_ece,Verbalized_ece,Accuracy,Pace_Conf,Verbalized_conf = reward_function(result_batch,ground_Truth,Document)
 
         self.result[key]={

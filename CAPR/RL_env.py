@@ -13,9 +13,16 @@ if os.path.isfile("api_key.yml"):
     with open("api_key.yml","r") as f:
         key=yaml.safe_load(f)
 
-def generate_worker(share_list,key,prompt,id):
+key_mapping={
+    'gpt-3.5-turbo-0125':'openai',
+    'gpt-4-turbo':'openai',
+    'claude-3-5-sonnet-20240620':'claude',
+}
+
+
+def generate_worker(share_list,key,prompt,id,model_name):
     # print(prompt)
-    model=GPT_API("gpt-3.5-turbo-0125",key,"confidence",prompt)
+    model=GPT_API(model_name,key[model_name]['api_key'],"confidence",prompt)
     result=model.generate()
     if result is not None:
         share_list[id]=result
@@ -30,18 +37,15 @@ def Parallel_Environment(prompt:list,model_name='gpt-3.5-turbo-0125'):
     multi_manager=mp.Manager()
     Share_list=multi_manager.dict()
 
-    if model_name=='gpt-3.5-turbo-0125':
-        args=[]
-        for id,p in enumerate(prompt):
-            if p is not None and isinstance(p,dict):
-                args.append((Share_list,key,p,id))
-        mp_pool.starmap(generate_worker,args)
-        mp_pool.close()
-        mp_pool.join()
-        return [Share_list[i] for i in sorted(Share_list)]
-        # result,c_tokens,p_tokens=llm_api.generate()
-    elif model_name=='llama3':
-        pass
+    args=[]
+    for id,p in enumerate(prompt):
+        if p is not None and isinstance(p,dict):
+            args.append((Share_list,key,p,id,model_name))
+    mp_pool.starmap(generate_worker,args)
+    mp_pool.close()
+    mp_pool.join()
+    return [Share_list[i] for i in sorted(Share_list)]
+    # result,c_tokens,p_tokens=llm_api.generate()
 
 
 
