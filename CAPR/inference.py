@@ -44,20 +44,20 @@ class inference:
         self.dataset_path=dataset_path
         self.Save_result_path=Save_result_path
         self.generation_kwargs = {
-                                "min_length": -1,
-                                'temperature': 1,
-                                # "max_length": 512,
-                                "max_new_tokens": 256, # before : 128
-                                "top_k": 50,
-                                "top_p": 0.9,
-                                "do_sample": True,
-                                "pad_token_id": self.tokenizer.eos_token_id,
-                                'no_repeat_ngram_size':4
-                                }
+        "min_length": -1,
+        'temperature': 1,
+        "max_length": 256,
+        # "max_new_tokens": 96, # before : 128
+        "top_k": 50,
+        "top_p": 0.9,
+        "do_sample": True,
+        "pad_token_id": self.tokenizer.eos_token_id,
+        'no_repeat_ngram_size':4
+        }
 
     def load_from_pretrained(self,pretrained_model_path):
         base_model_name = "meta-llama/Llama-2-7b-chat-hf"
-        model = AutoModelForCausalLM.from_pretrained(base_model_name,token=key['hugginface']["token"],torch_dtype=torch.float16,use_cache=True, device_map = device)
+        model = AutoModelForCausalLM.from_pretrained(base_model_name,token=key['hugginface']["token"],torch_dtype=torch.bfloat16,use_cache=True, device_map = device)
         model = PeftModel.from_pretrained(model, pretrained_model_path)
         # model = AutoModelForCausalLMWithValueHead.from_pretrained(pretrained_model_path,token=key['hugginface']["token"],torch_dtype=torch.float16,use_cache=True,device_map={"": current_device})
 
@@ -79,15 +79,19 @@ class inference:
         '''
         for idx,p_instruc in enumerate(instruction):
             prompt[idx]['Instruction']=p_instruc
+            prompt[idx]['system_prompt']="This is a Long form [generation QA task, please answer the Question base on the Instruction to the question and confidence to the Answer in json."
+
         result_batch=Parallel_Environment(prompt,'gpt-3.5-turbo-0125')
         _,pace_ece,Verbalized_ece,Accuracy,Pace_Conf,Verbalized_conf = reward_function(result_batch,ground_Truth,Document)
+
         self.result[key]={
             'pace_ece':[i.item() for i in pace_ece],
             'Verbalized_ece':[i.item() for i in Verbalized_ece],
             'Accuracy':[i.item() for i in Accuracy],
             'Pace_Conf':[i.item() for i in Pace_Conf],
             "Verbalized_conf":[i.item() for i in Verbalized_conf],
-            'Auroc':[Get_auroc([i.item() for i in Accuracy],[i.item() for i in Verbalized_conf])]
+            'Auroc':[Get_auroc([i.item() for i in Accuracy],[i.item() for i in Verbalized_conf])],
+            'PACE_Auroc':[Get_auroc([i.item() for i in Accuracy],[i.item() for i in Pace_Conf])]
         }
 
     def generate_result(self,instruct):
@@ -103,18 +107,17 @@ class inference:
 
     def get_inference(self,):
 
-        trian_batch_size=10
+        trian_batch_size=50
         Dataloader=eval_dataloader(dataset_path=self.dataset_path, batch_size=trian_batch_size, purpose='refine',tokenizer=self.tokenizer,shuffle=True)
 
         for idx,(prompt,instruct,instruct_token,ans,ground_Truth,ground_Truth_token,Confidence,Document) in enumerate(bar:=tqdm(Dataloader.testloader)):
             # instruct_token.input_ids=list(map(lambda x:torch.tensor(x),instruct_token.input_ids))
             response=self.generate_result(instruct)
-            bar.set_description_str(f"origin Prompt")
-            self.get_result('origin',prompt,[""]*len(prompt),ground_Truth,Document)
+            # bar.set_description_str(f"origin Prompt")
+            # self.get_result('origin',prompt,[""]*len(prompt),ground_Truth,Document)
             bar.set_description_str(f"refine Prompt")
             self.get_result('refine',prompt,response,ground_Truth,Document)
             break
-
         self.Save_File()
 
     def Save_File(self):
@@ -134,12 +137,12 @@ def Show_mean_result(key,Save_result_path):
 
 if __name__=="__main__":
     ## Setting
-    deliminator='r4_with_vanilla'
-    Agent_addres='Agent_weight/PPO_Agent_06122032_vanilla_f1_r4_9_-0.0102'
+    deliminator='r11_with_vanilla'
+    Agent_addres='Agent_weight/PPO_Agent_06122032_vanilla_f1_r11_9_0.0009'
     dataset_path=f'response_result/20240601/din0s_asqa_gpt-3.5-turbo-0125_vanilla_Long_QA.json'
-    Save_result_path=f"din0s_asqa_{deliminator}_Vanilla.json"
+    Save_result_path=f"din0s_asqa_{deliminator}.json"
     ##
     inf=inference(Agent_addres,dataset_path,Save_result_path)
     inf.get_inference()
-    Show_mean_result("origin",Save_result_path)
+    # Show_mean_result("origin",Save_result_path)
     Show_mean_result("refine",Save_result_path)

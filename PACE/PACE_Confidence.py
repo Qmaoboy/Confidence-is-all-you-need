@@ -56,7 +56,7 @@ class Confidence:
                         ## (prompt)
                         p=self.prompter.get_prompt(query=[question],document=document,stretagy=self.stretagy)
 
-                        result,indi_complete_tokens,indi_Prompt_tokens=GPT_API(self.api_model,self.api_key,self.ans_parser,p).generate()
+                        result=GPT_API(self.api_model,self.api_key,self.ans_parser,p).generate()
                         if result is not None:
                             ans=result.get("Answer",None)
                             conf=result.get("Confidence",None)

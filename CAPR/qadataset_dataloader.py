@@ -157,7 +157,7 @@ class eval_dataloader:
 
 
 if __name__=="__main__":
-    qa_loader=qadataset_dataloader("din0s/asqa",split='train',batch_size=1).loader
+    qa_loader=qadataset_dataloader("din0s/asqa",split='dev',batch_size=1).loader
     for batch,short_ans in qa_loader:
 
         break

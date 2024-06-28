@@ -176,7 +176,7 @@ def main():
 
     Training_Config={
         "dataset_path":f'response_result/20240601/din0s_asqa_gpt-3.5-turbo-0125_vanilla_Long_QA.json',
-        'deliminator':"06122032_vanilla_f1_r11",
+        'deliminator':"06122032_vanilla_f1_r12",
         'max_epoch': 10,
         'trian_batch_size':8,
         'Batch_accumulate_size':32 # min : 128, Max: 64
@@ -224,11 +224,11 @@ def main():
     peft_config = peft.AdaptionPromptConfig(adapter_len = 10, adapter_layers = 30)
 
     if os.path.isdir(pretrained_model_path):
-        model = AutoModelForCausalLMWithValueHead.from_pretrained(pretrained_model_path,token=key['hugginface']["token"],torch_dtype=torch.float16,use_cache=True,device_map=device_map)
+        model = AutoModelForCausalLMWithValueHead.from_pretrained(pretrained_model_path,token=key['hugginface']["token"],torch_dtype=torch.bfloat16,use_cache=True,device_map=device_map)
         tokenizer = AutoTokenizer.from_pretrained(pretrained_model_path,token=key['hugginface']["token"])
         print("="*50+"Load From Pretrained !!!"+"="*50)
     else:
-        model = AutoModelForCausalLMWithValueHead.from_pretrained(config.model_name, peft_config = peft_config, token=key['hugginface']["token"],torch_dtype=torch.float16,use_cache=True,device_map=device_map)
+        model = AutoModelForCausalLMWithValueHead.from_pretrained(config.model_name, peft_config = peft_config, token=key['hugginface']["token"],torch_dtype=torch.bfloat16,use_cache=True,device_map=device_map)
         tokenizer = AutoTokenizer.from_pretrained(config.model_name,token=key['hugginface']["token"])
         print("="*50+"Load From Huggingface !!!"+"="*50)
 
