@@ -5,13 +5,14 @@ from peft import PeftConfig, PeftModel
 from trl import AutoModelForCausalLMWithValueHead, PPOConfig, PPOTrainer
 from qadataset_dataloader import qadataset_dataloader,eval_dataloader
 from torch.nn.parallel import DistributedDataParallel as DDP
-from tqdm import tqdm
+from tqdm import tqdm,trange
 from trl import PPOConfig,PPOTrainer
 import torch.multiprocessing as t_mp
 import torch.distributed as dist
 from torch.optim.lr_scheduler import ConstantLR,ExponentialLR,SequentialLR,StepLR
 import json
 import numpy as np
+from random import randint
 from sklearn.metrics import roc_auc_score
 from RL_env import Environment,reward_function,rl_writer,Parallel_Environment
 import glob,os,torch,yaml
@@ -33,16 +34,31 @@ device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
 
 def Get_auroc(accuracy,confidence_scores):
     y_true=np.where(np.array(accuracy) < 0.3,0,1)
-    return roc_auc_score(np.array(y_true), np.array(confidence_scores))
+    try:
+        auroc_score=roc_auc_score(np.array(y_true), np.array(confidence_scores))
+    except:
+        auroc_score=0
 
+    return auroc_score
 
 class inference:
-    def __init__(self,pretrained_path,dataset_path,Save_result_path) -> None:
+    def __init__(self,pretrained_path,dataset_path,api_model,Save_result_path) -> None:
         torch.cuda.empty_cache()
         self.result={}
         self.model,self.tokenizer=self.load_from_pretrained(pretrained_path)
         self.dataset_path=dataset_path
         self.Save_result_path=Save_result_path
+        self.api_model=api_model
+        self.pace_ece,self.Verbalized_ece,self.Accuracy=[],[],[]
+        self.Pace_Conf,self.Verbalized_conf=[],[]
+        self.auroc,self.capr_auroc=[],[]
+        self.Load_checkpoint()
+        self.example={
+            "api_model":self.api_model,
+            "old_prompt":[],
+            "new_prompt":[],
+            'Result':[]
+        }
         self.generation_kwargs = {
         "min_length": -1,
         'temperature': 1,
@@ -54,6 +70,13 @@ class inference:
         "pad_token_id": self.tokenizer.eos_token_id,
         'no_repeat_ngram_size':4
         }
+
+    def Load_checkpoint(self):
+        if os.path.isfile(self.Save_result_path):
+            with open(self.Save_result_path,'r') as f:
+                self.result=json.load(f)
+        else:
+            self.result={}
 
     def load_from_pretrained(self,pretrained_model_path):
         base_model_name = "meta-llama/Llama-2-7b-chat-hf"
@@ -77,22 +100,33 @@ class inference:
             input_text
             assit_prompt
         '''
+        show_index=randint(0,len(instruction)-1)
+
+        old_prompt=prompt
+
         for idx,p_instruc in enumerate(instruction):
             prompt[idx]['Instruction']=p_instruc
-            prompt[idx]['system_prompt']="This is a Long form [generation QA task, please answer the Question base on the Instruction to the question and confidence to the Answer in json."
+            prompt[idx]['system_prompt']="This is a Long form generation QA task, provide very long Answer with more details to the question and confidence to the Answer in json"
+            prompt[idx]['input_text']="\nOnly give me one Answer and Confidence according to response format in json, don't give me any other words.\n\nresponse format:\n{'Answer':[ONLY Your final Answer here],\n'Confidence':[Your final Confidence here]}"
 
-        result_batch=Parallel_Environment(prompt,'gpt-4-turbo')
+        result_batch=Parallel_Environment(prompt,self.api_model)
+
+        print(result_batch[show_index])
+        if result_batch[show_index] is not None:
+            self.example["old_prompt"].append(old_prompt[show_index])
+            self.example["Result"].append(result_batch[show_index])
+            self.example["new_prompt"].append(prompt[show_index])
+
         _,pace_ece,Verbalized_ece,Accuracy,Pace_Conf,Verbalized_conf = reward_function(result_batch,ground_Truth,Document)
-
-        self.result[key]={
-            'pace_ece':[i.item() for i in pace_ece],
-            'Verbalized_ece':[i.item() for i in Verbalized_ece],
-            'Accuracy':[i.item() for i in Accuracy],
-            'Pace_Conf':[i.item() for i in Pace_Conf],
-            "Verbalized_conf":[i.item() for i in Verbalized_conf],
-            'Auroc':[Get_auroc([i.item() for i in Accuracy],[i.item() for i in Verbalized_conf])],
-            'PACE_Auroc':[Get_auroc([i.item() for i in Accuracy],[i.item() for i in Pace_Conf])]
-        }
+        ## reward_list,Final_ece_list,ece_list,acc_list,Final_conf_list,conf_list
+        for i in trange(len(Accuracy)):
+            accuracy_value = Accuracy[i].item()
+            if accuracy_value > 0:
+                self.pace_ece.append(pace_ece[i].item())
+                self.Verbalized_ece.append(Verbalized_ece[i].item())
+                self.Accuracy.append(accuracy_value)
+                self.Pace_Conf.append(Pace_Conf[i].item())
+                self.Verbalized_conf.append(Verbalized_conf[i].item())
 
     def generate_result(self,instruct):
         input_qeury_token=self.tokenizer(instruct,padding=True,truncation=True,max_length=512,return_tensors='pt').to(device)
@@ -108,7 +142,7 @@ class inference:
     def get_inference(self,):
 
         trian_batch_size=50
-        Dataloader=eval_dataloader(dataset_path=self.dataset_path, batch_size=trian_batch_size, purpose='refine',tokenizer=self.tokenizer,shuffle=True)
+        Dataloader=eval_dataloader(dataset_path=self.dataset_path, batch_size=trian_batch_size, purpose='refine',tokenizer=self.tokenizer,shuffle=False)
 
         for idx,(prompt,instruct,instruct_token,ans,ground_Truth,ground_Truth_token,Confidence,Document) in enumerate(bar:=tqdm(Dataloader.testloader)):
             # instruct_token.input_ids=list(map(lambda x:torch.tensor(x),instruct_token.input_ids))
@@ -116,11 +150,26 @@ class inference:
             # bar.set_description_str(f"origin Prompt")
             # self.get_result('origin',prompt,[""]*len(prompt),ground_Truth,Document)
             bar.set_description_str(f"refine Prompt")
-            self.get_result('refine',prompt,response,ground_Truth,Document)
-            break
+            self.get_result(self.api_model,prompt,response,ground_Truth,Document)
+            if idx>=2:
+                self.auroc.append(Get_auroc([i for i in self.Accuracy], [i for i in self.Verbalized_conf]))
+                self.capr_auroc.append(Get_auroc([i for i in self.Accuracy], [i for i in self.Pace_Conf]))
+                break
+
         self.Save_File()
 
-    def Save_File(self):
+    def Save_File(self,):
+        self.result[self.api_model]={
+            'Example':self.example,
+            'pace_ece':self.pace_ece,
+            'Verbalized_ece':self.Verbalized_ece,
+            'Accuracy':self.Accuracy,
+            'Pace_Conf':self.Pace_Conf,
+            "Verbalized_conf":self.Verbalized_conf,
+            'Auroc':self.auroc,
+            'PACE_Auroc':self.capr_auroc
+            }
+
         with open(self.Save_result_path,'w+') as f:
             json.dump(self.result,f,indent=4)
 
@@ -132,7 +181,8 @@ def Show_mean_result(key,Save_result_path):
             if k==key:
                 print(k)
                 for k1,v1 in v.items():
-                    print(f"\t{k1} : {np.mean(np.array(v1)):.6f}")
+                    if k1!='Example':
+                        print(f"\t{k1} : {np.mean(np.array(v1)):.6f}")
 
 
 if __name__=="__main__":
@@ -141,8 +191,11 @@ if __name__=="__main__":
     Agent_addres='Agent_weight/PPO_Agent_06122032_vanilla_f1_r11_9_0.0009'
     dataset_path=f'response_result/20240601/din0s_asqa_gpt-3.5-turbo-0125_vanilla_Long_QA.json'
     Save_result_path=f"din0s_asqa_{deliminator}.json"
+    api_model = 'gpt-3.5-turbo-0125'
+    # api_model = 'gpt-4-turbo'
+    # api_model = 'claude-3-5-sonnet-20240620'
     ##
-    inf=inference(Agent_addres,dataset_path,Save_result_path)
+    inf=inference(Agent_addres,dataset_path,api_model,Save_result_path)
     inf.get_inference()
     # Show_mean_result("origin",Save_result_path)
-    Show_mean_result("refine",Save_result_path)
+    Show_mean_result(api_model,Save_result_path)

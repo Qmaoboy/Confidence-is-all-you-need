@@ -22,7 +22,7 @@ key_mapping={
 
 def generate_worker(share_list,key,prompt,id,model_name):
     # print(prompt)
-    model=GPT_API(model_name,key[model_name]['api_key'],"confidence",prompt)
+    model=GPT_API(model_name,key[key_mapping[model_name]]['api_key'],"confidence",prompt)
     result=model.generate()
     if result is not None:
         share_list[id]=result
@@ -71,7 +71,7 @@ def reward_function(result_batch,Ground_truth,Document):
 
     eval_acc=acc_metric('rougeL')
     simi=simi_metric("Cos_sim")
-    lambda_value=0.7
+    lambda_value=0.3
     ## Balance Between ECE and ACC
     ece_acc_ratio=1.0
     ## ece_acc_ratio*-ece+(1.0-ece_acc_ratio)*acc

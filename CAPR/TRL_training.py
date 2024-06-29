@@ -94,7 +94,7 @@ def trainer(Batch_accumulate_size, max_epoch, model, tokenizer,Dataloader,genera
             ## replace generated Instruction
             for idx,p_instruc in enumerate(response):
                 prompt[idx]['Instruction']=str(p_instruc)
-                prompt[idx]['system_prompt']="This is a Long form [generation QA task, please answer the Question base on the Instruction to the question and confidence to the Answer in json."
+                prompt[idx]['system_prompt']="This is a Long form generation QA task, please answer the Question base on the Instruction to the question and confidence to the Answer in json."
 
             ## Environment Get Answer and Confidence
             bar.set_postfix_str("get Environment")

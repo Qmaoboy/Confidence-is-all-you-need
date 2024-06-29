@@ -278,14 +278,23 @@ class GPT_API:
         for _ in range(self.re_gen_times):
             if "gpt" in self.api_name:
                 str_response=openai_GPT(self.api_name,self.api_key).ChatGPT_reply(system_prompt=self.system_prompt,Instruction=self.Instruction,question=self.question,input_text=self.input_text,assit_prompt=self.assit_prompt)
-
-                result=str_response
+                if str_response is not None:
+                    result=str_response
+                else:
+                    continue
 
             elif 'claude' in self.api_name:
                 str_response=anthropic_GPT(self.api_name,self.api_key).claude_reply(system_prompt=self.system_prompt,Instruction=self.Instruction,question=self.question,input_text=self.input_text,assit_prompt=self.assit_prompt)
-                str_response=str_response.replace("\n","").replace("[","").replace("]","")
-                print(str_response)
-                result=json.loads(str_response)
+                if str_response is not None:
+                    print(str_response)
+                    print("*"*50)
+                    str_response=str_response.replace("\n","").replace("[","").replace("]","")
+                    try:
+                        result=json.loads(str_response)
+                    except:
+                        continue
+                else:
+                    continue
 
             if result is not None:
                 final_res=ans_parser(self.ans_parser,result)
