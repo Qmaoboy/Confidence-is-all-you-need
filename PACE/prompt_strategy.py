@@ -32,7 +32,7 @@ class prompter:
 
             elif task=="similarity":
 
-                self.system_prompt=f"This is a similarity compare task, please {self.answer_type} in json."
+                self.system_prompt=f"This is a similarity compare task, please compare the semantic similarity between answer and groudtruth in json."
 
             elif task=="self_polish":
 
@@ -40,13 +40,11 @@ class prompter:
 
             elif task=="RaR":
 
-                self.answer_type='answer the question'
-                self.system_prompt=f"{self.answer_type} in json"
+                self.system_prompt=f"answer the question in json"
 
             elif task=="pure":
 
-                self.answer_type='answer the question'
-                self.system_prompt=f"{self.answer_type} in json"
+                self.system_prompt=f"answer the question in json"
         else:
             raise ValueError("task Not Recognized")
 
@@ -84,9 +82,11 @@ class prompter:
     def document_answer_similarity(self,answer:list,document:list)-> dict:
         # logger.info(f"{answer} {type(document)}")
         document_str="\n".join(document)
-        answer="".join(answer)
+
+        answer=answer.pop()
         Instruction=f"Compare the semantic similarity between given groudtruth and Answer"
         similarty_froamt="{similarity:[Your final similarity here]}"
+
         input_text=f"groudtruth:{document_str},\nAnswer:{answer},\n\nresponse format :{similarty_froamt}\n"
 
         return {"system_prompt":self.system_prompt,'Instruction':Instruction,"Question":"",'input_text':input_text,"assit_prompt":self.similarity_prompt}
