@@ -90,12 +90,12 @@ def overall_conf(vec1,vec2,sample_size=500,lambda_x=0.5):
     return [lambda_x*i+(1-lambda_x)*j for i,j in zip(vec1[:sample_size],vec2[:sample_size])]
 
 
-def load_eval_data(dataset_name="",acc_model_name="",datapath="",stretagy="",sim_model=""):
+def load_eval_data(dataset_name="",acc_model_name="",datapath="",stretagy="",sim_model="",api_model="",activation_time=""):
     if os.path.isfile(datapath):
         with open(datapath,'r') as f:
             data=json.load(f)
         for i in data:
-            if i["dataset"]==dataset_name  and i["acc_model"]==acc_model_name and i['Stratagy']==stretagy and i['sim_model']==sim_model:
+            if i["dataset"]==dataset_name  and i["acc_model"]==acc_model_name and i['Stratagy']==stretagy and i['sim_model']==sim_model and i['api_model']==api_model:
                 return i
     else:
         print(f"{datapath} Do not Exists")

@@ -58,31 +58,30 @@ def main():
             key=yaml.safe_load(f)
     # 'natural_questions',
     datasets = ['din0s/asqa']
-    strategies = ['vanilla','multi_step','cot']
-    acc_models = ['rougeL']
+    strategies = ['cot','vanilla','multi_step']
+    acc_model = 'rougeL'
+    sim_models = 'Cos_sim'
 
-    # api_model = 'gpt-3.5-turbo-0125'
+    ## API model
+    api_model = 'gpt-3.5-turbo-0125'
     # api_model = 'gpt-4-turbo'
-    api_model = 'claude-3-5-sonnet-20240620'
+    # api_model = 'claude-3-5-sonnet-20240620'
 
     api_key=key[api_model_key_mapping[api_model]]['api_key']
 
-    sim_models = ['Cos_sim']
     shuffle=False
-    data_count = 200
+    data_count = 100
     train_batch_size = 1
     eval_batch_size = data_count*2 ## No_use
     lambda_value=0.5
     for qa_dataset in datasets:
         for strategy in strategies:
-            for acc_model in acc_models:
-                for sim_model in sim_models:
-                    logger.info(f"Start With {mp.cpu_count()} CPUs :  {qa_dataset} {strategy} {acc_model}")
-                    pipeline(qa_dataset,api_model,tasks,strategy,data_count,train_batch_size,api_key,eval_batch_size,sim_model,acc_model,ans_parser_dict[strategy],shuffle,lambda_value)
+            logger.info(f"Start With {mp.cpu_count()} CPUs :  {qa_dataset} {strategy} {acc_model}")
+            pipeline(qa_dataset,api_model,tasks,strategy,data_count,train_batch_size,api_key,eval_batch_size,sim_models,acc_model,ans_parser_dict[strategy],shuffle,lambda_value)
 
     shuffle_str="shuffle" if shuffle else "No_shuffle"
-    Savefig(f"{activation_time}_{shuffle_str}")
-
+    Savefig(f"{activation_time}_{shuffle_str}",api_model,datasets,sim_models,acc_model,strategies)
+# File_name,api_model,dataset="din0s/asqa",sim_models="Cos_sim",acc_model="rougeL"
 def shell_ver():
     parser = argparse.ArgumentParser(description="Put Parameter in Generating")
     parser.add_argument("--qa_dataset", type=str,default="din0s/asqa",choices=["din0s/asqa","ChilleD/StrategyQA","natural_questions",'gsm8k'], help="QA Dataset Option")

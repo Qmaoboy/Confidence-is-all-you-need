@@ -266,51 +266,46 @@ def count_down(path):
     else:
         return 0
 
-def Savefig(File_name):
+def Savefig(File_name,api_model,dataset=["din0s/asqa"],sim_models="Cos_sim",acc_model="rougeL",strategies=["vanilla","cot","multi_step"]):
     data_path=f"response_result/Evaluate_Result_{File_name}.json"
-    dataset=["din0s/asqa"]
-    acc_model="rougeL"
-    sim_models=["Cos_sim"]
-    stretagy_name_for_all=["vanilla","cot","multi_step"]
-    for sim_model in sim_models:
-        ece_for_all,ece_pace_for_all=[],[]
-        auroc_for_all,auroc_pace_for_all=[],[]
-        aurc_for_all,aurc_pace_for_all=[],[]
-        for j in stretagy_name_for_all:
-            ece,ece_pace=[],[]
-            auroc,auroc_pac=[],[]
-            aurc,aurc_pac=[],[]
-            for i in dataset:
-                data_eval=load_eval_data(i,acc_model,data_path,j,sim_model)
-                if data_eval is not None:
-                    ece.append(data_eval['ece'])
-                    ece_pace.append(data_eval['ece_pace'])
-                    auroc.append(data_eval['auroc'])
-                    auroc_pac.append(data_eval['auroc_pace'])
-                    aurc.append(data_eval['aurc'])
-                    aurc_pac.append(data_eval['aurc_pace'])
+    ece_for_all,ece_pace_for_all=[],[]
+    auroc_for_all,auroc_pace_for_all=[],[]
+    aurc_for_all,aurc_pace_for_all=[],[]
+    for j in strategies:
+        ece,ece_pace=[],[]
+        auroc,auroc_pac=[],[]
+        aurc,aurc_pac=[],[]
+        for i in dataset:
+            data_eval=load_eval_data(dataset,acc_model,data_path,j,sim_models,api_model,File_name)
+            if data_eval is not None:
+                ece.append(data_eval['ece'])
+                ece_pace.append(data_eval['ece_pace'])
+                auroc.append(data_eval['auroc'])
+                auroc_pac.append(data_eval['auroc_pace'])
+                aurc.append(data_eval['aurc'])
+                aurc_pac.append(data_eval['aurc_pace'])
 
-            ece_for_all.append(ece)
-            ece_pace_for_all.append(ece_pace)
-            auroc_for_all.append(auroc)
-            auroc_pace_for_all.append(auroc_pac)
-            aurc_for_all.append(aurc)
-            aurc_pace_for_all.append(aurc_pac)
+        ece_for_all.append(ece)
+        ece_pace_for_all.append(ece_pace)
+        auroc_for_all.append(auroc)
+        auroc_pace_for_all.append(auroc_pac)
+        aurc_for_all.append(aurc)
+        aurc_pace_for_all.append(aurc_pac)
 
-        if ece_for_all and auroc_for_all and aurc_for_all:
-            ## vector_list,label,catagoriers_list,x_label,y_label,title
-            ece_result=[[ece_for_all,stretagy_name_for_all,dataset,'Category','ece',f"ECE",(0,1)],[ece_pace_for_all,stretagy_name_for_all,dataset,'Category','ece',f"ECE_pace",(0,1)]]
-            auroc_result=[[auroc_for_all,stretagy_name_for_all,dataset,'Category','auroc',f"AUROC",(0,1)],[auroc_pace_for_all,stretagy_name_for_all,dataset,'Category','auroc',f"AUROC_pace",(0,1)]]
-            aurc_result=[[aurc_for_all,stretagy_name_for_all,dataset,'Category','aurc',f"AURC",(0,1000)],[aurc_pace_for_all,stretagy_name_for_all,dataset,'Category','aurc',f"AURC_pace",(0,1000)]]
-            print("*"*100)
-            print(f"{sim_model} {j} {i}")
-            print(ece_result)
-            print(auroc_result)
-            print(aurc_result)
-            print("*"*100)
-            show_bar(ece_result,f"ECE_RESULT_{acc_model}_{sim_model}_{File_name}")
-            show_bar(auroc_result,f"AUROC_result_{acc_model}_{sim_model}_{File_name}")
-            show_bar(aurc_result,f"AURC_result_{acc_model}_{sim_model}_{File_name}")
+    if ece_for_all and auroc_for_all and aurc_for_all:
+        ## vector_list,label,catagoriers_list,x_label,y_label,title
+        ece_result=[[ece_for_all,strategies,dataset,'Category','ece',f"ECE",(0,1)],[ece_pace_for_all,strategies,dataset,'Category','ece',f"ECE_pace",(0,1)]]
+        auroc_result=[[auroc_for_all,strategies,dataset,'Category','auroc',f"AUROC",(0,1)],[auroc_pace_for_all,strategies,dataset,'Category','auroc',f"AUROC_pace",(0,1)]]
+        aurc_result=[[aurc_for_all,strategies,dataset,'Category','aurc',f"AURC",(0,1000)],[aurc_pace_for_all,strategies,dataset,'Category','aurc',f"AURC_pace",(0,1000)]]
+        print("*"*100)
+        print(f"{sim_model} {j} {i}")
+        print(ece_result)
+        print(auroc_result)
+        print(aurc_result)
+        print("*"*100)
+        show_bar(ece_result,f"ECE_RESULT_{api_model}_{acc_model}_{sim_model}_{File_name}")
+        show_bar(auroc_result,f"AUROC_result_{api_model}_{acc_model}_{sim_model}_{File_name}")
+        show_bar(aurc_result,f"AURC_result_{api_model}_{acc_model}_{sim_model}_{File_name}")
 
 if __name__=="__main__":
     activate_time="20240601"
