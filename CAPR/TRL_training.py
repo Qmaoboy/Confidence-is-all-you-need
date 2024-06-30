@@ -95,6 +95,7 @@ def trainer(Batch_accumulate_size, max_epoch, model, tokenizer,Dataloader,genera
             for idx,p_instruc in enumerate(response):
                 prompt[idx]['Instruction']=str(p_instruc)
                 prompt[idx]['system_prompt']="This is a Long form generation QA task, please answer the Question base on the Instruction to the question and confidence to the Answer in json."
+                prompt[idx]['input_text']="\nOnly give me one Answer and Confidence according to response format in json, don't give me any other words.\n\nresponse format:\n{'Answer':[ONLY Your final Answer here],\n'Confidence':[Your final Confidence here]}"
 
             ## Environment Get Answer and Confidence
             bar.set_postfix_str("get Environment")
@@ -176,8 +177,8 @@ def main():
 
     Training_Config={
         "dataset_path":f'response_result/20240601/din0s_asqa_gpt-3.5-turbo-0125_vanilla_Long_QA.json',
-        'deliminator':"06122032_vanilla_f1_r12",
-        'max_epoch': 10,
+        'deliminator':"06122032_vanilla_f1_r12_withPACE",
+        'max_epoch': 5,
         'trian_batch_size':8,
         'Batch_accumulate_size':32 # min : 128, Max: 64
     }

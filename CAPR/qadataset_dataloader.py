@@ -46,8 +46,7 @@ class qadataset_dataloader:
         self.setup_collect_fn()
 
         if self.split in self.dataset:
-            self.trainloader=DataLoader(self.dataset['train'],batch_size=self.batch_size,shuffle=self.shuffle,collate_fn=self.cvat_collect_fn,num_workers=1,drop_last=True)
-            self.testloader=DataLoader(self.dataset['test'],batch_size=self.batch_size,shuffle=self.shuffle,collate_fn=self.cvat_collect_fn,num_workers=1,drop_last=True)
+            self.trainloader=DataLoader(self.dataset[self.split],batch_size=self.batch_size,shuffle=self.shuffle,collate_fn=self.collect_fn,num_workers=1,drop_last=True)
         else:
             self.trainloader = DataLoader(self.dataset, batch_size=self.batch_size, collate_fn=self.collect_fn,shuffle=self.shuffle)
 

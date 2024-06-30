@@ -10,7 +10,7 @@ from trl import PPOConfig,PPOTrainer
 import torch.multiprocessing as t_mp
 import torch.distributed as dist
 from torch.optim.lr_scheduler import ConstantLR,ExponentialLR,SequentialLR,StepLR
-import json
+import json,copy
 import numpy as np
 from random import randint
 from sklearn.metrics import roc_auc_score
@@ -57,6 +57,8 @@ class inference:
             "api_model":self.api_model,
             "old_prompt":[],
             "new_prompt":[],
+            "Ground_truth":[],
+            "Document":[],
             'Result':[]
         }
         self.generation_kwargs = {
@@ -100,10 +102,9 @@ class inference:
             input_text
             assit_prompt
         '''
-        show_index=randint(0,len(instruction)-1)
+        show_index=-1
 
-        old_prompt=prompt
-
+        old_prompt=copy.deepcopy(prompt)
         for idx,p_instruc in enumerate(instruction):
             prompt[idx]['Instruction']=p_instruc
             prompt[idx]['system_prompt']="This is a Long form generation QA task, provide very long Answer with more details to the question and confidence to the Answer in json"
@@ -111,11 +112,18 @@ class inference:
 
         result_batch=Parallel_Environment(prompt,self.api_model)
 
+        print(old_prompt[show_index]['Instruction'])
+        print(prompt[show_index]['Instruction'])
         print(result_batch[show_index])
-        if result_batch[show_index] is not None:
-            self.example["old_prompt"].append(old_prompt[show_index])
-            self.example["Result"].append(result_batch[show_index])
-            self.example["new_prompt"].append(prompt[show_index])
+
+
+        for idx,i in enumerate(result_batch):
+            if i is not None:
+                self.example["old_prompt"].append(old_prompt[idx])
+                self.example["Result"].append(result_batch[idx])
+                self.example["new_prompt"].append(prompt[idx])
+                self.example["Ground_truth"].append(ground_Truth[idx])
+                self.example["Document"].append(Document[idx])
 
         _,pace_ece,Verbalized_ece,Accuracy,Pace_Conf,Verbalized_conf = reward_function(result_batch,ground_Truth,Document)
         ## reward_list,Final_ece_list,ece_list,acc_list,Final_conf_list,conf_list
@@ -187,8 +195,8 @@ def Show_mean_result(key,Save_result_path):
 
 if __name__=="__main__":
     ## Setting
-    deliminator='r11_with_vanilla'
-    Agent_addres='Agent_weight/PPO_Agent_06122032_vanilla_f1_r11_9_0.0009'
+    deliminator='r11_withoutPACE'
+    Agent_addres='Agent_weight/PPO_Agent_06122032_vanilla_f1_r11_withoutPACE_9_0.0009'
     dataset_path=f'response_result/20240601/din0s_asqa_gpt-3.5-turbo-0125_vanilla_Long_QA.json'
     Save_result_path=f"din0s_asqa_{deliminator}.json"
     api_model = 'gpt-3.5-turbo-0125'

@@ -71,7 +71,7 @@ def reward_function(result_batch,Ground_truth,Document):
 
     eval_acc=acc_metric('rougeL')
     simi=simi_metric("Cos_sim")
-    lambda_value=0.3
+    lambda_value=0.7
     ## Balance Between ECE and ACC
     ece_acc_ratio=1.0
     ## ece_acc_ratio*-ece+(1.0-ece_acc_ratio)*acc
@@ -112,7 +112,7 @@ def reward_function(result_batch,Ground_truth,Document):
     # ece_list=get_ece(Final_conf_list,acc_list)
     ece_list=torch.abs(torch.stack(acc_list)-torch.stack(conf_list))
     Final_ece_list=torch.abs(torch.stack(acc_list)-torch.stack(Final_conf_list))
-    reward_list=[(1.0-ece_acc_ratio)*acc+ece_acc_ratio*(-ece) for acc,ece in zip(acc_list,ece_list)]
+    reward_list=[(1.0-ece_acc_ratio)*acc+ece_acc_ratio*(-ece) for acc,ece in zip(acc_list,Final_ece_list)]
 
     r.set_description_str(f"reward {max(reward_list).item():.4f}/{min(reward_list).item():.4f},acc {max(acc_list).item():.4f}/{min(acc_list).item():.4f},ece {max(ece_list):.4f}/{min(ece_list):.4f}")
 
