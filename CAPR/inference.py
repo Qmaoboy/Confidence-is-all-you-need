@@ -13,6 +13,8 @@ from torch.optim.lr_scheduler import ConstantLR,ExponentialLR,SequentialLR,StepL
 import json,copy
 import numpy as np
 from random import randint
+from util import search_wikipedia_byurl
+from prompt_strategy import prompter
 from sklearn.metrics import roc_auc_score
 from RL_env import Environment,reward_function,rl_writer,Parallel_Environment
 import glob,os,torch,yaml
@@ -52,6 +54,7 @@ class inference:
         self.pace_ece,self.Verbalized_ece,self.Accuracy=[],[],[]
         self.Pace_Conf,self.Verbalized_conf=[],[]
         self.auroc,self.capr_auroc=[],[]
+        self.prompter=prompter()
         self.Load_checkpoint()
         self.example={
             "api_model":self.api_model,
@@ -73,12 +76,23 @@ class inference:
         'no_repeat_ngram_size':4
         }
 
+        if 'gpt' in self.api_model:
+            self.trian_batch_size=50
+            self.data_limit=0
+        elif 'claude' in self.api_model:
+            self.trian_batch_size=1
+            self.data_limit=49
+
     def Load_checkpoint(self):
         if os.path.isfile(self.Save_result_path):
             with open(self.Save_result_path,'r') as f:
                 self.result=json.load(f)
         else:
             self.result={}
+
+    def question_to_prompt(self,question,document,task="Long_QA",stretagy='vanilla'):
+        self.prompter.setup_task(task)
+        return self.prompter.get_prompt(question,document,stretagy)
 
     def load_from_pretrained(self,pretrained_model_path):
         base_model_name = "meta-llama/Llama-2-7b-chat-hf"
@@ -93,7 +107,7 @@ class inference:
         print("="*50+"Load From Pretrained !!!"+"="*50)
         return model,tokenizer
 
-    def get_result(self,key,prompt,instruction,ground_Truth,Document):
+    def get_result(self,prompt,instruction,ground_Truth,Document):
         '''
         Prompt Contain:
             system_prompt
@@ -102,20 +116,17 @@ class inference:
             input_text
             assit_prompt
         '''
-        show_index=-1
 
         old_prompt=copy.deepcopy(prompt)
         for idx,p_instruc in enumerate(instruction):
             prompt[idx]['Instruction']=p_instruc
-            prompt[idx]['system_prompt']="This is a Long form generation QA task, provide very long Answer with more details to the question and confidence to the Answer in json"
-            prompt[idx]['input_text']="\nOnly give me one Answer and Confidence according to response format in json, don't give me any other words.\n\nresponse format:\n{'Answer':[ONLY Your final Answer here],\n'Confidence':[Your final Confidence here]}"
 
         result_batch=Parallel_Environment(prompt,self.api_model)
 
+        show_index=randint(0,len(instruction)-1)
         print(old_prompt[show_index]['Instruction'])
         print(prompt[show_index]['Instruction'])
         print(result_batch[show_index])
-
 
         for idx,i in enumerate(result_batch):
             if i is not None:
@@ -136,30 +147,31 @@ class inference:
                 self.Pace_Conf.append(Pace_Conf[i].item())
                 self.Verbalized_conf.append(Verbalized_conf[i].item())
 
-    def generate_result(self,instruct):
+    def generate_result(self,instruct:list)->list:
         input_qeury_token=self.tokenizer(instruct,padding=True,truncation=True,max_length=512,return_tensors='pt').to(device)
         with torch.no_grad():
             outputs = self.model.generate(
                     **input_qeury_token,
                     **self.generation_kwargs
                 )
-            response = [self.tokenizer.decode(r[len(i):],skip_special_tokens=True) for r,i  in zip(outputs, input_qeury_token.input_ids)]
+            new_instruct = [self.tokenizer.decode(r[len(i):],skip_special_tokens=True) for r,i  in zip(outputs, input_qeury_token.input_ids)]
 
-        return response
+        return new_instruct
 
     def get_inference(self,):
 
-        trian_batch_size=50
-        Dataloader=eval_dataloader(dataset_path=self.dataset_path, batch_size=trian_batch_size, purpose='refine',tokenizer=self.tokenizer,shuffle=False)
+        # Dataloader=eval_dataloader(dataset_path=self.dataset_path, batch_size=trian_batch_size, purpose='refine',tokenizer=self.tokenizer,shuffle=False)
+        train_dataloader=qadataset_dataloader(dataset_path="din0s/asqa",split='dev',batch_size=self.trian_batch_size,shuffle=False).trainloader
 
-        for idx,(prompt,instruct,instruct_token,ans,ground_Truth,ground_Truth_token,Confidence,Document) in enumerate(bar:=tqdm(Dataloader.testloader)):
-            # instruct_token.input_ids=list(map(lambda x:torch.tensor(x),instruct_token.input_ids))
-            response=self.generate_result(instruct)
-            # bar.set_description_str(f"origin Prompt")
-            # self.get_result('origin',prompt,[""]*len(prompt),ground_Truth,Document)
-            bar.set_description_str(f"refine Prompt")
-            self.get_result(self.api_model,prompt,response,ground_Truth,Document)
-            if idx>=2:
+        for idx,(batch,Ground_truth) in enumerate(progress:=tqdm(train_dataloader)):
+            question=[i[0] for i in batch]
+            document=[search_wikipedia_byurl([i[1]]) if i[2] else i[1] for i in batch]
+            batch_prompt=[self.question_to_prompt(q,d) for q,d in zip(question,document)]
+            response=self.generate_result([i["instruct"] for i in batch_prompt])
+
+            progress.set_description_str(f"refine Prompt")
+            self.get_result(batch_prompt,response,Ground_truth,document)
+            if idx>=self.data_limit:
                 self.auroc.append(Get_auroc([i for i in self.Accuracy], [i for i in self.Verbalized_conf]))
                 self.capr_auroc.append(Get_auroc([i for i in self.Accuracy], [i for i in self.Pace_Conf]))
                 break
@@ -191,7 +203,6 @@ def Show_mean_result(key,Save_result_path):
                 for k1,v1 in v.items():
                     if k1!='Example':
                         print(f"\t{k1} : {np.mean(np.array(v1)):.6f}")
-
 
 if __name__=="__main__":
     ## Setting

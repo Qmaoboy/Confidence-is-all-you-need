@@ -8,7 +8,7 @@ from util import *
 import yaml
 import multiprocessing as mp
 from sklearn.metrics import roc_auc_score
-
+from copy import copy,deepcopy
 
 
 if os.path.isfile("api_key.yml"):
@@ -18,33 +18,20 @@ if os.path.isfile("api_key.yml"):
  ## gpt-3.5-turbo-0125, gpt-4-turbo
 ## "claude-3-5-sonnet-20240620"
 
-api_model='claude-3-5-sonnet-20240620'
-api_key=key['claude']['api_key']
+# api_model='claude-3-5-sonnet-20240620'
+# api_key=key['claude']['api_key']
 
-# api_model='gpt-4-turbo'
-# api_key=key['openai']['api_key']
-
-
-
-
-def Load_cot_exmple():
-    with open() as f:
-        data=f.read().strip()
-    print(data)
+api_model='gpt-4-turbo'
+api_key=key['openai']['api_key']
 
 def question_to_prompt(question,task="self_polish",stretagy='self_polish'):
     p=prompter()
     p.setup_task(task)
     return p.get_prompt(question,[],stretagy)
 
-f
 def Get_auroc(accuracy,confidence_scores):
     y_true=np.where(np.array(accuracy) < 0.3,0,1)
     return roc_auc_score(np.array(y_true), np.array(confidence_scores))
-
-def get_from_gpt(prompt,parser_stretagy):
-    result=GPT_API(api_model,api_key,parser_stretagy,prompt).generate()
-    return result
 
 def ans_scorer(new_ans,original_ans):
     ## Compare Result
@@ -54,7 +41,8 @@ def ans_scorer(new_ans,original_ans):
 def rewrite_worker(share_list,idx,original_question,ground_truth,documnet,baseline):
 
     if baseline =="vanilla":
-        Answer_result=get_from_gpt(question_to_prompt([original_question],'pure','vanilla'),'confidence')
+        prompt=question_to_prompt([original_question],'pure','vanilla')
+        Answer_result=GPT_API(api_model,api_key,'confidence',prompt).generate()
         if Answer_result is not None:
             rouge_score=ans_scorer(Answer_result['Answer'],ground_truth)
             share_list.append({
@@ -69,15 +57,19 @@ def rewrite_worker(share_list,idx,original_question,ground_truth,documnet,baseli
 
     elif baseline =="self_polish":
         ###### self polish iterate refine question
-        old_refine_question=original_question
+        old_refine_question=deepcopy(original_question)
         for _ in (p:=tqdm(range(3),leave=False)):
-            new_question=get_from_gpt(question_to_prompt([old_refine_question],'self_polish','self_polish'),'self_polish')
+            prompt=question_to_prompt([old_refine_question],'self_polish','self_polish')
+            new_question=GPT_API(api_model,api_key,'self_polish',prompt).generate()
+
             if old_refine_question==new_question['New_Question']: ## converge
                 break
             else:
                 old_refine_question=new_question['New_Question']
 
-        Answer_result=get_from_gpt(question_to_prompt([new_question["New_Question"]],'QA','vanilla'),'confidence')
+        new_question_prompt=question_to_prompt([new_question["New_Question"]],'Long_QA','vanilla')
+        Answer_result=GPT_API(api_model,api_key,'confidence',new_question_prompt).generate()
+
         if Answer_result is not None:
             rouge_score=ans_scorer(Answer_result['Answer'],ground_truth)
             share_list.append({
@@ -92,11 +84,11 @@ def rewrite_worker(share_list,idx,original_question,ground_truth,documnet,baseli
             })
 
     elif baseline =="RaR":
-        Answer_result=get_from_gpt(question_to_prompt([original_question],'RaR','RaR'),'RaR')
-        # Answer_result=get_from_gpt(question_to_prompt([new_question],'RaR','RaR'),'confidence')
+        prompt=question_to_prompt([old_refine_question],'RaR','RaR')
+        Answer_result=GPT_API(api_model,api_key,'RaR',new_question_prompt).generate()
+
         if Answer_result is not None:
             rouge_score=ans_scorer(Answer_result['Answer'],ground_truth)
-
             share_list.append({
                 'Id':idx,
                 'Original_question':original_question,

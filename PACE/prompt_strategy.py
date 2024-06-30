@@ -97,7 +97,7 @@ class prompter:
 
         Instruction=f"Now, Read the Question and {self.answer_type}\n"
 
-        vanilla_prompt=f'''\nOnly give me one reply according to response format in json, don't give me any other words.\n\n{self.responseformat}'''
+        vanilla_prompt=f'''\nOnly give me one Answer and Confidence according to response format in json, don't give me any other words.\n\n{self.responseformat}'''
 
         return {"system_prompt":self.system_prompt,'Instruction':Instruction,"Question":f"Question : {question}",'input_text':vanilla_prompt,"assit_prompt":self.confidence_define_prompt}
 
@@ -108,7 +108,7 @@ class prompter:
 
         Instruction=f"Now, Read the Question and {self.answer_type}\n"
 
-        vanilla_prompt=f'''\nOnly give me one reply according to response format in json, don't give me any other words.\n\n{self.responseformat}'''
+        vanilla_prompt=f'''\nOnly give me one Answer and Confidence according to response format in json, don't give me any other words.\n\n{self.responseformat}'''
 
         return {"system_prompt":self.system_prompt,'Instruction':Instruction,"Question":f"Question : {question}",'input_text':vanilla_prompt,"assit_prompt":self.confidence_define_prompt}
 
@@ -119,7 +119,7 @@ class prompter:
 
         Instruction=f"Now, Read the Question and {self.answer_type}. Let's think step by step and give the Explanation to the Answer\n"
 
-        cot_prompt = f'''\nOnly give me one reply according to response format in json, don't give me any other words.\n\n{self.cotresponseformat}'''
+        cot_prompt = f'''\nOnly give me one Answer, Confidence and Explanation according to response format in json, don't give me any other words.\n\n{self.cotresponseformat}'''
 
         return {"system_prompt":self.system_prompt,'Instruction':Instruction,"Question":f"Question : {question}",'input_text':cot_prompt,"assit_prompt":self.confidence_define_prompt}
 
@@ -141,7 +141,7 @@ class prompter:
 
         polish_format="response format:\nNew_Question: [Your New Question here]"
 
-        rewrite_prompt=f"\nOnly give me one reply don't give me any other words.\n{polish_format}"
+        rewrite_prompt=f"\nOnly give me one New_Question according to response format in json, don't give me any other words.\n{polish_format}"
 
         return {"system_prompt":self.system_prompt,'Instruction':"","Question":f"Question : {question}",'input_text':rewrite_prompt,"assit_prompt":""}
 
@@ -149,6 +149,6 @@ class prompter:
         question=question.pop()
 
         rar_responsformat="response format:\nExpanded_Question: [Your Expanded Question here]\nAnswer: [Your Answer here]\nConfidence: [Your Confidence here]"
-        rar_prompt=f"\nRephrase and expand the question, and respond Answer and Confidence\nOnly give me the reply according to response format in json, don't give me any other words.\n\n{rar_responsformat}\n"
+        rar_prompt=f"\nRephrase and expand the question, and respond Answer and Confidence\nOnly give me one Answer and Confidence according to response format in json, don't give me any other words.\n\n{rar_responsformat}\n"
 
         return {"system_prompt":self.system_prompt,'Instruction':"","Question":f"Question : {question}",'input_text':rar_prompt,"assit_prompt":self.confidence_define_prompt}
