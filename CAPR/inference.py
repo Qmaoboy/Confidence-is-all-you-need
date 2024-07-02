@@ -51,9 +51,22 @@ class inference:
         self.dataset_path=dataset_path
         self.Save_result_path=Save_result_path
         self.api_model=api_model
-        self.pace_ece,self.Verbalized_ece,self.Accuracy=[],[],[]
-        self.Pace_Conf,self.Verbalized_conf=[],[]
-        self.auroc,self.capr_auroc=[],[]
+        self.evaluate={
+            'pace_ece':[],
+            'Verbalized_ece':[],
+            'Accuracy':[],
+            'Pace_Conf':[],
+            'Verbalized_conf':[],
+            'auroc':[],
+            'capr_auroc':[],
+            'old_pace_ece':[],
+            'old_Verbalized_ece':[],
+            'old_Accuracy':[],
+            'old_Pace_Conf':[],
+            'old_Verbalized_conf':[],
+            'old_auroc':[],
+            'old_capr_auroc':[]
+        }
         self.prompter=prompter()
         self.Load_checkpoint()
         self.example={
@@ -62,12 +75,13 @@ class inference:
             "new_prompt":[],
             "Ground_truth":[],
             "Document":[],
+            'old_Result':[],
             'Result':[]
         }
         self.generation_kwargs = {
         "min_length": -1,
         'temperature': 1,
-        "max_length": 256,
+        "max_length": 512,
         # "max_new_tokens": 96, # before : 128
         "top_k": 50,
         "top_p": 0.9,
@@ -118,36 +132,60 @@ class inference:
         '''
 
         old_prompt=copy.deepcopy(prompt)
+
+        old_result_batch=Parallel_Environment(old_prompt,self.api_model)
+
         for idx,p_instruc in enumerate(instruction):
             prompt[idx]['Instruction']=p_instruc
-
         result_batch=Parallel_Environment(prompt,self.api_model)
 
         show_index=randint(0,len(instruction)-1)
         print(old_prompt[show_index]['Instruction'])
         print(prompt[show_index]['Instruction'])
+        print(old_result_batch[show_index])
         print(result_batch[show_index])
 
         for idx,i in enumerate(result_batch):
             if i is not None:
                 self.example["old_prompt"].append(old_prompt[idx])
-                self.example["Result"].append(result_batch[idx])
+                self.example["old_Result"].append(old_result_batch[idx])
                 self.example["new_prompt"].append(prompt[idx])
+                self.example["Result"].append(result_batch[idx])
                 self.example["Ground_truth"].append(ground_Truth[idx])
                 self.example["Document"].append(Document[idx])
+
+        _,old_pace_ece,old_Verbalized_ece,old_Accuracy,old_Pace_Conf,old_Verbalized_conf = reward_function(old_result_batch,ground_Truth,Document)
 
         _,pace_ece,Verbalized_ece,Accuracy,Pace_Conf,Verbalized_conf = reward_function(result_batch,ground_Truth,Document)
         ## reward_list,Final_ece_list,ece_list,acc_list,Final_conf_list,conf_list
         for i in trange(len(Accuracy)):
             accuracy_value = Accuracy[i].item()
-            if accuracy_value > 0:
-                self.pace_ece.append(pace_ece[i].item())
-                self.Verbalized_ece.append(Verbalized_ece[i].item())
-                self.Accuracy.append(accuracy_value)
-                self.Pace_Conf.append(Pace_Conf[i].item())
-                self.Verbalized_conf.append(Verbalized_conf[i].item())
+            old_accuracy_value=old_Accuracy[i].item()
+            if accuracy_value > 0.0:
+                self.evaluate['pace_ece'].append(pace_ece[i].item())
+                self.evaluate['Verbalized_ece'].append(Verbalized_ece[i].item())
+                self.evaluate['Accuracy'].append(accuracy_value)
+                self.evaluate['Pace_Conf'].append(Pace_Conf[i].item())
+                self.evaluate['Verbalized_conf'].append(Verbalized_conf[i].item())
 
-    def generate_result(self,instruct:list)->list:
+                self.evaluate['old_pace_ece'].append(old_pace_ece[i].item())
+                self.evaluate['old_Verbalized_ece'].append(old_Verbalized_ece[i].item())
+                self.evaluate['old_Accuracy'].append(old_accuracy_value)
+                self.evaluate['old_Pace_Conf'].append(old_Pace_Conf[i].item())
+                self.evaluate['old_Verbalized_conf'].append(old_Verbalized_conf[i].item())
+            else:
+                print(f"Fail acc {accuracy_value}")
+
+    def generate_result(self,prompt:list)->list:
+
+        instruct=[f'''[INST] <<SYS>>
+                Rewrite the following basic instruction to help a large language model generate a more detailed and comprehensive answer for a long-form QA task. Ensure the rewritten instruction is clear and concise, prompting the model to provide a thorough and well-structured response of at least 300 tokens to the given question. The new instruction should be within 256 tokens.
+
+                Basic Instruction: "{i['Instruction']}"
+                Question: "{i['Question']}"
+                [/INST]
+                new instruction:''' for i in prompt]
+
         input_qeury_token=self.tokenizer(instruct,padding=True,truncation=True,max_length=512,return_tensors='pt').to(device)
         with torch.no_grad():
             outputs = self.model.generate(
@@ -165,15 +203,22 @@ class inference:
 
         for idx,(batch,Ground_truth) in enumerate(progress:=tqdm(train_dataloader)):
             question=[i[0] for i in batch]
-            document=[search_wikipedia_byurl([i[1]]) if i[2] else i[1] for i in batch]
-            batch_prompt=[self.question_to_prompt(q,d) for q,d in zip(question,document)]
-            response=self.generate_result([i["instruct"] for i in batch_prompt])
+            document=[search_wikipedia_byurl(i[1]) if i[2] else i[1] for i in batch]
+            batch_prompt=[self.question_to_prompt([q],d) for q,d in zip(question,document)]
+            response=self.generate_result(batch_prompt)
+            if not idx:
+                print(question[0])
+                print(batch_prompt[0])
+                print(response[0])
+                input("Press Enter To start Running")
 
             progress.set_description_str(f"refine Prompt")
             self.get_result(batch_prompt,response,Ground_truth,document)
             if idx>=self.data_limit:
-                self.auroc.append(Get_auroc([i for i in self.Accuracy], [i for i in self.Verbalized_conf]))
-                self.capr_auroc.append(Get_auroc([i for i in self.Accuracy], [i for i in self.Pace_Conf]))
+                self.evaluate['auroc'].append(Get_auroc([i for i in self.evaluate['Accuracy']], [i for i in self.evaluate['Verbalized_conf']]))
+                self.evaluate['old_auroc'].append(Get_auroc([i for i in self.evaluate['old_Accuracy']], [i for i in self.evaluate['old_Verbalized_conf']]))
+                self.evaluate['capr_auroc'].append(Get_auroc([i for i in self.evaluate['Accuracy']], [i for i in self.evaluate['Pace_Conf']]))
+                self.evaluate['old_capr_auroc'].append(Get_auroc([i for i in self.evaluate['old_Accuracy']], [i for i in self.evaluate['old_Pace_Conf']]))
                 break
 
         self.Save_File()
@@ -181,15 +226,9 @@ class inference:
     def Save_File(self,):
         self.result[self.api_model]={
             'Example':self.example,
-            'pace_ece':self.pace_ece,
-            'Verbalized_ece':self.Verbalized_ece,
-            'Accuracy':self.Accuracy,
-            'Pace_Conf':self.Pace_Conf,
-            "Verbalized_conf":self.Verbalized_conf,
-            'Auroc':self.auroc,
-            'PACE_Auroc':self.capr_auroc
+            'Evaluate_result':self.evaluate,
             }
-
+        print(f"Data Get {len(self.evaluate['Accuracy'])}")
         with open(self.Save_result_path,'w+') as f:
             json.dump(self.result,f,indent=4)
 
@@ -201,8 +240,9 @@ def Show_mean_result(key,Save_result_path):
             if k==key:
                 print(k)
                 for k1,v1 in v.items():
-                    if k1!='Example':
-                        print(f"\t{k1} : {np.mean(np.array(v1)):.6f}")
+                    if k1=='Evaluate_result':
+                        for k2,v2 in v1.items():
+                            print(f"\t{k2} : {np.mean(np.array(v2)):.6f}")
 
 if __name__=="__main__":
     ## Setting
@@ -210,10 +250,13 @@ if __name__=="__main__":
     Agent_addres='Agent_weight/PPO_Agent_06122032_vanilla_f1_r11_withoutPACE_9_0.0009'
     dataset_path=f'response_result/20240601/din0s_asqa_gpt-3.5-turbo-0125_vanilla_Long_QA.json'
     Save_result_path=f"din0s_asqa_{deliminator}.json"
-    api_model = 'gpt-3.5-turbo-0125'
+
+    ############ API model selection
+    # api_model = 'gpt-3.5-turbo-0125'
     # api_model = 'gpt-4-turbo'
-    # api_model = 'claude-3-5-sonnet-20240620'
-    ##
+    api_model = 'claude-3-5-sonnet-20240620'
+    ############
+
     inf=inference(Agent_addres,dataset_path,api_model,Save_result_path)
     inf.get_inference()
     # Show_mean_result("origin",Save_result_path)

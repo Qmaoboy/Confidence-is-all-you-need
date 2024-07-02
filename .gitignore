@@ -2,10 +2,12 @@
 .vscode/
 __pycache__/
 pre_experiment.ipynb
+logs/
 prac.py
 *.json
 *.txt
 *.png
+*.ipynb
 
 
 CAPR/__pycache__/

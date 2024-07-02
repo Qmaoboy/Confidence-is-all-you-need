@@ -5,11 +5,11 @@ from rouge_score import rouge_scorer
 from prompt_strategy import prompter
 from tqdm import tqdm
 from util import *
-import yaml
+import yaml,os,json,re
 import multiprocessing as mp
 from sklearn.metrics import roc_auc_score
 from copy import copy,deepcopy
-
+import textgrad as tg
 
 if os.path.isfile("api_key.yml"):
     with open("api_key.yml","r") as f:
@@ -99,6 +99,58 @@ def rewrite_worker(share_list,idx,original_question,ground_truth,documnet,baseli
                 'rouge_score':rouge_score,
                 'Documnet':documnet,
             })
+    elif baseline =="textgrad":
+        os.environ['OPENAI_API_KEY'] = api_key
+        def parser(text):
+            answer_match = re.search(r'"answer": "(.*?)"', text)
+            if answer_match:
+                answer = answer_match.group(1)
+            # Regex to capture the confidence score
+            confidence_match = re.search(r'"confidence_score": (\d+\.\d+)', text)
+            if confidence_match:
+                confidence_score = float(confidence_match.group(1))
+
+            return {"Answer":answer,"Confidence":confidence_score}
+
+        tg.set_backward_engine("gpt-3.5-turbo-0125", override=True)
+
+        # Step 1: Get an initial response from an LLM.
+        model = tg.BlackboxLLM("gpt-4o")
+        question_string = ("who is brack obama?"
+                        "provide confidence score to the answer in json")
+
+        question = tg.Variable(question_string,
+                            role_description="question to the LLM",
+                            requires_grad=False)
+
+        answer = model(question)
+        print(answer)
+        result=parser(str(answer))
+        answer.set_role_description("concise and accurate answer to the question")
+
+        # Step 2: Define the loss function and the optimizer, just like in PyTorch!
+        # Here, we don't have SGD, but we have TGD (Textual Gradient Descent)
+        # that works with "textual gradients".
+        optimizer = tg.TGD(parameters=[answer])
+        evaluation_instruction = (f"Here's a question: {question_string}. "
+                                "Evaluate any given answer to this question, "
+                                "be smart, logical, and very critical. "
+                                "Just provide concise feedback."
+                                )
+
+
+        # TextLoss is a natural-language specified loss function that describes
+        # how we want to evaluate the reasoning.
+        loss_fn = tg.TextLoss(evaluation_instruction)
+
+        # Step 3: Do the loss computation, backward pass, and update the punchline.
+        # Exact same syntax as PyTorch!
+        loss = loss_fn(answer)
+        loss.backward()
+        optimizer.step()
+        result['Answer']=str(answer)
+
+
 
 def evaluate_result(baseline):
     with open(f'{api_model}_{baseline}.json','r') as f:
