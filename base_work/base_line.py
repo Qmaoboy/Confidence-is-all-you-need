@@ -101,31 +101,40 @@ def rewrite_worker(share_list,idx,original_question,ground_truth,documnet,baseli
             })
     elif baseline =="textgrad":
         os.environ['OPENAI_API_KEY'] = api_key
+        text_grad_api_model="gpt-3.5-turbo-0125"
+
         def parser(text):
             answer_match = re.search(r'"answer": "(.*?)"', text)
             if answer_match:
                 answer = answer_match.group(1)
+            else:
+                answer=None
             # Regex to capture the confidence score
             confidence_match = re.search(r'"confidence_score": (\d+\.\d+)', text)
             if confidence_match:
                 confidence_score = float(confidence_match.group(1))
+            else:
+                confidence_score=None
 
-            return {"Answer":answer,"Confidence":confidence_score}
+            if answer is not None and confidence_score is not None:
+                return {"Answer":answer,"Confidence":confidence_score}
+            else:
+                return None
 
-        tg.set_backward_engine("gpt-3.5-turbo-0125", override=True)
+        tg.set_backward_engine(text_grad_api_model, override=True)
 
         # Step 1: Get an initial response from an LLM.
-        model = tg.BlackboxLLM("gpt-4o")
-        question_string = ("who is brack obama?"
-                        "provide confidence score to the answer in json")
+        model = tg.BlackboxLLM(text_grad_api_model)
 
+        question_string = (f"{original_question}"
+                        "provide confidence score to the answer in json")
         question = tg.Variable(question_string,
                             role_description="question to the LLM",
                             requires_grad=False)
-
         answer = model(question)
         print(answer)
-        result=parser(str(answer))
+        Answer_result=parser(str(answer))
+
         answer.set_role_description("concise and accurate answer to the question")
 
         # Step 2: Define the loss function and the optimizer, just like in PyTorch!
@@ -148,7 +157,19 @@ def rewrite_worker(share_list,idx,original_question,ground_truth,documnet,baseli
         loss = loss_fn(answer)
         loss.backward()
         optimizer.step()
-        result['Answer']=str(answer)
+        Answer_result['Answer']=str(answer)
+
+        if Answer_result is not None:
+            rouge_score=ans_scorer(Answer_result['Answer'],ground_truth)
+            share_list.append({
+                'Id':idx,
+                'Original_question':original_question,
+                'Answer':Answer_result['Answer'],
+                'Ground_truth':ground_truth,
+                'Confidence':Answer_result['Confidence'],
+                'rouge_score':rouge_score,
+                'Documnet':documnet,
+            })
 
 
 

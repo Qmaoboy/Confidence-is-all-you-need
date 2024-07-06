@@ -32,7 +32,7 @@ login(token=key['hugginface']["token"])
 
 os.environ['TOKENIZERS_PARALLELISM'] = 'true'
 
-device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
+device = 'cuda:1' if torch.cuda.is_available() else 'cpu'
 
 def Get_auroc(accuracy,confidence_scores):
     y_true=np.where(np.array(accuracy) < 0.3,0,1)
@@ -95,7 +95,7 @@ class inference:
             self.data_limit=0
         elif 'claude' in self.api_model:
             self.trian_batch_size=1
-            self.data_limit=49
+            self.data_limit=50
 
     def Load_checkpoint(self):
         if os.path.isfile(self.Save_result_path):
@@ -246,15 +246,15 @@ def Show_mean_result(key,Save_result_path):
 
 if __name__=="__main__":
     ## Setting
-    deliminator='r11_withoutPACE'
-    Agent_addres='Agent_weight/PPO_Agent_06122032_vanilla_f1_r11_withoutPACE_9_0.0009'
+    deliminator='r12_Onlyreward'
+    Agent_addres='Agent_weight/PPO_Agent_06122032_vanilla_f1_r12_OnlyReward_7_0.0007'
     dataset_path=f'response_result/20240601/din0s_asqa_gpt-3.5-turbo-0125_vanilla_Long_QA.json'
-    Save_result_path=f"din0s_asqa_{deliminator}.json"
+    Save_result_path=f"Inf_din0s_asqa_{deliminator}.json"
 
     ############ API model selection
-    # api_model = 'gpt-3.5-turbo-0125'
+    api_model = 'gpt-3.5-turbo-0125'
     # api_model = 'gpt-4-turbo'
-    api_model = 'claude-3-5-sonnet-20240620'
+    # api_model = 'claude-3-5-sonnet-20240620'
     ############
 
     inf=inference(Agent_addres,dataset_path,api_model,Save_result_path)

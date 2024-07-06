@@ -1,7 +1,7 @@
 20240601/
 .vscode/
 __pycache__/
-pre_experiment.ipynb
+# pre_experiment.ipynb
 logs/
 prac.py
 *.json
