@@ -48,7 +48,7 @@ def Parallel_Environment(prompt:list,key,model_name='gpt-3.5-turbo-0125'):
 
 
 
-def Environment(prompt,model_name='gpt-3.5-turbo-0125'):
+def Environment(prompt,key,model_name='gpt-3.5-turbo-0125'):
     '''
     This is the Environment Function
     '''

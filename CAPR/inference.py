@@ -30,7 +30,7 @@ login(token=key['hugginface']["token"])
 
 os.environ['TOKENIZERS_PARALLELISM'] = 'true'
 
-device = 'cuda:1' if torch.cuda.is_available() else 'cpu'
+device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
 
 def Get_auroc(accuracy,confidence_scores):
     y_true=np.where(np.array(accuracy) < 0.3,0,1)
