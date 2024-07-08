@@ -89,9 +89,6 @@ class Accuracy:
 
 if __name__=="__main__":
     simi_datapath="response_result/20240601/din0s_asqa_gpt-3.5-turbo-0125_vanilla_Long_QA_Cos_sim_No_Shuffle.json"
-
-    if os.path.isfile("api_key.yml"):
-        with open("api_key.yml","r") as f:
-            key=yaml.safe_load(f)
+    key=get_key_()
 
     acc_datapath=Accuracy("din0s/asqa","gpt-3.5-turbo-0125","Long_QA",key,'vanilla',10,100,"bertscore",simi_datapath).acc_main()

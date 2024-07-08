@@ -70,7 +70,7 @@ def main():
 
     shuffle=False
     data_count = 100
-    train_batch_size = 1
+    train_batch_size = 50
     eval_batch_size = data_count*2 ## No_use
     lambda_value=0.5
     for qa_dataset in datasets:

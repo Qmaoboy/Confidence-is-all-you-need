@@ -298,14 +298,14 @@ def Savefig(File_name,api_model,dataset=["din0s/asqa"],sim_models="Cos_sim",acc_
         auroc_result=[[auroc_for_all,strategies,dataset,'Category','auroc',f"AUROC",(0,1)],[auroc_pace_for_all,strategies,dataset,'Category','auroc',f"AUROC_pace",(0,1)]]
         aurc_result=[[aurc_for_all,strategies,dataset,'Category','aurc',f"AURC",(0,1000)],[aurc_pace_for_all,strategies,dataset,'Category','aurc',f"AURC_pace",(0,1000)]]
         print("*"*100)
-        print(f"{sim_model} {j} {i}")
+        print(f"{sim_models} {j} {i}")
         print(ece_result)
         print(auroc_result)
         print(aurc_result)
         print("*"*100)
-        show_bar(ece_result,f"ECE_RESULT_{api_model}_{acc_model}_{sim_model}_{File_name}")
-        show_bar(auroc_result,f"AUROC_result_{api_model}_{acc_model}_{sim_model}_{File_name}")
-        show_bar(aurc_result,f"AURC_result_{api_model}_{acc_model}_{sim_model}_{File_name}")
+        show_bar(ece_result,f"ECE_RESULT_{api_model}_{acc_model}_{sim_models}_{File_name}")
+        show_bar(auroc_result,f"AUROC_result_{api_model}_{acc_model}_{sim_models}_{File_name}")
+        show_bar(aurc_result,f"AURC_result_{api_model}_{acc_model}_{sim_models}_{File_name}")
 
 if __name__=="__main__":
     activate_time="20240601"
