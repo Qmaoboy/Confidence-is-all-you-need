@@ -58,7 +58,7 @@ def main():
     # 'natural_questions','din0s/asqa'
     datasets = ["triviaQA"]
     strategies = ['cot','vanilla','multi_step']
-    acc_model = 'rougeL'
+    acc_model = 'bool_acc'
     sim_models = 'Cos_sim'
 
     ## API model

@@ -86,7 +86,6 @@ class Accuracy:
         return self.acc_datapath
 
 
-
 if __name__=="__main__":
     simi_datapath="response_result/20240601/din0s_asqa_gpt-3.5-turbo-0125_vanilla_Long_QA_Cos_sim_No_Shuffle.json"
     key=get_key_()

@@ -261,7 +261,7 @@ class acc_metric:
             return [self.eval_model.score(p, a)[self.metric].fmeasure for p,a in zip(pred,ans)]
 
     def bool_acc(self,pred:list,ans:list):
-        correct_matches = [1 if p == r else 0 for p, r in zip(pred, ans)]
+        correct_matches = [1 if str(p).lower() == str(r).lower() else 0 for p, r in zip(pred, ans)]
         # print(correct_matches)
         # Calculate accuracy
         # accuracy = sum(correct_matches) / len(pred)  # Convert to percentage
