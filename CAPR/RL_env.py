@@ -1,5 +1,5 @@
 from LLM_API import GPT_API
-from util import acc_metric,simi_metric
+from util import acc_metric,simi_metric,get_key_
 import yaml,os,torch
 from torch.nn import MSELoss,L1Loss
 import numpy as np
@@ -9,9 +9,8 @@ from torch.utils.data import Dataset, DataLoader, RandomSampler
 import multiprocessing as mp
 import json
 from netcal.metrics import ECE
-if os.path.isfile("api_key.yml"):
-    with open("api_key.yml","r") as f:
-        key=yaml.safe_load(f)
+
+key=get_key_()
 
 key_mapping={
     'gpt-3.5-turbo-0125':'openai',

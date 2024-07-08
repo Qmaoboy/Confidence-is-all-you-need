@@ -13,16 +13,14 @@ from torch.optim.lr_scheduler import ConstantLR,ExponentialLR,SequentialLR,StepL
 import json,copy
 import numpy as np
 from random import randint
-from util import search_wikipedia_byurl
+from util import search_wikipedia_byurl,get_key_
 from prompt_strategy import prompter
 from sklearn.metrics import roc_auc_score
 from RL_env import Environment,reward_function,rl_writer,Parallel_Environment
 import glob,os,torch,yaml
 from huggingface_hub import login
 import json
-if os.path.isfile("../api_key.yml"):
-    with open("../api_key.yml","r") as f:
-        key=yaml.safe_load(f)
+key=get_key_()
 
 if os.path.isfile("default_config.yaml"):
     with open("default_config.yaml","r") as f:

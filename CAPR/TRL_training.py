@@ -19,10 +19,9 @@ from RL_env import Environment,reward_function,rl_writer,Parallel_Environment
 import glob,os,torch,yaml
 from huggingface_hub import login
 import wandb
+from util import get_key_
 
-if os.path.isfile("../api_key.yml"):
-    with open("../api_key.yml","r") as f:
-        key=yaml.safe_load(f)
+key=get_key_()
 
 if os.path.isfile("default_config.yaml"):
     with open("default_config.yaml","r") as f:
