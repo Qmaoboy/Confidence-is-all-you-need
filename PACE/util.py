@@ -14,9 +14,20 @@ import os,json,glob
 from datetime import datetime
 import numpy as np
 import multiprocessing as mp
-import random
+import random,yaml
 from rouge_score import rouge_scorer
 import matplotlib.pyplot as plt
+
+
+def get_key_():
+    if os.path.isfile("../api_key.yml"):
+        with open("../api_key.yml","r") as f:
+            key=yaml.safe_load(f)
+            print("Key Get !!")
+        return key
+    else:
+        print("Key FAIL !!")
+        return None
 
 def shuffle_theans(ll):
     # random.seed(42)

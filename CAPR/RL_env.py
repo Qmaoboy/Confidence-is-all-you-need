@@ -1,5 +1,5 @@
 from LLM_API import GPT_API
-from util import acc_metric,simi_metric,get_key_
+from util import acc_metric,simi_metric
 import yaml,os,torch
 from torch.nn import MSELoss,L1Loss
 import numpy as np
@@ -10,7 +10,7 @@ import multiprocessing as mp
 import json
 from netcal.metrics import ECE
 
-key=get_key_()
+# key=get_key_()
 
 key_mapping={
     'gpt-3.5-turbo-0125':'openai',
@@ -28,7 +28,7 @@ def generate_worker(share_list,key,prompt,id,model_name):
     else:
         share_list[id]=None
 
-def Parallel_Environment(prompt:list,model_name='gpt-3.5-turbo-0125'):
+def Parallel_Environment(prompt:list,key,model_name='gpt-3.5-turbo-0125'):
     '''
     This is the Parallel Environment Function
     '''
@@ -176,7 +176,7 @@ class rl_writer:
 
                 plt.plot(range(len(k1)),k1,label=k,marker='')
                 plt.legend()
-                plt.savefig(f"{data_path.replace(".json","mvavg.png")}")
+                plt.savefig(f"{data_path.replace('.json','mvavg.png')}")
                 plt.clf()
 
     def save_result(self,sample,title):

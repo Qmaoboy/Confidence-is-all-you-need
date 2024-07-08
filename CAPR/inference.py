@@ -131,7 +131,7 @@ class inference:
 
         old_prompt=copy.deepcopy(prompt)
 
-        old_result_batch=Parallel_Environment(old_prompt,self.api_model)
+        old_result_batch=Parallel_Environment(old_prompt,key,self.api_model)
 
         for idx,p_instruc in enumerate(instruction):
             prompt[idx]['Instruction']=p_instruc

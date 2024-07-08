@@ -1,14 +1,12 @@
 import pandas as pd
 import json,re,os,torch,yaml
 from qadataset_dataloader import eval_dataloader
-
+from util import get_key_
 from tqdm import tqdm
 from peft import PeftConfig, PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-if os.path.isfile("api_key.yml"):
-    with open("api_key.yml","r") as f:
-        key=yaml.safe_load(f)
+key=get_key_()
 def Prompter(text):
     return f'''<s>[INST] <<SYS>>You are a expert task to predict Valence and Arousal to the given Sentence.\nValence represents the degree of pleasant(9.000) and unpleasant(0.000) feelings \nArousal represents the degree of excitement(9.000) and calm(0.000).\nOnly Give me floating-points from 0.000 to 9.000. Don't give any Explanation or other words.<</SYS>>Predict Valence and Arousal of a given Sentence: "{text}"\nOutput the answer in JSON in the following format{{"Valence": [Valence in floating-points here],"Arousal": [Arousal in floating-points here]}} Only output JSON don't give any explnation or words.\n:[/INST]'''
 

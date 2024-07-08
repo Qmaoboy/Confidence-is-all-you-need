@@ -99,7 +99,7 @@ def trainer(Batch_accumulate_size, max_epoch, model, tokenizer,Dataloader,genera
             ## Environment Get Answer and Confidence
             bar.set_postfix_str("get Environment")
 
-            result_batch=Parallel_Environment(prompt,'gpt-3.5-turbo-0125')
+            result_batch=Parallel_Environment(prompt,key,'gpt-3.5-turbo-0125')
 
 
             bar.set_postfix_str("get Reward")
