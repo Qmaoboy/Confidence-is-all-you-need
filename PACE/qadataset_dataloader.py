@@ -1,20 +1,17 @@
 from datasets import load_dataset
-from torch.utils.data import DataLoader,Dataset
+from torch.utils.data import DataLoader
 from datetime import datetime
 from util import *
 import os,re
-from transformers import GPT2Tokenizer, GPT2LMHeadModel
-logger = setup_logger(f'log/response_{datetime.now().strftime("%Y%m%d")}.log')
 
 class qadataset_dataloader:
-    def __init__(self,dataset_path="din0s/asqa",split='train',batch_size=2,shuffle=True):
+    def __init__(self,dataset_path="din0s/asqa",split='train',batch_size=1,shuffle=True):
         super(qadataset_dataloader,self).__init__()
         self.dataset_path=dataset_path
         self.split=split
         self.batch_size=batch_size
         self.shuffle=shuffle
         self.get_loader()
-
 
     def setup_collect_fn(self): ## "gsm8k",DateUnd,Prf-Law,Biz-Ethics
         if self.dataset_path=="din0s/asqa":
@@ -37,18 +34,17 @@ class qadataset_dataloader:
             self.dataset = load_dataset(self.dataset_path,"main")
 
         elif self.dataset_path=="triviaQA":
-            dataset_name="mandarjoshi/trivia_qa"
+            dataset_name="lucadiliello/triviaqa"
             self.collect_fn=self.triviaqa_collect_fn
-            self.dataset = load_dataset(dataset_name,"rc.wikipedia")
+            self.dataset = load_dataset(dataset_name)
 
     def get_loader(self):
 
         self.setup_collect_fn()
-
         if self.split in self.dataset:
             self.trainloader=DataLoader(self.dataset[self.split],batch_size=self.batch_size,shuffle=self.shuffle,collate_fn=self.collect_fn,num_workers=1,drop_last=True)
         else:
-            self.trainloader = DataLoader(self.dataset, batch_size=self.batch_size, collate_fn=self.collect_fn,shuffle=self.shuffle)
+            self.trainloader = DataLoader(self.dataset, batch_size=self.batch_size, collate_fn=self.collect_fn,shuffle=self.shuffle,num_workers=1,drop_last=True)
 
     def Load_natural_qa(self,idx):
         qa_dict=[]
@@ -56,13 +52,12 @@ class qadataset_dataloader:
             datapath=f"natural_qa_dataet/natual_qa_{i}.json"
             old_data=load_checkpoint(datapath)
             qa_dict+=old_data
-            logger.info(f"Load Data from {datapath}")
         return qa_dict
 
     def asqa_collate_fn(self,batch): ## long_ans
 
         isurl=True
-        res=[[i['ambiguous_question'],[i['wikipages'][0]['url']],isurl] for i in batch]
+        res=[[i['ambiguous_question'],i['wikipages'][0]['url'],isurl] for i in batch]
         long_ans=[i['annotations'][0]['long_answer'] for i in batch]
         return res,long_ans
 
@@ -88,9 +83,10 @@ class qadataset_dataloader:
         return res,ans
 
     def triviaqa_collect_fn(self,batch):
-        res=[]
-        print(batch)
-        return batch
+        res=[[i['question'],i['context'].replace("[PAR]","").replace("[DOC]","").replace("[TLE]",""),False] for i in batch]
+        ans=[sorted(i['answers'],key=lambda x:len(x),reverse=False)[-1] for i in batch]
+
+        return res,ans
 
 class eval_dataloader:
     def __init__(self,dataset_path,batch_size,purpose='compare',tokenizer="",shuffle=False) -> None:
@@ -117,9 +113,10 @@ class eval_dataloader:
 
 
 if __name__=="__main__":
-    qa_loader=qadataset_dataloader("din0s/asqa",split='train',batch_size=1).loader
-    for batch,short_ans in qa_loader:
-
+    qa_loader=qadataset_dataloader("triviaQA",split='train',batch_size=1,shuffle=True).trainloader
+    for batch,gournd_truth in qa_loader:
+        print(batch)
+        print(gournd_truth)
         break
 
     # simi_loader=eval_dataloader("response_result/ChilleD_StrategyQA_gpt-3.5-turbo-0125_vanilla_QA_2024_05_12.json",1,'compare').loader

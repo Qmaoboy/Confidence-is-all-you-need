@@ -35,7 +35,7 @@ def shuffle_theans(ll):
     return ll
 
 def setup_logger(logfile):
-
+    os.makedirs("log",exist_ok=True)
     logger = logging.getLogger(__name__)
     if not logger.handlers:
         logger.setLevel(logging.DEBUG)  # 设置日志记录器的级别为DEBUG

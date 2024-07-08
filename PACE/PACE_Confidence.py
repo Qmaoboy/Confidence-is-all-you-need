@@ -43,7 +43,7 @@ class Confidence:
                 question=change_list_dict_to_str(ques)
                 if question not in [i['Question'] for i in Share_list]:
                     if isurl:
-                        document=search_wikipedia_byurl(doc)
+                        document=search_wikipedia_byurl([doc])
                     else:
                         document=[doc]
                     # print(type(document))

@@ -19,7 +19,8 @@ logger = setup_logger(f'log/response_{activation_time}.log')
 tasks = {
 
     'din0s/asqa': 'Long_QA',
-    'natural_questions': 'QA'
+    'natural_questions': 'QA',
+    'triviaQA': 'QA'
 
     }
 
@@ -56,8 +57,8 @@ def main():
     if os.path.isfile("api_key.yml"):
         with open("api_key.yml","r") as f:
             key=yaml.safe_load(f)
-    # 'natural_questions',
-    datasets = ['din0s/asqa']
+    # 'natural_questions','din0s/asqa'
+    datasets = ["triviaQA"]
     strategies = ['cot','vanilla','multi_step']
     acc_model = 'rougeL'
     sim_models = 'Cos_sim'
