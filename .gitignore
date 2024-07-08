@@ -1,6 +1,7 @@
 20240601/
 .vscode/
 __pycache__/
+api_key.yml
 # pre_experiment.ipynb
 logs/
 prac.py

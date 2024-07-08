@@ -54,9 +54,10 @@ def main():
     torch.cuda.empty_cache()
     os.makedirs(f'response_result/{activation_time}', exist_ok=True)
     os.makedirs('log',exist_ok=True)
-    if os.path.isfile("api_key.yml"):
-        with open("api_key.yml","r") as f:
+    if os.path.isfile("../api_key.yml"):
+        with open("../api_key.yml","r") as f:
             key=yaml.safe_load(f)
+            print("Key Get!!")
     # 'natural_questions','din0s/asqa'
     datasets = ["triviaQA"]
     strategies = ['cot','vanilla','multi_step']

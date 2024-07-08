@@ -11,8 +11,8 @@ from sklearn.metrics import roc_auc_score
 from copy import copy,deepcopy
 import textgrad as tg
 
-if os.path.isfile("api_key.yml"):
-    with open("api_key.yml","r") as f:
+if os.path.isfile("../api_key.yml"):
+    with open("../api_key.yml","r") as f:
         key=yaml.safe_load(f)
 
  ## gpt-3.5-turbo-0125, gpt-4-turbo

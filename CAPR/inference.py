@@ -20,8 +20,8 @@ from RL_env import Environment,reward_function,rl_writer,Parallel_Environment
 import glob,os,torch,yaml
 from huggingface_hub import login
 import json
-if os.path.isfile("api_key.yml"):
-    with open("api_key.yml","r") as f:
+if os.path.isfile("../api_key.yml"):
+    with open("../api_key.yml","r") as f:
         key=yaml.safe_load(f)
 
 if os.path.isfile("default_config.yaml"):
@@ -246,7 +246,7 @@ def Show_mean_result(key,Save_result_path):
 
 if __name__=="__main__":
     ## Setting
-    deliminator='r12_Onlyreward'
+    deliminator='r13_testkey'
     Agent_addres='Agent_weight/PPO_Agent_06122032_vanilla_f1_r12_OnlyReward_7_0.0007'
     dataset_path=f'response_result/20240601/din0s_asqa_gpt-3.5-turbo-0125_vanilla_Long_QA.json'
     Save_result_path=f"Inf_din0s_asqa_{deliminator}.json"

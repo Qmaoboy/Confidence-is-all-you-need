@@ -20,8 +20,8 @@ import glob,os,torch,yaml
 from huggingface_hub import login
 import wandb
 
-if os.path.isfile("api_key.yml"):
-    with open("api_key.yml","r") as f:
+if os.path.isfile("../api_key.yml"):
+    with open("../api_key.yml","r") as f:
         key=yaml.safe_load(f)
 
 if os.path.isfile("default_config.yaml"):
