@@ -23,7 +23,11 @@ tasks = {
     'triviaQA': 'QA'
 
     }
-
+accuracy_model_mapping={
+    'din0s/asqa': 'rougeL',
+    'natural_questions': 'f1',
+    'triviaQA': 'f1'
+}
 api_model_key_mapping={
     "gpt-4-turbo":"openai",
     "gpt-3.5-turbo-0125":"openai",
@@ -55,10 +59,9 @@ def main():
     os.makedirs(f'response_result/{activation_time}', exist_ok=True)
     os.makedirs('log',exist_ok=True)
     key=get_key_()
-    # 'natural_questions','din0s/asqa'
-    datasets = ["triviaQA"]
-    strategies = ['cot','vanilla','multi_step']
-    acc_model = 'bool_acc'
+    # 'natural_questions','din0s/asqa',"triviaQA",
+    datasets = ["triviaQA","natural_questions"]
+    strategies = ['vanilla','cot','multi_step']
     sim_models = 'Cos_sim'
 
     ## API model
@@ -75,11 +78,11 @@ def main():
     lambda_value=0.5
     for qa_dataset in datasets:
         for strategy in strategies:
-            logger.info(f"Start With {mp.cpu_count()} CPUs :  {qa_dataset} {strategy} {acc_model}")
-            pipeline(qa_dataset,api_model,tasks,strategy,data_count,train_batch_size,api_key,eval_batch_size,sim_models,acc_model,ans_parser_dict[strategy],shuffle,lambda_value)
+            logger.info(f"Start With {mp.cpu_count()} CPUs :  {qa_dataset} {strategy} {accuracy_model_mapping[qa_dataset]}")
+            pipeline(qa_dataset,api_model,tasks,strategy,data_count,train_batch_size,api_key,eval_batch_size,sim_models,accuracy_model_mapping[qa_dataset],ans_parser_dict[strategy],shuffle,lambda_value)
 
     shuffle_str="shuffle" if shuffle else "No_shuffle"
-    Savefig(f"{activation_time}_{shuffle_str}",api_model,datasets,sim_models,acc_model,strategies)
+    Savefig(f"{activation_time}_{shuffle_str}",api_model,datasets,sim_models,accuracy_model_mapping,strategies)
 # File_name,api_model,dataset="din0s/asqa",sim_models="Cos_sim",acc_model="rougeL"
 def shell_ver():
     parser = argparse.ArgumentParser(description="Put Parameter in Generating")
@@ -142,9 +145,9 @@ if __name__=="__main__":
     '''
     main()
     # single_test()
-    overall_= Get_Cost(file_path='response_result/')
-    logger.info(f"Overall Cost: {overall_} USD {overall_*30} NTD")
-
+    # overall_= Get_Cost(file_path='response_result/')
+    # logger.info(f"Overall Cost: {overall_} USD {overall_*30} NTD")
+    Savefig(f"20240601_No_shuffle",'gpt-3.5-turbo-0125',['din0s/asqa',"triviaQA","natural_questions"],"Cos_sim",accuracy_model_mapping,['vanilla','cot','multi_step'])
 
 
 

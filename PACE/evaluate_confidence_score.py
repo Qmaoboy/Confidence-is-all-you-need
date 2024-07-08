@@ -75,7 +75,10 @@ def compute_conf_metrics(y_acc, y_confs,Stretagy,acc_model):
         "rougeL" : 0.3
     }
     ##
-    y_true=np.where(y_acc < accuracy_bound[acc_model],0,1)
+    if acc_model in accuracy_bound:
+        y_true=np.where(y_acc < accuracy_bound[acc_model],0,1)
+    else:
+        y_true=y_acc
     # use np to test if y_confs are all in [0, 1]
 
     assert all([x >= 0 and x <= 1 for x in y_confs]), y_confs ## makesure conf >0
@@ -266,7 +269,7 @@ def count_down(path):
     else:
         return 0
 
-def Savefig(File_name,api_model,dataset=["din0s/asqa"],sim_models="Cos_sim",acc_model="rougeL",strategies=["vanilla","cot","multi_step"]):
+def Savefig(File_name,api_model,dataset,sim_models,acc_model_mapping,strategies):
     data_path=f"response_result/Evaluate_Result_{File_name}.json"
     ece_for_all,ece_pace_for_all=[],[]
     auroc_for_all,auroc_pace_for_all=[],[]
@@ -276,7 +279,7 @@ def Savefig(File_name,api_model,dataset=["din0s/asqa"],sim_models="Cos_sim",acc_
         auroc,auroc_pac=[],[]
         aurc,aurc_pac=[],[]
         for i in dataset:
-            data_eval=load_eval_data(dataset,acc_model,data_path,j,sim_models,api_model,File_name)
+            data_eval=load_eval_data(i,acc_model_mapping[i],data_path,j,sim_models,api_model,File_name)
             if data_eval is not None:
                 ece.append(data_eval['ece'])
                 ece_pace.append(data_eval['ece_pace'])
@@ -298,14 +301,14 @@ def Savefig(File_name,api_model,dataset=["din0s/asqa"],sim_models="Cos_sim",acc_
         auroc_result=[[auroc_for_all,strategies,dataset,'Category','auroc',f"AUROC",(0,1)],[auroc_pace_for_all,strategies,dataset,'Category','auroc',f"AUROC_pace",(0,1)]]
         aurc_result=[[aurc_for_all,strategies,dataset,'Category','aurc',f"AURC",(0,1000)],[aurc_pace_for_all,strategies,dataset,'Category','aurc',f"AURC_pace",(0,1000)]]
         print("*"*100)
-        print(f"{sim_models} {j} {i}")
+        print(f"{sim_models}")
         print(ece_result)
         print(auroc_result)
         print(aurc_result)
         print("*"*100)
-        show_bar(ece_result,f"ECE_RESULT_{api_model}_{acc_model}_{sim_models}_{File_name}")
-        show_bar(auroc_result,f"AUROC_result_{api_model}_{acc_model}_{sim_models}_{File_name}")
-        show_bar(aurc_result,f"AURC_result_{api_model}_{acc_model}_{sim_models}_{File_name}")
+        show_bar(ece_result,f"ECE_RESULT_{api_model}_{File_name}")
+        show_bar(auroc_result,f"AUROC_result_{api_model}_{File_name}")
+        show_bar(aurc_result,f"AURC_result_{api_model}_{File_name}")
 
 if __name__=="__main__":
     activate_time="20240601"

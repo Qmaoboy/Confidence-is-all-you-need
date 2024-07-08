@@ -96,7 +96,10 @@ def load_eval_data(dataset_name="",acc_model_name="",datapath="",stretagy="",sim
             data=json.load(f)
         for i in data:
             if i["dataset"]==dataset_name  and i["acc_model"]==acc_model_name and i['Stratagy']==stretagy and i['sim_model']==sim_model and i['api_model']==api_model:
+                print(f"{dataset_name},{acc_model_name},{stretagy},{sim_model},{api_model} Exists")
                 return i
+        else:
+            print(f"{dataset_name},{acc_model_name},{stretagy},{sim_model},{api_model} Not Exists")
     else:
         print(f"{datapath} Do not Exists")
         return None
@@ -148,7 +151,7 @@ def setup_subfigure(vector,title,axs,idx:list,dim_x_y:list,x_label,y_label,color
 def show_bar(data_evaluation, png_name="bar_pic"):
     os.makedirs('picture', exist_ok=True)
     colors = ['darkred', 'darkblue', 'darkgreen', 'darkorange', 'pink', "grey"]
-    bar_width = 0.05
+    bar_width = 0.2
     pic_number = len(data_evaluation)
 
     fig, axs = plt.subplots(1, pic_number, figsize=(8, 4))
