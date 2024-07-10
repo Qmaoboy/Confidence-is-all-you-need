@@ -3,6 +3,7 @@ import os,json
 from util import *
 import glob
 from sklearn.metrics import roc_auc_score, average_precision_score, roc_curve,precision_recall_curve
+from sklearn.metrics import roc_curve, auc
 from netcal.metrics import ECE
 from show_graph import show_bar,load_eval_data
 
@@ -70,8 +71,8 @@ def compute_conf_metrics(y_acc, y_confs,Stretagy,acc_model):
 
     ## change to binary
     accuracy_bound={
-        "f1" : 0.5,
-        "bertscore" : 0.8,
+        "f1" : 0.8,
+        "bertscore" : 1.0,
         "rougeL" : 0.3
     }
     ##
@@ -88,7 +89,9 @@ def compute_conf_metrics(y_acc, y_confs,Stretagy,acc_model):
     Cal_roc_curve(y_true,y_confs,Stretagy)
 
     # AUCROC
-    roc_auc = roc_auc_score(y_true, y_confs)
+    # roc_auc = roc_auc_score(y_true, y_confs)
+    fpr1, tpr1, thresholds1 = roc_curve(y_true, y_confs)
+    roc_auc=auc(fpr1, tpr1)
     print("ROC AUC score:", roc_auc)
     result_matrics['auroc'] = roc_auc
 
@@ -103,7 +106,7 @@ def compute_conf_metrics(y_acc, y_confs,Stretagy,acc_model):
     result_matrics['auprc_n'] = auprc
 
     # AURC from https://github.com/IML-DKFZ/fd-shifts/tree/main
-    aurc = area_under_risk_coverage_score(y_confs, y_true)
+    aurc = area_under_risk_coverage_score(y_true,y_confs)
     result_matrics['aurc'] = aurc
     print("AURC score:", aurc)
 
@@ -113,11 +116,11 @@ def compute_conf_metrics(y_acc, y_confs,Stretagy,acc_model):
     ece = ECE(n_bins)
     ece_score = ece.measure(np.array(y_confs), np.array(y_true))
     print("ECE:", ece_score)
-    # result_matrics['ece'] = ece_score
+    result_matrics['ece'] = ece_score
 
     ece_all=np.mean(np.abs(np.array(y_acc)-np.array(y_confs)))
     print("ECE elements:", ece_all)
-    result_matrics['ece'] = ece_all
+    result_matrics['ece_element'] = ece_all
 
     return result_matrics
 
@@ -155,6 +158,7 @@ def evaluate_score(api_model,dataset_path,Stretagy,sim_model,acc_model,activatio
     else:
         logger.info(f"{acc_datapath} not Exists")
         exit()
+
     if os.path.isfile(eval_datapath):
         evaluate_result=load_checkpoint(eval_datapath)
     else:
@@ -223,11 +227,13 @@ def evaluate_score(api_model,dataset_path,Stretagy,sim_model,acc_model,activatio
         'Pace_Conf':list(pace_conf_array),
         'Accuracy':list(acc_array),
         'ece':eval_result['ece'],
+        'ece_element':eval_result['ece_element'],
         'auroc':eval_result['auroc'],
         'auprc_p':eval_result['auprc_p'],
         'auprc_n':eval_result['auprc_n'],
         'aurc':eval_result['aurc'],
         'ece_pace':eval_pace_result['ece'],
+        'ece_pace_element':eval_pace_result['ece_element'],
         'auroc_pace':eval_pace_result['auroc'],
         'auprc_p':eval_pace_result['auprc_p'],
         'auprc_n':eval_pace_result['auprc_n'],

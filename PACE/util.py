@@ -5,6 +5,7 @@ from logging.handlers import RotatingFileHandler
 from sentence_transformers import SentenceTransformer, util
 import requests
 import wikipediaapi
+
 from tqdm import tqdm
 from urllib.parse import unquote
 from evaluate import load
@@ -228,7 +229,7 @@ class acc_metric:
                         batch_size=64,  # Batch size
                         lang=None,  # Language of the texts, auto-detect based on model if None
                         rescale_with_baseline=False,  # Whether to rescale scores with baselines
-                        device='cuda:1'  # Specify the CUDA device
+                        device='cuda:0'  # Specify the CUDA device
                     )
 
         elif self.metric in ['wer','exact_match']:
@@ -443,7 +444,7 @@ if __name__=="__main__":
     # print(Score)
     # print(np.mean(Score))
     # print(max(Score))
-    eval_me=acc_metric('bertscore')
+    eval_me=acc_metric('f1')
     print(torch.tensor(eval_me.compute_acc(pred,ref)))
     # keyword = "Artificial Intelligence"
     # search_wikipedia_by_keyward("Human Development Index")
