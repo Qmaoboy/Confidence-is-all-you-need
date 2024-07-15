@@ -3,7 +3,7 @@ import openai,time,os,threading as th,json
 from util import setup_logger
 import yaml,torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
-import anthropic
+import anthropic,re
 
 logger = setup_logger('log/gpt_class.log')
 import multiprocessing as mp
@@ -69,7 +69,7 @@ class anthropic_GPT:
     def  claude_reply(self,system_prompt='',Instruction='',question='',input_text='',temperature=0,max_tokens=4096,assit_prompt=""):
         if input_text:
             for _ in range(self.re_gen_times):
-                try:
+                # try:
                     response = self.anthropic_client.messages.create(
                         model=self.model_name,
                         max_tokens=1000,
@@ -89,8 +89,8 @@ class anthropic_GPT:
                     )
                     claim_text=response.content[0].text
                     return claim_text
-                except:
-                    return None
+                # except:
+                #     return None
 
 
 def LlamaChatCompletion(model_name, prompt, max_tokens):
@@ -275,6 +275,20 @@ class GPT_API:
         self.assit_prompt=prompt["assit_prompt"]
         self.api=OpenAI(api_key=api_key)
 
+    def parser(self,text):
+        answer_match = re.search(r'"Answer": "(.*?)"', text)
+        if answer_match:
+            answer = str(answer_match.group(1))
+        else:
+            answer=None
+        # Regex to capture the confidence score
+        confidence_match = re.search(r'"Confidence": (\d+\.\d+)', text)
+        if confidence_match:
+            confidence_score = float(confidence_match.group(1))
+        else:
+            confidence_score=None
+        return {"Answer":answer,"Confidence":confidence_score}
+
     def generate(self):
         # self.api_key=self.api_key['openai']['api_key']
         for _ in range(self.re_gen_times):
@@ -285,9 +299,10 @@ class GPT_API:
 
             elif 'claude' in self.api_name:
                 str_response=anthropic_GPT(self.api_name,self.api_key).claude_reply(system_prompt=self.system_prompt,Instruction=self.Instruction,question=self.question,input_text=self.input_text,assit_prompt=self.assit_prompt)
-                str_response=str_response.replace("\n","").replace("[","").replace("]","")
                 print(str_response)
-                result=json.loads(str_response)
+                result=self.parser(str_response.replace("\n","").replace("[","").replace("]",""))
+                print(result)
+                # result=json.loads(str_response)
 
             if result is not None:
                 final_res=ans_parser(self.ans_parser,result)

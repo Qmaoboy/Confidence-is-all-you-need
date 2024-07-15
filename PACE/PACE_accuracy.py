@@ -69,7 +69,7 @@ class Accuracy:
         eval_acc=acc_metric(self.acc_model)
         logger.info(f"Model {self.acc_model} Start to Calculate accuracy")
         for idx ,(batch,answer,ground_truth) in enumerate(p:=tqdm(self.eval_loader)):
-            acc_batch= eval_acc.compute_acc(answer,ground_truth) # [batch*acc]
+            acc_batch= eval_acc.compute_acc([str(i) for i in answer],[str(i) for i in ground_truth]) # [batch*acc]
             args=[(acc_list,i,float(acc),ans,gt) for i,ans,gt,acc in zip(batch,answer,ground_truth,acc_batch)if ans not in ans_list]
 
             mp_pool.starmap(self.acc_worker,args)

@@ -61,6 +61,7 @@ class Confidence:
                                 response_candidiate.append(result)
                         else:
                             result=GPT_API(self.api_model,self.api_key,self.ans_parser,p).generate()
+
                         if result is not None:
                             if self.dataset_path=="ChilleD/StrategyQA":
                                 ans =False if "No" in ans else True

@@ -24,7 +24,7 @@ tasks = {
 accuracy_model_mapping={
     'din0s/asqa': 'rougeL',
     'natural_questions': 'f1',
-    'triviaQA': 'bool_acc'
+    'triviaQA': 'f1'
 }
 api_model_key_mapping={
     "gpt-4-turbo":"openai",
@@ -57,18 +57,19 @@ def main():
     key=get_key_()
     # 'natural_questions','din0s/asqa',"triviaQA",
     datasets = ["triviaQA"]
-    strategies = ['vanilla','cot','multi_step']
+    strategies = ['vanilla']
+    # strategies = ['vanilla','cot','multi_step']
     sim_models = 'Cos_sim'
 
     ## API model
-    # api_model = 'gpt-3.5-turbo-0125'
-    api_model = 'gpt-4-turbo'
+    api_model = 'gpt-3.5-turbo-0125'
+    # api_model = 'gpt-4-turbo'
     # api_model = 'claude-3-5-sonnet-20240620'
 
     api_key=key[api_model_key_mapping[api_model]]['api_key']
 
     shuffle=False
-    data_count = 100
+    data_count = 4000
     train_batch_size = 50
     eval_batch_size = 0 ## No use
     lambda_value=0.7

@@ -60,7 +60,14 @@ def area_under_risk_coverage_score(confids, correct):
     return sum([(risks[i] + risks[i + 1]) * 0.5 * weights[i] for i in range(len(weights))])* AURC_DISPLAY_SCALE
 
 
-def compute_conf_metrics(y_acc, y_confs,Stretagy,acc_model):
+def compute_conf_metrics(y_acc, y_confs,Stretagy,acc_model,data_name):
+
+
+    for idx,(acc,conf) in enumerate(zip(y_acc,y_confs)):
+        if float(acc)==1.0:
+            y_confs[idx]=1.0
+        elif float(acc)==0.0:
+            y_confs[idx]=0.0
 
     result_matrics = {}
     # ACC
@@ -86,7 +93,7 @@ def compute_conf_metrics(y_acc, y_confs,Stretagy,acc_model):
     # y_confs, y_true = np.array(y_confs), np.array(y_true)
 
     # ROC
-    Cal_roc_curve(y_true,y_confs,Stretagy)
+    Cal_roc_curve(y_true,y_confs,data_name)
 
     # AUCROC
     # roc_auc = roc_auc_score(y_true, y_confs)
@@ -125,7 +132,7 @@ def compute_conf_metrics(y_acc, y_confs,Stretagy,acc_model):
     return result_matrics
 
 def Cal_roc_curve(y_true,y_scores,data_name):
-
+    os.makedirs("picture/roc_curve",exist_ok=True)
     # Compute ROC curve
     fpr, tpr, thresholds = roc_curve(y_true, y_scores)
 
@@ -143,7 +150,7 @@ def Cal_roc_curve(y_true,y_scores,data_name):
     plt.ylabel('True Positive Rate')
     # plt.title('Receiver Operating Characteristic')
     plt.legend(loc="lower right")
-    plt.savefig(f"picture/{data_name}_roc_curve.png")
+    plt.savefig(f"picture/roc_curve/{data_name}_roc_curve.png")
     # plt.show()
     plt.clf()
 
@@ -205,10 +212,10 @@ def evaluate_score(api_model,dataset_path,Stretagy,sim_model,acc_model,activatio
     ## ECE and AUROC
     print("*"*50)
     print(f"{sim_model} {Stretagy} Without PACE")
-    eval_result=compute_conf_metrics(acc_array,conf_array,Stretagy,acc_model)
+    eval_result=compute_conf_metrics(acc_array,conf_array,Stretagy,acc_model,f"{dataset_path}_{Stretagy}_{sim_model}")
     print("*"*50)
     print(f"{sim_model} {Stretagy} With PACE")
-    eval_pace_result=compute_conf_metrics(acc_array,pace_conf_array,Stretagy,acc_model)
+    eval_pace_result=compute_conf_metrics(acc_array,pace_conf_array,Stretagy,acc_model,f"PACE_{dataset_path}_{Stretagy}_{sim_model}")
     print("*"*100)
 
     ## MacroCE
