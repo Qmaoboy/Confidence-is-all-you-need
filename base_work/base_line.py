@@ -7,16 +7,14 @@ from tqdm import tqdm
 from util import *
 import yaml,os,json,re
 import multiprocessing as mp
-from sklearn.metrics import roc_auc_score
+from sklearn.metrics import roc_auc_score,roc_curve,auc
 from copy import copy,deepcopy
 import textgrad as tg
 
-if os.path.isfile("../api_key.yml"):
-    with open("../api_key.yml","r") as f:
-        key=yaml.safe_load(f)
+key=get_key_()
 
- ## gpt-3.5-turbo-0125, gpt-4-turbo
-## "claude-3-5-sonnet-20240620"
+#  gpt-3.5-turbo-0125, gpt-4-turbo
+# "claude-3-5-sonnet-20240620"
 
 # api_model='claude-3-5-sonnet-20240620'
 # api_key=key['claude']['api_key']
@@ -31,7 +29,10 @@ def question_to_prompt(question,task="self_polish",stretagy='self_polish'):
 
 def Get_auroc(accuracy,confidence_scores):
     y_true=np.where(np.array(accuracy) < 0.3,0,1)
-    return roc_auc_score(np.array(y_true), np.array(confidence_scores))
+    fpr1, tpr1, thresholds1 = roc_curve(y_true, np.array(confidence_scores))
+    roc_auc=auc(fpr1, tpr1)
+
+    return roc_auc
 
 def ans_scorer(new_ans,original_ans):
     ## Compare Result
@@ -41,7 +42,7 @@ def ans_scorer(new_ans,original_ans):
 def rewrite_worker(share_list,idx,original_question,ground_truth,documnet,baseline):
 
     if baseline =="vanilla":
-        prompt=question_to_prompt([original_question],'pure','vanilla')
+        prompt=question_to_prompt([original_question],'Long_QA','vanilla')
         Answer_result=GPT_API(api_model,api_key,'confidence',prompt).generate()
         if Answer_result is not None:
             rouge_score=ans_scorer(Answer_result['Answer'],ground_truth)
@@ -58,34 +59,49 @@ def rewrite_worker(share_list,idx,original_question,ground_truth,documnet,baseli
     elif baseline =="self_polish":
         ###### self polish iterate refine question
         old_refine_question=deepcopy(original_question)
-        for _ in (p:=tqdm(range(3),leave=False)):
+        question_list=[old_refine_question]
+        old_rouge_score=0
+        Final_result={}
+        for idx in (p:=tqdm(range(3),leave=True,position=1)):
             prompt=question_to_prompt([old_refine_question],'self_polish','self_polish')
             new_question=GPT_API(api_model,api_key,'self_polish',prompt).generate()
+            new_question_prompt=question_to_prompt([new_question["New_Question"]],'Long_QA','vanilla')
+            Answer_result=GPT_API(api_model,api_key,'confidence',new_question_prompt).generate()
 
-            if old_refine_question==new_question['New_Question']: ## converge
-                break
-            else:
-                old_refine_question=new_question['New_Question']
+            if Answer_result is not None:
+                rouge_score=ans_scorer(Answer_result['Answer'],ground_truth)
+                p.set_postfix_str(f"Update {rouge_score}")
+                if rouge_score>old_rouge_score:
+                    old_rouge_score=rouge_score
+                    Final_result={
+                        'Answer':Answer_result['Answer'],
+                        'Confidence':Answer_result['Confidence'],
+                        'rouge_score':rouge_score,
+                    }
+                    p.set_description_str(f"Max {Final_result['rouge_score']}")
 
-        new_question_prompt=question_to_prompt([new_question["New_Question"]],'Long_QA','vanilla')
-        Answer_result=GPT_API(api_model,api_key,'confidence',new_question_prompt).generate()
+            old_refine_question=new_question['New_Question']
+            question_list.append(new_question['New_Question'])
 
-        if Answer_result is not None:
-            rouge_score=ans_scorer(Answer_result['Answer'],ground_truth)
+        if Final_result:
+            # rouge_score=ans_scorer(Answer_result['Answer'],ground_truth)
             share_list.append({
                 'Id':idx,
                 'Original_question':original_question,
                 'New_Question':new_question['New_Question'],
+                'Question_history':question_list,
                 'Documnet':documnet,
                 'Ground_truth':ground_truth,
-                'Answer':Answer_result['Answer'],
-                'Confidence':Answer_result['Confidence'],
-                'rouge_score':rouge_score,
+                'Answer':Final_result['Answer'],
+                'Confidence':Final_result['Confidence'],
+                'rouge_score':Final_result['rouge_score'],
             })
+        else:
+            print(Final_result)
 
     elif baseline =="RaR":
-        prompt=question_to_prompt([old_refine_question],'RaR','RaR')
-        Answer_result=GPT_API(api_model,api_key,'RaR',new_question_prompt).generate()
+        prompt=question_to_prompt([original_question],'Long_QA','RaR')
+        Answer_result=GPT_API(api_model,api_key,'RaR',prompt).generate()
 
         if Answer_result is not None:
             rouge_score=ans_scorer(Answer_result['Answer'],ground_truth)
@@ -99,115 +115,80 @@ def rewrite_worker(share_list,idx,original_question,ground_truth,documnet,baseli
                 'rouge_score':rouge_score,
                 'Documnet':documnet,
             })
-    elif baseline =="textgrad":
-        os.environ['OPENAI_API_KEY'] = api_key
-        text_grad_api_model="gpt-3.5-turbo-0125"
-
-        def parser(text):
-            answer_match = re.search(r'"answer": "(.*?)"', text)
-            if answer_match:
-                answer = answer_match.group(1)
-            else:
-                answer=None
-            # Regex to capture the confidence score
-            confidence_match = re.search(r'"confidence_score": (\d+\.\d+)', text)
-            if confidence_match:
-                confidence_score = float(confidence_match.group(1))
-            else:
-                confidence_score=None
-
-            if answer is not None and confidence_score is not None:
-                return {"Answer":answer,"Confidence":confidence_score}
-            else:
-                return None
-
-        tg.set_backward_engine(text_grad_api_model, override=True)
-
-        # Step 1: Get an initial response from an LLM.
-        model = tg.BlackboxLLM(text_grad_api_model)
-
-        question_string = (f"{original_question}"
-                        "provide confidence score to the answer in json")
-        question = tg.Variable(question_string,
-                            role_description="question to the LLM",
-                            requires_grad=False)
-        answer = model(question)
-        print(answer)
-        Answer_result=parser(str(answer))
-
-        answer.set_role_description("concise and accurate answer to the question")
-
-        # Step 2: Define the loss function and the optimizer, just like in PyTorch!
-        # Here, we don't have SGD, but we have TGD (Textual Gradient Descent)
-        # that works with "textual gradients".
-        optimizer = tg.TGD(parameters=[answer])
-        evaluation_instruction = (f"Here's a question: {question_string}. "
-                                "Evaluate any given answer to this question, "
-                                "be smart, logical, and very critical. "
-                                "Just provide concise feedback."
-                                )
 
 
-        # TextLoss is a natural-language specified loss function that describes
-        # how we want to evaluate the reasoning.
-        loss_fn = tg.TextLoss(evaluation_instruction)
+def evaluate_result(datapath):
+    if os.path.isfile(datapath):
+        with open(datapath,'r') as f:
+            data=json.load(f)
 
-        # Step 3: Do the loss computation, backward pass, and update the punchline.
-        # Exact same syntax as PyTorch!
-        loss = loss_fn(answer)
-        loss.backward()
-        optimizer.step()
-        Answer_result['Answer']=str(answer)
+        acc=np.array([float(i['rouge_score']) for i in data])
+        conf=np.array([float(i['Confidence']) for i in data])
+        ece_score=np.abs(acc-conf)
+        print(f"{datapath}")
+        print(f"rouge_score mean :{np.mean(acc)}")
+        print(f"ECE mean :{np.mean(ece_score)}")
+        print(f"Auroc mean :{Get_auroc(acc,conf)}")
+    else:
+        print(f"Not Exist {api_model}_{baseline}.json")
 
-        if Answer_result is not None:
-            rouge_score=ans_scorer(Answer_result['Answer'],ground_truth)
-            share_list.append({
-                'Id':idx,
-                'Original_question':original_question,
-                'Answer':Answer_result['Answer'],
-                'Ground_truth':ground_truth,
-                'Confidence':Answer_result['Confidence'],
-                'rouge_score':rouge_score,
-                'Documnet':documnet,
-            })
+def main(baseline,datapath):
+    if baseline in ["vanilla","self_polish","RaR"]:
+        train_dataloader=qadataset_dataloader(dataset_path="din0s/asqa",split='dev',batch_size=1,shuffle=False).trainloader
+        share_list=mp.Manager().list()
+        mp_pool=mp.Pool(processes=mp.cpu_count())
+        for idx,(batch,Ground_truth) in enumerate(progress:=tqdm(train_dataloader,position=0)):
+            original_question=[i[0] for i in batch]
+            document=[search_wikipedia_byurl(i[1]) if i[2] else i[1] for i in batch]
+            args=[(share_list,idx,q,gt,doc,baseline) for idx,(q,gt,doc) in enumerate(zip(original_question,Ground_truth,document))]
+            mp_pool.starmap(rewrite_worker,args)
+            if share_list:
+                progress.set_description_str(f"Processing {len(share_list)} batch rouge {np.mean(np.array([i['rouge_score'] for i in share_list]))}")
+                progress.set_postfix_str(f"list length: {len(share_list)}")
+            if len(share_list)>=50 or idx >=50:
+                break
 
+        mp_pool.close()
+        mp_pool.join()
+        with open(datapath,'w+') as f:
+            json.dump(list(share_list),f)
 
+    elif baseline in ["textgrad"] and 'gpt' in api_model:
+        share_list=[]
+        train_dataloader=qadataset_dataloader(dataset_path="din0s/asqa",split='dev',batch_size=1,shuffle=False).trainloader
+        for idx,(batch,Ground_truth) in enumerate(progress:=tqdm(train_dataloader)):
+            original_question=[i[0] for i in batch]
+            document=[search_wikipedia_byurl(i[1]) if i[2] else i[1] for i in batch]
 
-def evaluate_result(baseline):
-    with open(f'{api_model}_{baseline}.json','r') as f:
-        data=json.load(f)
+            for q,doc,a in zip(original_question,document,Ground_truth):
 
-    acc=np.array([float(i['rouge_score']) for i in data])
-    conf=np.array([float(i['Confidence']) for i in data])
-    ece_score=np.abs(acc-conf)
-    print(f"{api_model}:{baseline}")
-    print(f"rouge_score mean :{np.mean(acc)}")
-    print(f"ECE mean :{np.mean(ece_score)}")
-    print(f"Auroc mean :{Get_auroc(acc,conf)}")
+                Answer_result=text_grad(api_model).text_grad_get_response(q,a)
+                if Answer_result is not None:
+                    rouge_score=ans_scorer(Answer_result['Answer'],a)
+                    share_list.append({
+                        'Id':idx,
+                        'Original_question':q,
+                        'Answer':Answer_result['Answer'],
+                        'Answer_before':Answer_result['Answer_before'],
+                        'Ground_truth':a,
+                        'Confidence':Answer_result['Confidence'],
+                        'rouge_score':rouge_score,
+                        'Documnet':doc,
+                    })
+                    with open(datapath,'w+') as f:
+                        json.dump(list(share_list),f)
+                else:
+                    progress.set_description_str(f"Fail {Answer_result}")
+                if share_list:
+                    progress.set_description_str(f"{idx} Processing {len(share_list)} batch rouge {np.mean(np.array([i['rouge_score'] for i in share_list]))}")
 
-def main(baseline):
-
-    train_dataloader=qadataset_dataloader(dataset_path="din0s/asqa",split='dev',batch_size=1).trainloader
-    share_list=mp.Manager().list()
-    mp_pool=mp.Pool(processes=mp.cpu_count())
-    for idx,(batch,Ground_truth) in enumerate(progress:=tqdm(train_dataloader)):
-        original_question=[i[0] for i in batch]
-        document=[search_wikipedia_byurl(i[1]) if i[2] else i[1] for i in batch]
-        args=[(share_list,idx,q,gt,doc,baseline) for idx,(q,gt,doc) in enumerate(zip(original_question,Ground_truth,document))]
-        mp_pool.starmap(rewrite_worker,args)
-        if share_list:
-            progress.set_description_str(f"Processing {len(share_list)} batch rouge {np.mean(np.array([i['rouge_score'] for i in share_list]))}")
-        if len(share_list)>=50:
-            break
-
-    mp_pool.close()
-    mp_pool.join()
-
-    with open(f'{api_model}_{baseline}.json','w+') as f:
-        json.dump(list(share_list),f)
-
+            if len(share_list)>=50 or idx >=50:
+                break
 
 if __name__=="__main__":
-    baseline='RaR'
-    main(baseline)
-    evaluate_result(baseline)
+    baseline_list=["textgrad"]
+    for baseline in baseline_list:
+        datapath=f'{api_model}_{baseline}_detail.json'
+        # datapath=f'{api_model}_{baseline}.json'
+        # main(baseline,datapath)
+        evaluate_result(datapath)

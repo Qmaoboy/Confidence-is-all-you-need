@@ -299,6 +299,85 @@ class GPT_API:
             logger.error(f"Generate fail exit()\n{self.question}\n{self.Instruction}")
             return None
 
+
+import textgrad as tg
+import re
+
+class text_grad:
+    def __init__(self,api_model) -> None:
+        self.set_up_keys()
+        tg.set_backward_engine(api_model, override=True)
+
+        # Step 1: Get an initial response from an LLM.
+        self.model = tg.BlackboxLLM("gpt-4o")
+
+    def set_up_keys(self):
+        if os.path.isfile("../api_key.yml"):
+            with open("../api_key.yml","r") as f:
+                key=yaml.safe_load(f)
+
+        os.environ['OPENAI_API_KEY'] = key['openai']['api_key']
+
+
+    def parser(self,text):
+        answer_match = re.search(r'"answer": "(.*?)"', text)
+        if answer_match:
+            answer = str(answer_match.group(1))
+        else:
+            answer=None
+        # Regex to capture the confidence score
+        confidence_match = re.search(r'"confidence": (\d+\.\d+)', text)
+        if confidence_match:
+            confidence_score = float(confidence_match.group(1))
+        else:
+            confidence_score=None
+        return {"Answer_before":answer,"Confidence":confidence_score}
+
+    def text_grad_get_response(self,question_str,answer_str):
+
+        question_string = (f"{question_str}"
+                        "provide only one 'answer' to the question with more detail and one 'confidence' to the answer in json, confidence is a float value between 0 and 1")
+
+        question = tg.Variable(question_string,
+                            role_description="question to the LLM",
+                            requires_grad=False)
+
+        answer = self.model(question)
+
+        result=self.parser(str(answer).replace("json","").replace("`",""))
+        answer.set_role_description("concise and accurate answer to the question")
+
+        # Step 2: Define the loss function and the optimizer, just like in PyTorch!
+        # Here, we don't have SGD, but we have TGD (Textual Gradient Descent)
+        # that works with "textual gradients".
+        optimizer = tg.TGD(parameters=[answer])
+        evaluation_instruction = (f"Here's a question: {question_string}. "
+                                "Evaluate any given answer to this question, "
+                                "be smart, logical, and very critical. "
+                                "Just provide concise feedback."
+                                )
+        # TextLoss is a natural-language specified loss function that describes
+        # how we want to evaluate the reasoning.
+        loss_fn = tg.TextLoss(evaluation_instruction)
+
+        # Step 3: Do the loss computation, backward pass, and update the punchline.
+        # Exact same syntax as PyTorch!
+        loss = loss_fn(answer)
+        loss.backward()
+        optimizer.step()
+        result['Answer']=self.parser(str(answer).replace("json","").replace("`",""))['Answer_before']
+        print("*"*50)
+        print(question_str)
+        print(answer_str)
+        print(str(answer).replace("json","").replace("`",""))
+        print(result)
+        print("*"*50)
+        if None in result.values():
+            return None
+        else:
+            return result
+
+
 if __name__=="__main__":
     pass
 

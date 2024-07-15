@@ -14,11 +14,19 @@ import os,json,glob
 from datetime import datetime
 import numpy as np
 import multiprocessing as mp
-import random
+import random,yaml
 from rouge_score import rouge_scorer
 import matplotlib.pyplot as plt
 
-
+def get_key_():
+    if os.path.isfile("../api_key.yml"):
+        with open("../api_key.yml","r") as f:
+            key=yaml.safe_load(f)
+            print("Key Get !!")
+        return key
+    else:
+        print("Key FAIL !!")
+        return None
 
 
 def shuffle_theans(ll):
@@ -343,21 +351,24 @@ def search_wikipedia_byurl(url:list)->list:
             result=scrape_external_knowledge_by_request([url])
             return False,result
     if url:
-        ifexits,page_name = get_page_from_url(url.pop())
-        if page_name is None:
-            return ["No knowledge"]
-
-        if ifexits:
-            wiki_wiki = wikipediaapi.Wikipedia(user_agent='CoolBot/0.0 (https://example.org/coolbot/; coolbot@example.org)', language='en')
-            page = wiki_wiki.page(page_name)
-
-            if page.exists():
-                return [page.text]
-            else:
-                # print(f"No page found for {page_name}")
+        try:
+            ifexits,page_name = get_page_from_url(url.pop())
+            if page_name is None:
                 return ["No knowledge"]
-        else:
-            return page_name
+
+            if ifexits:
+                wiki_wiki = wikipediaapi.Wikipedia(user_agent='CoolBot/0.0 (https://example.org/coolbot/; coolbot@example.org)', language='en')
+                page = wiki_wiki.page(page_name)
+
+                if page.exists():
+                    return [page.text]
+                else:
+                    # print(f"No page found for {page_name}")
+                    return ["No knowledge"]
+            else:
+                return page_name
+        except:
+            return ["No knowledge"]
 
 def show_histogram_graph(vector,title,activate_time,stretagy="",sim="",datafile_name="",label=[]):
     os.makedirs(f"picture/histogram/{activate_time}",exist_ok=True)
