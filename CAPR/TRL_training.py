@@ -93,7 +93,7 @@ def trainer(Batch_accumulate_size, max_epoch, model, tokenizer,Dataloader,genera
             ## replace generated Instruction
             for idx,p_instruc in enumerate(response):
                 prompt[idx]['Instruction']=str(p_instruc)
-                prompt[idx]['system_prompt']="This is a Long form generation QA task, please answer the Question base on the Instruction to the question and confidence to the Answer in json."
+                prompt[idx]['system_prompt']="This is a generation QA task, please answer the Question base on the Instruction to the question and confidence to the Answer in json."
                 prompt[idx]['input_text']="\nOnly give me one Answer and Confidence according to response format in json, don't give me any other words.\n\nresponse format:\n{'Answer':[ONLY Your final Answer here],\n'Confidence':[Your final Confidence here]}"
 
             ## Environment Get Answer and Confidence
