@@ -68,11 +68,11 @@ def reward_function(result_batch,Ground_truth,Document):
         Document_List: Batch* K
     '''
 
-    eval_acc=acc_metric('rougeL')
+    eval_acc=acc_metric('f1')
     simi=simi_metric("Cos_sim")
     lambda_value=0.7
     ## Balance Between ECE and ACC
-    ece_acc_ratio=0.0
+    ece_acc_ratio=1.0
     ## ece_acc_ratio*-ece+(1.0-ece_acc_ratio)*acc
     assert len(result_batch)==len(Ground_truth)==len(Document)
     ## result_batch dict(confidece,Answer) / None
@@ -89,7 +89,8 @@ def reward_function(result_batch,Ground_truth,Document):
                 ## Follow f1 score
                 conf_batch=torch.tensor(float(result['Confidence']))
                 acc_batch=torch.tensor(eval_acc.compute_acc([answer],[ground])).squeeze()
-
+                # conf_batch[acc_batch==1.0]=1.0
+                # conf_batch[acc_batch==0.0]=0.0
                 simi_scores = torch.tensor(simi.compute_similarity([answer],doc))
                 simi_score = torch.max(simi_scores)
                 Final_conf=conf_batch*lambda_value+simi_score*(1-lambda_value)

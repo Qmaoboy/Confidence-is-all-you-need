@@ -175,8 +175,8 @@ def trainer(Batch_accumulate_size, max_epoch, model, tokenizer,Dataloader,genera
 def main():
 
     Training_Config={
-        "dataset_path":f'response_result/20240601/din0s_asqa_gpt-3.5-turbo-0125_vanilla_Long_QA.json',
-        'deliminator':"06122032_vanilla_f1_r12_OnlyReward",
+        "dataset_path":f'response_result/20240601/triviaQA_gpt-3.5-turbo-0125_vanilla_QA.json',
+        'deliminator':"06122032_vanilla_f1_r1_trivia_withPACE",
         'max_epoch': 8,
         'trian_batch_size':8,
         'Batch_accumulate_size':32 # min : 128, Max: 64
