@@ -8,7 +8,7 @@ import anthropic
 logger = setup_logger('log/gpt_class.log')
 import multiprocessing as mp
 
-device = 'cuda' if torch.cuda.is_available() else 'cpu'
+device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
 class openai_GPT:
     def __init__(self,model,api_key):
         self.model_name=model

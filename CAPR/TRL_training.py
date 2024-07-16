@@ -1,3 +1,6 @@
+import os
+os.environ["CUDA_VISIBLE_DEVICES"]='1'
+
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from torch import nn
 # from peft import PeftModel, PeftConfig, get_peft_model
@@ -19,9 +22,10 @@ from RL_env import Environment,reward_function,rl_writer,Parallel_Environment
 import glob,os,torch,yaml
 from huggingface_hub import login
 import wandb
+import torch
 from util import get_key_
 
-
+# torch.cuda.set_device(0)
 device = 0 if torch.cuda.is_available() else "cpu"
 
 key=get_key_()
@@ -177,6 +181,8 @@ def trainer(Batch_accumulate_size, max_epoch, model, tokenizer,Dataloader,genera
 
 def main():
 
+    # torch.cuda_set_device(1)
+
     Training_Config={
         "dataset_path":f'response_result/20240601/triviaQA_gpt-3.5-turbo-0125_vanilla_QA.json',
         'deliminator':"06122032_vanilla_f1_r1_trivia_withPACE",
@@ -222,8 +228,9 @@ def main():
     # set_seed(config.seed)
 
     # current_device=1
-    device_map = {"": Accelerator().local_process_index}
-    # device_map = {"": 1}
+    # device_map = {"": Accelerator().local_process_index}
+    device_map = {"": 0}
+
     peft_config = peft.AdaptionPromptConfig(adapter_len = 10, adapter_layers = 30)
 
     if os.path.isdir(pretrained_model_path):
@@ -251,11 +258,12 @@ def main():
     Dataloader=eval_dataloader(dataset_path=Training_Config['dataset_path'], batch_size=Training_Config['trian_batch_size'], purpose='refine',tokenizer=tokenizer,shuffle=True).trainloader
 
     optim = torch.optim.AdamW(optim_confg, eps = 1e-4,weight_decay=0.01)
-    print(f"Total Step: {len(Dataloader)*Dataloader.batch_size*Training_Config['max_epoch']//config.batch_size}")
+
     # scheduler1 = StepLR(optim, step_size=9, gamma=0.9)
     ## Overall Iter
     Overalliter=len(Dataloader)*Dataloader.batch_size*Training_Config['max_epoch']//config.batch_size
     ##
+    print(f"Total Step: {Overalliter}")
     scheduler2 = PolynomialLR(optim,  total_iters=Overalliter, power=2)
     # scheduler3 = ExponentialLR(optim, gamma=0.9)
     warmup = LinearLR(optim, start_factor=1e-2,end_factor=1,total_iters=int(Overalliter*0.02)+1)
@@ -271,7 +279,6 @@ def main():
         lr_scheduler=main_schedualer,
         )
 
-    # device = 0 if torch.cuda.is_available() else "cpu"
     # ds_plugin = ppo_trainer.accelerator.state.deepspeed_plugin
 
     # model,Dataloader,optim ,lr_scheduler= accelerator.prepare(model,Dataloader,optim,lr_scheduler)
@@ -287,7 +294,6 @@ def main():
         "pad_token_id": tokenizer.eos_token_id,
         'no_repeat_ngram_size':4
         }
-
 
     Agent_addres=trainer(Training_Config['Batch_accumulate_size'], Training_Config['max_epoch'], ppo_trainer, tokenizer,Dataloader,generation_kwargs,writer)
 
