@@ -21,6 +21,9 @@ from huggingface_hub import login
 import wandb
 from util import get_key_
 
+
+device = 0 if torch.cuda.is_available() else "cpu"
+
 key=get_key_()
 
 if os.path.isfile("default_config.yaml"):
@@ -66,7 +69,7 @@ def trainer(Batch_accumulate_size, max_epoch, model, tokenizer,Dataloader,genera
 
     for epoch in (t:=tqdm(range(max_epoch), "epoch: ")):
 
-        for prompt,instruct,instruct_token,ans,ground_Truth,ground_Truth_token,Confidence,Document in (bar:=tqdm(Dataloader,leave=True)):
+        for prompt,instruct,instruct_token,ans,ground_Truth,Confidence,Document in (bar:=tqdm(Dataloader,leave=True)):
             bar.set_postfix_str("get Instruction")
             instruct_token.input_ids=list(map(lambda x:torch.tensor(x),instruct_token.input_ids))
             query_tensors=instruct_token.input_ids
@@ -93,7 +96,7 @@ def trainer(Batch_accumulate_size, max_epoch, model, tokenizer,Dataloader,genera
             ## replace generated Instruction
             for idx,p_instruc in enumerate(response):
                 prompt[idx]['Instruction']=str(p_instruc)
-                prompt[idx]['system_prompt']="This is a generation QA task, please answer the Question base on the Instruction to the question and confidence to the Answer in json."
+                prompt[idx]['system_prompt']="This is a QA task, please answer the Question base on the Instruction to the question and confidence to the Answer in json."
                 prompt[idx]['input_text']="\nOnly give me one Answer and Confidence according to response format in json, don't give me any other words.\n\nresponse format:\n{'Answer':[ONLY Your final Answer here],\n'Confidence':[Your final Confidence here]}"
 
             ## Environment Get Answer and Confidence

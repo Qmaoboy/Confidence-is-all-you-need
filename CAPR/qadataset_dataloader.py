@@ -131,7 +131,7 @@ class eval_dataloader:
         [/INST]new instruction:''' for i in prompt]
 
 
-        short_form_instruct=[f'''[INST] <<SYS>>Rewrite the following basic instruction to help a large language model generate a more detailed and comprehensive answer for a long-form QA task. Ensure the rewritten instruction is clear and concise, prompting the model to provide a thorough and well-structured response of at least 300 tokens to the given question. The new instruction should be within 256 tokens.
+        short_form_instruct=[f'''[INST] <<SYS>>Rewrite the following basic instruction to help a large language model generate a more detailed and comprehensive answer for a QA task. Ensure the rewritten instruction is clear and concise, prompting the model to provide a thorough and well-structured response to the given question. The new instruction should be within 256 tokens.
         Basic Instruction: "{i['Instruction']}"
         Question: "{i['Question']}"
         [/INST]new instruction:''' for i in prompt]
