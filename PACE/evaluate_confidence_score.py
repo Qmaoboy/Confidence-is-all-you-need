@@ -199,6 +199,7 @@ def evaluate_score(api_model,dataset_path,Stretagy,sim_model,acc_model,activatio
 
     # print(conf_array)
     # print(pace_conf_array)
+    dataset_path=dataset_path.replace('/','_')
     ####################
     print("*"*100)
     print(f"{dataset_path} {Stretagy} {sim_model}")
@@ -212,6 +213,7 @@ def evaluate_score(api_model,dataset_path,Stretagy,sim_model,acc_model,activatio
     ## ECE and AUROC
     print("*"*50)
     print(f"{sim_model} {Stretagy} Without PACE")
+
     eval_result=compute_conf_metrics(acc_array,conf_array,Stretagy,acc_model,f"{dataset_path}_{Stretagy}_{sim_model}")
     print("*"*50)
     print(f"{sim_model} {Stretagy} With PACE")

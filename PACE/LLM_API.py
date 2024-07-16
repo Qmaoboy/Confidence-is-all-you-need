@@ -299,9 +299,9 @@ class GPT_API:
 
             elif 'claude' in self.api_name:
                 str_response=anthropic_GPT(self.api_name,self.api_key).claude_reply(system_prompt=self.system_prompt,Instruction=self.Instruction,question=self.question,input_text=self.input_text,assit_prompt=self.assit_prompt)
-                print(str_response)
+                # print(str_response)
                 result=self.parser(str_response.replace("\n","").replace("[","").replace("]",""))
-                print(result)
+                # print(result)
                 # result=json.loads(str_response)
 
             if result is not None:

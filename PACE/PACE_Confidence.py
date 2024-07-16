@@ -86,8 +86,8 @@ class Confidence:
 
     def confidence_main(self):
         # Iterate over the DataLoader
-        mp_pool=mp.Pool(processes=mp.cpu_count())
-        # mp_pool=mp.Pool(processes=1)
+        # mp_pool=mp.Pool(processes=mp.cpu_count())
+        mp_pool=mp.Pool(processes=1)
         multi_manager=mp.Manager()
         Share_list=multi_manager.list()
         # Create a managed lock
