@@ -98,6 +98,12 @@ class eval_dataloader:
         elif purpose=="acc":
             self.loader=DataLoader(list(self.dataset),batch_size=len(self.dataset),collate_fn=self.acc_collate_fn,shuffle=self.shuffle,drop_last=True)
 
+        elif purpose=="refine":
+            sep_index=int(len(self.dataset)*0.8)
+            self.trainloader=DataLoader(list(self.dataset)[:sep_index],batch_size=batch_size,collate_fn=self.refine_collect_fn,shuffle=self.shuffle,num_workers=1,drop_last=True,persistent_workers=True)
+            self.testloader=DataLoader(list(self.dataset)[sep_index:],batch_size=batch_size,collate_fn=self.refine_collect_fn,shuffle=self.shuffle,num_workers=1,drop_last=True,persistent_workers=True)
+
+
     def acc_collate_fn(self,batch):
         # print(batch)
         ans=[i['Answer'] for i in batch]
@@ -111,6 +117,28 @@ class eval_dataloader:
         res=[[i['Question'],i['Document'],i['Confidence'],i['Explanation'],i['Prompt']] for i in batch]
         return res,ans,long_ans
 
+    def refine_collect_fn(self,batch):
+
+        ans=[i['Answer'] for i in batch]
+        ground_Truth=[i['Ground_Truth']for i in batch]
+        Document=[i['Document']for i in batch]
+        Confidence=[i['Confidence']for i in batch]
+        prompt=[i['Prompt'] for i in batch]
+
+        long_form_instruct=[f'''[INST] <<SYS>>Rewrite the following basic instruction to help a large language model generate a more detailed and comprehensive answer for a long-form QA task. Ensure the rewritten instruction is clear and concise, prompting the model to provide a thorough and well-structured response of at least 300 tokens to the given question. The new instruction should be within 256 tokens.
+        Basic Instruction: "{i['Instruction']}"
+        Question: "{i['Question']}"
+        [/INST]new instruction:''' for i in prompt]
+
+
+        short_form_instruct=[f'''[INST] <<SYS>>Rewrite the following basic instruction to help a large language model generate a more detailed and comprehensive answer for a long-form QA task. Ensure the rewritten instruction is clear and concise, prompting the model to provide a thorough and well-structured response of at least 300 tokens to the given question. The new instruction should be within 256 tokens.
+        Basic Instruction: "{i['Instruction']}"
+        Question: "{i['Question']}"
+        [/INST]new instruction:''' for i in prompt]
+
+        instruct_token=self.tokenizer(short_form_instruct,padding=False,truncation=True,max_length=512)
+
+        return prompt,short_form_instruct,instruct_token,ans,ground_Truth,Confidence,Document
 
 if __name__=="__main__":
     qa_loader=qadataset_dataloader("triviaQA",split='train',batch_size=1,shuffle=True).trainloader
