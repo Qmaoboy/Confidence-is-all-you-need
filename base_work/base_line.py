@@ -2,7 +2,6 @@
 from LLM_API import *
 from qadataset_dataloader import qadataset_dataloader
 from rouge_score import rouge_scorer
-from prompt_strategy import prompter
 from tqdm import tqdm
 from util import *
 import yaml,os,json,re
@@ -22,11 +21,6 @@ key=get_key_()
 api_model='gpt-4-turbo'
 api_key=key['openai']['api_key']
 
-def question_to_prompt(question,task="self_polish",stretagy='self_polish'):
-    p=prompter()
-    p.setup_task(task)
-    return p.get_prompt(question,[],stretagy)
-
 def Get_auroc(accuracy,confidence_scores):
     y_true=np.where(np.array(accuracy) < 0.9,0,1)
     fpr1, tpr1, thresholds1 = roc_curve(y_true, np.array(confidence_scores))
@@ -41,7 +35,9 @@ def ans_scorer(new_ans,original_ans,method):
     elif 'f1' in method:
         acc_func=acc_metric("f1")
         result=acc_func.compute_acc([str(new_ans)],[str(original_ans)])[0]
-
+    elif "" in method:
+        acc_func=acc_metric("f1")
+        result=acc_func.compute_acc([str(new_ans)],[str(original_ans)])[0]
     return result
 
 def rewrite_worker(idx,original_question,ground_truth,documnet,baseline,acc_metric):

@@ -4,6 +4,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 from sentence_transformers import SentenceTransformer, util
 import requests
+from prompt_strategy import prompter
 import wikipediaapi
 from tqdm import tqdm
 from urllib.parse import unquote
@@ -17,6 +18,7 @@ import multiprocessing as mp
 import random,yaml
 from rouge_score import rouge_scorer
 import matplotlib.pyplot as plt
+from LLM_API import *
 
 def get_key_():
     if os.path.isfile("../api_key.yml"):
@@ -27,6 +29,11 @@ def get_key_():
     else:
         print("Key FAIL !!")
         return None
+
+def question_to_prompt(question,task="self_polish",stretagy='self_polish'):
+    p=prompter()
+    p.setup_task(task)
+    return p.get_prompt(question,[],stretagy)
 
 
 def shuffle_theans(ll):
@@ -256,6 +263,10 @@ class acc_metric:
         elif self.metric in ['rouge1','rouge2','rougeL']:
             return [self.eval_model.score(p, a)[self.metric].fmeasure for p,a in zip(pred,ans)]
 
+        elif self.metric in ['extract_answer']:
+            return [self.extract_answer(i,j) for i,j in zip(pred,ans)]
+
+
     def bool_acc(self,pred:list,ans:list):
         correct_matches = [1 if p == r else 0 for p, r in zip(pred, ans)]
         # print(correct_matches)
@@ -284,6 +295,11 @@ class acc_metric:
         # Compute the EM score
         em_score = exact_matches / len(predictions)
         return em_score
+
+    def extract_answer(self,pred,ans):
+        pass
+
+
 
 def Get_Cost(file_path='response_result'):
     ### Count_tokens
