@@ -1,9 +1,3 @@
-from util import setup_logger
-import torch
-import numpy as np
-from datetime import datetime
-# activation_time=datetime.now().strftime("%Y%m%d")
-logger = setup_logger(f'log/response_{datetime.now().strftime("%Y%m%d")}.log')
 
 class prompter:
     def __init__(self):
@@ -15,7 +9,7 @@ class prompter:
 
         self.similarity_prompt="Note: The similarity indicates how likely you think your Answer and document is semantic related,from 0.00 (worst) to 1.00 (best)"
 
-        self.acc_prompt="Note: The accuracy indicates how likely you think your Answer and document is semantic accuracy,from 0.00 (worst) to 1.00 (best)"
+        self.acc_prompt="Note: The accuracy indicates how likely you think your ground truth and answer have the same meaning, give 0 (wrong) or 1 (Correct)"
 
         self.responseformat="response format:\n'Answer':[ONLY Your final Answer here],\n'Confidence':[Your final Confidence here]"
 
@@ -32,7 +26,7 @@ class prompter:
 
             elif task=="similarity":
 
-                self.system_prompt=f"This is a similarity compare task, please compare the semantic similarity between answer and groudtruth in json."
+                self.system_prompt=f"This is a similarity compare task, please compare the semantic similarity and provide the score in json."
 
             elif task=="self_polish":
 
@@ -40,11 +34,17 @@ class prompter:
 
             elif task=="RaR":
 
-                self.system_prompt=f"answer the question in json"
+                self.answer_type='answer the question'
+                self.system_prompt=f"{self.answer_type} in json"
+
+            elif task=='acc':
+
+                self.system_prompt=f"This is a accuracy task, please judge if ground truth and answer have exactly same semantic meaning and provide the accuracy in json"
 
             elif task=="pure":
 
-                self.system_prompt=f"answer the question in json"
+                self.answer_type='answer the question'
+                self.system_prompt=f"{self.answer_type} in json"
         else:
             raise ValueError("task Not Recognized")
 
@@ -75,22 +75,32 @@ class prompter:
 
         elif stretagy=="RaR":
             return self.RaR_prompt(query)
-        # elif stretagy=="acc":
-        #     return self.answer_acc(query,document)
+
+        elif stretagy=="acc":
+            return self.answer_acc(query)
 
 
     def document_answer_similarity(self,answer:list,document:list)-> dict:
         # logger.info(f"{answer} {type(document)}")
         document_str="\n".join(document)
-
-        answer=answer.pop()
-        Instruction=f"Compare the semantic similarity between given groudtruth and Answer"
-        similarty_froamt="{similarity:[Your final similarity here]}"
-
+        answer="".join(answer)
+        Instruction=f"Give the result of the accuracy between the Answer and the document"
+        similarty_froamt="{accuracy:[Your final accuracy here]}"
         input_text=f"groudtruth:{document_str},\nAnswer:{answer},\n\nresponse format :{similarty_froamt}\n"
 
         return {"system_prompt":self.system_prompt,'Instruction':Instruction,"Question":"",'input_text':input_text,"assit_prompt":self.similarity_prompt}
 
+
+    def answer_acc(self,query):
+        if len(query) !=2:
+            print("Query List size should be 2")
+            exit()
+
+        Instruction=f"Compare the semantic similarity between given groudtruth and Answer"
+        accuracy_format="{accuracy:[Your final accuracy here]}"
+        input_text=f"\nOnly give 0(wrong) or 1(correct) according to response format in json, don't give me any other words.\n\ngroudtruth:{query[0]},\nAnswer:{query[1]},\n\nresponse format :{accuracy_format}\n"
+
+        return {"system_prompt":self.system_prompt,'Instruction':Instruction,"Question":"",'input_text':input_text,"assit_prompt":self.acc_prompt}
 
     def topk_prompt(self,question:list,document:list)-> dict:
         question=question.pop()
