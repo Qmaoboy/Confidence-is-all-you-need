@@ -17,7 +17,25 @@ import multiprocessing as mp
 import random,yaml
 from rouge_score import rouge_scorer
 import matplotlib.pyplot as plt
+from LLM_API import GPT_API
+from prompt_strategy import prompter
 
+def question_to_prompt(question,task="self_polish",stretagy='self_polish'):
+    p=prompter()
+    p.setup_task(task)
+    return p.get_prompt(question,[],stretagy)
+
+def ans_scorer(new_ans,original_ans,method):
+    ## Compare Result
+    if 'rouge' in method:
+        result=rouge_scorer.RougeScorer(['rouge1', 'rouge2', 'rougeL'], use_stemmer=True).score(new_ans,original_ans)['rougeL'].fmeasure
+    elif 'f1' in method:
+        acc_func=acc_metric("f1")
+        result=acc_func.compute_acc([str(new_ans)],[str(original_ans)])[0]
+    elif "extract_answer" in method:
+        acc_func=acc_metric("extract_answer")
+        result=acc_func.compute_acc([str(new_ans)],[str(original_ans)])[0]
+    return result
 
 def get_key_():
     if os.path.isfile("../api_key.yml"):
