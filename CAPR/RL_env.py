@@ -68,7 +68,7 @@ def reward_function(result_batch,Ground_truth,Document):
         Document_List: Batch* K
     '''
 
-    eval_acc=acc_metric('extract_answer')
+    eval_acc=acc_metric('f1')
     simi=simi_metric("Cos_sim")
     lambda_value=0.7
     ## Balance Between ECE and ACC
