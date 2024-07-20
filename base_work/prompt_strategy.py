@@ -1,10 +1,3 @@
-from util import setup_logger
-import torch
-import numpy as np
-from datetime import datetime
-# activation_time=datetime.now().strftime("%Y%m%d")
-logger = setup_logger(f'log/response_{datetime.now().strftime("%Y%m%d")}.log')
-
 class prompter:
     def __init__(self):
         self.setup_assis_prompt()
@@ -15,7 +8,7 @@ class prompter:
 
         self.similarity_prompt="Note: The similarity indicates how likely you think your Answer and document is semantic related,from 0.00 (worst) to 1.00 (best)"
 
-        self.acc_prompt="Note: The accuracy indicates how likely you think your ground truth and answer have the same meaning, give result to 0.00 if wrong else 1.00 if Correct"
+        self.acc_prompt="Note: The accuracy indicates how likely you think your ground truth and answer have the same meaning, give 0 (wrong) or 1 (Correct)"
 
         self.responseformat="response format:\n'Answer':[ONLY Your final Answer here],\n'Confidence':[Your final Confidence here]"
 
@@ -45,7 +38,7 @@ class prompter:
 
             elif task=='acc':
 
-                self.system_prompt=f"This is a accuracy task, please judge if ground truth and answer have the same meaning and provide the result in json"
+                self.system_prompt=f"This is a accuracy task, please judge if ground truth and answer have exactly same semantic meaning and provide the accuracy in json"
 
             elif task=="pure":
 
@@ -104,9 +97,9 @@ class prompter:
 
         Instruction=f"Compare the semantic similarity between given groudtruth and Answer"
         accuracy_format="{accuracy:[Your final accuracy here]}"
-        input_text=f"\nOnly give me one accuracy according to response format in json, don't give me any other words.\n\ngroudtruth:{query[0]},\nAnswer:{query[1]},\n\nresponse format :{accuracy_format}\n"
+        input_text=f"\nOnly give 0(wrong) or 1(correct) according to response format in json, don't give me any other words.\n\ngroudtruth:{query[0]},\nAnswer:{query[1]},\n\nresponse format :{accuracy_format}\n"
 
-        return {"system_prompt":self.system_prompt,'Instruction':Instruction,"Question":"",'input_text':input_text,"assit_prompt":self.similarity_prompt}
+        return {"system_prompt":self.system_prompt,'Instruction':Instruction,"Question":"",'input_text':input_text,"assit_prompt":self.acc_prompt}
 
     def topk_prompt(self,question:list,document:list)-> dict:
         question=question.pop()
@@ -168,3 +161,7 @@ class prompter:
         rar_prompt=f"\nRephrase and expand the question, and respond Answer and Confidence\nOnly give me one Answer and Confidence according to response format in json, don't give me any other words.\n\n{rar_responsformat}\n"
 
         return {"system_prompt":self.system_prompt,'Instruction':"","Question":f"Question : {question}",'input_text':rar_prompt,"assit_prompt":self.confidence_define_prompt}
+
+
+
+

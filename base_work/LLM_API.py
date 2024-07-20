@@ -1,11 +1,8 @@
 from openai import OpenAI
 import openai,time,os,threading as th,json
-from util import setup_logger
 import yaml,torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import anthropic,re
-
-logger = setup_logger('log/gpt_class.log')
 import multiprocessing as mp
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -50,10 +47,10 @@ class openai_GPT:
                             continue
 
                 except openai.APIStatusError as e:
-                    logger.error(f"{th.current_thread().name} code : {e.status_code}_{e}")
+                    print(f"{th.current_thread().name} code : {e.status_code}_{e}")
                     continue
         else:
-            logger.debug("Text input empty, please check your input text")
+            print("Text input empty, please check your input text")
             return None
         return None
 
@@ -222,7 +219,7 @@ def ans_parser(parser_task,result):
             except:
                 return None
         else:
-            logger.info(f"{parser_task} Fail : {result}")
+            print(f"{parser_task} Fail : {result}")
             return None
 
     elif parser_task=="confidence":
@@ -241,7 +238,7 @@ def ans_parser(parser_task,result):
             except:
                 return None
         else:
-            logger.info(f"{parser_task} Fail : {result}")
+            print(f"{parser_task} Fail : {result}")
             return None
 
     elif parser_task=="multi_step_confidence":
@@ -257,7 +254,7 @@ def ans_parser(parser_task,result):
                 }
             return final_result
         else:
-            logger.info(f"{parser_task} Fail : {result}")
+            print(f"{parser_task} Fail : {result}")
             return None
 
     elif parser_task=="refine":
@@ -291,6 +288,17 @@ def ans_parser(parser_task,result):
                 "Expanded_Question":pp,
                 'Answer':ans,
                 'Confidence':Conf
+                }
+            return final_result
+        else:
+            # logger.info(f"{parser_task} Fail : {result}")
+            return None
+
+    elif parser_task=='extract_answer':
+        acc=result.get("accuracy",None)
+        if acc is not None:
+            final_result={
+                "Accuracy":acc,
                 }
             return final_result
         else:
@@ -346,7 +354,7 @@ class GPT_API:
                 else:
                     continue
         else:
-            logger.error(f"Generate fail exit()\n{self.question}\n{self.Instruction}")
+            print(f"Generate fail exit()\n{self.question}\n{self.Instruction}")
             return None
 
 
@@ -393,7 +401,6 @@ class text_grad:
                             requires_grad=False)
 
         answer = self.model(question)
-
         result=self.parser(str(answer).replace("json","").replace("`",""))
         answer.set_role_description("concise and accurate answer to the question")
 
@@ -428,6 +435,5 @@ class text_grad:
             return result
 
 
-if __name__=="__main__":
-    pass
+
 

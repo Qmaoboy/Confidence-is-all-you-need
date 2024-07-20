@@ -4,6 +4,7 @@ from qadataset_dataloader import qadataset_dataloader
 from rouge_score import rouge_scorer
 from tqdm import tqdm
 from util import *
+from prompt_strategy import prompter
 import yaml,os,json,re
 import multiprocessing as mp
 from sklearn.metrics import roc_auc_score,roc_curve,auc
@@ -15,11 +16,11 @@ key=get_key_()
 #  gpt-3.5-turbo-0125, gpt-4-turbo
 # "claude-3-5-sonnet-20240620"
 
-# api_model='claude-3-5-sonnet-20240620'
-# api_key=key['claude']['api_key']
+api_model='claude-3-5-sonnet-20240620'
+api_key=key['claude']['api_key']
 
-api_model='gpt-4-turbo'
-api_key=key['openai']['api_key']
+# api_model='gpt-4-turbo'
+# api_key=key['openai']['api_key']
 
 def Get_auroc(accuracy,confidence_scores):
     y_true=np.where(np.array(accuracy) < 0.9,0,1)
@@ -27,18 +28,6 @@ def Get_auroc(accuracy,confidence_scores):
     roc_auc=auc(fpr1, tpr1)
 
     return roc_auc
-
-def ans_scorer(new_ans,original_ans,method):
-    ## Compare Result
-    if 'rouge' in method:
-        result=rouge_scorer.RougeScorer(['rouge1', 'rouge2', 'rougeL'], use_stemmer=True).score(new_ans,original_ans)['rougeL'].fmeasure
-    elif 'f1' in method:
-        acc_func=acc_metric("f1")
-        result=acc_func.compute_acc([str(new_ans)],[str(original_ans)])[0]
-    elif "" in method:
-        acc_func=acc_metric("f1")
-        result=acc_func.compute_acc([str(new_ans)],[str(original_ans)])[0]
-    return result
 
 def rewrite_worker(idx,original_question,ground_truth,documnet,baseline,acc_metric):
     result={}
@@ -66,24 +55,26 @@ def rewrite_worker(idx,original_question,ground_truth,documnet,baseline,acc_metr
         for idx in (p:=tqdm(range(3),leave=True,position=1)):
             prompt=question_to_prompt([old_refine_question],'self_polish','self_polish')
             new_question=GPT_API(api_model,api_key,'self_polish',prompt).generate(baseline)
-            new_question_prompt=question_to_prompt([new_question["New_Question"]],'QA','vanilla')
-            Answer_result=GPT_API(api_model,api_key,'confidence',new_question_prompt).generate("confidence")
 
-            if Answer_result is not None:
-                Accuracy=float(ans_scorer(Answer_result['Answer'],ground_truth,acc_metric))
-                p.set_postfix_str(f"Update {Accuracy}")
-                if Accuracy>old_Accuracy:
-                    old_Accuracy=Accuracy
-                    Final_result={
-                        'Answer':Answer_result['Answer'],
-                        'Confidence':Answer_result['Confidence'],
-                        'Accuracy':float(Accuracy),
-                    }
-                    p.set_description_str(f"Max {Final_result['Accuracy']}")
 
-            old_refine_question=new_question['New_Question']
-            question_list.append(new_question['New_Question'])
+            # if Answer_result is not None:
+            #     Accuracy=float(ans_scorer(Answer_result['Answer'],ground_truth,acc_metric))
+            #     p.set_postfix_str(f"Update {Accuracy}")
+            #     if Accuracy>old_Accuracy:
+            #         old_Accuracy=Accuracy
+            #         Final_result={
+            #             'Answer':Answer_result['Answer'],
+            #             'Confidence':Answer_result['Confidence'],
+            #             'Accuracy':float(Accuracy),
+            #         }
+            #         p.set_description_str(f"Max {Final_result['Accuracy']}")
 
+            # old_refine_question=new_question['New_Question']
+            # question_list.append(new_question['New_Question'])
+
+        new_question_prompt=question_to_prompt([new_question["New_Question"]],'QA','vanilla')
+        Final_result=GPT_API(api_model,api_key,'confidence',new_question_prompt).generate("confidence")
+        Accuracy=float(ans_scorer(Final_result['Answer'],ground_truth,acc_metric))
         if Final_result:
             result={
                 'Id':idx,
@@ -94,7 +85,7 @@ def rewrite_worker(idx,original_question,ground_truth,documnet,baseline,acc_metr
                 'Ground_truth':ground_truth,
                 'Answer':Final_result['Answer'],
                 'Confidence':float(Final_result['Confidence']),
-                'Accuracy':float(Final_result['Accuracy']),
+                'Accuracy':float(Accuracy),
             }
         else:
             print(Final_result)
@@ -132,7 +123,7 @@ def evaluate_result(datapath):
         print(f"ECE mean :{np.mean(ece_score)}")
         print(f"Auroc mean :{Get_auroc(acc,conf)}")
     else:
-        print(f"Not Exist {api_model}_{baseline}.json")
+        print(f"Not Exist {datapath}")
 
 def main(baseline,datapath,acc_metric='f1'):
 
@@ -149,7 +140,7 @@ def main(baseline,datapath,acc_metric='f1'):
                     share_list.append(kkresult)
 
             if share_list:
-                progress.set_description_str(f"Processing {len(share_list)} batch rouge {np.mean(np.array([i['Accuracy'] for i in share_list]))}")
+                progress.set_description_str(f"Processing {len(share_list)} batch acc {np.mean(np.array([i['Accuracy'] for i in share_list]))}")
                 progress.set_postfix_str(f"list length: {len(share_list)}")
             if len(share_list)>=50 or idx >=50:
                 break
@@ -158,7 +149,7 @@ def main(baseline,datapath,acc_metric='f1'):
                 json.dump(list(share_list),f)
 
     elif baseline in ["textgrad"] and 'gpt' in api_model:
-        train_dataloader=qadataset_dataloader(dataset_path="triviaQA",split='validation',batch_size=1,shuffle=True).trainloader
+        train_dataloader=qadataset_dataloader(dataset_path="triviaQA",split='validation',batch_size=1,shuffle=False).trainloader
         share_list=[]
         for idx,(batch,Ground_truth) in enumerate(progress:=tqdm(train_dataloader)):
             original_question=[i[0] for i in batch]
@@ -168,31 +159,47 @@ def main(baseline,datapath,acc_metric='f1'):
 
                 Answer_result=text_grad(api_model).text_grad_get_response(q,a)
                 if Answer_result is not None:
-                    Accuracy=float(ans_scorer(Answer_result['Answer'],a,acc_metric))
-                    share_list.append({
-                        'Id':idx,
-                        'Original_question':q,
-                        'Answer':Answer_result['Answer'],
-                        'Answer_before':Answer_result['Answer_before'],
-                        'Ground_truth':a,
-                        'Confidence':float(Answer_result['Confidence']),
-                        'Accuracy':float(Accuracy),
-                        'Documnet':doc,
-                    })
+                    Accuracy1=float(ans_scorer(Answer_result['Answer'],a,acc_metric))
+                    Accuracy2=float(ans_scorer(Answer_result['Answer_before'],a,acc_metric))
+                    if Accuracy1 > Accuracy2:
+                        share_list.append({
+                            'Id':idx,
+                            'Original_question':q,
+                            'Answer':Answer_result['Answer'],
+                            'Answer_before':Answer_result['Answer_before'],
+                            'Ground_truth':a,
+                            'Confidence':float(Answer_result['Confidence']),
+                            'Accuracy':float(Accuracy1),
+                            'Documnet':doc,
+                        })
+                    else:
+                        share_list.append({
+                            'Id':idx,
+                            'Original_question':q,
+                            'Answer':Answer_result['Answer'],
+                            'Answer_before':Answer_result['Answer_before'],
+                            'Ground_truth':a,
+                            'Confidence':float(Answer_result['Confidence']),
+                            'Accuracy':float(Accuracy2),
+                            'Documnet':doc,
+                        })
                     with open(datapath,'w+') as f:
                         json.dump(list(share_list),f)
                 else:
                     progress.set_description_str(f"Fail {Answer_result}")
                 if share_list:
-                    progress.set_description_str(f"{idx} Processing {len(share_list)} batch rouge {np.mean(np.array([i['Accuracy'] for i in share_list]))}")
+                    progress.set_description_str(f"{idx} Processing {len(share_list)} batch acc {np.mean(np.array([i['Accuracy'] for i in share_list]))}")
 
 
             if len(share_list)>=50 or idx >=50:
                 break
 
 if __name__=="__main__":
-    baseline_list=["textgrad"]
+    baseline_list=["vanilla","self_polish","RaR"]
     for baseline in baseline_list:
         datapath=f'trivia_{api_model}_{baseline}_detail.json'
-        main(baseline,datapath,'f1')
+        main(baseline,datapath,'extract_answer')
         evaluate_result(datapath)
+
+    # print(ans_scorer("48 hours","48 Hrs.","extract_answer"))
+

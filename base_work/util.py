@@ -18,13 +18,25 @@ import multiprocessing as mp
 import random,yaml
 from rouge_score import rouge_scorer
 import matplotlib.pyplot as plt
-from LLM_API import *
+from LLM_API import GPT_API
+
+def ans_scorer(new_ans,original_ans,method):
+    ## Compare Result
+    if 'rouge' in method:
+        result=rouge_scorer.RougeScorer(['rouge1', 'rouge2', 'rougeL'], use_stemmer=True).score(new_ans,original_ans)['rougeL'].fmeasure
+    elif 'f1' in method:
+        acc_func=acc_metric("f1")
+        result=acc_func.compute_acc([str(new_ans)],[str(original_ans)])[0]
+    elif "extract_answer" in method:
+        acc_func=acc_metric("extract_answer")
+        result=acc_func.compute_acc([str(new_ans)],[str(original_ans)])[0]
+    return result
+
 
 def get_key_():
     if os.path.isfile("../api_key.yml"):
         with open("../api_key.yml","r") as f:
             key=yaml.safe_load(f)
-            print("Key Get !!")
         return key
     else:
         print("Key FAIL !!")
@@ -219,6 +231,8 @@ class acc_metric:
     def __init__(self,metric:str):
         self.metric=metric
         self.load_metric()
+        self.api_model='gpt-3.5-turbo-0125'
+        self.api_key=get_key_()['openai']['api_key']
 
     def load_metric(self,load_layer=False):
 
@@ -296,10 +310,10 @@ class acc_metric:
         em_score = exact_matches / len(predictions)
         return em_score
 
-    def extract_answer(self,pred,ans):
-        pass
-
-
+    def extract_answer(self,pred:str,ans:str):
+        prompt=question_to_prompt([pred,ans],task="acc",stretagy="acc")
+        Answer_result=GPT_API(self.api_model,self.api_key,'extract_answer',prompt).generate('accuracy')
+        return Answer_result["Accuracy"]
 
 def Get_Cost(file_path='response_result'):
     ### Count_tokens
