@@ -1,5 +1,5 @@
 from LLM_API import GPT_API
-from util import acc_metric,simi_metric
+from util import *
 import yaml,os,torch
 from torch.nn import MSELoss,L1Loss
 import numpy as np

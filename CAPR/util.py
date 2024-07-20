@@ -345,8 +345,6 @@ def Get_Cost(file_path='response_result'):
 
 
 
-
-
 def search_wikipedia_by_keyward(keyword):
     headers = {'User-Agent': 'CoolBot/0.0 (https://example.org/coolbot/; coolbot@example.org)'}
     # Initialize the Wikipedia API
