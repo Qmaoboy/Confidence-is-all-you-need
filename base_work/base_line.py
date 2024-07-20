@@ -16,11 +16,11 @@ key=get_key_()
 #  gpt-3.5-turbo-0125, gpt-4-turbo
 # "claude-3-5-sonnet-20240620"
 
-api_model='claude-3-5-sonnet-20240620'
-api_key=key['claude']['api_key']
+# api_model='claude-3-5-sonnet-20240620'
+# api_key=key['claude']['api_key']
 
-# api_model='gpt-3.5-turbo-0125'
-# api_key=key['openai']['api_key']
+api_model='gpt-4-turbo'
+api_key=key['openai']['api_key']
 
 def question_to_prompt(question,task="self_polish",stretagy='self_polish'):
     p=prompter()
@@ -47,8 +47,8 @@ def ans_scorer(new_ans,original_ans,method):
 def rewrite_worker(idx,original_question,ground_truth,documnet,baseline,acc_metric):
     result={}
     if baseline =="vanilla":
-        prompt=question_to_prompt([original_question],'Long_QA','vanilla')
-        Answer_result=GPT_API(api_model,api_key,'confidence',prompt).generate()
+        prompt=question_to_prompt([original_question],'QA','vanilla')
+        Answer_result=GPT_API(api_model,api_key,'confidence',prompt).generate('confidence')
         if Answer_result is not None:
             Accuracy=float(ans_scorer(Answer_result['Answer'],ground_truth,acc_metric))
             result={
@@ -69,9 +69,9 @@ def rewrite_worker(idx,original_question,ground_truth,documnet,baseline,acc_metr
         Final_result={}
         for idx in (p:=tqdm(range(3),leave=True,position=1)):
             prompt=question_to_prompt([old_refine_question],'self_polish','self_polish')
-            new_question=GPT_API(api_model,api_key,'self_polish',prompt).generate()
-            new_question_prompt=question_to_prompt([new_question["New_Question"]],'Long_QA','vanilla')
-            Answer_result=GPT_API(api_model,api_key,'confidence',new_question_prompt).generate()
+            new_question=GPT_API(api_model,api_key,'self_polish',prompt).generate(baseline)
+            new_question_prompt=question_to_prompt([new_question["New_Question"]],'QA','vanilla')
+            Answer_result=GPT_API(api_model,api_key,'confidence',new_question_prompt).generate("confidence")
 
             if Answer_result is not None:
                 Accuracy=float(ans_scorer(Answer_result['Answer'],ground_truth,acc_metric))
@@ -105,7 +105,7 @@ def rewrite_worker(idx,original_question,ground_truth,documnet,baseline,acc_metr
 
     elif baseline =="RaR":
         prompt=question_to_prompt([original_question],'QA','RaR')
-        Answer_result=GPT_API(api_model,api_key,'RaR',prompt).generate()
+        Answer_result=GPT_API(api_model,api_key,'RaR',prompt).generate(baseline)
 
         if Answer_result is not None:
             Accuracy=float(ans_scorer(Answer_result['Answer'],ground_truth,acc_metric))
@@ -162,7 +162,7 @@ def main(baseline,datapath,acc_metric='f1'):
                 json.dump(list(share_list),f)
 
     elif baseline in ["textgrad"] and 'gpt' in api_model:
-        train_dataloader=qadataset_dataloader(dataset_path="triviaQA",split='validation',batch_size=1,shuffle=False).trainloader
+        train_dataloader=qadataset_dataloader(dataset_path="triviaQA",split='validation',batch_size=1,shuffle=True).trainloader
         share_list=[]
         for idx,(batch,Ground_truth) in enumerate(progress:=tqdm(train_dataloader)):
             original_question=[i[0] for i in batch]
@@ -195,8 +195,8 @@ def main(baseline,datapath,acc_metric='f1'):
                 break
 
 if __name__=="__main__":
-    baseline_list=["vanilla","self_polish","RaR","textgrad"]
+    baseline_list=["textgrad"]
     for baseline in baseline_list:
         datapath=f'trivia_{api_model}_{baseline}_detail.json'
-        # main(baseline,datapath)
+        main(baseline,datapath,'f1')
         evaluate_result(datapath)

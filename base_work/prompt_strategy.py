@@ -77,6 +77,7 @@ class prompter:
 
         elif stretagy=="RaR":
             return self.RaR_prompt(query)
+
         # elif stretagy=="acc":
         #     return self.answer_acc(query,document)
 

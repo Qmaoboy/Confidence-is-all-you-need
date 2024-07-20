@@ -58,7 +58,7 @@ class openai_GPT:
         return None
 
 class anthropic_GPT:
-    def __init__(self,model,api_key):
+    def __init__(self,model,api_key,baseline):
         self.model_name=model
         self.api_key=api_key
         self.anthropic_client = anthropic.Anthropic(api_key=self.api_key,)
@@ -66,6 +66,51 @@ class anthropic_GPT:
         self.complete_tokens=0
         self.prompt_tokens=0
         self.re_gen_times=1
+        self.baseline_task=baseline
+
+    def parser(self,text):
+        if self.baseline_task=="confidence":
+            answer_match = re.search(r'"Answer": "(.*?)"', text)
+            if answer_match:
+                answer = str(answer_match.group(1))
+            else:
+                answer=None
+            # Regex to capture the confidence score
+            confidence_match = re.search(r'"Confidence": (\d+\.\d+)', text)
+            if confidence_match:
+                confidence_score = float(confidence_match.group(1))
+            else:
+                confidence_score=None
+            return {"Answer":answer,"Confidence":confidence_score}
+
+        elif self.baseline_task=="self_polish":
+            answer_match = re.search(r'"New_Question": "(.*?)"', text)
+            if answer_match:
+                answer = str(answer_match.group(1))
+            else:
+                answer=None
+            return {"New_Question":answer}
+
+        elif self.baseline_task=="RaR":
+            Expanded_Question = re.search(r'"Expanded_Question": "(.*?)"', text)
+            if Expanded_Question:
+                expand_q = str(Expanded_Question.group(1))
+            else:
+                expand_q=None
+
+            answer_match = re.search(r'"Answer": "(.*?)"', text)
+            if answer_match:
+                answer = str(answer_match.group(1))
+            else:
+                answer=None
+            # Regex to capture the confidence score
+            confidence_match = re.search(r'"Confidence": (\d+\.\d+)', text)
+            if confidence_match:
+                confidence_score = float(confidence_match.group(1))
+            else:
+                confidence_score=None
+
+            return {"Expanded_Question":expand_q,"Answer":answer,"Confidence":confidence_score}
 
     def  claude_reply(self,system_prompt='',Instruction='',question='',input_text='',temperature=0,max_tokens=4096,assit_prompt=""):
         if input_text:
@@ -276,21 +321,9 @@ class GPT_API:
         self.assit_prompt=prompt["assit_prompt"]
         self.api=OpenAI(api_key=api_key)
 
-    def parser(self,text):
-        answer_match = re.search(r'"Answer": "(.*?)"', text)
-        if answer_match:
-            answer = str(answer_match.group(1))
-        else:
-            answer=None
-        # Regex to capture the confidence score
-        confidence_match = re.search(r'"Confidence": (\d+\.\d+)', text)
-        if confidence_match:
-            confidence_score = float(confidence_match.group(1))
-        else:
-            confidence_score=None
-        return {"Answer":answer,"Confidence":confidence_score}
 
-    def generate(self):
+
+    def generate(self,baseline=""):
         # self.api_key=self.api_key['openai']['api_key']
         for _ in range(self.re_gen_times):
             if "gpt" in self.api_name:
@@ -299,9 +332,10 @@ class GPT_API:
                 result=str_response
 
             elif 'claude' in self.api_name:
-                str_response=anthropic_GPT(self.api_name,self.api_key).claude_reply(system_prompt=self.system_prompt,Instruction=self.Instruction,question=self.question,input_text=self.input_text,assit_prompt=self.assit_prompt)
+                claude_client=anthropic_GPT(self.api_name,self.api_key,baseline)
+                str_response=claude_client.claude_reply(system_prompt=self.system_prompt,Instruction=self.Instruction,question=self.question,input_text=self.input_text,assit_prompt=self.assit_prompt)
                 print(str_response)
-                result=self.parser(str_response.replace("\n","").replace("[","").replace("]",""))
+                result=claude_client.parser(str_response.replace("\n","").replace("[","").replace("]",""))
                 print(result)
                 # result=json.loads(str_response)
 
