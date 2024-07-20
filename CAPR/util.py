@@ -207,11 +207,12 @@ class simi_metric:
             embedding_2 = self.eval_model.encode(ans, convert_to_tensor=True)
             result = util.pytorch_cos_sim(embedding_1, embedding_2)
             return result.cpu().numpy()[0]
-
 class acc_metric:
     def __init__(self,metric:str):
         self.metric=metric
         self.load_metric()
+        self.api_model='gpt-3.5-turbo-0125'
+        self.api_key=get_key_()['openai']['api_key']
 
     def load_metric(self,load_layer=False):
 
@@ -256,6 +257,10 @@ class acc_metric:
         elif self.metric in ['rouge1','rouge2','rougeL']:
             return [self.eval_model.score(p, a)[self.metric].fmeasure for p,a in zip(pred,ans)]
 
+        elif self.metric in ['extract_answer']:
+            return [self.extract_answer(i,j) for i,j in zip(pred,ans)]
+
+
     def bool_acc(self,pred:list,ans:list):
         correct_matches = [1 if p == r else 0 for p, r in zip(pred, ans)]
         # print(correct_matches)
@@ -284,6 +289,11 @@ class acc_metric:
         # Compute the EM score
         em_score = exact_matches / len(predictions)
         return em_score
+
+    def extract_answer(self,pred:str,ans:str):
+        prompt=question_to_prompt([pred,ans],task="acc",stretagy="acc")
+        Answer_result=GPT_API(self.api_model,self.api_key,'extract_answer',prompt).generate('accuracy')
+        return Answer_result["Accuracy"]
 
 def Get_Cost(file_path='response_result'):
     ### Count_tokens
