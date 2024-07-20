@@ -1,3 +1,5 @@
+import os
+os.environ["CUDA_VISIBLE_DEVICES"]='1'
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from torch import nn
 from accelerate import Accelerator
@@ -15,7 +17,7 @@ import numpy as np
 from random import randint
 from util import search_wikipedia_byurl,get_key_
 from prompt_strategy import prompter
-from sklearn.metrics import roc_auc_score
+from sklearn.metrics import roc_auc_score,roc_curve,auc
 from RL_env import Environment,reward_function,rl_writer,Parallel_Environment
 import glob,os,torch,yaml
 from huggingface_hub import login
@@ -33,13 +35,12 @@ os.environ['TOKENIZERS_PARALLELISM'] = 'true'
 device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
 
 def Get_auroc(accuracy,confidence_scores):
-    y_true=np.where(np.array(accuracy) < 0.3,0,1)
-    try:
-        auroc_score=roc_auc_score(np.array(y_true), np.array(confidence_scores))
-    except:
-        auroc_score=0
+    y_true=np.where(np.array(accuracy) < 0.9,0,1)
 
-    return auroc_score
+    fpr1, tpr1, thresholds1 = roc_curve(y_true, np.array(confidence_scores))
+    roc_auc=auc(fpr1, tpr1)
+
+    return roc_auc
 
 class inference:
     def __init__(self,pretrained_path,dataset_path,api_model,Save_result_path) -> None:
@@ -102,7 +103,7 @@ class inference:
         else:
             self.result={}
 
-    def question_to_prompt(self,question,document,task="Long_QA",stretagy='vanilla'):
+    def question_to_prompt(self,question,document,task="QA",stretagy='vanilla'):
         self.prompter.setup_task(task)
         return self.prompter.get_prompt(question,document,stretagy)
 
@@ -135,7 +136,7 @@ class inference:
 
         for idx,p_instruc in enumerate(instruction):
             prompt[idx]['Instruction']=p_instruc
-        result_batch=Parallel_Environment(prompt,self.api_model)
+        result_batch=Parallel_Environment(prompt,key,self.api_model)
 
         show_index=randint(0,len(instruction)-1)
         print(old_prompt[show_index]['Instruction'])
@@ -176,15 +177,18 @@ class inference:
 
     def generate_result(self,prompt:list)->list:
 
-        instruct=[f'''[INST] <<SYS>>
-                Rewrite the following basic instruction to help a large language model generate a more detailed and comprehensive answer for a long-form QA task. Ensure the rewritten instruction is clear and concise, prompting the model to provide a thorough and well-structured response of at least 300 tokens to the given question. The new instruction should be within 256 tokens.
+        long_form_instruct=[f'''[INST] <<SYS>>Rewrite the following basic instruction to help a large language model generate a more detailed and comprehensive answer for a long-form QA task. Ensure the rewritten instruction is clear and concise, prompting the model to provide a thorough and well-structured response of at least 300 tokens to the given question. Only give me the new instruction, don't give any other words. The new instruction should be within 256 tokens.
+        Basic Instruction: "{i['Instruction']}"
+        Question: "{i['Question']}"
+        [/INST]new instruction:''' for i in prompt]
 
-                Basic Instruction: "{i['Instruction']}"
-                Question: "{i['Question']}"
-                [/INST]
-                new instruction:''' for i in prompt]
 
-        input_qeury_token=self.tokenizer(instruct,padding=True,truncation=True,max_length=512,return_tensors='pt').to(device)
+        short_form_instruct=[f'''[INST] <<SYS>>Rewrite the following basic instruction to help a large language model generate a brief answer for a shot-form QA task. Ensure the rewritten instruction is clear and concise, prompting the model to provide a correct and well-structured response to the given question.Only give me the new instruction, don't give any other words.
+        Basic Instruction: "{i['Instruction']}"
+        Question: "{i['Question']}"
+        [/INST]new instruction:''' for i in prompt]
+
+        input_qeury_token=self.tokenizer(short_form_instruct,padding=True,truncation=True,max_length=512,return_tensors='pt').to(device)
         with torch.no_grad():
             outputs = self.model.generate(
                     **input_qeury_token,
@@ -197,7 +201,7 @@ class inference:
     def get_inference(self,):
 
         # Dataloader=eval_dataloader(dataset_path=self.dataset_path, batch_size=trian_batch_size, purpose='refine',tokenizer=self.tokenizer,shuffle=False)
-        train_dataloader=qadataset_dataloader(dataset_path="din0s/asqa",split='dev',batch_size=self.trian_batch_size,shuffle=False).trainloader
+        train_dataloader=qadataset_dataloader(dataset_path="triviaQA",split='validation',batch_size=self.trian_batch_size,shuffle=False).trainloader
 
         for idx,(batch,Ground_truth) in enumerate(progress:=tqdm(train_dataloader)):
             question=[i[0] for i in batch]
@@ -244,10 +248,10 @@ def Show_mean_result(key,Save_result_path):
 
 if __name__=="__main__":
     ## Setting
-    deliminator='r13_testkey'
-    Agent_addres='Agent_weight/PPO_Agent_06122032_vanilla_f1_r12_OnlyReward_7_0.0007'
-    dataset_path=f'response_result/20240601/din0s_asqa_gpt-3.5-turbo-0125_vanilla_Long_QA.json'
-    Save_result_path=f"Inf_din0s_asqa_{deliminator}.json"
+    deliminator='r13_withPACE'
+    Agent_addres='Agent_weight/PPO_Agent_06122032_vanilla_f1_r1_trivia_withPACE_7_0.0030'
+    dataset_path=f'response_result/20240601/triviaQA_gpt-3.5-turbo-0125_vanilla_QA.json'
+    Save_result_path=f"Inf_trivia_{deliminator}.json"
 
     ############ API model selection
     api_model = 'gpt-3.5-turbo-0125'
@@ -255,7 +259,7 @@ if __name__=="__main__":
     # api_model = 'claude-3-5-sonnet-20240620'
     ############
 
-    inf=inference(Agent_addres,dataset_path,api_model,Save_result_path)
-    inf.get_inference()
+    # inf=inference(Agent_addres,dataset_path,api_model,Save_result_path)
+    # inf.get_inference()
     # Show_mean_result("origin",Save_result_path)
     Show_mean_result(api_model,Save_result_path)
