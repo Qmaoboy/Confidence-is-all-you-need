@@ -208,6 +208,8 @@ class simi_metric:
             try:
                 embedding_1 = self.eval_model.encode(pred, convert_to_tensor=True)
                 embedding_2 = self.eval_model.encode(ans, convert_to_tensor=True)
+                print(embedding_1.shape)
+                print(embedding_2.shape)
                 result = util.pytorch_cos_sim(embedding_1, embedding_2)
                 return result.cpu().numpy()[0].astype(float)
             except:

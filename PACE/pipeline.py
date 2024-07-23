@@ -62,9 +62,9 @@ def main():
     sim_models = 'Cos_sim'
 
     ## API model
-    # api_model = 'gpt-3.5-turbo-0125'
+    api_model = 'gpt-3.5-turbo-0125'
     # api_model = 'gpt-4-turbo'
-    api_model = 'claude-3-5-sonnet-20240620'
+    # api_model = 'claude-3-5-sonnet-20240620'
 
     api_key=key[api_model_key_mapping[api_model]]['api_key']
 
