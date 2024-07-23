@@ -1,11 +1,10 @@
 from LLM_API import GPT_API
 from util import *
 import yaml,os,torch
-from torch.nn import MSELoss,L1Loss
 import numpy as np
 from tqdm import tqdm
 import matplotlib.pyplot as plt
-from torch.utils.data import Dataset, DataLoader, RandomSampler
+
 import multiprocessing as mp
 import json
 from netcal.metrics import ECE
@@ -18,11 +17,10 @@ key_mapping={
     'claude-3-5-sonnet-20240620':'claude',
 }
 
-
 def generate_worker(share_list,key,prompt,id,model_name):
     # print(prompt)
     model=GPT_API(model_name,key[key_mapping[model_name]]['api_key'],"confidence",prompt)
-    result=model.generate()
+    result=model.generate("confidence")
     if result is not None:
         share_list[id]=result
     else:
@@ -68,7 +66,7 @@ def reward_function(result_batch,Ground_truth,Document):
         Document_List: Batch* K
     '''
 
-    eval_acc=acc_metric('f1')
+    eval_acc=acc_metric('extract_answer')
     simi=simi_metric("Cos_sim")
     lambda_value=0.7
     ## Balance Between ECE and ACC
@@ -89,11 +87,15 @@ def reward_function(result_batch,Ground_truth,Document):
                 ## Follow f1 score
                 conf_batch=torch.tensor(float(result['Confidence']))
                 acc_batch=torch.tensor(eval_acc.compute_acc([answer],[ground])).squeeze()
-                # conf_batch[acc_batch==1.0]=1.0
+
+
                 # conf_batch[acc_batch==0.0]=0.0
                 simi_scores = torch.tensor(simi.compute_similarity([answer],doc))
                 simi_score = torch.max(simi_scores)
+                simi_score[simi_score>=0.5]=1.0
                 Final_conf=conf_batch*lambda_value+simi_score*(1-lambda_value)
+                # Final_conf[acc_batch==1.0]=1.0
+                print(f"{answer}, {ground}, {acc_batch}, {conf_batch},{simi_score},{Final_conf}")
                 ## ECC = (ACC - CONF)
                 ## Reward = -ECC + ACC
                 # eceloss=get_ece(Final_conf,acc_batch)

@@ -219,12 +219,21 @@ class simi_metric:
             # 'sentence-transformers/all-MiniLM-L6-v2'
             # "sentence-transformers/all-MiniLM-L12-v2"
 
+        elif self.metric in ['rouge1','rouge2','rougeL']:
+            self.eval_model = rouge_scorer.RougeScorer(['rouge1', 'rouge2', 'rougeL'], use_stemmer=True)
+
+
     def compute_similarity(self, pred: list, ans: list)->list:
         if self.metric == 'Cos_sim':
             embedding_1 = self.eval_model.encode(pred, convert_to_tensor=True)
             embedding_2 = self.eval_model.encode(ans, convert_to_tensor=True)
             result = util.pytorch_cos_sim(embedding_1, embedding_2)
             return result.cpu().numpy()[0]
+
+        elif self.metric in ['rouge1','rouge2','rougeL']:
+            return [self.eval_model.score(p, a)[self.metric].fmeasure for p,a in zip(pred,ans)]
+
+
 class acc_metric:
     def __init__(self,metric:str):
         self.metric=metric

@@ -9,7 +9,7 @@ class prompter:
 
         self.similarity_prompt="Note: The similarity indicates how likely you think your Answer and document is semantic related,from 0.00 (worst) to 1.00 (best)"
 
-        self.acc_prompt="Note: The accuracy indicates how likely you think your ground truth and answer have the same meaning, give 0 (wrong) or 1 (Correct)"
+        self.acc_prompt="Note: The accuracy indicates how likely you think your groundtruth and answer have the same meaning"
 
         self.responseformat="response format:\n'Answer':[ONLY Your final Answer here],\n'Confidence':[Your final Confidence here]"
 
@@ -39,7 +39,7 @@ class prompter:
 
             elif task=='acc':
 
-                self.system_prompt=f"This is a accuracy task, please judge if ground truth and answer have exactly same semantic meaning and provide the accuracy in json"
+                self.system_prompt=f"This is a accuracy judgement task, please judge if ground truth and answer have similar semantic meaning and provide the accuracy in json"
 
             elif task=="pure":
 
@@ -96,9 +96,9 @@ class prompter:
             print("Query List size should be 2")
             exit()
 
-        Instruction=f"Compare the semantic similarity between given groudtruth and Answer"
+        Instruction=f"Compare the semantic meaning between given groundtruth and Answer"
         accuracy_format="{accuracy:[Your final accuracy here]}"
-        input_text=f"\nOnly give 0(wrong) or 1(correct) according to response format in json, don't give me any other words.\n\ngroudtruth:{query[0]},\nAnswer:{query[1]},\n\nresponse format :{accuracy_format}\n"
+        input_text=f"\nOnly give 0(False) or 1(True) according to response format in json, don't give me any other words.\n\ngroundtruth:{query[0]},\nAnswer:{query[1]},\n\nresponse format :{accuracy_format}\n"
 
         return {"system_prompt":self.system_prompt,'Instruction':Instruction,"Question":"",'input_text':input_text,"assit_prompt":self.acc_prompt}
 

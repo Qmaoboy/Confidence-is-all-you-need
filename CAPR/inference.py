@@ -141,7 +141,7 @@ class inference:
         show_index=randint(0,len(instruction)-1)
         print(old_prompt[show_index]['Instruction'])
         print(prompt[show_index]['Instruction'])
-        print(old_result_batch[show_index])
+        # print(old_result_batch[show_index])
         print(result_batch[show_index])
 
         for idx,i in enumerate(result_batch):
@@ -160,7 +160,7 @@ class inference:
         for i in trange(len(Accuracy)):
             accuracy_value = Accuracy[i].item()
             old_accuracy_value=old_Accuracy[i].item()
-            if accuracy_value > 0.0:
+            if accuracy_value >= 0.0:
                 self.evaluate['pace_ece'].append(pace_ece[i].item())
                 self.evaluate['Verbalized_ece'].append(Verbalized_ece[i].item())
                 self.evaluate['Accuracy'].append(accuracy_value)
@@ -259,7 +259,7 @@ if __name__=="__main__":
     # api_model = 'claude-3-5-sonnet-20240620'
     ############
 
-    # inf=inference(Agent_addres,dataset_path,api_model,Save_result_path)
-    # inf.get_inference()
+    inf=inference(Agent_addres,dataset_path,api_model,Save_result_path)
+    inf.get_inference()
     # Show_mean_result("origin",Save_result_path)
     Show_mean_result(api_model,Save_result_path)
