@@ -25,3 +25,9 @@ python pipline.py
         ```
         python TRL_training.py
         ```
+### Baseline
+- Contain Vanilla / Self-Polish / Textgrad / Rephrease and Response(RaR)
+    - Modify base_line.py for differnet baseline work
+        ```
+        python base_line.py
+        ```
