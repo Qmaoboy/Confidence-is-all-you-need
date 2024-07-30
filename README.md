@@ -18,7 +18,7 @@ Please Download the .json File throught google drive link below and unzip to fol
 ## How to Run
 ### PACE
 - Enter Folder **PACE**
-    - Setup *datasets*, *strategies*, *api_model* for evaluation the result
+    - Setup **datasets**, **strategies**, **api_model** for evaluation the result
         ```
             # 'natural_questions','din0s/asqa',"triviaQA",
             datasets = ["din0s/asqa"]
@@ -38,7 +38,7 @@ Please Download the .json File throught google drive link below and unzip to fol
 ### CAPR
 - Enter Folder **CAPR**
     - For **Inference**
-        - Setup the different ==Agent_addres== in **inference.py** for different setting:
+        - Setup the different **Agent_addres** in **inference.py** for different setting:
             - For ASQA Dataset:
                 - CAPR w/ PACE: **PPO_Agent_06122032_vanilla_f1_r12_withPACE_7_0.0012**
                 - CAPR w/o PACE: **PPO_Agent_06122032_vanilla_f1_r11_withoutPACE_9_0.0009**
@@ -50,7 +50,7 @@ Please Download the .json File throught google drive link below and unzip to fol
             python infernce.py
             ```
     - For **Traning**
-        - Setup ==Training_Config== for training detail:
+        - Setup **Training_Config** for training detail:
             ```
             Training_Config={
                 "dataset_path":f'response_result/20240601/triviaQA_gpt-3.5-turbo-0125_vanilla_QA.json', ## Training Data
