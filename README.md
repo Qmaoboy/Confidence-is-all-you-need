@@ -2,6 +2,7 @@
 
 ## Structure
 ```
+./
 ├── api_key.yml
 ├── base_work
 ├── CAPR
