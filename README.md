@@ -10,6 +10,10 @@
 ├── pre_experiment.ipynb
 └── README.md
 ```
+## Preprocessing
+Please Download the .json File throught google drive link below and unzip to folder respsectively:
+- [Google Link](https://drive.google.com/file/d/1iZJbT_majQFzFjEUSw6ZfFNMqZOwuZLB/view?usp=sharing)
+
 
 ## How to Run
 ### PACE
