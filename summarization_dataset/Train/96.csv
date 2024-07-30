@@ -1,0 +1,70 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Jackie, I",inactive,96_0,T,gc,
+guess Okay.,inactive,96_1,P,gc,
+Okay. I understand you've had some recent difficulties that have brought you in here today.,inactive,96_2,T,id,
+"Oh, yeah. Well, my physician, I've been seeing her meeting with her. She suggested I come. CEO. So",routine,96_3,P,id,
+why do you think she did that?,routine,96_4,T,irq,
+"Um, well, I'm sick, I think. So, we've been running some tests and things and she, she couldn't find anything. So she thought maybe I should come talk to you. I guess maybe my concerns are coming from somewhere else. I think she's That's what she thinks. But I don't know. Maybe whatever illness I have is making me feel this way.",symp/reasoning,96_5,P,id,-1
+So you believe you have a physical illness?,symp/reasoning,96_6,T,orq,
+"Yeah, I just I just know there's something not right.",symp/reasoning,96_7,P,od,-2
+And your physician has run a series of tests.,routine,96_8,T,crq,
+"Yeah. We've done like blood work and all the scans and everything. She said she didn't pay anything, but I just I know there's something",routine,96_9,P,cd,-2
+something. There's something there. So what was her other than coming to Sydney? What was her suggestion for treatment? So she ran tests? She didn't find anything.,routine,96_10,T,irq,
+"Yeah, she didn't. She didn't have anything for me.",routine,96_11,P,id,
+So she's saying there's no physical illness?,routine,96_12,T,crq,
+"Yeah, that's what she says. I'm",routine,96_13,P,op,
+I'm not sure.,routine,96_14,T,gc,
+And I think she's missing something. So,routine,96_15,P,id,
+"how long have you been If that you had a physical illness,",routine,96_16,T,irq,
+"um,",routine,96_17,P,gc,
+"So about a year ago, you went to her. She started running tests. And there was no findings of a disorder.",routine,96_18,T,crq,
+"No, she hasn't found anything yet",routine,96_19,P,cd,
+"Was it just one disorder that you thought you had? Or have there been several,",routine,96_20,T,irq,
+"um, you know, I kind of started with with Ms. I read some things about about that and how people just people my age to they've had it and they don't even know that they have it and then all of a sudden their life is changed by it. So I was concerned about that. And then I guess after for some tests and things Kind of, I guess, start to think maybe it wasn't that and it was something else. I missed. I think it's cancer. That's one of the bigger scale. Yeah. You know what, even though I don't really have some of the symptoms, you know, can just lie in you and you have no idea. And just one day, you know,",story,96_21,P,id,-2
+"your physicians, physicians run tests for all these disorders who thought you had? We think",routine,96_22,T,gc,
+"he Yeah, yeah. But, I mean, what if that test that I took a year ago? What if it didn't show up on that because it hasn't gotten that severe yet. And now it is. ",symp/reasoning,96_23,P,crq,
+So I see you're worried. ,symp/reasoning,96_24,T,id,
+Yeah.,symp/reasoning,96_25,P,ack,-2
+So you saw the physician for the first time regarding this a year ago. Did you have anxiety or worry before that?,symp/reasoning,96_26,T,irq,
+"No, just just worried that started. got that feeling that was sick. So I was just what I was worried about, but nothing other than that.",symp/reasoning,96_27,P,id,-2
+But you were you were worried about the illness. Nothing else though. Do you have any physical symptoms?,routine,96_28,T,irq,
+No. ,routine,96_29,P,on,
+do you find yourself checking often? To see if you have physical symptoms?,routine,96_30,T,irq,
+"Yeah, yeah. I've read a lot of stuff a lot of different people's stories on the internet to check the symptoms and kind of add subtract of that. Make sure I'm not having anything that they list. So",routine,96_31,P,id,
+"are you active on the internet forums where they discuss illnesses So,",routine,96_32,T,irq,
+"yeah, yeah, I read a lot of people's stories on there about how they had maybe one symptom, but they didn't really think anything of it, you know, and then they have a severe diagnosis. So I'm just I'm worried I'm gonna miss something, you know, so I check a lot and check to make sure.",routine,96_33,P,id,
+So you read you read the form Satya post.,routine,96_34,T,crq,
+"Yeah, yeah. About my concerns, and sometimes people get a little frustrated with me. They're not very nice. Tell me about that. Just because I'm not really experiencing anything. They think that I don't have anything to worry about. And they keep telling me but I think I do have to worry about I just have this feeling that there's something wrong.",story,96_35,P,cd,
+What would you like us to hear that the agency,routine,96_36,T,irq,
+"I would just like to feel comfortable that I am not sick. You know, I don't I don't want to worry anymore, but I really think I am. There's something wrong. So",routine,96_37,P,id,
+"yeah, you're worried you have a physical, a physical health disorder. Are you worried? Do you have a mental health disorder?",symp/reasoning,96_38,T,irq,
+Maybe some people have said that,symp/reasoning,96_39,P,id,-2
+you're worried about that.,routine,96_40,T,id,
+It's a little concerned that I might be feeling a little extra worried. Maybe that's a symptom of the whenever illness.,symp/reasoning,96_41,P,id,-2
+So concern that the worry could be a symptom of a physical illness.,symp/reasoning,96_42,T,crq,
+Yeah.,symp/reasoning,96_43,P,op,
+"So again, what would your what would your goal be here? What do you want? What do you want to change? through counseling?",symp/reasoning,96_44,T,irq,
+I guess my worry it doesn't make me Feel good?,symp/reasoning,96_45,P,id,-2
+You want to worry? worry less? ,symp/reasoning,96_46,T,irq,
+yeah. Yeah. I don't want to be. I don't want to be until later.,symp/reasoning,96_47,P,id,
+"So you have you've had Maury for at least a year, specifically about being physically ill. There's been no findings of physical illness, but you're still worried about him. And you might be a little worried that you're, you have a mental health disorder.",story,96_48,T,crq,
+"Yeah, I think something might be off.",routine,96_49,P,cd,-2
+And you want to be able to stop worrying about the physical health disorder? All right. Are you worried right now that you have physical health disorder?,routine,96_50,T,irq,
+"Oh, yeah.",routine,96_51,P,id,-2
+What disorder Do you think you might have now,routine,96_52,T,irq,
+"um, Cancer, I think some part of my body that is worried that it's spreading.",routine,96_53,P,id,
+And you've been tested for this by your physician.,routine,96_54,T,crq,
+"Yeah, yeah. But you know, sometimes tests don't find things. So",routine,96_55,P,cd,
+are you ever reassured when you get negative test results back when I said there's there's nothing going on.,routine,96_56,T,irq,
+"Now I'm just I think they might have missed something. No, my doctor or by my family physician, she just she's really frustrated with me because she won't even see me anymore. Honestly. She's not very nice when I go in. But I want to do those tests again.",story,96_57,P,id,-1
+You want to rerun tests?  ,routine,96_58,T,irq,
+"Yeah, I'm gonna look again.",routine,96_59,P,id,
+All right. So you're open to counseling here.,routine,96_60,T,irq,
+"Yeah, yeah, I think maybe you can help a little bit and find out what's wrong and what's going on.",routine,96_61,P,id,
+Would you be okay. sigh release so that I could talk to your physician?,routine,96_62,T,irq,
+Yeah.,routine,96_63,P,op,
+"So I'll get you scheduled now schedule you either way, whether you want sign release or not. But that's just something I think might be helpful for me to better understand what's going on. But I'll get you in to see a counselor. Oh, just take a couple days. We'll get that worked out now. Okay, great. Thank you. ",routine,96_64,T,gt,
+Thanks.,inactive,96_65,P,gt,
+summary,"The patient has had tests taken by their physician but nothing was found. The physician suggested the patient to visit a therapist since the therapist believes there is something wrong with them. The patient is worried that they might have cancer and it might suddenly show up one day. The patient did not worry when the tests were taken which was a year ago. The patient worried after reading people's stories that a single symptom later leads to severe diagnosis. The patient feels their extra worry is a symptom of illness. With the help of counselling, the patient wishes to stop worrying. The patient feels their cancer is spreading and wish to rerun tests. The therapist assures to setup with a counselor in a couple of days. ",,,,
+primary_topic,anxiety,,,,
+secondary_topic,diagnosis,,,,

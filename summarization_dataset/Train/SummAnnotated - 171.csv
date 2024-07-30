@@ -1,0 +1,54 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Hi Rebecca, How are you doing?",routine,171_0,T,gt,0
+"I am good, how are you?",routine,171_1,P,gt,0
+Pretty good. Can I ask you what handed only write with?,routine,171_2,T,gt,0
+my right hand,routine,171_3,P,id,
+Your right hand would be all right to ask you some questions about your memory.,story,171_4,T,gc,0
+I guess,story,171_5,P,ack,0
+"Okay, thank you. I'm gonna ask you some questions and give you some problems to solve. Please try to answer them as best as you can. ",story,171_6,T,gc,0
+Okay,story,171_7,P,ack,0
+What year is this?,routine,171_8,T,irq,0
+2015,routine,171_9,P,id,0
+what season of the year is this?,routine,171_10,T,irq,0
+winter,routine,171_11,P,id,0
+what is the date today?,routine,171_12,T,irq,0
+January 20.,routine,171_13,P,id,0
+what day of the week is this ?,routine,171_14,T,irq,0
+Tuesday,routine,171_15,P,id,0
+What month is this,routine,171_16,T,irq,0
+January,routine,171_17,P,id,0
+Can you tell me what country we are in?,routine,171_18,T,irq,0
+United States,routine,171_19,P,id,0
+Do you know what county we're in?,routine,171_20,T,irq,9
+Newcastle,routine,171_21,P,id,0
+Do you know what city we're in?,routine,171_22,T,irq,0
+Newcastle,routine,171_23,P,id,0
+do the name or the address of this building?,routine,171_24,T,irq,0
+was it Graduate Center? Three weeks away 31 weeks away,routine,171_25,P,id,0
+What floor of the building are we on?,routine,171_26,T,irq,0
+First floor,routine,171_27,P,id,0
+"I am going to name three objects. After I've said them, I want you to repeat them back to me. Apple, Table, Penny",routine,171_28,T,cv,0
+"Apple, Table, Penny",routine,171_29,P,cr,0
+remember what they are because I'm going to ask you to name them again in a few minutes.,routine,171_30,T,gc,0
+okay,routine,171_31,P,ack,0
+"Now I'm going to give you a word and ask you to spell it forwards and backwards. The word is world. First, Can you spell it forwards?",routine,171_32,T,cv,0
+W O R L D,routine,171_33,P,cr,0
+"Now, can you spell it backwards?",routine,171_34,T,cv,0
+D L R O W,routine,171_35,P,cr,0
+What were the three objects I asked you to remember earlier?,routine,171_36,T,irq,0
+world? No. Apple. I can't remember.,routine,171_37,P,id,0
+What is this called?,routine,171_38,T,ci,0
+This the Watch.,routine,171_39,P,cr,0
+"I would like you to repeat a phrase after me. The phrases no ifs, ands or buts",routine,171_40,T,cv,0
+no ifs ands or buts,routine,171_41,P,cr,0
+I want you to read the words on the page. I'm going to hold up and then do with the word say.,routine,171_42,T,ci,0
+Close your eyes.,routine,171_43,P,cr,0
+"Thank you. take this paper in your right hand. Fold the paper once with both hands and put the paper down on your lap. On this piece of paper, write any complete sentence on that piece of paper for me. ",routine,171_44,T,gc,0
+.....,routine,171_45,P,cr,0
+"Thank you. Here's a drawing, please copy the drawing on the same paper. ",routine,171_46,T,gc,0
+....,routine,171_47,P,cr,0
+Thank you. That concludes this test on that. Thank you for your cooperation.,routine,171_48,T,gc,0
+Thank you,routine,171_49,P,gc,0
+summary,therapist asks patient some questions about memory.,,,,
+primary_topic,memory,,,,
+secondary_topic,,,,,

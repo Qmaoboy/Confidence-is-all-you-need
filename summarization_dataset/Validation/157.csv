@@ -1,0 +1,93 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Hi, Olive. ",inactive,157_0,T,gt,0
+Hi,inactive,157_1,P,gt,0
+welcome back.,inactive,157_2,T,gt,0
+Thank you.,inactive,157_3,P,gt,0
+How are you?,inactive,157_4,T,gt,0
+feeling pretty intense. Things have kind of gone downhill since I was here last time.,inactive,157_5,P,gt,-1
+Ohh I'm sorry to hear that.,inactive,157_6,T,ap,0
+Yeah.,inactive,157_7,P,gc,0
+"I know last time we talked you  and Kalie had just gotten engaged, and you were rather excited about plans that you had for your life. So So tell me what has happened, what what is what's shifted?",story,157_8,T,gc,0
+"I think that we've just sort of fallen back. You know, I was really hopeful that and with the proposal also came the promise to, you know, work on the relationship and work on anger and work on, you know, being the couple that we we hope to be, and that it's not happening its not happening. We're right back to where we were. ",symp/reasoning,157_9,P,id,-1
+"I'm sorry to hear that. I know you were. You were excited. You were feeling hopeful for change. And I don't get that same sense from you right now. In fact, it seems like you're feeling pretty sad and maybe even a little hopeless about that situation. Well, how can I make How can I be helpful and supportive and useful to you right now.",symp/reasoning,157_10,T,ap,0
+I just I don't I don't know how to make change. I don't know how to I don't know how to end this. I don't know how to get out. I don't know how to. I just I can't do it anymore.,inactive,157_11,P,id,-3
+"So you've decided to make a change. And in fact, it sounds like you've decided to leave the relationship. ",symp/reasoning,157_12,T,gc,0
+"I don't know. I mean, I want to I don't want to be in it. But I don't, I don't know how to get to not being in it.",symp/reasoning,157_13,P,id,-3
+"So you're thinking about it. It's not that you've committed or decided that you absolutely want to leave the relationship. But correct me if I'm wrong. What you're saying is, you want to make a change, and you don't want this relationship as it is. ",symp/reasoning,157_14,T,gc,0
+Yeah.,inactive,157_15,P,cd,0
+"Now, what what are you when you think about changing? What what ideas? I mean, I guess you mentioned leaving, what other possibilities or thoughts have you had about change and what that might look like?",symp/reasoning,157_16,T,irq,0
+"I don't know. It just feels so overwhelming when I think about it. I just I can't seem to find a way out of it. and that feels feels ethical. It feels like it can No, I don't want to hurt her. I just don't want to be in this relationship anymore.",symp/reasoning,157_17,P,id,-1
+Why don't you want to be in this relationship anymore?,symp/reasoning,157_18,T,irq,0
+"It's not healthy. It's I'm not happy. I can't imagine that she's happy even though she says she is. It's, you know, we're fighting constantly. I feel like I'm walking on eggshells with her. She's overprotective. She just it doesn't feel right. just doesn't feel right.",symp/reasoning,157_19,P,id,-1
+"It doesn't feel right. So, what would feel right?",symp/reasoning,157_20,T,irq,0
+"Ah, that's a huge question. I just don't I'm not sure just this isn't right.",symp/reasoning,157_21,P,id,-1
+"So the way things are is not right. It's not working, you don't feel supported. This isn't the kind of relationship that that you want or that you had hoped that it would be. ",symp/reasoning,157_22,T,crq,0
+"Yeah. I mean, when we started it was it was lovely. She was amazing. She was this super caring and thoughtful woman and you know, we are lots of same interests, you know, same friends it's, you know, she was just fantastic. And I don't know, I don't know where that changed. And I feel like we did this on again off again stuff and it's just, it just seems like, just not right. And I know, I know, I don't deserve to be treated this way. And I know that I'm, I'm better than that.",symp/reasoning,157_23,P,cd,-1
+"You really value your self and your well being and in your spirit. And it sounds like you don't feel like you're taking good care of yourself by staying in this relationship and Even though things started out well, they haven't turned out to be the kind of relationship that you want for yourself",symp/reasoning,157_24,T,gc,0
+"No, but you know, but she's lovely and I love her and I can't imagine. I can't imagine my life without her in it.",inactive,157_25,P,cd,-1
+So you feeling torned?,inactive,157_26,T,yq,0
+Yeah,inactive,157_27,P,op,0
+"you're you're torned between your love and affection for her and your sense of honoring yourself, and you've got a lot of mixed feelings. And you are saying that you need something to change that sounds like you're able to kind of hold that complexity, if you will, that you've got these strong feelings for this person and you don't feel like this is the good relationship for you. ",symp/reasoning,157_28,T,gc,0
+No. I think it's  not good for either one of us.,symp/reasoning,157_29,P,cd,-1
+"For both of you. Yeah. So so then you've talked a little bit about leaving. I mean, tell me more about what you thought about. And when you think about making a change in terms of leaving, what, what might that look like for you?",symp/reasoning,157_30,T,gc,0
+"I don't know. I mean, it feels. I just can't imagine my life without her in it. So the idea of not having her there feels really scary. And the idea of staying the way it is, and things not changing, feels even scarier. So I don't I don't know how to and I don't even know how I would do that. Our lives are so intertwined. I mean, my business, our friends, the queer community is so small, you know, that's my family as much as my friends and my family as well. And so just, you know, how do you how do you extract yourself from that in a way For me, like, in a way that I feel, I'm doing that with grace and respect for her and respect for myself.",symp/reasoning,157_31,P,id,-1
+"What What thoughts do you have about how you do that? How do you extract yourself? How might you extract yourself in a way that has some integrity and grace as you said,",symp/reasoning,157_32,T,irq,0
+"I don't I don't even know. I mean, talk to my friend Jay about it and I don't know he suggested like a break, but I don't I don't know. I just don't want to get caught in that on again off again before like, you know, like we've done before and, but the idea of a break. feels a little less. I don't know, maybe more gentle. I don't know,",symp/reasoning,157_33,P,id,0
+say more a little more gentle.,inactive,157_34,T,cv,0
+"I don't know how to give us both time to really think about it and and I don't know, maybe maybe she'll change maybe maybe if I'm you know, if this is it, if this is it, like if this break is it, maybe Maybe she'll be able to change.",story,157_35,P,cr,-3
+"I heard you say that. Live it, you know, moving on and having a life without Kelly is really scary. In fact, it's almost impossible for you to imagine what that would look like, especially with the way that your lives are so intertwined. I also heard you say that the thought of not making a change is scarier. And I was wondering if you could say a little bit more about what you mean by that.",routine,157_36,T,irq,0
+"It's just I feel exhausted. I feel like I'm not. I'm not who I was. When I came into this relationship. I feel like I'm constantly struggling to make her happy, and that just doesn't work. There's nothing I can do. And I feel like I've lost my joy. And I don't know. I'm just afraid of what will happen if I just keep staying in a place where I feel like I'm falling apart. Hmm, my piece. ",symp/reasoning,157_37,P,id,-3
+"Yeah. So you're concerned about your own well being and your own joy and your, your spirit if you you stay and don't make this change, and that's the part that's really scary for you. ",routine,157_38,T,crq,0
+Yeah.,inactive,157_39,P,cd,0
+You mentioned that your friend suggested possibly taking a little break. And you said that that was a scary thought for you. And I guess I'd like to hear more additional thoughts you might have about that as a as an option for you.,story,157_40,T,gc,0
+"Well, it seems like I mean, if it could happen if we could find a way to make it happen that it would be it would just give me some time to think about, like, what I want and what I need and, and, you know, I feel like I can't sort out what's me in this anymore. And, and so like if I have that space, just to sort of breathe and not have to worry about her feelings and Taking care of her and just being able to focus on myself for a little while. I don't know, it seems like that would be helpful.",story,157_41,P,gc,-3
+"It sounds like you're feeling like you're so in, in it just so in the the mixed emotions and the sense of hopelessness and sadness and disappointment that it's really hard for you to see out of it. And an advantage reason to take a break would be just to give you a moment to breathe and look around and collect yourself and not be so stuck in that ambivalence, if you will, that sense of not knowing. ",routine,157_42,T,crq,0
+Yeah.,inactive,157_43,P,cd,0
+"well, if you don't mind, I'd love to ask you to take a look at this ruler here. I just kind of wrote this down really quickly, but on a scale of zero to 10 zero being not motivated at all and 10 being extremely motivated. how motivated would you say you are to take a break in your relationship right now?",routine,157_44,T,irq,0
+oh six So somewhat motivated.,inactive,157_45,P,id,0
+Why a six and not a one?,inactive,157_46,T,irq,0
+Because I need I need it. I feel like I'm losing myself. So I feel like,inactive,157_47,P,id,-3
+it's important?,inactive,157_48,T,crq,0
+Yeah.,inactive,157_49,P,cd,0
+"Well, so so why a six and not a nine? Or 10? ",inactive,157_50,T,irq,0
+"Cuz I'm not sure how to make it happen. Yeah, I don't I don't know.",inactive,157_51,P,id,-3
+"So it's important to you, and you're not maybe fully confident or sure about the how part.",inactive,157_52,T,crq,0
+Yeah,inactive,157_53,P,cd,0
+how to make it happen?,inactive,157_54,T,crq,0
+Exactly.,inactive,157_55,P,cd,0
+"Well, kind of following up on that on a scale of zero to 10 zero being not confident at all. 10 being extremely confident. How confident are you that if you decided to take a break from your relationship with Kelly, you would be successful at making that happen?",routine,157_56,T,irq,0
+I don't know maybe like a three or four.,routine,157_57,P,id,-1
+"So, so less confident or less confident than you are motivated. Why a three Not a zero.",routine,157_58,T,irq,0
+"Because I, I'm on it. I mean, I do something I want.",inactive,157_59,P,id,-1
+Mm hmm. And so wanting it makes you feel confident that you confident to some extent that you could actually make it happen.,routine,157_60,T,gc,0
+"Yeah, yeah. ",inactive,157_61,P,gc,0
+Why three and not an eight or nine?,routine,157_62,T,irq,0
+"I can't control her. I don't know how she would react and I just don't want any more arguments and anger. And yeah, I don't want to hurt her. So.",symp/reasoning,157_63,P,id,0
+"So when you think about taking this break, you're also thinking about how she might respond and what she might do and that creates this whole other kind of set of worries. It, it undermines your sense of confidence onon some level.",routine,157_64,T,gc,0
+it creates a lot of anxiety for me.,symp/reasoning,157_65,P,id,-2
+Yeah. What do you think needs to be different in order for you to feel more confident about successfully being able to take a brief break.,routine,157_66,T,orq,0
+"I think I like maybe a plan, like just knowing, knowing what the rules are sort of like where, where I want to go with it. And when I'm home, I don't know what I want to accomplish.",symp/reasoning,157_67,P,od,-1
+"So thinking through an actual plan, like what you would say how long what the boundaries are, might might help you. ",routine,157_68,T,crq,0
+"Yeah, regard. ",inactive,157_69,P,cd,0
+"Okay. And then one final question on a scale of zero to 10. Zero being not ready at all. And 10 being extremely ready. How ready would you say you are to commit to taking some kind of brief break in the, let's say, the next couple of weeks.",routine,157_70,T,irq,0
+I think an eight,routine,157_71,P,id,0
+so pretty ready?,inactive,157_72,T,crq,0
+Yeah.,inactive,157_73,P,cd,0
+"And, and you've spoken to this already a little bit, I believe, but I'll ask you again, why an eight and not a one or two ?",routine,157_74,T,irq,0
+because I know if I just let it drag out that I'm going to be miserable.,,157_75,P,id,-2
+"So your sense of readiness is actually really connected to your motivation that is that this is something you know, that you need to do for yourself. And if you don't, things are not going to get any better. And that that makes you both motivated and even more ready. Well, why why an eight and not a ten?",routine,157_76,T,gc,0
+"That's, you know, scary. Change is hard and thinking about not being the woman I thought I was gonna marry that makes me sad.",symp/reasoning,157_77,P,id,-1
+"So your emotions, your sense of maybe sadness and in grief and disappointment around this detract from your sense of readiness and in some way",routine,157_78,T,crq,0
+sort of giving up on a dream.,inactive,157_79,P,cd,0
+"Yeah, and so, another aspect to that to your whole experience says that you're you're grieving. The relationship isn't even over yet, but you're grieving the dream and the hopes that you had. And that's a that's a heaviness and certainly a factor and in what you do next?",routine,157_80,T,gc,0
+"yeah, ",inactive,157_81,P,cd,0
+"well, if I could take just a moment and make sure I've captured and understood everything you've shared with me and I, I know this is really difficult to talk about. So I really appreciate you spending the time to share with me with with this has been like for you. You've been feeling stuck. And things were great for a while you had some hope that things were going to change and now you are realizing that Kelly's not going to change and that you are suffering in the process that you are really being kept from your aspirations and your dreams, in a lot of different regards. You know, that you need to make a change, you want to make a change, and you have a lot of mixed feelings about this change. You know, it's what you want to do, it's the right thing for you. And you still really care and love, Kelly. And you're also concerned, kind of on an outer level, about your business, about your community, about your family and your friends and how they may be affected by a breakup. In order to make this more manageable, you're thinking maybe in terms of smaller change, like taking a small break, as opposed to breaking off the relationship and you feel like you're pretty ready. You're somewhat You know, you're motivated. And then maybe a little less confident. But you also said that if you were able to maybe think through a concrete plan, that that might help you feel more confident. ",routine,157_82,T,gc,0
+Yeah.,inactive,157_83,P,gc,0
+"And that's certainly something that we could do together next time we meet if that's alright with you. I'd be happy to hear your ideas, maybe even share some suggestions with you about a possible plan.",routine,157_84,T,gc,0
+That'd be great.,inactive,157_85,P,gc,0
+Is that alright?,inactive,157_86,T,crq,0
+Yeah. Thank you.,inactive,157_87,P,cd,0
+Thank you very much for your time. I really appreciate it.,inactive,157_88,T,cd,0
+summary,"The patient had a relationship problem with his partner. The patient doesn't want to end the relationship but don't know what decision to take. Patient feels overwhelming and feels ethical to end this relationship. Also patient assume his partner feels the same, and it's good for both of them. Patient also feels like the relationship is not healthy between them. Therapist understand the situation of the patient that patient feels like the relationship with the partner is not good, and love and affection is torned between them. The patient is confused between the decision to stay with or to leave the partner and also patient doesn't know how to extract from this condition. Patient talked about this with his friend Jay, and Jay suggested taking a break, but it didn't work well. Therapist tried to clarify that patient said that he couldn't live without a partner but was not comfortable at the same time. Patient was utterly exhausted and struggling to make partner happy, and that doesn't work. Therapist understands that patient is thinking about his own well being and joy. Therapist asked about the break, which the patient's friend suggested. Patient can be comfortable if he doesn't care about her feelings and just this about his well being, then he can focus on himself and that will be helpful for him. Therapist explains the advantage of taking a break. Therapist ask to scale his relationship between 0 to 10 to know about his thought on his relations. Patient said 6 and somewhat motivated. Therapist understand that patient is not sure about his relationship. Therapist asked patient that how confident he is to take a break with his partner on the scale of 0 to 10. Patient said 3 or 4. Patient was somewhere motivated and less confident because he can't  control her. Therapist wants to know how his partner reacts to this break, but patient thinks it creates a lot of anxiety. Therapist asks patient that they are ready or not ready on a scale of 0 to 0. Patient says 8. Therapist clarifies him why 8 not 0 or 10 and explains about his emotions, sadness and senses also give suggestion regarding the next step in relationship. Therapist suggests taking a small break if he had any uncertainty in the relationship.",,,,
+primary_topic,Relatioship,,,,
+secondary_topic,"Divorce, Break up",,,,

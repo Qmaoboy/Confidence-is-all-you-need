@@ -1,0 +1,13 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+I think I want to eat healthy.,symp/reasoning,1_0,P,id,
+I want to completely cut out fast food. I want to have more set meals and I just want to eat healthy food. Okay.,symp/reasoning,1_1,P,id,
+I think I at least needs to go to the grocery. Okay. ,symp/reasoning,1_2,P,id,
+Is that something that you haven't been doing?,routine,1_3,T,irq,
+"No, not lately. I've just been grabbing food at work, or going through fast food on the way home. Okay.",routine,1_4,P,id,
+"Like, I just haven't had the energy or desire to go and I've also been been working a lot trying to save up money for the baby. Finding the time might be hard. Okay,",routine,1_5,P,id,
+"I used to go every week on Sunday. And I used to already have a list in mind before I went,",routine,1_6,P,id,
+That would probably make it more likely for me to go. I don't have to be at work until the afternoon that day. So I can maybe go asleep and a little bit maybe at like 10 o'clock on Sunday.,routine,1_7,P,id,
+"Well, lately when I haven't felt like doing things that I really need to do, I'll give myself a reward. And I know that there's this great bakery on the way. So if I tell myself, if I go to the grocery, then I can stop by the bakery on the way home, then I may be more likely to go.",symp/reasoning,1_8,P,id,
+summary,"The patient wishes to eat healthy and completely cut out fast food. The patient wishes to have more set meals. When the patient does not feel like doing things they really need to, they give themselves a reward by going to the bakery.",,,,
+primary_topic,diet,,,,
+secondary_topic,grocery,,,,

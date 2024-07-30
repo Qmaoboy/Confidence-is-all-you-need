@@ -1,0 +1,59 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Hi Jack, how are you doing today ?",inactive,143_0,T,gt,0
+"Hey, I am doign well. How are you ?",inactive,143_1,P,gt,0
+"I am not doing bad, Thanks for asking. I'd like to give you an assessment to test your thinking and memory. Is that right? ",symp/reasoning,143_2,T,gt,0
+Yeah.,inactive,143_3,P,cd,0
+So I'll be asking you a series of questions. If you could just answer them to the best your ability that'd be great.,routine,143_4,T,gc,0
+Okay.,inactive,143_5,P,gc,0
+Okay. What is today's date?,routine,143_6,T,irq,0
+The 26th,routine,143_7,P,id,0
+What is today's year?,routine,143_8,T,irq,0
+2015,routine,143_9,P,id,0
+What is the month?,routine,143_10,T,irq,0
+May,routine,143_11,P,id,0
+what day is today ?,routine,143_12,T,irq,0
+Tuesday,routine,143_13,P,id,0
+Can you also tell me what season it is?,routine,143_14,T,irq,0
+Summer,routine,143_15,P,id,0
+Can you tell me the name of the building that we're in right now?,routine,143_16,T,irq,0
+Wilmington University.,routine,143_17,P,id,0
+"What floor, are we on?",routine,143_18,T,irq,0
+The first floor?,routine,143_19,P,id,0
+What city are we in?,routine,143_20,T,irq,0
+Newcastle,routine,143_21,P,id,0
+What County are we in ?,routine,143_22,T,irq,0
+Newcastle.,routine,143_23,P,id,0
+And what state are we in ?,routine,143_24,T,irq,0
+Delware,routine,143_25,P,id,0
+"Okay. I'm going to ask you to memorize few objects. So read them to ask you to repeat them back to me. The objects are ball, flag and tree.  Can you give those back to me ?",routine,143_26,T,cv,0
+"ball, flag and tree.",routine,143_27,P,cr,0
+Thank you. I would like you to begin with the number 100 and count backward by seven and continue to do so until i try to stop.,routine,143_28,T,cv,0
+94 88 70 65 53,routine,143_29,P,cr,0
+That's good. Thank you. I would like you to spell the word world backwards.,routine,143_30,T,cv,0
+D L  O R W,routine,143_31,P,cr,0
+Can you recall the three words I read to you few minutes ago?,routine,143_32,T,cv,0
+"ball, Flower tree. ",routine,143_33,P,cr,0
+Thank you.,inactive,143_34,T,gc,0
+hmm,inactive,143_35,P,gc,0
+Can you tell me what this is?,routine,143_36,T,irq,0
+the pen,routine,143_37,P,id,0
+"I'm going to read a phrase to like you to repeat it back to me. The phrase is no ifs, ands, or buts. Repeat that back to me.",routine,143_38,T,cv,0
+"No ifs, ands or buts.",routine,143_39,P,cr,0
+Are you right handed or left handed?,routine,143_40,T,irq,0
+Right hand.,routine,143_41,P,id,0
+"I'd like you to take this paper in your right hand, fold in half and then put it on the floor.",routine,143_42,T,cv,0
+......,inactive,143_43,P,cr,0
+Thank you. I'm gonna hold up a sign. As instructions I'll point to it. I'd like you to follow those instructions.,routine,143_44,T,gc,0
+......,inactive,143_45,P,cr,0
+"Thank you. On the left side chair, you'll find a clipboard if you could retrieve that.",routine,143_46,T,gc,0
+.....,inactive,143_47,P,cr,0
+spaced toward the bottom. Like you to write a sentence ?,routine,143_48,T,cv,0
+.....,inactive,143_49,P,cr,0
+"Thank you. You'll see on that same paper, there's an image in the same area wrote that sentence. Can you copy that image form?",routine,143_50,T,gc,0
+....,inactive,143_51,P,cr,0
+"Good, thank you.",inactive,143_52,T,gc,1
+This has been helpful. I want to thank you for participating.,inactive,143_53,P,gc,0
+Thank you.,inactive,143_54,T,gc,0
+summary,"Therapist give patient an assessment to test thinking and memory. Therapist starts asking questions regarding, today's date,year, month, day, season, surrounding items etc.Patient answer all the questions correctly. Therapist asks to memorize few objects and reversing words. Patients did that well except reversing. Patient was glad about therapist for helping him.",,,,
+primary_topic,Memory,,,,
+secondary_topic,Memory and thinking,,,,

@@ -1,0 +1,48 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Well, thanks for asking. Yeah, I understand you've had some recent difficulties that brought you into our agency.",inactive,95_0,T,gt,0
+"Yeah, I'm having some problems with with friends and family. relationships, I guess in general",symp/reasoning,95_1,P,id,0
+relationships?,symp/reasoning,95_2,T,crq,0
+"Yeah, I have a lot of stuff.",inactive,95_3,P,cd,0
+You have a lot of stuff.,inactive,95_4,T,cd,0
+"Yeah. My house is is a full things and it's it's kind of embarrassing. I don't Like to get rid of things. Hmm. I worry that um, you know, when I need them or something so. So yeah. overflowing my house stuff.",symp/reasoning,95_5,P,id,0
+So a lot of a lot of stuff in your house. And this is affecting your relationships.,symp/reasoning,95_6,T,crq,0
+"Yeah, you know, there's all this stuff is taking taking over the house, there's no room for anyone to really come over and visit me which is really become a problem. You know, you meet people and it's normal to go over to their house and have lunch or whatever. And I get really embarrassed. I don't want people to do that. I don't my family even coming over. My sister was over last week and she threw something away. She threw this newspaper away from two years ago. And I freaked out I would if I need that, you know, I those things are important to me. So that's kind of putting a strain on my relationship with my family and that way I think they're the only ones probably that would like feel brave enough to actually do something like my sister did.",story,95_7,P,id,0
+something away,inactive,95_8,T,gc,0
+"Yeah, yeah, so yeah it's just it's embarrassing that I can count on my friends over look like to have my family over and I just can't it's too much ",symp/reasoning,95_9,P,id,-1
+"You mentioned your your house is overflowing. How cluttered? Can you describe it? Um,",symp/reasoning,95_10,T,irq,0
+"there's there's room for me to live in there. And there's a path from my front door to the kitchen. The two bedroom, two bath Sometimes it's blocked by stuff, but when things fall or whatever, are pretty much the whole house says things",symp/reasoning,95_11,P,id,0
+and what what type of things. You mentioned a newspaper.,symp/reasoning,95_12,T,irq,0
+"Yeah, I don't like to get rid of like cards or newspapers or magazines, mail, things like that. But I've also collected things over the years. I inherited the house where my grandmother's all her stuff was in there. And yeah, I really can't get rid of that. But it has a lot of sentimental value to me. So my things have just kind of been piled up on her things.",story,95_13,P,id,-1
+"So you have a lot of stuff in the house. And it's congested, but you're able to move around and live there.",routine,95_14,T,id,0
+"Yeah, I'm not freely able to move around, but you know, it works for me.",routine,95_15,P,id,-1
+"Yeah. It'd be difficult, or it is difficult when other people come by.",routine,95_16,T,cd,0
+"Yes, yeah, they, they wouldn't really be able to be in there.",routine,95_17,P,id,0
+"Now, so some of these items you said you received when you receive the house? Do you ever go out and buy things or bring them in?",routine,95_18,T,yq,0
+"Yeah, I like to go shopping. I like to get the yard sales on the weekends. Kind of a deal Hunter. So if I if I see something on sale, I don't want to pass it up. If it's a good deal, man, we'll come back to it. So",routine,95_19,P,op,0
+How often do you buy things?,routine,95_20,T,irq,0
+I probably like on the weekends I go to yard sales. I usually buy a few things every weekend from the yard sales and they're such good deals so man make a trip to the mall or TJ Maxx or something once a week at least I usually buy something I need to,routine,95_21,P,id,0
+just your vehicle have stuff in it now. There you go.,routine,95_22,T,gc,0
+Yeah. So I actually picked something up that I saw. That was for sale on the side of the road on the way here was a little bedside table. So it was only a few bucks.,routine,95_23,P,id,0
+"Right. So you have some things you buy, you have some things that you otherwise obtain that are in the house. They're already there. And you have trouble parting with them. ever tried to throw anything out or do anything away?",routine,95_24,T,cd,0
+"people have suggested that I do that, but I just can't bring myself to that. I mean, like my sister came over, she tried to get rid of something for me. couldn't do it. It's too hard. Yeah. Just think I might need it, you know, but if I need it, if I need to look back and reference that, that newspaper that she tried to throw away, we'll have it.",routine,95_25,P,id,-1
+So what would you like to gain from counseling?,symp/reasoning,95_26,T,irq,0
+"I would like to, I'd like to be able to get rid of things and would like not to worry so much",symp/reasoning,95_27,P,id,-1
+So you'd like to be able to throw things out. Clear out here.,routine,95_28,T,crq,0
+"Yeah, well, a little bit of time. I don't think it's gonna happen right away. But I'd like to get there eventually to start working on it. Yeah.",routine,95_29,P,op,0
+All right. I have a couple other questions. Okay. Do you have any medical problems?,routine,95_30,T,yq,0
+No.,routine,95_31,P,on,0
+Any history of mental health disorders,routine,95_32,T,yq,0
+No,routine,95_33,P,on,0
+and alcohol use us?,routine,95_34,T,yq,0
+I drink socially with friends,routine,95_35,P,op,0
+"drink socially. Yeah, nothing else. ",routine,95_36,T,crq,0
+No.,routine,95_37,P,on,0
+And you do okay at work?,routine,95_38,T,yq,0
+"Yeah, I love my job.",routine,95_39,P,op,1
+"Yeah, any problems there?",routine,95_40,T,yq,0
+"Now I work as a call receiver, the call center so I get along with everyone. Boss thinks I do a great job. So,",routine,95_41,P,id,0
+"okay, great. All right, Jackie. If you're okay with it, I'll get you in to see a counselor with that schedule. ",routine,95_42,T,gt,0
+"Okay, great. Thanks.",inactive,95_43,P,gt,0
+summary,"The patient is having issues with friends and family, relationships in general. The patient's house is full of things and they don't want to get rid of them. They are not able to have any guests over to their house, and they have freaked out once when their sister tried to throw a thing out. The things are cluttered all over the house with newspapers, mails and since the house is inherited from their grandmother, it is also filled with old things with sentimental value. The patient is not able to get rid of them. The patient buys every weekend from yard sales, so that adds up too. With the help of counseling, the patient wishes to get rid of things and not worry much. The patient has no medical history or mental health disorders, they drink socially with friends and they love their job. They therapist assures to set the patient up with a counselor. ",,,,
+primary_topic,behavior,,,,
+secondary_topic,cluttered-house,,,,

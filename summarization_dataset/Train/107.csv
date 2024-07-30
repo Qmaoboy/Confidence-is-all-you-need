@@ -1,0 +1,50 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Hello Kathy, how are you today?",inactive,107_0,T,gt,
+Okay.,inactive,107_1,P,id,
+"I know when we spoke last time, you had some goals you want to talk about this time? You're ready to do that?",symp/reasoning,107_2,T,yq,
+"I need to Yeah, yeah.",symp/reasoning,107_3,P,op,
+What do you have in mind?,symp/reasoning,107_4,T,irq,
+"I just keep thinking about you know, losing this weight and I just really want to do it. I just I just can't get there and I don't know why. too frustrated. Its ridiculous",symp/reasoning,107_5,P,id,-3
+frustated Trying to lose the weight. Now you'd said before that you had a specific number of pounds of specific amount of weight to lose. You still have that in mind?,symp/reasoning,107_6,T,yq,
+" I would like 20 pounds 20 pounds. I mean, I would like more but I, I've tried to do more in the past and I don't even get past couple of days. So I can do 20 that would be great.",symp/reasoning,107_7,P,op,2
+"Right, and you tried before? And what do you think got in the way?",routine,107_8,T,irq,
+I don't know. I guess it wasn't convenient. You know.,routine,107_9,P,id,-2
+Yeah.,routine,107_10,T,ack,
+"Just like something always gets in the way, you know, and then I lose focus. I'm not very good at staying focused on stuff like that.",routine,107_11,P,id,-1
+Loss of focus. So you start trying to lose the weight and your focus gets disrupted.,routine,107_12,T,cd,
+"And I forget and then I make you know, spaghetti casserole for six people and then I eat a lot of it and that's carbs and cheese and fat and then I, you know, will eat with my kids don't eat and then it's just like I forget that I'm supposed to be making healthy choices.",story,107_13,P,id,-1
+"Alright, so you know, how to lose weight. And you know, you can lose weight. But your focus is a little off when you're trying and that's causing the problem. Could we break that goal of losing 20 pounds down into smaller units? Like say, five pounds",routine,107_14,T,id,
+Do you think?,routine,107_15,P,crq,
+It's just something you can do.,routine,107_16,T,cd,
+I am so busy,routine,107_17,P,id,
+for once a week.,routine,107_18,T,id,
+I probably do once a week,routine,107_19,P,id,
+"You mentioned the loss of focus is one problem. How about motivation, you feel motivated to move through all those steps like five pounds and five pounds and so on.",symp/reasoning,107_20,T,id,
+"Right now, yes. I think I would need something to keep me going. You know, week to week,",symp/reasoning,107_21,P,id,
+a little bit of that something extra to help you stay motivated.,routine,107_22,T,cd,
+"Yeah. Like, when your kid does \their homework early, you can give them a special treat for dessert like that helps, you know, keep it going.",story,107_23,P,id,2
+"Okay. So some sort of activity or item that you enjoy, that you could reserve for when you reach that goal of say that the first five pounds",story,107_24,T,id,
+"I would love I mean, I've just been so embarrassed, you know,",routine,107_25,P,id,-1
+All right. Do you have the activity or item in mind? We could put in place as something you could reward yourself with?,routine,107_26,T,irq,
+Like after the first five pounds?,routine,107_27,P,crq,
+"Well, there's a few ways we could do it. We could do that. So you reach five pounds. And then you can give yourself that reward work could be for something you do every day. If that day you're successful in eating the way you want, he would you think would motivate you more?",routine,107_28,T,cd,
+Maybe something every day.,routine,107_29,P,id,
+"Yes, you know, each and every day as you're trying to lose weight. You're aware. When that day comes to close if you had a successful night, they were a less than successful day, right? If you have a successful day, then you could engage in an activity or receiving items that we work out in advance that, you know, would motivate you.Right? ",story,107_30,T,id,
+"And that could be, you know, maybe watching like a favorite TV show. Okay, you know, because I don't watch TV at night, because I'm so busy cleaning up and everything. Maybe I could just take some time for myself, because I did something good. You know, I just watch a TV show.",story,107_31,P,id,2
+"So let's let's do that. On a day, you know, towards the evening. When you know, you have had a successful day and by what time would you know, in the evening?",routine,107_32,T,irq,
+"Probably as I'm preparing dinner, if I prepare food dinner, or if I prepare fun food for my kids, but I don't eat it like chicken nuggets and french fries and stuff.",routine,107_33,P,id,
+"Let's say some Okay, say so by 7pm at that point in terms of the day being successful or less than successful, you know, okay, right at 7pm, you're aware. And at that point, if you have met your call, then you have a you have a TV show that you maybe it's recorded on a TV or something you would watch, okay? And if you were not as successful you would write. So I'd be like something to keep you motivated about the day because you really want to watch that show. Right? A lot of fun. Do you think that structure, that kind of behavioral strategy would give you enough motivation to have successful days so it's process?",routine,107_34,T,id,
+"I don't know honestly, but it would probably be the way right now",routine,107_35,P,id,-2
+"And this is something you could also track. Right? You could write down days that are successful days or lessons less than successful. And we could look at if there's any patterns, maybe weekends are harder, because they're easier or something where we can identify days that have maybe more triggers or we're less motivated.",routine,107_36,T,id,
+"Yeah, I didn't think about that. Because right every day would be different.",routine,107_37,P,id,
+"Okay, there's the potential for every day to be different with what you're exposed to, and what temptations in terms of different foods, what your schedules like maybe for busier things easier. So we can We can look at those different patterns. And we can add levels to this plan. Okay, but for now we'll go with the TV show that you'll watch sometime after seven, seven, you evaluate how you did, sometime after that. watch the show, okay? That's like a plan. ",routine,107_38,T,id,
+"So that's leading up to the five pounds. Right? Right. Okay,",routine,107_39,P,crq,
+"day by day, okay, this and five pound increments, okay, four times to get to your goal. 20 pounds. Okay. Sounds good. So far. So, we'll give that a shot. And we'll take a look at the pattern that emerges, support everything. I say, write everything down. Okay, probably at around seven is a good time. When you know kind of day ahead, write down kind of what happened that day and whether you've had success or not. And bring that in. I'll see you again week. So give us I'll give you seven, seven days to work with. Okay? And we'll look at that log of events. And we'll reevaluate each week.",story,107_40,T,cd,
+So I could start tonight,routine,107_41,P,crq,2
+"starts tonight, okay.",routine,107_42,T,cd,
+All right.,inactive,107_43,P,gc,2
+So we'll give that a shot and I'll see it a week.,inactive,107_44,T,id,
+"Okay, thanks, Kevin.",inactive,107_45,P,gt,
+summary,"The patient's goal is to lose weight by about 20 pounds but they are frustrated since they are not able to get there. The patient loses focus to lose weight. The therapist suggests to break down and reduce five pounds week on week. The patient likes to reward themselves if they have successful day of losing weight by watching a TV show. The therapist asks the patient to write down their activities each day, at around 7 pm. The therapist asks to target 20 pounds incrementally. The therapist would like to review them by next week. ",,,,
+primary_topic,weight loss,,,,
+secondary_topic,focus,,,,

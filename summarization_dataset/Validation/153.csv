@@ -1,0 +1,59 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Hi Kyle, how have you been ?",inactive,153_0,T,gt,0
+I'm not too good man.,inactive,153_1,P,gt,0
+Not too good?,inactive,153_2,T,crq,0
+"Yeah. So something happened over this past week I was I was driving to my buddy's house and I forgot that my tags for my car is  expired earlier this month. So I got pulled over for that and then I don't know why I did this but the cop asked to search my car and I was like, yeah, that's fine like whatever because he said he had two searches. This is getting towed. And I completely forgot that I had my junk bag in the trunk. So we opened the trunk and he was looking through the bag. So he found me he found everything. I had my weed in there at the bottom the pipe like all my pieces. So I got a, I got in trouble for possession. So I just I just want him to court and the judge offered me this decision. He said that I could either do two weeks of community service like about 80 hours, or I could pay $1,000 fine. And I'm trying to I'm really trying to figure out which one really which one would be better I guess, the both kind of suck but",story,153_3,P,cd,-1
+"So you're struggling with the decision between two options you perceived as negative, right. ",symp/reasoning,153_4,T,crq,0
+Right.,inactive,153_5,P,cd,0
+Now we've discussed the marijuana usage before was just probably the root of this problem. Right?,symp/reasoning,153_6,T,crq,0
+Right.,inactive,153_7,P,cd,0
+But it sounds like you didn't really want to explore change this time.,inactive,153_8,T,crq,0
+"No, I mean, it's it's really not a problem like it's just they don't really want it problem is that I got caught like I'm doing good in school works fine. So obviously like marijuana is other than just going to court It has never been a problem.",story,153_9,P,cd,-1
+So let's focus on this decision then.,inactive,153_10,T,gc,0
+Right,inactive,153_11,P,gc,0
+so the decision is between a couple weeks of  community service what kind of community service?,inactive,153_12,T,crq,0
+just picking up crap inside of the road?,inactive,153_13,P,cd,0
+"Or $1,000 fine?",inactive,153_14,T,crq,0
+Yeah.,inactive,153_15,P,cd,0
+And do you have the thousand dollars?,inactive,153_16,T,yq,0
+"I do, but I have I got a vacation coming up and I definitely like I want to I want to keep the money for like a little little vacation we'd like do some, some fun stuff with my buddies. Definitely like I want to keep that money. But I mean, I also like the community service is like also kind of close to the vacation so I might have to like give up part of the vacation or to to do the two weeks so that I think that didn't really help my decision either.",story,153_17,P,op,-1
+"Do you see any value in either one of these options, which is all become negative?",inactive,153_18,T,yq,0
+"I mean, really, like they both they both have the same negative, I guess like, like if I if I do the community service that I like, you know, I do get to keep the money. But I mean other hand, like if I keep the money, I'm doing community service, like I'm not gonna have all the time to spend the money. So it's now I mean, neither really have a positive and both the negatives are kind of equal to so it's it's kind of tough to choose.",symp/reasoning,153_19,P,on,-1
+"So let's talk about what's important to try to help you make this decision. Really what you're going to have to determine is, and what I want to explore is the importance of keeping the money. Right, because that's really what this comes down to. ",routine,153_20,T,gc,0
+Right.,inactive,153_21,P,gc,0
+"You You keep it and you do the service, or you spend it and you don't do the service?",routine,153_22,T,crq,0
+right,inactive,153_23,P,cd,0
+So you could you could say that it's about the importance of keeping the money rr you could say it's about the importance of avoiding the community service.,symp/reasoning,153_24,T,crq,0
+Right.,inactive,153_25,P,cd,0
+"So let's talk a little about that. What How would you say on a scale of one to 10, where 10 is very important. How would you scale keeping the money?",routine,153_26,T,irq,0
+"I mean, that's obviously pretty high. Like, I guess keeping the money, it'd be like a nine. Because if I, like if I, if I keep the money, obviously, I can, like use it for other other things. I'd say probably nine. ",routine,153_27,P,id,0
+"So keeping in mind, that's, that's very important to you. ",inactive,153_28,T,irq,0
+Right.,inactive,153_29,P,id,0
+So that scenario would be would lean more toward completing the community service.,inactive,153_30,T,irq,0
+"Right. Yeah, I mean, I guess that's true. Like, I didn't think about it in that way, like if I if I give up the the two weeks of time, like, obviously that would suck, but like I have, I guess I have more of a choice of what to do with money compared to my time. You know, so I guess I could think about it that way maybe",story,153_31,P,id,0
+"Well, let's look at the other side too. How important is it for you on a scale of one to 10 to avoid the community service? So we know it's a nine, right to keep the money?",routine,153_32,T,irq,0
+right.,inactive,153_33,P,id,0
+How to avoid the community service ?,inactive,153_34,T,irq,0
+"Maybe like, I guess maybe about a seven because the like the community service, I mean, it wouldn't be that bad. Obviously, like, it would be a waste of time. We're gonna have to do this crap work for for so long, but I don't know. Like, at least I know if I do the community service and it would be like done after this amount of time. You know, so I can I can always keep that in mind.",story,153_35,P,id,0
+"So, as you're talking, it seems like you're leaning toward or maybe you're leaning toward completing the service. Even though you're not happy with either choice, right?",symp/reasoning,153_36,T,crq,0
+Right,inactive,153_37,P,cd,0
+That might be the least objectionable.,inactive,153_38,T,gc,0
+"Yeah, yeah. Yeah, I guess cuz I never like I never thought about scaling it like that way. So yeah, I think so. ",inactive,153_39,P,gc,1
+When do you have to make this decision by ?,inactive,153_40,T,irq,0
+"by the end of the week So today's Tuesday, so I have like a couple of days to think it over.",inactive,153_41,P,id,0
+And you go back before the judge on Friday,inactive,153_42,T,gc,0
+"on Friday, yeah. When I get the decision.",inactive,153_43,P,gc,0
+Once you weigh some of the factors with the way this importance of the money versus doing the community service,routine,153_44,T,gc,0
+right,inactive,153_45,P,gc,0
+"let's meet again just before maybe on Thursday. Okay, let's meet again Thursday. And just talk about it and take a look at your decision making process and making sure that you've made a decision that you can be most happy with. I know neither option is happy option for you. ",routine,153_46,T,gc,0
+Right,inactive,153_47,P,gc,0
+They're one that's the least destructive for you the least negative for you,inactive,153_48,T,gc,0
+right,inactive,153_49,P,gc,0
+That's sounds like a plan. ?,inactive,153_50,T,crq,0
+"All right. Yeah, I think I can do that. Yeah, give me some more. ",inactive,153_51,P,cd,0
+"Good, then I'll see there. ",inactive,153_52,T,gc,0
+"Yep, sounds good. ",inactive,153_53,P,gc,0
+Take care.,inactive,153_54,T,gc,0
+summary,"Patient had a problem in the past week. Patient got pulled over by a cop for expired tags. Cop searched the car and found weed. Patient went under possession the sent to the court and charged a $1000 fine or community service of 80 hours. Patient was confused between selecting either of the options. Therapist got to know that marijuana is the root of this problem. Patient was doing school work fine, so patient thought that marijuana is just a thing that made to go to court. Therapist asked to patient choose either of the options between a $1000 fine or Community service of 80 hrs. Therapist asked to scale both options from 1 to 10. Patient was planning for a vacation but patient wasn't ready give 2 weeks for community services. Then the patient scaled money 9 out 10 and community services 7 out of 10. Therapist asked to take a decision by the end of the week and choose the right option for you.",,,,
+primary_topic,Decision,,,,
+secondary_topic,Marijuana,,,,

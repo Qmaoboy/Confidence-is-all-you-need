@@ -1,0 +1,33 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Amanda, thanks for coming in tonight.",inactive,112_0,T,gt,
+yeah its okay,inactive,112_1,P,gt,
+The GP sent me a letter telling me a little bit about what's been happening. That's been having some difficulties since birth for some of you weeks ago. Tell me a little bit about what's been happening from your,story,112_2,T,id,
+it's been really difficult. I've been really struggling. And I don't know why. I don't know why. This should be a really wonderful time for me and it's something that I've been looking forward to,story,112_3,P,id,-1
+But it hasn't. It hasn't been a good time.,inactive,112_4,T,id,
+"I could never have imagined that it would be like this. It is not what I thought it would be like, ",inactive,112_5,P,id,
+what has what has it been like for you?,inactive,112_6,T,irq,
+"I'm just not feeling how I think I'm meant to feel. It's difficult sometimes, to me to actually do what I'm meant to do. As a mother I, and it just feels so wrong. I'm",symp/reasoning,112_7,P,id,
+so wrong?,inactive,112_8,T,crq,
+"This isn't how I meant to be. I feel like I'm just meant to love looking after him and taking care of him, but he doesn't feel it's just not feeling that way. And sometimes it's even hard to want to. ",symp/reasoning,112_9,P,cd,
+It's meant to be feeling this,inactive,112_10,T,id,
+Yeah. And this is something that we've been trying so long for and it's Just been so important for both of us.,symp/reasoning,112_11,P,id,
+"These this thing that has been so important, and now that it's, it's here, now that's happened. It's different to the way that you imagined ",routine,112_12,T,id,
+"slightly different. I thought that I kind of blossoming and just love Detroit and I do love him. It's not that I don't you know, it's not that I don't love him. It's not that I don't want to do this, I do it. This is part of me that is just really struggling.",symp/reasoning,112_13,P,id,
+Please tell me a little bit more about that part that's struggling.,inactive,112_14,T,irq,
+"It's really difficult to even talk about because it's like, not meant to feel this way. But there's this part of me that would just not like to get out of bed. In the mornings, I just want to sleep. I don't want to do anything. ",symp/reasoning,112_15,P,id,-1
+Just want everything to go on?,inactive,112_16,T,yq,
+"It's really hard to admit because I can't imagine that anybody else could understand what this feels like it, it feels unnatural, almost that kind of relief to say it out loud.",symp/reasoning,112_17,P,id,-1
+And this is the place that you can say what needs to be said.,inactive,112_18,T,id,
+"Yeah. Yeah. That is part of me that almost feels angry with all the stuff I've got to do, and I don't feel like I'm getting the support that I need. And it's really difficult. I feel like I have to do it all myself.",symp/reasoning,112_19,P,ack,
+" So, feeling as though it's all on you. You're going to deal with it all the time. ",routine,112_20,T,id,
+"Yeah, and it's Huge it's like this little little boy that just needs me to be there. I'm struggling to be there and until want to be there even. So it's really overwhelming. Mm hmm.",symp/reasoning,112_21,P,id,
+By yourself with,inactive,112_22,T,id,
+"my partner, John's Bay like, he tries, but I think he is getting frustrated with me, too. He's sensing that. I guess he had expectations of how I would be and how we would be and how this would be and I think that he's disappointed in me. And then that doesn't help and so then I sort of feel like I have to do it to prove that I am okay and that I am kind of holding it all together. And I do love these. ",routine,112_23,P,id,
+So trying to keep a mask up. Trying to seem as though it's okay.,routine,112_24,T,crq,
+Yeah. You caught him. To know how I feel I'm I feel like I'm a bad mother already.,symp/reasoning,112_25,P,cd,
+But it's painful. It's a painful feeling.,symp/reasoning,112_26,T,id,-1
+"I've been tried so hard to have this child to have wanted and it's always been talking about and planning for so long and it means so much to john as well. And I'm just it's just, it's just not happening. either of us thought and I really wanted to, it's hard because I wanted to but",symp/reasoning,112_27,P,id,
+"so at this point, and it's six weeks, they've been a really rough. Six weeks feels to me like really rough. Having waited so long to have this child gone through the birth and understand from a GPM pump was a somewhat difficult birth if it wasn't from I thought it was. So from the very start, it hasn't been as you thought.And now you're at that point where the reality is the reality of this baby. It sounds to me that there's a struggle going on for you. But a struggle that you're feeling very much alone with",routine,112_28,T,id,
+summary,The patient complaining about her feeling that she was wrong. She has insecurities with her partner. Patients expectations are hurting badly. She also feels the same for her partner. As she couldn't reach his expectations and she is disappointing. Therapist asked her to deal with these things in mind. Therapist understood the difficulties and struggle she had in her life.,,,,
+primary_topic,"Family issue, self doubt",,,,
+secondary_topic,Insecurity,,,,

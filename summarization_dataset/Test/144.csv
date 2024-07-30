@@ -1,0 +1,156 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Hi Angela, how are you doing today ?",inactive,144_0,T,gt,0
+"I am all right,",inactive,144_1,P,gt,0
+"you, all right ?",inactive,144_2,T,crq,0
+"Yeah. There's been some changes in my life but um, yeah.",inactive,144_3,P,cd,0
+Good changes ?,inactive,144_4,T,yq,0
+Uhh Not really.,inactive,144_5,P,on,-1
+Not really.,inactive,144_6,T,crq,0
+Yeah.,inactive,144_7,P,cd,-1
+What kind of changes ?,routine,144_8,T,irq,0
+"You know, just, you know, uh, you know, I lost my job. So, things are kinda you know, dominal effects from that. So,",symp/reasoning,144_9,P,id,-1
+so there's been consequences from those in your job.,symp/reasoning,144_10,T,yq,0
+"Yeah, I mean, obviously, that's, you know, you have a job. So you can take care of certain things. So, yeah, ",symp/reasoning,144_11,P,comp,0
+like what things ?,routine,144_12,T,crq,0
+like you know like paying your bills and that's pretty much it. I guess that's really why most people have a job.,symp/reasoning,144_13,P,cd,-1
+"See, you've been unable to pay your bills.",symp/reasoning,144_14,T,crq,0
+"Yeah, yeah, definitely.",inactive,144_15,P,cd,-1
+How's your mood overall?,routine,144_16,T,irq,0
+"I mean, what can I say I lost my job. I'm seeing you because I have a drinking problem. So things are not that great.",symp/reasoning,144_17,P,id,-1
+Things are not great ?,routine,144_18,T,crq,0
+No.,routine,144_19,P,cd,-1
+Tell me what the drinking now has been gone.,routine,144_20,T,irq,0
+I drink a lot.,routine,144_21,P,id,-1
+Ummm,inactive,144_22,T,gc,0
+"I always say to myself that I'll try to drink less but at this point, it's kind of like what have I got to lose? You know",story,144_23,P,gc,-1
+You're drinking more ?,story,144_24,T,crq,0
+"Yeah, yeah, yeah ",routine,144_25,P,cd,-1
+a lot more ?,routine,144_26,T,crq,0
+"Yeah, I mean, not a lot more I mean, I guess I have more free time now so",routine,144_27,P,cd,-1
+cuz now you don't have a job,routine,144_28,T,crq,0
+hmmm,inactive,144_29,P,gc,-1
+what affects you're experiencing because of the increased drinking?,routine,144_30,T,crq,0
+I don't know.,routine,144_31,P,cd,-3
+are you feeling good about the drinking ?,routine,144_32,T,irq,0
+"At this point, it's kind of like who cares? Like what difference does it really make, you know",routine,144_33,P,id,-1
+Sure in different tours.,routine,144_34,T,gc,0
+Yeah.,inactive,144_35,P,gc,0
+When you're drinking does it still feel good?,routine,144_36,T,irq,0
+Nothing really feels good.,routine,144_37,P,id,-1
+Just gets back to normal.,routine,144_38,T,crq,0
+" Yeah, pretty much",routine,144_39,P,cd,-1
+When was the last time you drank ?,routine,144_40,T,irq,0
+this morning,routine,144_41,P,id,0
+How much?,routine,144_42,T,irq,0
+"A lot, I don't know.",routine,144_43,P,id,-3
+You don't recall.,routine,144_44,T,crq,0
+No,inactive,144_45,P,cd,0
+"Is that is that typical? I mean, I don't recall you taking on the same day we've had sessions before.",routine,144_46,T,crq,0
+"I mean, at a certain point, it's like, you know, difficult to wake up and not have a drink. Like to get through the day. So yeah, I mean, I just drink as much as it takes for me to function and I don't really know how much that is. Like, I don't sit there and count it like These are my three shots for the morning. I don't I don't know. Like I get up, I drink some to make me feel better. I keep some alcohol by my bed because it's hard when I wake up in the morning, like, it's just really difficult to like, get out of bed without having a drink. So I'll drink some then. You know, and just to function, so I don't know how much I don't know",story,144_47,P,gc,-1
+what your fuel is those towards like you're drinking more.,routine,144_48,T,irq,0
+Yeah.,inactive,144_49,P,id,0
+What would you say your attitude toward increased drinking is right now ?,symp/reasoning,144_50,T,orq,0
+"I'm pretty indifferent. Like I said, I mean, I just don't. I don't. At this point. It's like what does it matter like everything else has, I dont know",symp/reasoning,144_51,P,od,-1
+So couple times you indicated that you're indifferent toward it. And why I'm curious about that is because that's not been the way You've appeared before you appeared before to be unhappy that you were you were drinking. And now you're more or less something that you don't have strong feelings about one way or the other.,routine,144_52,T,gc,0
+I guess I just don't know why I should keep suffering like making myself suffer.,routine,144_53,P,od,-3
+So the drinking tastes was suffering.,routine,144_54,T,crq,0
+"No, the feeling bad about the drinking makes me suffer.",symp/reasoning,144_55,P,cd,-3
+feeling bad about the drinking ?,routine,144_56,T,yq,0
+"Yeah, I mean, yes, the drinking takes away the suffering but that's not what I meant.",routine,144_57,P,op,-1
+"So feeling guilty about drinking, That's what's caused you problems.",routine,144_58,T,crq,0
+"That I mean, I don't know if that's what's causing me problems. But at this point, it just seems pointless to keep making myself feel guilty about it as what I'm saying.",routine,144_59,P,cd,-3
+How would you like to feel bad ?,routine,144_60,T,irq,0
+"I would like to not, I would like to be happy. I would like to not drink I would like to have a good life. But at this point, I'd rather just I don't know, like, why should I keep feeling guilty about it? What is the point? Like, what is the point of this life where I have no job, and I'm gonna lose my house? And you know, I just don't get it. Like, why do you want me to keep feeling guilty about my drinking when everything else is not working? It's not working. And so I'm just supposed to like keep trying. I don't get that anymore. I don't get it.",story,144_61,P,id,-3
+So you no longer understand the point of life ?,routine,144_62,T,yq,0
+"Yeah, I mean, yeah. As it is like, this just doesn't make any sense to me. Like why should I keep fighting to be sober. If I can't, you know, I lost my job. It's too late for that. Like, the whole point of coming to you is to, you know, have a better life things are getting worse. I'm not saying it's your fault. I'm just saying like, what's the point of this? If it's not getting better and things are getting so bad that even if I was sober, I wouldn't be able to handle it.",story,144_63,P,op,-1
+"So, what do you see as your options right now?",routine,144_64,T,irq,0
+I don't know,routine,144_65,P,id,-3
+"You tell me about some things you've been doing recently, like in the last three or four days.",routine,144_66,T,irq,0
+"sitting at home drinking  hmm, that's about it. Not drinking anything else going liquor store that's about it. I mean, seriously, it's just funny like, I don't even there is nothing",routine,144_67,P,id,-1
+Now I know you're working on a few things like you're working on find another job. You've been doing that.,routine,144_68,T,crq,0
+"No, not really. I mean, I'm going to lose my house so I'm just biding my time until that happens. I don't really know. Like what Yeah, I'm no I'm not looking for a job now",routine,144_69,P,cd,-1
+So you have stopped looking for a job.,routine,144_70,T,crq,0
+hmmm,inactive,144_71,P,cd,-1
+And when are you losing your house?,routine,144_72,T,irq,0
+"I don't know. It's it's hard to tell, you know, with the banks and everything, but it seems like it will be soon.",routine,144_73,P,id,-1
+What's your plan for when that happens?,routine,144_74,T,irq,0
+I don't have one.,routine,144_75,P,id,-1
+You don't have one ?,inactive,144_76,T,crq,0
+"No, no.",inactive,144_77,P,cd,-1
+before  we've talked and I've been seeing you while you're always pretty careful about planning things out.,routine,144_78,T,gc,0
+I've just decided I'm not gonna worry about it anymore. I can't I just can't do it anymore.,routine,144_79,P,gc,-1
+can't worry anymore ?,routine,144_80,T,crq,0
+"Yeah. my life is just full of worrying. I mean there's nothing to do except to worry about all of it, you know, my job, my drinking my house.",routine,144_81,P,cd,-3
+So what do you see as your alternative to all this worrying?,routine,144_82,T,irq,0
+There is no alternative.,routine,144_83,P,id,-1
+So what do you do?,routine,144_84,T,irq,0
+I don't know.,routine,144_85,P,id,-1
+You don't know ?,inactive,144_86,T,crq,0
+Yeah,inactive,144_87,P,cd,-1
+"I've sensed this time, you're much more negativistic as compared you before. Do you recognize that has been the case? ",symp/reasoning,144_88,T,id,0
+Yes. Yes.,routine,144_89,P,op,-1
+"Like, markedly so.",routine,144_90,T,crq,0
+"Yeah. Like, I feel like things have taken a turn.",routine,144_91,P,cd,-1
+Can you tell me about that turn?,routine,144_92,T,irq,0
+"I don't know. I just feel like you know, I'm losing my house. I lost my job. I don't really have anything that needs to be done in order.",routine,144_93,P,id,-3
+Got in done order for what?,routine,144_94,T,irq,0
+"like if I died,",routine,144_95,P,id,-2
+"if you die if you die Nothing would have to be taken care of. I mean, like,",routine,144_96,T,gc,-2
+"I mean, they probably have a funeral but you know, right house is gone, my job is gone. My drinking will be gone.",routine,144_97,P,gc,-2
+Would your family miss you?,routine,144_98,T,irq,0
+I don't really care.,routine,144_99,P,id,-1
+"Even still, you think they would miss you?",routine,144_100,T,orq,0
+"Maybe I mean, in their own way. They probably would have wished that they would have done different things differently. Yeah, but that's not my responsibility.",routine,144_101,P,od,-1
+What's your responsibility right now?,routine,144_102,T,irq,0
+"Nothing. Nothing. I mean,",routine,144_103,P,id,-1
+So no one would correct me if I'm wrong. No one would care if you die.,routine,144_104,T,irq,-2
+"I mean, they probably care a little bit. Do I care if they care? No.",routine,144_105,P,id,-1
+"So you care a little, but you're not concerned with that. And you have this sense that you have nothing left to lose because you've lost a job. And now soon, your house you have anything else that you care about? Any goals ?",routine,144_106,T,irq,0
+I used to,routine,144_107,P,id,0
+how about now ?,routine,144_108,T,yq,0
+No.,routine,144_109,P,on,0
+What happened to your goals?,routine,144_110,T,irq,0
+"I drank them. I lost my job. I lost my house. But you know, I was thinking maybe I could find myself a new job but at this point I'm just so far gone like my life is so ruined I don't know how you could expect me to come back from this I don't know how you can expect me to live a life how to pick this up and make something of it like",story,144_111,P,id,-3
+how to redeem yourself.,symp/reasoning,144_112,T,gc,0
+Mm hmm,inactive,144_113,P,gc,0
+you can't see what to do that now.,inactive,144_114,T,gc,0
+No.,inactive,144_115,P,gc,0
+I mean come on. Cuz cuz all things that happened to overwhelmed you.,routine,144_116,T,gc,0
+"I don't know. I mean, happened to me did to myself. It's just at this point. It's like I've lost so much have what I worked for. And I don't have one scrap of dignity or anything at all. I don't have anything.",routine,144_117,P,gc,0
+You don't have anything you don't have any worth. worthless. That's how you're feeling ?,routine,144_118,T,crq,0
+"Yeah, alone. worthless. Yeah, like nothing. There's nothing redeemable. There's nothing I can build upon.",routine,144_119,P,cd,-1
+and have you been thinking about ending your life? Are you hesitant to tell me that ?,symp/reasoning,144_120,T,irq,-2
+Yes,routine,144_121,P,id,-2
+why is that ?,routine,144_122,T,crq,0
+"I guess a lot of reasons. I know that we have worked together and I don't want you to feel like you failed. I really don't want you to try to do anything because I feel like nothing that you have tried has worked. You know, I'm a hopeless case. ",story,144_123,P,cd,-2
+hmmm,inactive,144_124,T,gc,0
+"And I feel like at this point, it shouldn't even be your responsibility to try because it's not fair to you anymore. And I don't know. I just Oh, ",routine,144_125,P,gc,-1
+you're planning on ending your life ? ideal plan in place ?,symp/reasoning,144_126,T,irq,-2
+Yeah.,symp/reasoning,144_127,P,id,-1
+Can you tell me about the plan?,routine,144_128,T,irq,0
+I don't really want to talk about it.,routine,144_129,P,id,-3
+But you have a plan. You don't want me to interfere in your plan?,routine,144_130,T,yq,-2
+"No, no, obviously not.",routine,144_131,P,on,-3
+But you're aware that I'm going to try to interfere with your plan.,routine,144_132,T,yq,-2
+I get I guess so.,routine,144_133,P,op,-1
+"You mentioned earlier that you just I mean, it sounds like you're saying is you've hit rock bottom and rock bottom can't be tolerated. And your family would care if they lost you, but you're indifferent to that. Right? I would care if you die. All right, I'm gonna do everything I can to prevent that. It's hard to see when you have thoughts or worthlessness. It's hard to see stress. But I see somebody with strengths. I see a young  lady that over the last few months has told me all kinds of strengths, all kinds of situations where you've been resilient.You recall those conversations ?",story,144_134,T,gc,0
+I guess.,routine,144_135,P,op,-1
+"But that's not in the forefront of your mind right now. You're strange, but they're still there. Do you have an intent to commit suicide?",routine,144_136,T,yq,-2
+Yes,routine,144_137,P,op,-1
+And you don't want me to stop here?,routine,144_138,T,yq,0
+Yeah,routine,144_139,P,op,-2
+"I'm going to stop you. Right? I want to, I'm obligated to. And it's really the best thing to be done is to prevent it. I know you feel this way now, and I know I can't fully understand that. But I'm fairly sure that you won't feel this way. A week or two from now. Right feelings of worthlessness, feelings of hitting rock bottom, they cycle just like all feelings. Right? You've had ups and downs before. Remember ?",symp/reasoning,144_140,T,id,0
+Yes,routine,144_141,P,op,0
+I see some of the long and productive life. suicides not it's not the answer. I know it seems like the only option right now. I get that. But there's still some other options. Does that make sense?,routine,144_142,T,id,0
+Yeah,routine,144_143,P,op,0
+"I know you probably don't wanna hear about other options. I think what we should do today is get you over as an impatient Alright? And go pi keep you for 5-10 days and kind of work on getting your mood stable. My guess is when you come out, you'll feel differently on this subject. You'll feel a little better. Maybe feel a little better place we can continue. And we will. I'll see you will schedule associate that on the day or the day after you come out. Right. Preferably on the same day. Does that make sense to you?",routine,144_144,T,id,0
+"I mean, I guess.",routine,144_145,P,op,0
+Are you disappointed? I'm trying to save your life.,routine,144_146,T,yq,-1
+Yeah.,routine,144_147,P,op,-1
+Do you understand why I'm doing it.,routine,144_148,T,yq,-1
+Yeah.,routine,144_149,P,op,-1
+All right. So I'm gonna walk you over 20 other counselors. I gotta make some phone calls. We'll get you over there. Okay. All right.,routine,144_150,T,id,0
+Thanks.,inactive,144_151,P,ack,0
+summary,The patient has lost their job recently and are unable to pay their bills. They are caught up in a drinking problem. The patient has been a drinking a lot more and feel indifferent towards it. The patient feels guilty about drinking. The patient has stopped looking for jobs or any alternatives. The therapist affirms the patient is feeling much negativistic this time. The patient is unable to redeem themselves. The patient feel like ending their life since they call themselves a hopeless case. The therapist commands that they will stop the patient from ending their life by recollecting affirmative and strong thoughts the patient has discussed in previous sessions. The therapist clarifies that they are going to take them as an inpatient for 5-10 days to get their mood stable and then set up an associate immediately after that. The therapist adds they are going to walk them over 20 counselors.,,,,
+primary_topic,suicide,,,,
+secondary_topic,drinking,,,,

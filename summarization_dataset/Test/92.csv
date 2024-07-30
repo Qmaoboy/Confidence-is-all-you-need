@@ -1,0 +1,58 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Jason, how you doing, sir? ",inactive,92_0,T,gt,0
+Okay.,inactive,92_1,P,gt,0
+You all right?,inactive,92_2,T,yq,0
+I'm just here.,inactive,92_3,P,op,0
+"You're just here, just here. I understand that you're in the hospital a couple weeks ago.",inactive,92_4,T,crq,0
+"Yeah, I was in the hospital about two weeks ago did something and I had to go to the hospital afterwards.",inactive,92_5,P,cd,0
+What happened?,inactive,92_6,T,irq,0
+"yeah, so about two weeks ago, I was finishing up this wonderful machine that I was creating in my room, so that the government can't hear my thoughts or my, my actions or my behaviors. And I was just trying to finish up my last little bit that I needed to build and I went over to the neighbor, because their garage was open and just picked out a tool and brought it back to the house. And when I was in the house working on my my room, the cops came and picked me up and took me to the hospital. So it's like, see the government data to get",story,92_7,P,id,-2
+what you think the government is trying to do.,routine,92_8,T,irq,0
+"They're trying to stop me from actually creating my room. Because they're, they're creating this new order where they want everybody to follow them. And I'm not a follower. And I know what I want. And I know what I need. And I know what my family wants, and I know what they need. And I'm just trying to protect them by creating my room.",story,92_9,P,id,-1
+And tell me about your room. What what are you doing there that makes that special.,routine,92_10,T,ci,0
+So I was smart enough to know that there are frequencies and waves that are out there that the government is actually sending you through the lights and also through the TV and like through every electronic apparatus that is out there. And I'm actually creating doll or a wave neutralizer so that it can actually stop that from happening. So that you can actually live the life that you want and be happy and youthful and joyful all the time.,story,92_11,P,id,0
+Is that how you were feeling when you were building?,routine,92_12,T,yq,0
+"Yeah, because I created this prototype in my room. And anytime I'm basically in there I was, it was good. I had energy. I didn't have everything that I wanted. But my prototype was running out of fuel. And so I needed to make it bigger, larger, so it can run longer.",story,92_13,P,op,0
+That's what you're trying to do,routine,92_14,T,crq,0
+"Yeah, that's what I was trying to do when I wouldn't borrowed the tools from my neighbor but yeah, and then also I was ordering some things that were online. And they were also supposed to become be shipped in so that the base piece that I was creating, that I use the tools for my neighbor's house. It could have been all perfect and set so that when All of the hard drives in the electrical wiring and all of that stuff came in, I could just plug it in. And then not only my room covered, but also my houses covered and all of my family, they could just be happy.",story,92_15,P,cd,1
+"They could be happy, they could be happy, like, you know, you were happy.",story,92_16,T,crq,0
+"I was happy, like, so two weeks ago, I was I was good. I, I was up, I did all the calculations that I need to create. So I can actually build my base in my system. But then I also did the calculations about the different types of waves being in the house, but then also out of the house, that I also had the opportunity to just not sleep because I need sleep. I wasn't tired. And if I did sleep, I slept for like 15 minutes, just because I needed to finish what I was going to do. And I was so close to finishing and my neighbour called cops.",story,92_17,P,cd,1
+So you had a period of time when you had like a lot of energy and you weren't really sleeping much,symp/reasoning,92_18,T,crq,0
+Doesn't everybody do that?,routine,92_19,P,crq,0
+You're also happy and felt energetic,symp/reasoning,92_20,T,id,0
+I felt good. Like when I when I sleep I don't like when I sleep because it just feels wrong.,routine,92_21,P,id,1
+And how do you feel now in comparison?,routine,92_22,T,irq,0
+"I'm alright guy. All right. Just All right, right now. The government maybe get on different medication. So just all right.",routine,92_23,P,id,0
+So not happy or sad.,symp/reasoning,92_24,T,crq,0
+not sad either. It's just you In the middle,symp/reasoning,92_25,P,cd,0
+Do you want to get back to that happiness,routine,92_26,T,yq,0
+of course who doesn't want to get back to the happiness of their life. That's the reason why you need to finish machine,routine,92_27,P,op,1
+Yeah. You mentioned you ordered some products online. How much did you order?,routine,92_28,T,irq,0
+"um, I think I ordered probably know the exact number I ordered 236 hard drives, because 236 is the perfect number that I needed to not only cover my bedroom, so I can always be happy and if the system went down, my room was always going to be covered. But then within that 236 it also covered my house so that my family could be happy, and like my four neighbors around us so we can all be happy. And that's the reason why I'm kind of angry at my one neighbor because I was including his house in all By my grid so that he can also be happy all the time.",story,92_29,P,id,0
+He would have been affected by a machine.,routine,92_30,T,crq,0
+"Of course, he's the helping hand. He helped me out. He let me borrow his tools. but evidently he didn't let me borrow him this time. So just pull him out. Have another neighbor take his place.",story,92_31,P,cd,0
+Were all those hard drives fairly expensive?,routine,92_32,T,yq,0
+"I don't know. When I was up cleaning and running around the house trying to find more equipment. I found my mom's purse and I was just like, oh my god, she has a credit card in there. Oh my god, I can use our credit card. So I was using our credit card because it's trying to make her happy. And so I don't know I added the 236. They were probably 50 to $100 apiece, depending on where it could get them and I just ordered them.",routine,92_33,P,id,0
+How'd your mother respond to that?,routine,92_34,T,irq,0
+"My mom came to the hospital and was like, where are all these boxes coming from? It's like this, but I'm in my room. And she put them into my room. And then, like a week ago, she has, like, I see my credit card, and she wants to happen.",routine,92_35,P,id,0
+Is that strange relationship?,routine,92_36,T,yq,0
+"No, that's just how we have a relationship generally",routine,92_37,P,on,0
+"you get along, okay. ",routine,92_38,T,crq,0
+"we get along perfectly fine. Like that's, that's how we talk to each other. Like, we talk to each other minimally, because she's not in my room, so she's not happy. So anytime she does come into my room, it messes up the balance. So I get unhappy, and then I just tell her to stay out so that I can be happy and she can be happy in her own place.",routine,92_39,P,cd,-1
+And you mentioned that they changed medications in the hospital.,routine,92_40,T,crq,0
+The government changed for Medications,routine,92_41,P,cd,0
+How are you feeling about taking your medications?,routine,92_42,T,orq,0
+while so,inactive,92_43,P,od,0
+"Right, you you really want to get back to work on that machine.",routine,92_44,T,crq,0
+"Yes, I want to be back in my happy place. ",routine,92_45,P,op,0
+Have you found yourself as motivated these last couple weeks as you were before you're hospitalized?,routine,92_46,T,yq,0
+"Now? I haven't been that motivated. Big. I know I'm going to get it done. It's just I just don't know if I'm gonna get it done today or tomorrow, but I know what's gonna get done.",routine,92_47,P,on,0
+You still want to get that done. It's important to know.,routine,92_48,T,crq,0
+it's really important because I Can't be controlled by the government anymore.,routine,92_49,P,cd,0
+"by Jason, I'd like you to continue seeing a counselor here. If you found the counsellor to be helpful.",routine,92_50,T,gt,0
+The Counselor has been okay.,inactive,92_51,P,id,1
+"But that okay, it's been okay. But we'll continue to counseling and hope that can can help you a bit. I appreciate you spending this time with me and explain what happened. ",inactive,92_52,T,gt,0
+Thank you.,inactive,92_53,P,gt,0
+summary,"The patient was building a machine in their room so that government cannot hear their thoughts, actions or behaviors. The cops came and took the patient to the hospital. The patient feels they are creating orders for everyone to follow and the patient is not a follower. The patient has ordered tools online and borrowed from neighbors to secure their entire house. The patient has been restless and does not sleep much, feels very good and energetic. The patient neither feels happy nor sad, somewhere in the middle. The patient had ordered 236 hard drives, to form a grid to protect theirs and their neighbor's homes. It was bought with mom's credit card at 50 to 100$ a piece. The patient and their mom interact minimally and that is normal according to the patient. The patient feels they have to complete the machine. The patient is paranoid about the government and do not wish to be controlled by them. The therapist requests the patient to continue seeing a counselor. ",,,,
+primary_topic,paranoia,,,,
+secondary_topic,government,,,,

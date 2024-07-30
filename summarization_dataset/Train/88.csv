@@ -1,0 +1,48 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Okay, thanks for asking. I understand you've been having some difficulties that have facilitated you come into our agency.",inactive,88_0,T,gt,0
+"Yeah. Well, I mean, I've been drinking a lot more than usual, but it's kind of just part of my life. But I don't know, I think there is an increase. So it's, that's worrying me a little bit.",symp/reasoning,88_1,P,id,-2
+"so you feel like you're, you're drinking more than usual. How much are you drinking now?",symp/reasoning,88_2,T,cd,0
+"I'm gonna go out with my friends a couple nights a week. Then about once or so we go out with my co workers. So yeah, maybe three, four nights a week,",symp/reasoning,88_3,P,id,0
+three or four nights a week? ,routine,88_4,T,crq,0
+Yeah,routine,88_5,P,cd,0
+And how much are you drinking each time to go?,routine,88_6,T,irq,0
+"Um, you know, kind of depends on who I'm with. But usually when I go out my friends on the weekend, I'll stay for a pretty long time. I mean, I think the problem is when we're going out during the week with my co workers, you know, I'll stay longer than I want to, and then when I have to get up in the morning, it's kind of like I should have gone check out a little earlier, but now they're all out with me. So when I get there, they understand.",story,88_7,P,id,0
+"Alright, so do you know how much alcohol you consume in the time period. Do you know how much you're actually drinking?",routine,88_8,T,irq,0
+"Each night we approximately I used to drink, like, maybe two beers an hour, but they really like to party so and I was trying to keep up with him. So, friends, yeah. And so I've been drinking like a shot with the beers I have. So maybe like three or four drinks an hour.",symp/reasoning,88_9,P,id,0
+So do you find that you need to drink more to get the desired effect?,routine,88_10,T,irq,0
+"Um, yeah, you know, everyone else is getting to that level. So I feel like I need to keep up with them. And usually before I would get that from maybe one or two drinks. So now, I've been working a little bit more, I think,to get there. ",routine,88_11,P,id,0
+Have you made any attempts to cut down on consumption?,routine,88_12,T,irq,0
+"You know, at the beginning of the week, I'll kind of say I'm only going to go out twice this week. But then they invite me and I'm like, Well, I don't want to miss out or my, my friends, you know, it's my show my social time during the week, so so I usually go, they don't really stick to the plan. So that's kind of been a little frustrating, but I know it's still good.",story,88_13,P,id,0
+"It's okay. So, I want to talk about the time you spend using alcohol. Are you are you okay with the amount of time you mentioned that you're using for longer periods? But are you okay with? Or is that something that's distressing you?",routine,88_14,T,irq,0
+"Um, I think I could probably be doing better things with my time, but it's not a huge problem. I think a lot of people do it. So you know.",routine,88_15,P,id,0
+Do you find that you have a craving for alcohol?,routine,88_16,T,yq,0
+"Yeah, yeah. I would say like, one of the work just Ready to get finished so I can go go to happy hour with my co workers or, you know, from just kind of at a barbecue or something with family. Think about how I want to be here. So yeah, great things, but no, everyone kind of does that. Like I could go for a beer right now.",routine,88_17,P,op,1
+"So you're thinking about it, but you also like feeling the craving.",routine,88_18,T,crq,0
+"Yeah, yeah, yeah. Yeah.",inactive,88_19,P,op,0
+"You mentioned work, you're having trouble with responsibilities at work or any other area?",routine,88_20,T,irq,0
+"No, my work life has been pretty going pretty well. I haven't missed work because of it or anything like that. So because of the drinking.",routine,88_21,P,on,0
+Have you had any social problems due to the alcohol?,routine,88_22,T,yq,0
+"No, I think my social life is actually great because of it. You know, hang out with my friends and you'll get along really well. So that's my social time.",symp/reasoning,88_23,P,on,1
+All right. So no social problems. ,routine,88_24,T,crq,0
+"Yeah, no problems.",inactive,88_25,P,cd,0
+Have you had to give up any important activities because of the alcohol use?,symp/reasoning,88_26,,yq,0
+"activities? Well, usually the important activities involve drinking so that I haven't given up important activities that don't involve drinking. But that's been pretty easy because there's usually alcohol at that point.",symp/reasoning,88_27,P,on,0
+You haven't missed any important activities. How about engaging in activities that are physically dangerous?,routine,88_28,T,irq,0
+ Because I'm also involved now and I'm usually pretty safe. Yeah. So,routine,88_29,P,id,0
+Do you have any medical or mental health history?,routine,88_30,T,yq,0
+"Um, well, like when I was a kid, I was diagnosed with I think, maybe ADHD or something like that, but I think I teachers were annoyed by me because I was just like, damn good time. So but that's why Got an issue lately",story,88_31,P,op,0
+some issue now? Has any medical problem or mental health problem become worse because of alcohol?,routine,88_32,T,crq,0
+"Um No, I started drinking after that so not now it's not become an issue with that.",routine,88_33,P,on,0
+So you mentioned the alcohol use. Has there been any drug use?,routine,88_34,T,yq,0
+"No, not with my drinking or anything you know, typical teenage smoking marijuana and stuff when I was younger, but I don't anymore so.",routine,88_35,P,on,0
+So it's just alcohol?,routine,88_36,T,crq,0
+"Yeah, just alcohol.",routine,88_37,P,cd,0
+"All right. When you stopped drinking, do you have any physical symptoms or anxiety any symptoms of withdrawal?",symp/reasoning,88_38,T,yq,0
+No. usually feel fine afterwards. I can go a few days without okay.,symp/reasoning,88_39,P,on,0
+"Okay, so that's not a problem. All right. Jackie, open to Receiving counseling services or agency? ",routine,88_40,T,ack,0
+"Yeah, let's see why it would hurt anything. I don't really need it but it was okay with trauma,",routine,88_41,P,op,0
+"I think okay, okay. All right. I'm gonna get you scheduled in to see a counselor. I want to thank you for telling me about what's going on for answering my questions. It's been helpful.",routine,88_42,T,gt,0
+Yeah. Thank you.,inactive,88_43,P,gt,0
+summary,"The patient is worried about their increasing alcohol consumption. They drink about three to four nights a week with friends and co-workers. The patient stays for a long time with friends for drinking. To keep up with friends, they have three or four drink per hour including shots and beer. The patient usually says yes to friends invite but it is a little frustrating for them. The patient finds it usual to spend time for drinking as a lot of a people do. The patient has a craving for alcohol, but hasn't missed responsibilities or had social problems. The patient has not given up important activities nor engaged in dangerous activities. The patient has been diagnosed with ADHD when they were a kid but that has no relation to drinking now. They have used drugs like marijuana when younger. They just consume alcohol now. They don't have any withdrawal symptoms. The therapist assures to set the patient up with a counselor.  ",,,,
+primary_topic,drinking,,,,
+secondary_topic,adhd,,,,

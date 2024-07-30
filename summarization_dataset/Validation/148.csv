@@ -1,0 +1,84 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+Hi Kylie. How you doing today?,inactive,148_0,T,gt,0
+"Umm I'm doing okay, I guess. Umm I guess something happened over this past week. I have been looking for a new job since I left my last one. And I found I found this really good job on the internet. But the problem is that the job is working with kids and they they have to do a drug test in order for me to get the job. And it kinda like it made me think it made me think a little bit more about something that I've been considering for a while which is kind of just given up, given up we'd forget like it I'm thinking about it for a while. But okay, I also kind of think about the way the way we'd really helps me and like, if I'm ever feeling like really, really anxious about something I mean, we kind of have to chill out and hope to relax and I just don't know if I'm ready to give that up yet.",symp/reasoning,148_1,P,gt,-1
+So the marijuana has real value for you that you don't want to see going.,symp/reasoning,148_2,T,yq,0
+"Yeah, it does. It's a it's a good way to self medicate in a way",inactive,148_3,P,op,0
+"and at the same time, you would like this job. ",inactive,148_4,T,crq,0
+Yeah.,inactive,148_5,P,cd,0
+"So I could see how this would be you know, a pincher.",inactive,148_6,T,crq,0
+"right. Yeah, it's I mean, it's kind of like it's put me in a difficult spot like I definitely I definitely want to get that job but you know, if I cut it if I cut out smoking like, I don't know what else I would do, like if I if I started to have a panic attack or if if I was really like anxious about Like anything that I'm worrying about, like i don't i don't know what i did copes.",symp/reasoning,148_7,P,cd,-1
+Have you been treated for anxiety before?,symp/reasoning,148_8,T,yq,0
+"Um, I did therapy for a little bit, but it was like, I don't know, back then it was kind of like when the anxiety was just starting, so it wasn't too big of a problem. So I like I quit there because it wasn't really doing that much. Yeah.",story,148_9,P,op,-1
+You take the marijuana for any other reason other than to help with the anxiety.,symp/reasoning,148_10,T,crq,0
+"I mean, like, if I'm bored or maybe if I'm like hanging out with buddies, like, I don't really have a reason not to do it. I can tell now, but it wasn't like, like, I really use it whenever I'm like feeling really anxious about something.",symp/reasoning,148_11,P,cd,-1
+"So and you may not be able to answer this question, but if you didn't have any anxiety would that change your motivation to use marijuana?",symp/reasoning,148_12,T,cv,0
+If I didn't have like any kind of anxiety?,inactive,148_13,P,crq,0
+Hmm,inactive,148_14,T,cd,0
+"Umm like it was so be kind of tough to give up. Because like, if I'm hanging out with my buddies and they offer it to me like that's that's always pretty chill but I don't like I really I'm really looking forward to this job and like the benefits of having that job without weighing the benefits of just like smoking smoking with my buddies so",story,148_15,P,cr,-3
+so you're excited about the job?,inactive,148_16,T,crq,0
+"I am? Yeah, it's it's almost kind of a dream job.",inactive,148_17,P,cd,-1
+really tell me about?,inactive,148_18,T,irq,0
+"Well, it's working with it's working with kids with autism in the school. So like, I would be kind of like, almost like a personal TA in a way. So like, it's part of an inclusion program. So when the kids are going into the class, like I would either sit with them or like maybe back behind the class and kind of like help them out in case something comes up. And it's just my brother has autism that's like it's that's something that I've always really kind of wanted to work with.",story,148_19,P,id,0
+So it sounds like your real passion for this type of work.,inactive,148_20,T,crq,0
+Hmm,inactive,148_21,P,cd,0
+"And really, the big obstacle here is this marijuana?",symp/reasoning,148_22,T,irq,0
+"It is it's like a catch 22 because it's like, I know the job will be great, but it's like it's a it's a big step for me to take that job. And it's, it's gonna be super umm It's gonna make me super anxious. You know, it's gonna be like, it's gonna be a lot of anxiety taking a new job. So it's like, if I have to give up the marijuana and then like, not have another way to cope with anxiety, like to get the job. It's like a catch 22",symp/reasoning,148_23,P,id,-1
+"Yeah, it's a predicament. You're kind of weighing both sides of this right. Now. I'm wondering. Do you have Do you think you'd have like a physical craving for the marijuana?",symp/reasoning,148_24,T,yq,0
+"No  I mean, not really No.",inactive,148_25,P,on,0
+So you're really using it recreationally and as an anti anxiety agent?,symp/reasoning,148_26,T,crq,0
+"Yeah. Yeah, pretty much.",inactive,148_27,P,cd,0
+"So if you were I know you didn't have great success before therapy, to combat anxiety, but if you were being treated for anxiety and working that job, which seems like you would really like do you think you'd be able to stay with the marijuana?",story,148_28,T,irq,0
+"I think if the therapy really worked, I would be able to, like, it's just so easy now just to kind of light up. Like, that's an easy fix. And, like, I don't think therapy is going to be that instant. So like it would, it would be tough. I think if I had real confidence that the therapy would work, I could do it. But I mean, it was I have to it would definitely have to work like I just as well as as smoking. ",story,148_29,P,id,0
+You would need to see results ?,inactive,148_30,T,crq,0
+"Yeah, yeah, definitely",inactive,148_31,P,cd,0
+would having the job that you're passionate about reduce your anxiety ?,inactive,148_32,T,yq,0
+"After a while, like after I got used to this job, but like just starting the new job would make me kind of anxious. And then like it would be tough not not to smoke or doing that. Like I don't I don't want to get on a drug test anymore because like it's it's being decriminalized being legalized so many places, and there's so much research, saying that it's not that bad. It's kind of like, it's really upsetting that the place that I really want to work sas that policy, I think it's really silly.",story,148_33,P,op,-1
+you're frustrated. Marijuana is illegal.,inactive,148_34,T,crq,0
+"Yeah, it's Yeah.",inactive,148_35,P,cd,-3
+"At the same time, it's the reality you're living in.",inactive,148_36,T,gc,0
+"Right.. Yeah, it's either They will be legalized in like in the state in a couple of years. But until then, like,I mean, I can't wait that long to start start working so",story,148_37,P,gc,-1
+until then you still need to address this dilemma?,symp/reasoning,148_38,T,crq,0
+"Right? Yeah, it's still a problem.",inactive,148_39,P,cd,-1
+"So you have choices here, right.  You can continue to use the marijuana and not take the job. ",symp/reasoning,148_40,T,gc,0
+Hmm.,inactive,148_41,P,gc,0
+"And that seems like something that has some advantages for you, but some, some disadvantages, right?",inactive,148_42,T,crq,0
+Right,inactive,148_43,P,cd,0
+Because you would really like that job.,inactive,148_44,T,gc,0
+"Yeah. And I would, it's it sounds so pathetic to be like, No, I don't want to take my dream job because I need weed like, sounds really stupid.",symp/reasoning,148_45,P,gc,-1
+So where do you think you are in terms of making this change? Do you feel motivated to take some steps toward it?,inactive,148_46,T,irq,0
+"I don't like I'm, I'm still kind of on the fence because like if I if I have to give it up for the job, I could do that. But I would definitely need, like some other way to get rid of all this anxiety. Like, whether it's therapy or whether it's like something else I yeah, I would, I would definitely need like a substitute if I got rid of it for good. ",symp/reasoning,148_47,P,id,-1
+"So you definitely, definitely need it?",inactive,148_48,T,crq,0
+Yeah,inactive,148_49,P,cd,0
+So you can't give up the marijuana unless you have some other available alternative that would help with that anxiety?,routine,148_50,T,yq,0
+Right.,inactive,148_51,P,op,0
+That's that's key to you to make this change.,inactive,148_52,T,gc,0
+"Yeah. Yeah, definitely. ",inactive,148_53,P,gc,0
+"But at the same time, that would be ideal, because then you could take the job.",inactive,148_54,T,gc,0
+"Right? Yeah. I mean, I mean, if I really thought that I could, like get some kind of treatment that was as good as weed. Yeah, I mean, I could maybe quit, especially the house to get the job, especially.",inactive,148_55,P,gc,0
+"So with anxiety reduction, your chances of stopping marijuana increase, and then you could take the job that you want",routine,148_56,T,gc,0
+"Yeah, yeah, I mean, that would be the best the best outcome.",inactive,148_57,P,gc,0
+Is that the outcome you would most want?,inactive,148_58,T,yq,0
+"Yeah, I think so. I think I could give up record, like, doing it with my buddies recreationally. I could, yeah, I'm just going to have a cigarette.",inactive,148_59,P,op,-1
+"So here's what I'm thinking. And let me know what you think about this. When you come back next week, right? What if we start looking at this anxiety? When we start, you know, I start treating anxiety. We'll see if we can get it reduced. And kind of work from there. Because maybe when you start to feel if that works, and that anxiety starts to abate, it sounds like it'll just be easier for you to stop the marijuana usage.",routine,148_60,T,gc,0
+Yeah. Yeah.,inactive,148_61,P,gc,0
+What kind of timeframe Are you on in terms of taking this job?,inactive,148_62,T,irq,0
+"I mean, the job. It has a high turnover rate, so Like, even if I think I need to apply this week, but if I don't get in more than likely another position like it will open up, like within a month or two.",inactive,148_63,P,id,-1
+And when would they drug test you?,inactive,148_64,T,irq,0
+"It would be like, Oh, all right after I apply, so I applied and then did the interview. That's when they will give him the paperwork. And I have to go get drug tested on.",inactive,148_65,P,id,-1
+And when did the last time you use Marijuana?,inactive,148_66,T,irq,0
+just a couple days ago.,inactive,148_67,P,id,0
+To see what I'm getting that ?,inactive,148_68,T,irq,0
+"Yeah, yeah, it's uh, yeah. So I like I wouldn't be able to do, I wouldn't be able to make it this application. But I would like to be off it by the next one.",inactive,148_69,P,id,0
+So you're fortunate in the sense that the turnover is high,inactive,148_70,T,crq,0
+right,inactive,148_71,P,cd,0
+Because it gives you an opportunity to apply later on. So do you feel like you can invest in that plan? Let's work on the anxiety. See what happened with the marijuana. See if we can Reduce your usage of it or have you stop that altogether? And then kind of move towards this job?,story,148_72,T,id,0
+"Yeah, yeah, I could deal with that.",inactive,148_73,P,cd,0
+"Right. So next time you come in, we'll start talking about the anxiety. And let's see what we can do about that. We'll kind of move from there.",routine,148_74,T,gc,0
+All right. Yeah. Sounds good.,inactive,148_75,P,gc,0
+Sounds good ?,inactive,148_76,T,yq,0
+Yeah,inactive,148_77,P,op,0
+"Thanks, Kylie",inactive,148_78,T,gc,0
+Thank you.,inactive,148_79,P,gc,0
+summary,"The patient found a new job but a drug test should be done to get the job. The patient was addicted to marijuana, so it made anxious. Also patients don't know about giving up on marijuana. Patient is worrying about a panic attack if the patient completely quit smoking. Patient already had therapy for anxiety, but it was the initial stage, so it didn't make any difference. Patient doesn't have a reason not to consume marijuana. Patient used to do it whenever it feels like anxiety. Patient is confused between selecting the job or the marijuana. Therapist asked if the therapy started along with your dream job will you leave the marijuana.? If the therapy worked, the patient was fine to leave marijuana and smoking as well. Patient don't want to do a drug taste because it seems silly. Therapist asked to select an option like marijuana or a dream job. Patient still confused like patient needs dream job but also wants something to fight anxiety, whether its a marijuana or a therapy. Therapist told to have any other alternatives to fight anxiety to get the job. Patient told the therapist that patient would have only cigarette.  Therapist told the anxiety therapy will start from next week if the patient anxiety level is reduced. Because if it reduced it will be easy to quit marijuana.",,,,
+primary_topic,Anxiety,,,,
+secondary_topic,Marijuana,,,,

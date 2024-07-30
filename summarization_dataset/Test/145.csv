@@ -1,0 +1,215 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Hi Sharon, How you're doing today ?",inactive,145_0,T,gt,0
+"Well, I'm all right. My counselor, you know, my counselor sent me over because she's a little worried about me that I might hurt myself. So",symp/reasoning,145_1,P,gt,-1
+she's a little worried about you ?,routine,145_2,T,crq,0
+Yeah.,routine,145_3,P,cd,0
+What do  she  think's gonna happen?,routine,145_4,T,irq,0
+I mean that. I don't know. I guess she thinks that I'm I guess the things that I'm thinking are dangerous.,symp/reasoning,145_5,P,id,-1
+"Right, you mind If I  to do an assessment to measure your risk of harm.",routine,145_6,T,gc,0
+That's fine.,routine,145_7,P,gc,0
+" Okay. All right. Sharon, how old are you?",routine,145_8,T,gc,0
+28,routine,145_9,P,id,0
+"28. Now, think about your family for a moment. Is there any history of suicide? or any type of suicidal behavior in your family?",routine,145_10,T,gc,0
+"Yeah, my dad committed suicide. ",routine,145_11,P,id,-1
+Your father committed suicide.,routine,145_12,T,crq,0
+Yes,inactive,145_13,P,cd,0
+Any other?,routine,145_14,T,crq,0
+"Um, I mean, I think that my sister has, like had an attempt. ",routine,145_15,P,cd,-1
+an attempt ?,inactive,145_16,T,crq,0
+yeah,inactive,145_17,P,cd,0
+How long ago did your father commit suicide?,routine,145_18,T,irq,0
+Ohh like 15 years ago,routine,145_19,P,id,-1
+15 years ago ?,routine,145_20,T,crq,0
+Yeah. Something like that.,routine,145_21,P,cd,-1
+How can you think about that?,routine,145_22,T,irq,0
+"I try not to think about it. Oh, I don't I don't know.",routine,145_23,P,cd,-3
+"That must be hard, though.",routine,145_24,T,gc,0
+"Yeah, I mean, yeah. It's hard. ",routine,145_25,P,gc,-1
+Is that on your mind now?,routine,145_26,T,yq,0
+"No,  that we're talking about it? Yes.",routine,145_27,P,op,-1
+But on your mind before we talk.,routine,145_28,T,crq,0
+"Mmm not really no, not really",routine,145_29,P,cd,-1
+Alright. Are there any mental health disorders that you're aware of in your family? Or do you suspect in your family?,routine,145_30,T,irq,0
+"I don't know. I mean, I don't know. ",routine,145_31,P,id,-3
+Okay. Can you tell me about any disorders you've been diagnosed with?,routine,145_32,T,irq,0
+"Um, well, right now, I think that I've been diagnosed with depression. And in the past, I've had some problems with anxiety.",routine,145_33,P,id,-3
+But How about now?,routine,145_34,T,crq,0
+How about now I'm having problems with anxiety ?,routine,145_35,P,crq,0
+Hmm,inactive,145_36,T,cd,0
+Umm not as bad as in the past.,routine,145_37,P,cd,
+How is depression?,symp/reasoning,145_38,T,irq,0
+"Yeah, ",symp/reasoning,145_39,P,id,-1
+right now ?,routine,145_40,T,crq,0
+Yeah.,routine,145_41,P,cd,0
+And how bad?,routine,145_42,T,irq,0
+pretty bad.,routine,145_43,P,id,-1
+Yeah. On a scale of one to 10 with 10 being the worst it's ever been. How  depressed you're now ?,symp/reasoning,145_44,T,irq,0
+"Probably Like an eight or nine,",symp/reasoning,145_45,P,id,-1
+Eight or Nine that's depressed ?,routine,145_46,T,crq,0
+Yeah.,routine,145_47,P,cd,0
+How about anxiety at the same scale?,symp/reasoning,145_48,T,irq,0
+Probably like a four or five.,symp/reasoning,145_49,P,id,-1
+You're fine. So not quite as bad as its been ?,routine,145_50,T,gc,0
+"No, not as bad as it's been, but it's getting up there.",routine,145_51,P,id,-1
+"Yeah, it's getting worse lately.",routine,145_52,T,crq,0
+"Yeah, I think yeah, it's been worse lately. Yeah.",routine,145_53,P,cd,-1
+"So if you'r think back, say a couple days ago. How bad was the anxiety and depression?",routine,145_54,T,irq,0
+anxiety probably like a three or four. Depression about an eight or nine still same.,routine,145_55,P,id,-1
+same intensity?,routine,145_56,T,crq,0
+"Yeah, yeah.",routine,145_57,P,cd,-1
+"Alright, Do you have any medical illnesses?",routine,145_58,T,yq,0
+"Um, no.",routine,145_59,P,on,0
+Do you live alone?,routine,145_60,T,yq,0
+Yeah,routine,145_61,P,op,0
+you do ?,inactive,145_62,T,crq,0
+Yeah,inactive,145_63,P,cd,0
+How often you see your relatives?,routine,145_64,T,irq,0
+"probably see my relatives like every, like, maybe once a month, maybe",routine,145_65,P,id,0
+"once a month, how about friends ?",routine,145_66,T,crq,0
+"friends, it depends. Not as much lately, I used to be better friends with my coworkers and I lost my job. So I haven't seen them as much. And so probably maybe like once a week, maybe once a week depends on the week.",story,145_67,P,cd,-1
+How long ago you lost your job?,routine,145_68,T,irq,0
+"Umm about two months ago,",routine,145_69,P,id,0
+"two months ago, ",routine,145_70,T,crq,0
+Hmm,inactive,145_71,P,cd,0
+"I'm sorry to hear that happens to you. how would you characterize the strength of your social network? Like, is it as strong as you want it to be?",routine,145_72,T,ap,-1
+"No, sometimes I feel pretty alone. Yeah, I feel like you know, nobody really wants me around. Nobody really needs me. So yeah. I feel pretty alone a lot of time. Sometimes even when I'm with other people,",routine,145_73,P,gc,-1
+so you're with people when you still feel isolated.,routine,145_74,T,crq,0
+Yeah.,routine,145_75,P,cd,0
+"When you are with people when you're not feeling isolated, how would you characterize the quality of the relationships you have? Let's start with your family. How good do you think those relationships are?",routine,145_76,T,irq,0
+"I mean, they're okay. Like not really that great. But everybody has like, trouble with their family. I guess so. I don't know.",routine,145_77,P,id,-1
+You think its more or less normal?,routine,145_78,T,crq,0
+"Yeah, yeah.",inactive,145_79,P,cd,-1
+How is it with your friends?,routine,145_80,T,irq,0
+"It's okay. You know, I guess I'm always like, second guessing everything. Like, do they really like me? Do they really want to spend time with me? I know I'm bothering them. That kind of thing. But I mean, it's not for the most part. I mean, I think they care about me. It's a pretty, you know, we have a good time. I think When we're together for the most part but",story,145_81,P,id,-3
+most part positive ?,routine,145_82,T,crq,0
+yeah,inactive,145_83,P,cd,0
+Do you have any conflict or crisis going on right now? You mentioned the loss of your job.,routine,145_84,T,irq,0
+"Yeah, I'm, I'm gonna be evicted from my house or you know, my apartment because I can't pay my bills because I lost my job so I really don't know what I'm going to do or where I'm going to go. I just don't know what to do. I'm feeling really lost and like helpless and like everything's just pointless.",story,145_85,P,id,-2
+I'm sorry to hear that. When are you going to be evicted?,routine,145_86,T,ap,-1
+"Um, well, I'm not quite sure. Um, it sounds like it's going to be at the end of the month.",routine,145_87,P,id,-2
+So then month are going to be evicted from the is it  house or  apartment ?,routine,145_88,T,irq,0
+Its an apartment,routine,145_89,P,id,0
+when did you find this out?,routine,145_90,T,irq,0
+"Um, well, you know, before I lost my job, I had some trouble paying the rent as it was. So, um, you know, the last time I missed my rent was probably like, a month and a half ago, my landlord kind of told me that I couldn't live there anymore, but I didn't know, you know, how much stock to put in Then and Now, at the beginning of the month, he said, you know, you have to, you're gonna have to get out of here, you're gonna be evicted. We're gonna change the locks. And",story,145_91,P,id,0
+so it's all fairly recent.,routine,145_92,T,crq,0
+"Yeah. I guess that's why having more anxiety than before because like, it feels really out of control, and I don't know what is going to happen like when he's going to do it, you know, for sure and how you know what I'm going to do. So",routine,145_93,P,cd,-2
+there's a lot of uncertainty around what's going to happen and what's going to happen to you?,routine,145_94,T,crq,0
+Exactly,inactive,145_95,P,cd,0
+hmmm...have you in the past thought about suicide?,symp/reasoning,145_96,T,yq,0
+"Yeah, yeah, definitely.",symp/reasoning,145_97,P,op,-1
+Can you tell me about how many times or about how often ?,symp/reasoning,145_98,T,irq,0
+"Umm probably like, every time I get depressed like this, I, I, you know, have those thoughts. So I don't know. I mean, how often? That's that's a really hard question.",symp/reasoning,145_99,P,id,-1
+All right. Have you ever attempted to commit suicide?,routine,145_100,T,yq,0
+"Yeah, one time, probably like four years ago.",routine,145_101,P,op,0
+What did you do?,routine,145_102,T,irq,0
+"I cut my wrists, but it wasn't, you know, nothing really happened. Like I just put a I just wrapped him up. It wasn't really that bad",story,145_103,P,id,-3
+You didn't need to go to hospital,routine,145_104,T,crq,0
+No,routine,145_105,P,cd,0
+Have you ever thought about committing suicide and we're about to attempt and stopped ?,routine,145_106,T,yq,0
+"Yeah, yeah. ",routine,145_107,P,op,-1
+How many times does that happen?,routine,145_108,T,irq,0
+Umm maybe like three or four. It's hard to remember cuz sometimes is a long time ago but more recently like maybe once or twice at least.,routine,145_109,P,id,-1
+So once or twice in the recent past ?,routine,145_110,T,crq,0
+Yeah.,routine,145_111,P,cd,0
+Have you ever injured yourself intentionally?,routine,145_112,T,yq,0
+Yeah.,routine,145_113,P,op,-1
+"Okay, can you tell me about that.",routine,145_114,T,irq,0
+"Well, there was that time that I tried to commit suicide and then there have been times before that where I like, you know, kind of like tested the waters like, you know, just cut myself a little bit to see what it would be like and that kind of thing.",story,145_115,P,id,-1
+was the last time  You have done that ?,routine,145_116,T,irq,0
+"Um, it would be the last time I tried to commit suicide like that with time I was telling you about that really freaked me out. So I don't think I would try that again.",routine,145_117,P,id,-1
+so you don't think you'd try that again.,routine,145_118,T,crq,0
+No  Not like cutting myself up.,routine,145_119,P,cd,-1
+"Okay. Have you ever been abused, physically, sexually, emotionally? ",routine,145_120,T,yq,0
+I don't know.,routine,145_121,P,on,-3
+"So if you get evicted, you're worried you'd have to live with your mother. ",symp/reasoning,145_122,T,yq,0
+Yeah.,symp/reasoning,145_123,P,op,0
+And you guys had a rough time in the past.,routine,145_124,T,yq,0
+Yeah.,routine,145_125,P,op,0
+You don't want to repeat that.,routine,145_126,T,yq,0
+"No, I don't wanna live like that ",routine,145_127,P,on,-2
+What is your attitude towards suicide? What are your feelings about suicide as a concept in general?,routine,145_128,T,irq,0
+"I don't know. I mean, I guess it's really sad like, nobody wants that. You know, whenever you hear somebody committed suicide, everybody's really sad about it, but sometimes it just feels like what else is there? You know, like, I don't know how I can go on like this, like things just keep getting worse and worse. And I don't know what to do. So I mean, I'm sure. Like, it's not a great thing, but at the same time, I don't know.",routine,145_129,P,id,0
+"You disapprove it, But you're considering it because you're running out of options.",routine,145_130,T,crq,0
+Yeah,inactive,145_131,P,cd,0
+Have you ever been impulsive in the past?,routine,145_132,T,yq,0
+"Um, I don't know. Like, I guess not really. Because there have been times when I've like thought about committing suicide and getting really close and still haven't done it. You know,",routine,145_133,P,op,-1
+Do you have other areas other than suicide. Generally impulsive,routine,145_134,T,irq,0
+I don't think so.,routine,145_135,P,id,0
+Ever violent or aggressive?,routine,145_136,T,crq,0
+"Not really, no, no.",routine,145_137,P,cd,-1
+"Have you ever experienced a couple loose nations, which should be like hearing things other people can't hear seeing things that people can't see. ",routine,145_138,T,irq,0
+I don't think so. I,routine,145_139,P,id,0
+You don't think so.,routine,145_140,T,crq,0
+"No, I mean, it's hard to tell what other people can't hear when no one's around to tell you whether they can hear it or not. But I don't think that I have",routine,145_141,P,cd,-1
+"to be fairly certain, you know that?",routine,145_142,T,crq,0
+Yeah.,inactive,145_143,P,cd,0
+Can you tell me about any alcohol or drug use?,symp/reasoning,145_144,T,irq,0
+"Sometimes I drink, you know, alone when I'm in my house, because like I said, I don't see a lot of other people. I don't really do any drugs.",symp/reasoning,145_145,P,id,0
+When's the last time you had a drink?,routine,145_146,T,irq,0
+Last night,routine,145_147,P,id,0
+How much did you had ?,routine,145_148,T,irq,0
+Probably like a bottle of wine.,routine,145_149,P,id,0
+A bottle of wine. Is that typical for you?,routine,145_150,T,crq,0
+"Yeah, it is. ",routine,145_151,P,cd,0
+How often would you say you drink a bottle of wine ?,routine,145_152,T,irq,0
+"maybe like three or four times a week,",routine,145_153,P,id,0
+three or four times a week  ?,routine,145_154,T,crq,0
+Yeah,routine,145_155,P,cd,0
+So I want to ask you about these suicidal thoughts that you're having now. How frequently Are you having these thoughts?,symp/reasoning,145_156,T,gc irq,0
+Like really often,symp/reasoning,145_157,P,id,0
+coming all the time or not?,routine,145_158,T,yq,0
+"Yeah, yeah. ",routine,145_159,P,op,0
+how intense would you say the thoughts are ?,routine,145_160,T,irq,0
+"fairly intense, Like it's scary the thought of it, you know, but at the same time, like, I'm having them so much it's, I don't know.",routine,145_161,P,id,-2
+It's frightening for you.,routine,145_162,T,crq,0
+Yeah.,inactive,145_163,P,cd,0
+Do you have a plan laid out if you're trying to commit suicide?,symp/reasoning,145_164,T,irq,0
+I guess I would just drink a bottle of wine like I usually do and then maybe take some pills.,symp/reasoning,145_165,P,id,-1
+What kind of pills ?,routine,145_166,T,irq,-2
+"um, there's like ibuprofen in my medicine cabinet. That's like the only thing I have in there other than vitamin. So I guess I just take that. I don't know how many. 4 I guess I dont know.",story,145_167,P,id,-1
+So you would drink a bottle of wine and take a lot of ibuprofen ?,routine,145_168,T,yq,-2
+Hmm mmm,inactive,145_169,P,op,0
+Do you have an intent to commit suicide? You're gonna you're gonna fall through ?,routine,145_170,T,irq,-2
+"I don't know like sometimes I think about it I get really close to doing it, but I you know, I haven't like taken any pill so I guess yeah, like I think about it a lot and I've gotten close to doing it so yeah, I guess Yeah, I guess so ",routine,145_171,P,id,-1
+Do you feel like you have an intent ?,symp/reasoning,145_172,T,yq,0
+Yeah,symp/reasoning,145_173,P,op,0
+Can you tell me about some of the reasons for staying alive for not committing suicide?,symp/reasoning,145_174,T,orq,-2
+"Well, I don't really want to die. Um, I guess my friend family would be really upset and I probably my friends, too. I don't know.",symp/reasoning,145_175,P,od,-3
+Do you have any religious or cultural values surrounding suicide?,routine,145_176,T,irq,0
+Not really,routine,145_177,P,id,0
+You have an pets at home,routine,145_178,T,irq,0
+I have a cat. Yeah.,routine,145_179,P,id,0
+What would happen to your cat?,routine,145_180,T,irq,0
+"I give her to my sister shorty has a couple cats. So, you know, I've already asked her, you know, if anything were to happen to me, you know, just in general, if she would take the cat, you know,",routine,145_181,P,id,-1
+when did you ask for that?,routine,145_182,T,irq,0
+"Kind of like, two months ago,",routine,145_183,P,id,0
+so not related to what's going on now?,routine,145_184,T,irq,0
+"No, I guess not. I mean, I don't know. Like I just asked her in general like if anything happened to me. So",routine,145_185,P,id,0
+do you have any other reasons for living?,symp/reasoning,145_186,T,irq,0
+"I don't know. I mean, I lost my job. I I live alone. I don't know, like, I'm gonna have to, like move out and I don't even know where I'm going to go.",symp/reasoning,145_187,P,id,-3
+That's scary for you. And anxiety is provoking?,routine,145_188,T,crq,0
+Yes.,routine,145_189,P,cd,0
+What did you do when you worked?,routine,145_190,T,irq,0
+I just You mean like what kind of job did I do ?,routine,145_191,P,crq,0
+Yes,routine,145_192,T,cd,0
+I worked at a gas station.,routine,145_193,P,id,0
+Did you like the work?,routine,145_194,T,yq,0
+"I liked it. You know we had some regular customers and kind of get to know them its a little. I don't know. You just you know that my coworkers are nice. And you know, we have not like great benefits, but there was some stuff you know, you could get like couple vacation days and stuff. So",routine,145_195,P,op,-1
+do you ever look forward to get another job?,routine,145_196,T,irq,0
+I just don't see how I would.,routine,145_197,P,id,0
+What is that ?,routine,145_198,T,irq,0
+"I mean, I lost this job. So why would I be good enough to get another job?",routine,145_199,P,id,-3
+Because you lose a strike?,routine,145_200,T,crq,0
+I went to work drunk.,routine,145_201,P,cd,0
+Can you tell me about some of your strengths? What are some of your positive qualities? ....can't think of any ?,routine,145_202,T,irq,0
+I don't know,routine,145_203,P,id,0
+What would ? What was your family say your strengths were ?,routine,145_204,T,irq,0
+"screaming and yelling, right? I don't know, I don't know. I don't know.",routine,145_205,P,id,-3
+It's hard for you to think positively right now is it?,routine,145_206,T,yq,0
+Yes,routine,145_207,P,op,-1
+"Alright Sharon, here's, we're gonna do, I'm gonna appreciate you allow me to complete this assessment. I'm gonna bring it back over to your counselor, or we're gonna put together a plan to keep you safe right now. So I'm going to take care of their estimate. Okay.",routine,145_208,T,gc,0
+Thank you.,inactive,145_209,P,gc,0
+Thanks.,inactive,145_210,T,gc,0
+summary,"The patient was sent in by a counselor fearing they might hurt themselves. The patient's dad had committed suicide 15 years ago and their sister had attempted once. The patient has been diagnosed with depression and anxiety. The patient lives alone. The patient had lost their job two months ago. The patient has a little troubled relationships with people but they are mostly positive. The patient might be evicted from their apartment and might not be able to pay their bills. The patient has had thoughts of suicide every time they feel depressed. The patient has attempted suicide four years ago by cutting thier wrists, and had thoughts to attempt and stopped three or four times. The patient had intentionally hurt themselves. The patient is worried they would have to live with their mother if they are evicted. The patient disapproves of dying but feel like they have no options. The patient has been drinking wine 3-4 times a week. The patient plans to die by taking 4 ibuprofen. The patient does not want to die since their family and friends would be really upset. The patient used to work at a gas station and lost the job since they went to work drunk. The therapist sets the patient up with a counselor next.",,,,
+primary_topic,suicide,,,,
+secondary_topic,drinking,,,,

@@ -1,0 +1,50 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Hi Chucky, How are you doing ?",inactive,87_0,T,gt,0
+I'm doing good. What about you?,inactive,87_1,P,gt,1
+Yeah me too thanks for asking. I understand you've been having some difficulties that brought you in to our agency.,inactive,87_2,T,irq,0
+"Yeah, I'm really worried about my drinking.",symp/reasoning,87_3,P,id,-2
+You're worried about your drinking. Tell me about your drinking.,symp/reasoning,87_4,T,irq,0
+"So sometimes at work, you've been having cravings for alcohol and the other There are times when you will have a craving?",symp/reasoning,87_5,T,crq,0
+"Yes, kind of at home, you know, not really doing anything for a period Hmm.",symp/reasoning,87_6,P,id,0
+"So other than that feeling of having the craving, is there anything you do after you have a craving?",symp/reasoning,87_7,T,irq,0
+"Um, yeah, sometimes I'll, I'll have a drink. And I just feel like I want to get into it.",symp/reasoning,87_8,P,id,0
+How much do you drink?,routine,87_9,T,irq,0
+Like a beer or two.,routine,87_10,P,id,0
+Is this when you work in a day? ,routine,87_11,T,yq,0
+No,routine,87_12,P,on,0
+"So when you're having cravings at work, you're not drinking there?",routine,87_13,T,yq,0
+"No, no.",routine,87_14,P,on,0
+Right. So tell me about your typical alcohol consumption week.,routine,87_15,T,irq,0
+"Like Do on Fridays after work, you know, after a long week, that's kind of when I really crave it. Like, go have a drink with some friends. I'll have a drink sometimes with dinner. If I'm at a social event, kind of feel like I want to have a drink, and I don't really want to feel that way. I feel like that might be a problem.",routine,87_16,P,id,-1
+You're worried that the craving is indicating you have an alcohol problem?,routine,87_17,T,crq,0
+Yeah.,routine,87_18,P,op,0
+Have you ever tried to cut down your drinking and you're unable to do so?,symp/reasoning,87_19,T,yq,0
+"Um, well, I mean, usually I'm, I'm able to limit my days if I say I'll just going to go to a party this weekend. I'll have one and then Yeah, usually I can stick to it, too, I guess.",symp/reasoning,87_20,P,id,-1
+You spend a lot of time trying to obtain alcohol.,routine,87_21,T,irq,0
+"Um, no, I, I guess not. I've I mean, I think about where I want to have a craving I think about like, when I want to have it, but I don't really spend a lot of time thinking about it or trying to get it.",routine,87_22,P,on,0
+How about in terms of your responsibilities? Have you failed to uphold any responsibilities because you're drinking? Or you have any social problems because you're drinking.,symp/reasoning,87_23,T,yq,0
+"Well. No, I guess not. I mean, I get really friendly when I have a drink. So I don't really think that's a problem. But you know, I guess not.",symp/reasoning,87_24,P,on,0
+It doesn't cause social problems. Do you find yourself giving up important activities because you're drinking instead?,symp/reasoning,87_25,T,irq,0
+"So thinking about it, maybe still some craving, but you're still going. You're still participating.",symp/reasoning,87_26,T,crq,0
+Yeah.,inactive,87_27,P,op,0
+Are you engaging in activities that are dangerous?,routine,87_28,T,yq,0
+"Because of the drinking, no.",routine,87_29,P,on,0
+Drinking and driving?,routine,87_30,T,yq,0
+"Well, no.",routine,87_31,P,on,0
+There's nothing like that. Yeah.,routine,87_32,T,crq,0
+No. I wouldn't say worse. No.,routine,87_33,P,cd,0
+Do you have any medical or mental health problems in general?,routine,87_34,T,yq,0
+No.,routine,87_35,P,on,0
+Do you find that you have to increase the amount of alcohol you're drinking to get the same effect?,symp/reasoning,87_36,T,yq,0
+No.,symp/reasoning,87_37,P,on,0
+"all right, and you've been drinks you save a drink about the same amount each time you drink. Have you noticed that the effect has been diminished, like you're not getting the same effect from the alcohol?",symp/reasoning,87_38,T,yq,0
+I usually feel the same.,symp/reasoning,87_39,P,id,0
+"Goes same way. Yeah. Have you ever noticed any symptoms when you stop drinking, like withdrawal?",symp/reasoning,87_40,T,yq,0
+What do you mean by withdrawal?,routine,87_41,P,crq,0
+"Like when you stop using alcohol, are you finding that you're anxious, depressed, you have physical reactions like that. ",routine,87_42,T,cd,0
+No.,symp/reasoning,87_43,P,on,0
+"Okay, Jackie, I appreciate you. Tell me about what's going on and answer my questions. If you're okay with it, I'll get you in to see a counselor. I'll get that scheduled. And we can go from there.",story,87_44,T,gt,0
+"Okay, thank you very much.",inactive,87_45,P,gt,0
+summary,"The patient has a craving for alcohol. The patient has craving during work or when they are not doing anything at home. They drink a beer or two. The patient's typical consumption is during friends, with friends and at social events. The patient is able to limit their alcohol consumption. The patient does not spend too much time thinking about alcohol, not skip on responsibilities nor important activities. The patient does not engage in dangerous activities due to drinking and neither they drink and drive. They do not suffer from medical or mental health problem. They do not see the need to increase the amount of alcohol to feel the same effect. The patient has not noticed any withdrawal symptoms. The therapist assures to set the patient up with a counselor. ",,,,
+primary_topic,drinking,,,,
+secondary_topic,friends,,,,

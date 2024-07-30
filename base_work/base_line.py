@@ -197,7 +197,7 @@ def main(baseline,datapath,acc_metric='f1'):
 if __name__=="__main__":
     baseline_list=["vanilla","self_polish","RaR"]
     for baseline in baseline_list:
-        datapath=f'trivia_{api_model}_{baseline}_detail.json'
+        datapath=f'baseline_result/trivia_{api_model}_{baseline}_detail.json'
         main(baseline,datapath,'extract_answer')
         evaluate_result(datapath)
 

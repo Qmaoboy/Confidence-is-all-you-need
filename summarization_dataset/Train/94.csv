@@ -1,0 +1,87 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+How're you doing today?,inactive,94_0,T,gt,0
+Great.,inactive,94_1,P,gt,0
+Great. I'm doing okay. Thanks for asking. I see that you signed a release. So I could talk to your mother and I see she took in here today.,routine,94_2,T,id,0
+"Yeah, she brought me in ",routine,94_3,P,id,0
+Tell me what's going on.,routine,94_4,T,irq,0
+"Ah, she's she's not happy with me. No.",symp/reasoning,94_5,P,id,-1
+just like how you smoke. Yeah. But,symp/reasoning,94_6,T,gc,0
+"yeah, it's",inactive,94_7,P,gc,0
+yeah You're so you're concerned. Somewhat but,routine,94_8,T,id,0
+"yeah, yeah, I'm in love my mom, you know.",routine,94_9,P,id,0
+what are you smoking house are concerned?,symp/reasoning,94_10,T,irq,0
+Just weed? No big deal. Really? I don't know why she's so upset.,symp/reasoning,94_11,P,id,0
+She's upset about that.,routine,94_12,T,crq,0
+"Yeah, yeah. She's been on me for a while about it. So",routine,94_13,P,op,0
+"are there any other drugs or alcohol or anything that you consume? Well, yeah,",symp/reasoning,94_14,T,irq,0
+I drink sometimes to drink some time. Yeah. But,symp/reasoning,94_15,P,id,0
+not something she's concerned with?,routine,94_16,T,crq,0
+"Well, I mean,",routine,94_17,P,gc,0
+Are you concerned with alcohol or marijuana?,symp/reasoning,94_18,T,irq,0
+no,symp/reasoning,94_19,P,on,0
+"meals I guess you probably know, ask a few questions about",routine,94_20,T,gc,0
+"Yeah, sure. Okay.",routine,94_21,P,ack,0
+Can you tell me when you first started using it how they came about?,routine,94_22,T,irq,0
+"I think it was a my sophomore year of high school. My friends offered it to me. So now, I was kind of feeling having some anxiety. Some anxiety about starting it, but so tried it made me feel great. So my anxiety go away. So",story,94_23,P,id,-2
+it took the anxiety away. Yeah. How long did you have the anxiety Before this?,routine,94_24,T,irq,0
+"Yeah. Probably in my adolescence. A couple of years. Couple years. Yeah. It wasn't anything crazy, but it affected my life a little bit. So I think it makes me feel a lot better now that it's all good. Get rid of that feeling.",routine,94_25,P,id,1
+So you started. You started marijuana because a friend offered to you and because you're anxious. Yeah. And then how about from then on,routine,94_26,T,crq,0
+"now, I don't want to feel that that anxiety anymore. I don't want to have to take any pills or anything. So I've gone and just kept doing it to make me feel great. Okay. I think it's great.",routine,94_27,P,cd,0
+When was the last time you used,routine,94_28,T,irq,0
+this morning,routine,94_29,P,id,0
+this morning?,routine,94_30,T,crq,0
+Yeah. Yeah.,routine,94_31,P,op,0
+Did anything happen in particular that we think motivated your mother to bring in today.,routine,94_32,T,irq,0
+No,routine,94_33,P,on,0
+So what do you want to happen? Would your goal be,routine,94_34,T,irq,0
+make mom happy but I don't really wanna stop,routine,94_35,P,id,0
+in order to make her happy would you have to stop?,routine,94_36,T,crq,0
+I guess but,routine,94_37,P,cd,-1
+she wants you to get a job too.,routine,94_38,T,crq,0
+"Yeah, ideally she would like me to. Yeah.",routine,94_39,P,cd,0
+Would employment involve drug screening?,routine,94_40,T,irq,0
+Probably some of them some some if I tried Yeah. ever really made a big effort to to look for anything.,routine,94_41,P,id,0
+Not to worry about that right now.,routine,94_42,T,crq,0
+"Oh, I mean, I take every day is a new day a new chance for greatness and it's going great so far. So",routine,94_43,P,cd,1
+I would like to ask a few questions about marijuana use.,routine,94_44,T,id,0
+Yes.,routine,94_45,P,op,0
+Have you ever tried to cut down,symp/reasoning,94_46,T,irq,0
+No,symp/reasoning,94_47,P,on,0
+Have you ever taken in larger amounts and you want it to for long periods,routine,94_48,T,irq,0
+"Yeah, I mean, you know, sometimes I'll smoke more than I usually do. I'm hanging out or you know those anxiety days or well worse smokes a more",routine,94_49,P,id,0
+How much time do you spend obtaining using recovering from marijuana,symp/reasoning,94_50,T,irq,0
+"A good amount of time. Yeah, I love it. So something I love to do. ",symp/reasoning,94_51,P,id,0
+It's a big part your life,routine,94_52,T,crq,0
+"Yeah, say so. I want to do it. Yeah. So",routine,94_53,P,cd,0
+has it led to any social problems where?,routine,94_54,T,irq,0
+"I used to hang out my friends a little more than I do, but I have some hope like, I do. Too much",routine,94_55,P,id,-1
+as the marijuana use caused you to give up activity so important to,routine,94_56,T,id,0
+it is my important activity. Yeah.,routine,94_57,P,id,0
+That's not really has the marijuana use caused any activity become dangerous?,routine,94_58,T,irq,0
+Like what?,routine,94_59,P,crq,0
+Like driving law into the influence right now like that?,symp/reasoning,94_60,T,cd,0
+Yeah.,symp/reasoning,94_61,P,op,0
+That's That's dangerous.,symp/reasoning,94_62,T,id,0
+I'm fine.,routine,94_63,P,id,0
+"Everybody does that. Now your mother, she drove you today. Yeah. She came when she worried that you were under the influence of marijuana.",routine,94_64,T,id,0
+"Probably but she's kind of a little used to it I guess not used to it but she's aware of but yeah, she's Yeah.",routine,94_65,P,id,0
+Do you have any history of mental health disorders?,routine,94_66,T,irq,0
+"Just some anxiety,",routine,94_67,P,id,-1
+anxiety about medical problems?,routine,94_68,T,crq,0
+No.,routine,94_69,P,on,0
+Do you notice that when you stop using you have physical symptoms or anxiety?,symp/reasoning,94_70,T,irq,0
+Well yeah at the anxiety when I when I stop,symp/reasoning,94_71,P,id,0
+what's the longest you have stopped for?,routine,94_72,T,irq,0
+"Just getting and yes, I spoke every day, so a couple hours asleep just a couple of hours throughout the day.",routine,94_73,P,id,0
+So it's an every day activity for you.,symp/reasoning,94_74,T,crq,0
+"Yeah, it's been that way for a while. Yeah. last couple years I would say a couple years. Yeah.",symp/reasoning,94_75,P,cd,0
+"All right, Jackie. I know that your your mom wants you to get counseling here. Are you open to it?",routine,94_76,T,irq,0
+"I don't really think I need it. But I'm sure she's once I leave here, she's gonna say I need to come back. So we'll see, I guess.",routine,94_77,P,id,0
+"Okay with Yeah, I'm gonna try.",inactive,94_78,T,irq,0
+Yeah. We'll see.,inactive,94_79,P,ack,0
+All right. I'll get you scheduled to see a casserole and we'll see where that goes from after your first appointment. I think it's better right?,routine,94_80,T,crq,0
+"Yeah, yeah. ",inactive,94_81,P,op,0
+I want to thank you for Tell me what's going on for answering my questions has been helpful. Thank you.,inactive,94_82,T,gt,0
+summary,"The patient's mom brought them in because the patient smokes weed. The patient says they drink sometimes. The patient was first introduced to it in thier sophomore year by a friend to reduce anxiety. They had experienced anxiety in their adolescence for a couple years before this. The patient does not want pills to reduce anxiety hence they use marijuana to feel better. The patient had used marijuana just that morning. The patient wants to get a job which some of them involves drug screening. The patient hasn't tried to cut down on marijuana use. It takes a big part of their life recovering from marijuana. The patient feel they hang out with friends a little more, and have missed out on important activities. They have engaged in dangerous activities like driving under influence of drugs. The patient has meidcal history of anxiety and have anxiety as withdrawal symptoms. The patient has been using marijuana everyday for the past couple of years. The therapist assures to setup the patient with a counselor. ",,,,
+primary_topic,marijuana,,,,
+secondary_topic,friends,,,,

@@ -1,0 +1,29 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Hello, Sophia.  ",inactive,119_0,T,gt,
+Hi. How are you doing today?,inactive,119_1,P,gt,
+I'm good. How are you?,inactive,119_2,T,gt,
+I'm doing well. Thanks for asking.,inactive,119_3,P,gt,
+"I saw you last time a week ago. And I know you've had some concerns with employment working on employment. The first before we get into that I wanted to check in and see how you're doing emotionally. I know from last week, on a scale of one to 10 you said you were suffering from depression at about seven. Yeah. How is it today?",symp/reasoning,119_4,T,id,
+"It's been it's been up and down. I think today, it's probably a seven again. But you know, I've been back down to a nine lately. I guess maybe I feel a little better because I'm coming here. And I know, we'll get to talk about it a little bit. But I guess you know, last time we were talking about me trying to get a job and live full time job. And I think I just realized last week that it's really hard for me to work full time right now. You know, I'm doing the part time thing with the work program, and they want us to do volunteer work in the afternoon, if we haven't found a full time job by a certain week. And I just, you know, just thinking about it, and I just don't think I can do that. I just don't think I can work for eight hours every day. It's just too much.",story,119_5,P,id,-2
+"So you're having some concerns about full time work and that level of energy, you'd have to exert that commitment. Alright, so we'll be okay today, if we kind of structured, what we're going to do sure for for this session. So, if it's okay with you, I'd like to talk about that. Okay. All right and and get some more details about kind of what's going on this week and your feelings surrounding that. And we touched on this a little bit in the last session. But I'd like to talk about kind of your core beliefs, your central beliefs that might be contributing some of these feelings of depression. Yeah. And then, for the last part, we'll work on like we did before, interventions to try to help you with with what's going on at work and with your depressed mood. And we can make changes to this as needed. I just want to start with an outline that we can, we can have going in okay. So make sense. Okay. Anything you want to add or take away from that?",routine,119_6,T,id,
+"No, I mean, that makes sense.",inactive,119_7,P,on,
+"Okay. So, tell me a little bit more about what's going on with the work.",inactive,119_8,T,irq,
+"Well, I mean, I don't really know why it is. I know I'm always tired because I just I have so much trouble sleeping, as I told you before. It's just It doesn't matter how tired I am, I can't sleep, but it's just I go, I go in the morning, you know, eight to noon, but then in the afternoon, it's just like, it's so hard to keep going on. It's just such a long amount of time. And I just feel like, I don't know if I can really do it. And especially in the winter, you know, if you work eight hours, by the time you get out of work, it's dark out and it just makes my depression so much worse.",symp/reasoning,119_9,P,id,-2
+"So, the latter part of the day is more of a struggle for you.",symp/reasoning,119_10,T,crq,
+"
+ Yeah, a lot of hard work day.",inactive,119_11,P,cd,-1
+So getting up in the morning and getting to work on time. You do okay with that.,symp/reasoning,119_12,T,irq,
+"It's hard. It's hard, but I feel like I'm better at that. I'm better at it. I'm already up anyway. So, you know, I know I gotta get up. I gotta do what I have to do.",symp/reasoning,119_13,P,id,-1
+"So the work program you're in now, you work in the morning?",routine,119_14,T,yq,
+Yeah.,inactive,119_15,P,op,
+What hours are you there?,inactive,119_16,T,irq,
+Eight to noon.,inactive,119_17,P,id,
+And there's some work you have to do in the afternoon.,routine,119_18,T,irq,
+"Well, yeah, since I've been there for what is it eight weeks. And I haven't found a job yet. They want us to volunteer in the afternoon and they find us our own place of volunteer. So that's good. I don't have to find that myself. But I guess they want to get you used to doing something for eight hours a day and maybe you have something to put on your resume. And guess what? have like a big gap in your resume that doesn't look good either. So haven't been able to say a work tear even though I didn't make money. But just thinking about it, it's so exhausting. And you know, I get out of the work program and I think if I did go to, I can barely make it home. It's just so all I want to do is go home.",symp/reasoning,119_19,P,id,-1
+Thinking about it's exhausting. Can you tell me what type of thoughts you're having?,symp/reasoning,119_20,T,id,
+"I just don't think I can do it. Like, I just don't think I'm the kind of person that can work eight hours a day. And it just makes me feel like what's the point like, I'm going to work eight hours a day.",symp/reasoning,119_21,P,id,-1
+I don't think I can just there's just too many hours.,inactive,119_22,T,id,
+Yeah.,inactive,119_23,P,op,
+summary,"The patient had visited earlier regarding depression and was diagnosed. Therapist asked to rate the depression on a scale of 1 to 10. She gave the same answer 7 as earlier. Earlier Patient was struggling to get a full-time job but now she had a problem with this full-time job. Pateint thinks that she can't work for 8 hours a day. This topic was covered last week so therapist starts to talk about the core beliefs which contributing to this depression. Patient was tired of the job and having trouble in sleep because of work shifts. In winter, depression becomes worse because of the darkness. Patient was not getting any job opportunities and didn't make money. Patient is exhausted by this work. Patient don't think that she can work for 8 hours a day. That's too much.",,,,
+primary_topic,Exhausted,,,,
+secondary_topic,Depression,,,,

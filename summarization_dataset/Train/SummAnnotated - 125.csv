@@ -1,0 +1,17 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+So you made your bed. That's great. really makes a difference. How did waking up earlier ago?,routine,125_0,T,irq,
+"Well, it worked for like a day or two, but then the power went out. So then my alarm clock stopped working. And then I kinda started sleeping in again.",inactive,125_1,P,id,-1
+I thought that might happen. So I made this sign for you. It'll help you remember to set the alarm.,inactive,125_2,T,id,
+"Oh, I did get out to the park.",routine,125_3,P,id,
+How did that go?,routine,125_4,T,crq,
+"didn't go so well. I don't have enough clean clothes and I felt really uncomfortable. This thing is really hard, man. Like why bother?",symp/reasoning,125_5,P,cd,-1
+"Well, that's why I bought you these. We can put your dirty clothes in To the hamper. And your clean clothes, you can fold them up and put them into this bin.",routine,125_6,T,id,
+"That's cool. Okay,",inactive,125_7,P,ack,
+"Well last time we talked about how you forget to take a shower, so I brought you this hygiene basket because remember if you become overwhelmed, if you keep it here by the bed, it'll remind you to take a shower and you can carry it with you.",routine,125_8,T,id,
+I think I could use a shower. I want to go have one.,routine,125_9,P,id,
+"I'll put the calendar up for you and also put this picture I love up here by the bed. Well, guess what? I got you a container so you can put all your meds in. If you fill it up for each day, and keep it by your bed with a glass of water. It will remind you to take your pills",inactive,125_10,T,id,
+I'm gonna go take that shower now.,inactive,125_11,P,id,
+Sounds good. I'll put up your calendar.,inactive,125_12,T,id,
+summary,"If you forget to take a shower, this basket will remind you to take a shower. If you fill it up for each day, and keep it by your bed with a glass of water, it will remind you to take.",,,,
+primary_topic,Stress,,,,
+secondary_topic,,,,,

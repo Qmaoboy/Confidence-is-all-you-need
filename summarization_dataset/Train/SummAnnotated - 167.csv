@@ -1,0 +1,58 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Hi Susan, how are you doing today? ",inactive,167_0,T,gt,0
+Doing good. How are you?,inactive,167_1,P,gt,0
+"I am doing well, thanks for asking. I want to give you a brief assessment to help measure functions like memory and thinking. Is that okay with you? ",routine,167_2,T,gt,0
+Okay,routine,167_3,P,cd,0
+"All right. For the first part of this assessment, we're going to be handing the sheet back and forth. Okay, I have a table there, so you can write on it. half a second part. I'll get that out of your way. I'll work on some other parts of it. Okay, that sounds good?",routine,167_4,T,id,0
+Yeah.,routine,167_5,P,cd,0
+"All right. So let's take a look at this section right here. I have my finger pointed, please draw a line going from a number to a letter in ascending order. So I want you to begin here and draw a line from one that's a than the two and so on and here?",routine,167_6,T,gc,0
+Okay,routine,167_7,P,cr,0
+thank you. I want you to copy this drawing as accurately as you can in the space below.,routine,167_8,T,gc,0
+....,routine,167_9,P,cr,0
+"Thank you. So in this empty space here like to draw a clock, put in all the numbers and set the time to five past hour",routine,167_10,T,gc,0
+Okay.,routine,167_11,P,gc,0
+Thank you for joining us. Can you tell me the name of this animal?,routine,167_12,T,gc,0
+Giraffe,routine,167_13,P,id,0
+what the name of this animal?,routine,167_14,T,irq,0
+bear,routine,167_15,P,id,0
+and the name of that animal?,routine,167_16,T,irq,0
+hippopotamus.,routine,167_17,P,id,0
+"Thank you. This is a memory test. I'm going to read a list of words that you will have to remember now, and later on, listen carefully. When I'm through, tell me as many words as you can remember, it does not matter in what order you said. Truck, Banana, Violin, Born, Green.",symp/reasoning,167_18,T,gc,0
+"Banana, Truck, Violin, Green, Born. ",routine,167_19,P,cr,0
+"Thank you. I'm going to read the same list for a second time. Try to remember and tell me as many words as you can including words you said the first time. Truck, Banana, Violin,  Born, Green",routine,167_20,T,gc,0
+truck banana violin green.,routine,167_21,P,cv,0
+"Thank you. I will ask you to recall those words again at the end of the test. I am going to say some numbers when I'm through, repeat them to me exactly as I've said them...3 2 9 6 5 ",routine,167_22,T,gc,0
+3 2 9 6 5.,routine,167_23,P,cr,0
+"Thank you. Now I'm going to say some more numbers, but when I'm through, you must repeat them to me in the backwards order. 8 5 2 ",routine,167_24,T,gc,0
+2 5 2008,routine,167_25,P,cr,0
+Thank you.  Now I asked you to count by subtracting seven from 90 and then keep subtracting seven from your answer until I tell you to stop.,routine,167_26,T,gc,0
+"Starting with 90 and then going down seven,",routine,167_27,P,crq,0
+correct,routine,167_28,T,cd,0
+90 83 76 69 62 55.,routine,167_29,P,cr,0
+"that's good. Thank you. I'm going to read you a sentence, repeat it after me, exactly as I say it. A bird can fly into closed windows when it's dark and windy. ",routine,167_30,T,gc,0
+A bird can fly into close windows when it's dark and windy.,routine,167_31,P,cr,0
+Thank you. Now I'm going to read you another sentence repeat it after me exactly as I say it. The caring grandmother sent groceries over a week ago.,routine,167_32,T,gc,0
+The caring grandmother sent groceries over a week ago.,routine,167_33,P,cr,0
+"Thank you. Tell me as many words as you can think of the beginning with a certain letter of the alphabet, that I will tell you in a moment. You can say, any kind of word you want except for proper nouns, like Bob or Boston, numbers, or words that begin with the same sound, but have a different suffix for example, love lover loving. I will tell you to stop after one minute. Are you ready?",routine,167_34,T,gc,0
+Yes.,routine,167_35,P,op,0
+Now tell me as many words as you can think of the begin with the letter S?,routine,167_36,T,cv,0
+"shoes, socks, stockings, sweater, shirt, Stripes. suitcase, Save, Strategic, Serene. Sweet, super.",routine,167_37,P,cr,0
+Tell me how a carrot and a potato are like?,,167_38,T,irq,0
+vegetables.,routine,167_39,P,id,0
+Can you tell me how a diamond and Ruby are like?,routine,167_40,T,irq,0
+They both are stones,routine,167_41,P,id,0
+"I read some words to you earlier, which I asked you to remember. Tell me as many of those words as you can remember,",routine,167_42,T,cv,0
+"banana, truck, green, born, violin",routine,167_43,P,cr,0
+Can you tell me today's date?,routine,167_44,T,irq,0
+February 10.,routine,167_45,P,id,0
+tell me what day of week it is ?,routine,167_46,T,irq,0
+Tuesday.,,167_47,P,id,0
+Tell me what place we're in right now.,routine,167_48,T,irq,0
+Willmington University,routine,167_49,P,id,0
+and what city we're in ?,routine,167_50,T,irq,0
+Delaware.,routine,167_51,P,id,0
+"Susan, thank you very well. ",inactive,167_52,T,gc,0
+Thank you.,inactive,167_53,P,gc,0
+summary,"Therapist asks patient to read a list of words that you will have to remember now, and later on, listen carefully. When therapist is through, patient tell as many words as he can remember, it does not matter in what. It is a memory test",,,,
+primary_topic,memory,,,,
+secondary_topic,,,,,

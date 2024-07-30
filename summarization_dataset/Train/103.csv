@@ -1,0 +1,8 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"between here and there, obviously, if it were easy, you wouldn't need me, you wouldn't have 13 therapists. If this were easy you would have been to a life you wanted a long time ago. So it's obvious that it's easy it already be done. Because it sounds like you're a person with a lot of motivation works really hard, because there are very few people who wouldn't quit before 13 therapists. So that's a very good quality. The very fact that you've gone through all these therapists is a good sign for us. Nonetheless, it is difficult. between here and there, there's going to be hell. Exactly. Right. So I figure our number one priority has to be to get you to stay alive through house so that we can get to the life you want. If that's where we're at. Now. We got to have some sort of agreement, not by writing a contract. Because I'll fire you if you try to kill yourself that because we both sort of have to face the fact that to get there you got to go through there and to go through there you got to stay alive.",symp/reasoning,103_0,T,id,
+Okay what you guarantee that you can get you can call me and I'll guarantee I'll get myself,routine,103_1,P,cd,
+What are you gonna do if I fail?,routine,103_2,T,irq,
+"Beside break Mike. Okay. So if I don't help you, you'll kill yourself. Yeah, okay, but if I do help you Well",routine,103_3,P,id,
+summary,"The therapist assures the patient that they are strongly motivated to have met 13 therapist to want a life they wish for. The therapist asks the patient that if they want to get where they wish to, they need to stay alive.",,,,
+primary_topic,suicide,,,,
+secondary_topic,alive,,,,

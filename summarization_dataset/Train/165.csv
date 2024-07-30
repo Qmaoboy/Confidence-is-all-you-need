@@ -1,0 +1,49 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Hi, Victor I'm Dr. Sawyer. Victor, can you tell me how old you are?",routine,165_0,T,gt,0
+I am 20.,routine,165_1,P,id,0
+"You're 20 Okay, where do you live?",routine,165_2,T,ack,0
+At home,routine,165_3,P,id,0
+you live at home? Who do you live with?,routine,165_4,T,ack,0
+"My mom, my dad, my sister.",routine,165_5,P,id,-1
+"Okay, so you live with mom, dad and sister. what do you do for work?",routine,165_6,T,ack,0
+I go to cop.,routine,165_7,P,id,-1
+"Okay, so you came to me. It's See me cuz I'm a Doctor. ",symp/reasoning,165_8,T,irq,0
+"I didn't come to you, my mom and dad and my sister drove me here. I didn't want to come. ",symp/reasoning,165_9,P,id,-3
+"Okay, are your mom dad and sister here?",routine,165_10,T,irq,0
+Yes.,routine,165_11,P,id,-3
+"Okay, so I'll I'll let you go back to them in a few minutes. But let's just get through a few questions",routine,165_12,T,gc,0
+I want to go done now.,routine,165_13,P,gc,-3
+"So Victor, tell me, how's your sleep? And what about Have you experiencing any lack of joy? ",symp/reasoning,165_14,T,irq,0
+"Yes, I have my teacher  have been mean to me. My educational assistants have been mean to me. They always put me in timeout.",symp/reasoning,165_15,P,id,-3
+"You need to calm down, victory stay in your seat. I'm gonna have to call security.",symp/reasoning,165_16,T,gc,0
+I never yelled It was the first ever first time ever.,symp/reasoning,165_17,P,cr,-3
+you are you yelling at me right now and I need you not to yell. Are you on any medications right now?,symp/reasoning,165_18,T,gc,0
+"My mom and dad and my sister? No. So it's just Yes,",symp/reasoning,165_19,P,gc,-3
+yes or no. Are you on any medications?,symp/reasoning,165_20,T,gc,0
+"Yes, I am",symp/reasoning,165_21,P,op,0
+okay. I need you to bring me a list of your medications later. So I'm going to give you a prescription for an antidepressant medication. Are you bringing home to your mom and show it to her and then get it filled?,symp/reasoning,165_22,T,cv,0
+"Obviously, that's none of your business.",inactive,165_23,P,id,-3
+"Okay, so I'm just I'm just gonna go to my computer and put it in and then I'll be a receptionist will put you off the medication. Okay, so good luck Victor.",inactive,165_24,T,id,0
+Bye,inactive,165_25,P,gt,0
+"Hi Victor, I'm Dr. Sawyer. Hi. I'm a psychiatrist. Do you know what a psychiatrist is? ",inactive,165_26,T,gt,0
+No.,inactive,165_27,P,id,0
+"Okay. So a psychiatrist is a doctor who deals with people who are feeling sad or mad, different feelings that they might have. We'll talk for a little bit and we'll talk about some things that might have been difficult in your life over the past little bit. And our goal is to try to make things see how we can make things a little bit easier for you.",inactive,165_28,T,id,0
+"Okay, and at school, I feel like they're not doing anything. They're not listening to me about my feelings. ",story,165_29,P,id,-3
+So you feel pretty unheard.,story,165_30,T,crq,0
+I feel unheard at school. My parents and my sister are hearing,story,165_31,P,id,-3
+so you said you've been feeling pretty sad. How long have you been feeling sad for ?,symp/reasoning,165_32,T,irq,0
+"Um, well. This is one teacher. I will give out her name but she She doesn't listen to me. Okay? She just tries to keep me down. ",symp/reasoning,165_33,P,id,-3
+How long have you had this teacher for?,routine,165_34,T,irq,0
+"Four years, four years. ",routine,165_35,P,id,-3
+So have you been feeling sad for this entire four years or a shorter period of time?,symp/reasoning,165_36,T,irq,0
+shorter period of time.,symp/reasoning,165_37,P,id,0
+So has it been a couple of weeks? A couple months? A couple days?,symp/reasoning,165_38,T,irq,0
+A couple of months.,symp/reasoning,165_39,P,id,0
+"So Victor, I want to tell you some of my thoughts of what I think is going on, but I want to invite your sister in because I need to find out a little bit about your medical history. So I'm just going to get her and then I'll come back. Okay. ",routine,165_40,T,gc,0
+Okay.,routine,165_41,P,ack,0
+"So, I've been talking to Victor he's been telling me about how his how he's had less interest in things. He's having trouble sleeping. And he's, he's not he's feeling sad all the time. And it does sound like he's been suffering from what we call a major depression. There's a couple of treatments that I want to talk about what you know what medications Victor's on? ",symp/reasoning,165_42,T,gc,0
+"Yeah, so I actually thought of this because there's a, there's quite a few. Okay, certainly. ",routine,165_43,P,gc,0
+"Thank you.  Okay, so on this list it says about sort of what medical illnesses he's had and hospitalizations and surgeries as well. So there's a couple of treatments for for depression. One is medication and one is also doing some interventions within the school and within the family. And there's a lot of things to think about, but it seems like things in the school have been really not going well. And that's been a major contribution to his to sadness.",symp/reasoning,165_44,T,gc,0
+summary,"Patient did not come to psychiatrist, his mom and dad and sister drove him here. patient didn't want to come. Patient feels like school is not doing anything. They are not listening about feelings. There is one teacher she doesn't lister to patient. She just tries to keep him down. Patient is sad for couple of months. Therapist discussed the situation with patient and his sister.",,,,
+primary_topic,Sadness,,,,
+secondary_topic,School,,,,

@@ -1,0 +1,93 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Hi Ann, how are you doing today ?",inactive,152_0,T,gt,0
+"Hi Dr. Grande, about the same.",inactive,152_1,P,gt,0
+About the same ?,inactive,152_2,T,crq,0
+Yeah,inactive,152_3,P,cd,0
+what was going on ?,inactive,152_4,T,irq,0
+"Well, it might be a little worse had you know, I've been talking about my problems with the perks. The past couple of times I've seen you and I don't know I think at work, they might be starting to notice a little bit.",symp/reasoning,152_5,P,id,-1
+They might be starting to notice that you're under the influence of the Percocet?,routine,152_6,T,crq,0
+Yeah.,inactive,152_7,P,cd,0
+"Could before I remember when we talked, it seemed like you felt safe in that No one was gonna find you out.",routine,152_8,T,gc,0
+"Well, yeah, because when I take them, I feel normal. Like, it makes me feel like I can function. And I feel normal. But like, definitely last week, my coworker in the cubicle across the way was she was looking at me, she was just looking at me really funny and, and then also, I've been having a little bit of trouble with the numbers. I'm just not. I'm not on my game the way I used to be. And I know that there is a connection to the drugs.",symp/reasoning,152_9,P,gc,-1
+"So in terms of concentrating, focusing?",routine,152_10,T,crq,0
+"yeah, yeah, definitely. It's hard to focus but if I don't do it I don't know. I mean, I can barely get out of bed. I can I don't know, I'm completely what to do ",symp/reasoning,152_11,P,cd,-1
+"And this is tough for you. The Percocet makes you feel normal. I would talk about this before. Yeah, it used to give you high, but not anymore.",routine,152_12,T,gc,0
+"No, right. It is not fun.",inactive,152_13,P,gc,0
+But it makes you feel normal.,routine,152_14,T,gc,0
+Right.,inactive,152_15,P,gc,0
+And we've talked about the detox options.,routine,152_16,T,gc,0
+"Oh god no.no no no, ",inactive,152_17,P,gc,-2
+"it's not something that you want. So really, what's changed to make things more difficult is that you're worried that your coworkers are on to you. Right. And it's your performance in terms of focusing on on your accounting work has been compromised as well. ",routine,152_18,T,gc,0
+Yeah,inactive,152_19,P,gc,0
+is that right ?,inactive,152_20,T,crq,0
+"Yeah. And when you put it that way, she's definitely noticed it and she talks to so it's not like she's if she thinks something's up. With me, she's going to keep it to herself. So that would be the reputation piece and then also, the quality of my work. I know it's, it's not the same, it's a lot harder for me to produce what I used to.",symp/reasoning,152_21,P,cd,-2
+And you're afraid that's going to be noticed as well?,routine,152_22,T,yq,0
+"Yeah, for sure. But I can't take detox, there's it's just not an option.",symp/reasoning,152_23,P,op,-2
+"Alright. Let's talk about I want to do some scaling work. I want to talk about the importance of this change to you know, cuz we've been talking about this change for a while",routine,152_24,T,gc,0
+"that change, like giving up the Percocet. ",inactive,152_25,P,crq,0
+"Yeah. Let's talk about, let's just talk about the importance of it though. So just focus on that one narrow piece. Okay, we're just we're just talking about how important it is. So on a scale of one to 10, with one being not important at all, and 10 being extremely important. How important is it to you that you that you can make this change? Can you make this change?",routine,152_26,T,cd,0
+"See, I go back and forth. I don't know that it's that important. Well, if I lose my job, that would be horrible. So maybe it is pretty important. I mean, it's important that I keep my job. It's really important that I keep my job, and then it keeps my reputation.",symp/reasoning,152_27,P,id,-1
+"Well, so it's important that you keep your job and that importance, in a sense now appears to be tied to the importance of not using Percocet. They've been tied together a little bit, right.",routine,152_28,T,gc,0
+"Yeah, because to get out of bed, yeah. Okay.",inactive,152_29,P,cd,-1
+"So if you if you if you had to pick a number one to 10, or 10 is extremely important. How important is it to you to make the change?",routine,152_30,T,irq,0
+7     8     7.,symp/reasoning,152_31,P,id,0
+7 so fairly important.,routine,152_32,T,gc,0
+"Alright, eight. I mean, I got to keep it up.",symp/reasoning,152_33,P,gc,0
+You have to keep it up?,routine,152_34,T,crq,0
+Yeah.,inactive,152_35,P,cd,0
+So let's talk about another construct. That's important.,inactive,152_36,T,gc,0
+Okay.,inactive,152_37,P,gc,0
+"I want to talk about confidence. So using that same scale, how confident are you that you can beat the Percocet?",routine,152_38,T,irq,0
+That's what I've been trying to do for how long have I been coming in here?,symp/reasoning,152_39,P,crq,-1
+About about six months now.,routine,152_40,T,cd,0
+"I've tried I mean, I have really tried. I know I can't I don't I don't. I don't think I can do it.",symp/reasoning,152_41,P,id,-3
+So it was in the one to 10 scale. What do you think you would be?,routine,152_42,T,irq,0
+Like 0   1 I can't. I've been trying.,symp/reasoning,152_43,P,id,-3
+"So very low confidence, nope really no confidence. You have no confidence. You have no confidence that you can change and it's very important to you that you do change. So this is a real bind the trend. ",routine,152_44,T,gc,0
+"Yeah, it's pretty depressing.",symp/reasoning,152_45,P,cd,-1
+You mentioned that one of the reasons your confidence is low is because you tried over the last six months and working with me and you've not been successful at stopping the Percocet use.,routine,152_46,T,gc,0
+"I'll leave here swearing to myself. I'm done. You know that next week I'm going to come in and I'm going to tell you that I didn't use at all and then like before, I'm in bed. I've already taken some you know that night.",symp/reasoning,152_47,P,cd,-1
+"So it's easy to see where the low confidence rating comes in. Based on your experiences the last six months. How about other times when you've been able to make a tough change? If you look through your, your past and different experiences, has there been any other occasions where you have been successful, beating something like this and making a tough change?",routine,152_48,T,gc,0
+"Well, yeah, I mean, I used to I used to with the gambling I guess, I I used to hit Delaware Park, you know, on a regular basis and spent a lot of money and my husband was pretty upset about it and I had a really hard time stopping that. ",story,152_49,P,id,-1
+So that was those tough that was. Would you say that you felt addicted to gambling?,routine,152_50,T,yq,0
+"We Oh yeah, definitely.",inactive,152_51,P,op,-3
+And it was painful to stop. Are you happy that you did stop?,routine,152_52,T,yq,0
+"Oh, God, I would never want to go back to that. Yeah.",symp/reasoning,152_53,P,cd,-3
+"So when you were in the middle of that addiction of gambling, right, how likely to seem that you would be able to stop back then?",routine,152_54,T,irq,0
+"Yeah, that's that's a really good point. I didn't think that I was going to be able to say probably about a to two or three. ",symp/reasoning,152_55,P,id,-3
+So there's some parallels here between what happened with the gambling and with what's happening now the Percocet.,routine,152_56,T,orq,0
+"I didn't think about it that way. So I really didn't think I could do it then and it's been, you know, a couple years since I've even been in a casino.",symp/reasoning,152_57,P,od,-3
+So you would say you were successful at beating that addiction?,routine,152_58,T,yq,0
+"Yeah, definitely.",inactive,152_59,P,op,-3
+"Definitely success, so what happened? ",routine,152_60,T,irq,0
+It's so different. It's different. It's so different. Oh my god. Let's talk about that. Just like I just find myself popping them in my mouth. You know.,symp/reasoning,152_61,P,id,-3
+"So the mechanism is different. Like for the gambling, you'd have to drive to the casino to drive Delaware Park. ",routine,152_62,T,gc,0
+Right,inactive,152_63,P,gc,0
+You'd have to have money,routine,152_64,T,gc,0
+"Right, Right. ",inactive,152_65,P,gc,0
+Whereas the the percocets so easy. Yeah that you get them for my friends.,routine,152_66,T,gc,0
+Yeah.,inactive,152_67,P,gc,0
+And it's a lot easier to consume and Percocet than to get in your car and make the time and so the mechanism is different.,routine,152_68,T,gc,0
+Okay,inactive,152_69,P,gc,0
+"But wonder if there's any similarities with this? Well, with the success and the potential success, meaning you you thought that you could never stop gambling, you think that you could never get through detox?",routine,152_70,T,irq,0
+"I didn't think about detox, but you're right. It was miserable in that period when I first stopped kind of casino and I felt that really strong urge to go. And I made it through that, my husband was amazing.",symp/reasoning,152_71,P,id,-3
+You husband was supportive?,routine,152_72,T,yq,0
+"Oh yeah, he was really great. He would sit with me he would talk me through it. We go to movies sweet, you now he was really encouraging. Probably be really happy to see me stop using these Percocet too.",story,152_73,P,op,-1
+"So as you reflect on your confidence, and this is not something you necessarily need to do right now. It's probably important to consider that you were successful before in the past. All the circumstances were different. ",routine,152_74,T,cv,0
+Okay.,inactive,152_75,P,cr,0
+But you gained too high from that gambling.,routine,152_76,T,gc,0
+Yeah.,inactive,152_77,P,gc,0
+that was it was addictive?,routine,152_78,T,crq,0
+Right,inactive,152_79,P,cd,0
+and and you beat it and it and it was hard it was challenging but you also have a supportive husband. Would you have your support your husband if you tried to stop Percocet?,routine,152_80,T,gc,0
+"Oh, yeah. Yeah. He He's really, you know, upset, by the way, and I'm taking them and he's really worried about me losing the job. I don't see why he wouldn't be able to help me in the same way, I guess.",symp/reasoning,152_81,P,op,-1
+"Well, since this since stopping is important to you, but your confidence is low. But this might be a good area to kind of process which is, you know, you do have the supports in place, and you have successfully defeated addiction before. So it's something to consider, as you weigh, you know, I know that detox is something you've expressed really clearly that you're not a big fan of and I can appreciate your reasons. At the same time, get support, you don't lose your job. So, let's do this. Let's, between now and when I see you next, maybe reflect on some of the strengths and supports and the past successes you've had. ",routine,152_82,T,gc,0
+Okay,inactive,152_83,P,cr,0
+And see if we can accurately factor those into this equation. Right as you're processing through and and considering a very tough decision. So it makes sense?,routine,152_84,T,id,0
+I can definitely do that. Yeah.,inactive,152_85,P,op,1
+So we'll pick up next week there. And I really appreciate you coming in today.,inactive,152_86,T,gc,0
+Thanks a lot.,inactive,152_87,P,gc,0
+"Thanks, you",inactive,152_88,T,gc,0
+primary_topic,Focus,,,,
+secondary_topic,"Gambling, Percocet",,,,
+summary,"Patient feels a little worse and had problem with the perks. They might be starting to notice a little bit.  Before patient felt safe, feel normal, like makes feel like patient can function. But patients coworker looking at patient really funny and patient haing a little bit of trouble with the numbers. Patient was not on the game and knows there is a connection to the drugs. Patient was hard to focus. The percocet makes patient feel normal was tough therapist said. Patient was worried that coworkers are on the patient that is more difficult. Focusing on work is also compromised. Patient thinks about reputation and quality of the work and its a lot harder to produce what patiet used to. Patient was afraid to be noticed as well. For patient it's  important to keep the job and reputation. Thereapist says that importance of not using percocet is tied with importance of job. Patient marks 8 out of 10 to make the change. Patient trying beat the percocet from six months. but it didn't. Patient marks 0 out of 10 that was pretty depressing. Patient swear that next week patient come and tell that patient didin't use percocet at all. Patient used to with the gambling and spent a lot of money. Patient was addicted to gambling and painful to stop. Therapist understand the parallels betweek gambling and percocet and successful at beating the addiction. Percocet is lot easier that gambling for patient. Patient wsa miserable when patient stopped kind of casino and felt really strong urge.Patient husband was supportive and really encouraging and happy to see pateint stop using percocet. Therapist asks to beat it with the supportive husband. Therapist asks to reflect the strength when patient comes next time. ",,,,

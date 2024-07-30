@@ -1,0 +1,201 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+Hi Smith How you doing today?,inactive,173_0,T,gt,0
+Good. How are you?,inactive,173_1,P,gt,0
+I'm doing all right. How things been since last week?,routine,173_2,T,gt,0
+"Um, things you know, I've been really sort of preoccupied and anxious a lot this week. My daughter got sick. So I had to take three days off of work to take care of her and I'm starting to worry, she's been sick a lot since I've gone back to work she's in daycare. And I've had to take a lot of time off work and I'm getting close to going over my allotted amount of days. And so I'm finding myself being very anxious about that and then feeling guilty because when I'm trying to take care of her, I'm always worrying about work so, ",symp/reasoning,173_3,P,id,-1
+"okay, sounds like a couple things may be going on. In child has been sick so youre taken off days. So there's a little worried about your relationship with your employer. At the same time, you want to make sure you're taking good care of your child having trouble reconciling those two.",routine,173_4,T,gc,0
+Yeah.,inactive,173_5,P,ack,0
+"All right. What was the last time it happened, can you described what happened?",routine,173_6,T,irq,0
+The last time I had to take off work?,symp/reasoning,173_7,P,id,0
+Hmm,inactive,173_8,T,ack,0
+"It was just this week. She woke up one morning with a really high fever. So I had to call out that day and then she still had a favourites The next day, and then I had to take a third day because she has to be fever free before she can go back to daycare. So the first day was, I was okay with that. But then like the second and then when I started realizing that I was going to have to take a third day, and I really start to get kind of panicky and were worried about it.",symp/reasoning,173_9,P,id,0
+"Alright, so let me see. Let's go through each day. Right. So the first day when we discovered that she was sick, right well, we Thinking that when you had to call out of work",routine,173_10,T,gc,0
+"well, because she's been sort of sick a lot lately, I was a little bit worried. And I was sort of, you know, I have this number 10 because I only have 10 days for the whole year. So I had this number in my head and I just thought, Okay, well, there's one more day I got to take away from that 10 that I have, and but I was able to sort of think about, I was a little worried about any work that I would miss, you know, keeping up with my caseload and stuff at work, so, but I was able to kind of figure out that I would be okay for a day and I can kind of make up for that when I get get back.",symp/reasoning,173_11,P,gc,0
+"Okay, so you're thinking was this isn't ideal, but I can I can live with it. ",routine,173_12,T,crq,0
+Yes,inactive,173_13,P,cd,0
+"Just one, just one day?",inactive,173_14,T,crq,0
+right,inactive,173_15,P,cd,0
+"How about one on one, day two, when you realize that you're gonna have to take a second day,",routine,173_16,T,irq,0
+"and I got a little bit more worried and then I did start to also, you know, add the worry of I was going to start to get behind at work. Not only was I missing more time, but I was also going to be behind on my work. So then I started thinking, when I go back, it's going to be a mad scramble and kind of catch up and keep up with everything. And you know, so it was going to became worrying about my workload and worrying about taking more time. ",symp/reasoning,173_17,P,id,-1
+Okay. So a little more stressful version of what happened on day one. And then how about when you discovered that you had to take a third day off?,routine,173_18,T,irq,0
+"I was then it was just more amplified, you know, amplified worry, and it was a lot harder for me to let it go. I just kept thinking I kept going back to it. And then I started feeling guilty. Because I was so preoccupied worried about that. And I was trying to answer emails and do some stuff and send out some emails to people that I work with to try to help me out with things at work since I wasn't there. And then I felt guilty because I wasn't really caring for my child as best as I felt I should have been, you know, I started feeling kinda like a bad mom.",symp/reasoning,173_19,P,id,-1
+So guilty and a bad mom. And that was mostly on third. That was the worst of it.,routine,173_20,T,gc,0
+Yes.,inactive,173_21,P,ack,0
+"Now this go up against the weekend was the third day Friday. All right, so, so then you kind of knew that by Monday, things would be better. So tell me what happened when you returned to work on Monday?",routine,173_22,T,gc,0
+"Well, I checked in with the main office and you know, I just said I'm really you know, I'm starting to worry I'm getting I know I'm had to take a lot of time. But you know, I've done the best I can to try to make other arrangements but my, you know, just starting back in, starting in daycare, she's just been sick a lot, and I can't control it. I'm doing the best I can. You know, I asked them if there was anything I needed to do as far as providing doctor's notes and stuff. And they said no, that they you know, they don't need a doctor's note since it was my daughter that was sick. They said there's nothing nothing that I really couldn't do and just try to not have it happen much more if I can",story,173_23,P,id,-1
+just do what I can to not miss more. So they said that?,routine,173_24,T,crq,0
+"Yeah, but yeah. They kind of just said, you know, do what you can do not have it happen, but if it you know if it has to happen, you know, what can I do about it? It was kind of they were saying",symp/reasoning,173_25,P,cd,-1
+"so, they were understanding?",routine,173_26,T,irq,0
+"I didn't feel like they were that understanding, but I also didn't feel like they were gonna take any punitive action against me, right, right then and there or anything.",symp/reasoning,173_27,P,id,-1
+Did you anticipate worst reaction than you experienced?,routine,173_28,T,irq,0
+"Yeah, I did. And I also anticipated that they would maybe have more of a procedure for how to handle it and they didn't have a procedure which also made me feel a little worried. I can't imagine I'm the first mom that has had to deal with this. And they kind of talked like It's never happened before. So I kind of felt anxious, because I thought, am I really the first mom that's had to take a lot of time off because their child sick. They didn't give me the impression that they had sort of a protocol or like they had dealt with this before.",symp/reasoning,173_29,P,id,-1
+As a sort of like it took them by surprise?,routine,173_30,T,crq,0
+"Yeah, or they just didn't have a plan for what to do about it.",symp/reasoning,173_31,P,cd,-1
+And they were investing a lot of energy in thinking about that?,routine,173_32,T,irq,0
+"No, no, I guess not.",symp/reasoning,173_33,P,id,-1
+And when was the second how long?,routine,173_34,T,irq,0
+"Just this past week, this week.",symp/reasoning,173_35,P,id,0
+So how has this week been back at work?,routine,173_36,T,irq,0
+"Oh, it's been very busy because I'm trying to catch up and get everything handled. But that's the way it always, always is. So nobody has said anything to me or anything about the absences ",symp/reasoning,173_37,P,id,-1
+other than that first and other ?,routine,173_38,T,gc,0
+Yeah.,inactive,173_39,P,ack,0
+And there's been no more absences?,routine,173_40,T,irq,0
+Nope,inactive,173_41,P,id,0
+"Okay, earlier you mentioned being a good mom How a good mom look lik?",routine,173_42,T,irq,0
+"Umm somebody who takes care of their child and puts them makes them a priority, like their first priority. And, you know, does the things that they need to do to make sure their child is taken care of.",symp/reasoning,173_43,P,id,-1
+And you're a little worried through this was last experience you're talking about that you didn't rise level of good mom?,routine,173_44,T,irq,0
+"Yeah, I felt like I wasn't being a good mom because I was preoccupied and making work a bit of a bigger priority than taking care of my kid.",symp/reasoning,173_45,P,id,-1
+"Okay, so so good, mom's more about More than just rather, your behavior, right, what you're doing is about what you're also thinking. So you took care of your child. ",routine,173_46,T,gc,0
+Yeah.,inactive,173_47,P,ack,0
+"But your mind, your thoughts are somewhere else some of the time. And that's where you feel like you've, you've wandered out of the good mom area. Okay, I've been on the other side, how about a good employee? Did you mention that? You want to be a good employee? ",routine,173_48,T,gc,0
+Yeah.,inactive,173_49,P,op,0
+What's what's that look like?,routine,173_50,T,irq,0
+"Um, well, somebody that, you know, takes care of all of their workload and handles all of the tasks that they have each day and someone that's consistent and reliable, and, you know, puts effort into what they're doing and gets their job done. Really, you know, reliably.",symp/reasoning,173_51,P,id,-1
+"And that's where you feel like with the sort of the last workdays you missed. You missed three. Okay, how about last year? How many days have you missed?",routine,173_52,T,gc,0
+"Well, I missed a lot for maternity leave.",symp/reasoning,173_53,P,id,-1
+So that's understandable but excluding that?,routine,173_54,T,irq,0
+"I've missed out since the school year started, I've missed if you include the three. I've missed nine days. But some of those were half days. They add up to nine days. ",symp/reasoning,173_55,P,id,-1
+"Okay, total nine?",routine,173_56,T,crq,0
+Yeah.,inactive,173_57,P,id,-1
+And you're allowed?,routine,173_58,T,irq,0
+"10 per school year, it's only January and I'm already at nine.",symp/reasoning,173_59,P,id,-1
+I can see that will cause worry what happens if you go over the 10,routine,173_60,T,gc,0
+"I don't know. I mean, I think that they would dock my pay for the for those for it. If I was there a day and I didn't have any more sick days left. They would just dock my pay for that day. But outside of that, I don't know what else would happen.",symp/reasoning,173_61,P,id,-1
+Is anybody that you work with that you could ask that question to HR department?,routine,173_62,T,yq,0
+"Yeah, I guess I could contact the HR department.",symp/reasoning,173_63,P,op,0
+"I'm just thinking because you're just one day away, from being at that number might be prudent just to talk with them and see. See, you know what to expect, right? So this whole thing though, the missing days caused you anxiety, frustration.",routine,173_64,T,gc,0
+"Yeah, a little bit",inactive,173_65,P,ack,0
+about any type of feeling down at all?,routine,173_66,T,irq,0
+A little bit sometimes when I start feeling like I'm a bad mom.,symp/reasoning,173_67,P,id,-1
+"Okay, so that so as far as your child is concerned in your relationship with your child, yes, some anxiety relationship at work, some anxiety, but the sadness mostly surrounds how you feel you're treating your job. Of all the emotions of frustration, anxiety, what I'll refer to as depression I should say sadness. What's bothering you the most? What? emotional response is probably the most?",routine,173_68,T,gc,0
+probably sort of the guilt and the feelings of not being able to be the best mom.,symp/reasoning,173_69,P,id,-1
+How would you rate yourself right now as a mother if say 10 was the best mother you could imagine? Right? And one was the absolute worst?,routine,173_70,T,irq,0
+I'm probably like an eight.,symp/reasoning,173_71,P,id,-1
+"Okay. That's pretty good, right? ",routine,173_72,T,gc,0
+Yeah.,inactive,173_73,P,ack,0
+What would be the cutoff to where? What's the cutoff score? And that will scale I just gave it for good mother and not good mother.,routine,173_74,T,irq,0
+"I guess like halfway like, ",symp/reasoning,173_75,P,id,0
+so five is good enough.,routine,173_76,T,irq,0
+"Yeah, feel like It's not good enough for me. ",symp/reasoning,173_77,P,id,0
+Okay. Okay,inactive,173_78,T,ack,0
+I wouldn't be okay with that.,symp/reasoning,173_79,P,gc,0
+"So if you look at somebody else, another person in similar situation of five would be acceptable. Right? ",routine,173_80,T,irq,0
+Probably. Yeah.,inactive,173_81,P,id,0
+But how about for you specifically?,routine,173_82,T,irq,0
+"Yeah, that's not ",inactive,173_83,P,id,0
+that's not gonna cut it?,routine,173_84,T,irq,0
+Yeah,inactive,173_85,P,id,0
+"Well, we've cut it. ",routine,173_86,T,gc,0
+I don't know. At least a seven.,symp/reasoning,173_87,P,id,-1
+and you're an eight,routine,173_88,T,crq,0
+Yeah,inactive,173_89,P,cd,0
+sure?,inactive,173_90,T,crq,0
+No,inactive,173_91,P,cd,0
+not sure. Okay. So you're close to the border. Like you're close to the border on you're your value system of being not a good mother.,routine,173_92,T,gc,0
+"Yes, not as good a mother as I want to be",symp/reasoning,173_93,P,gc,-1
+"Okay. Now, what do you want to be?",routine,173_94,T,irq,0
+"Yeah, I want to be like a eight or higher,",symp/reasoning,173_95,P,id,-1
+eight or higher where you are in s you said?,routine,173_96,T,crq,0
+Yeah,inactive,173_97,P,cd,0
+okay. So you want to be the parent sounds like,routine,173_98,T,gc,0
+"Well, yeah, doesn't everybody want to be the best at what they do?",symp/reasoning,173_99,P,gc,-1
+"I mean, I think people are driven to, to do their best. But is it crucial to be perfectly crucial to be a 10?",routine,173_100,T,od,0
+"No, there's some leeway, I guess you have to allow for that.",symp/reasoning,173_101,P,id,-1
+"Remember before in other sessions for the situations you've brought in here, we've talked about dysfunctional thinking, irrational thinking. How does reflect on that, like the usefulness of of these thoughts? The, you know, the other mothers can be a five and B. And that's, that's good, right? You need to be an eight or hire a nine or 10 , does it seem useful, like a useful way of thinking?",routine,173_102,T,gc,0
+"In some ways, it's useful because it keeps me keeps me on track if that makes sense. It keeps me pushing to keep doing the best I can.",symp/reasoning,173_103,P,id,-1
+"Okay, So it does have a useful side does have an unusual side less than useful?",routine,173_104,T,irq,0
+"Well, yeah, I guess it does in the sense that if I become too worried about it, then I'm wasting energy on worry instead of being able to put that energy into being good mom.",symp/reasoning,173_105,P,id,-1
+Yeah. So I guess one things I'm getting at here is has to worry has the anxiety or it paid off for you?,routine,173_106,T,irq,0
+Probably not.,symp/reasoning,173_107,P,id,0
+Why not? So you're suffering with it?,routine,173_108,T,irq,0
+Yeah,inactive,173_109,P,id,-1
+"it might make you a little more vigilant but mostly most, it's just causing suffering.",routine,173_110,T,gc,0
+Yeah.,inactive,173_111,P,ack,0
+"So at the heart of it, you're not a bad mom. Right? You're in good mom category. You're a good employee. Right. But your, your way of dying yourself, Your perception is that you're not doing a great job at either one.",routine,173_112,T,gc,0
+Exactly.,inactive,173_113,P,ack,0
+"And that's the thinking I'm getting that it's not, you know, it's not necessarily irrational. I'm thinking it's just less than useful. It's dysfunctional.",routine,173_114,T,gc,0
+"Yeah, I can see that.",inactive,173_115,P,gc,0
+"Yeah, we're talking about that third day, right. The the third day of work you had to you had to call off. And do you remember any specific thoughts that are going through your mind on that? What was that a morning when you figured it out? Like a Friday morning?",routine,173_116,T,gc,0
+"Yeah. Um, no, it was really the night But, um, well, you know, I went as far as to think, am I gonna get fired? You know, I had to kind of think about",symp/reasoning,173_117,P,id,0
+"so your thought was, am I gonna get fired? ",routine,173_118,T,yq,0
+Yeah.,inactive,173_119,P,op,0
+And then what was the feeling that that came right after that?,routine,173_120,T,irq,0
+"panic and worry Oh, yeah, ",symp/reasoning,173_121,P,id,0
+maybe some anxiety?,routine,173_122,T,crq,0
+some anxiety? Yeah.,symp/reasoning,173_123,P,cd,0
+"Were you able to do anything to address that panic or your anxiety at that time? Like, did you tell yourself anything? Or did you take some action?",routine,173_124,T,irq,0
+"Oh, I did tell myself that I didn't go over yet. And, you know, hopefully I won't, you know, there's still a chance that I'm not going to go over on my days and hopefully won't go so far as to fire me, you know,",symp/reasoning,173_125,P,id,-1
+and how did you feel after you  consciously had that thought?,routine,173_126,T,irq,0
+"a little bit better, but the still kept hovering around. Yeah",symp/reasoning,173_127,P,id,-1
+"the whole time. Probably all the way till Monday, right when you returned to work?",routine,173_128,T,irq,0
+"Yeah. Yeah. Like I wanted to call somebody at work and talk to them about it and make sure it was okay. But you know, it was the weekend, so I couldn't do any of those things. I just had to wait it out. Yeah.",symp/reasoning,173_129,P,id,-1
+"So we've talked before about self talk, you might remember me saying the phrase adaptive response, right? So it's the kind of pre packaged response we have two thoughts that we've identified is not so useful. ",routine,173_130,T,gc,0
+Right.,inactive,173_131,P,ack,0
+"So degree, those thoughts like, Am I going to get fired and all that? Not very useful in that moment? ",routine,173_132,T,crq,0
+Yes. not useful in that moment,symp/reasoning,173_133,P,cd,0
+"understandable. Right, but not useful.",routine,173_134,T,gc,0
+yeah,inactive,173_135,P,ack,0
+"So what's you had sort of some self talk that you apply on your own, what some other self talk with some other another thought that you could think or something you can say yourself that could counter an automatic thought like that. Like, specifically, I'm gonna lose my job.",routine,173_136,T,gc,0
+"Well, I guess I could say, you know, I didn't, you know, I'm not. I haven't had any conversations with anybody that have indicated that. So sort of like maybe I just need to not worry about it or cross that bridge when I come to it kind of thing. Like, hopefully it won't. I don't know if it will happen or not. And hopefully it won't happen.",symp/reasoning,173_137,P,gc,-1
+"So, so there the self talk there is there's no clear indication that's gonna happen, ",routine,173_138,T,gc,0
+right,inactive,173_139,P,ack,0
+So why borrow the worry? Right? How about other habit adaptive behaviors? We talked about the importance of support systems before other sessions. Is there anybody else that could watch your child if you were really running up against that?,routine,173_140,T,gc,0
+"Yeah, my mom can. can sometimes I did call her this this week to see if she could take one of take a day. But she couldn't because of what she had going On, but in in other times she might be able to take a day and stay home or my sister can do that as well. And my husband can sometimes it depends on what is going on that week for him at work. So there are some options there.",symp/reasoning,173_141,P,op,-1
+Did you explore those options for this last time?,routine,173_142,T,yq,0
+"I did. I did, but just the circumstances didn't work out. ",symp/reasoning,173_143,P,op,-3
+So none of those individuals were available?,routine,173_144,T,crq,0
+right.,inactive,173_145,P,cd,0
+Is there any other options you have for care? Was that it?,routine,173_146,T,irq,0
+"That's really it. You know, when she's sick, and that's really it, because you don't i don't want to put her around any other kids, which is why I wouldn't send her to daycare. So",symp/reasoning,173_147,P,id,-1
+"that seems reasonable. Okay, so there are some things you've already done. Right. And I think at this point, since to address I know this is the lesser of your worries, which is your employer, you're more worried about being a good mom, but to go look at the employer side first. Second, you can talk to HR, you can try to understand what the consequences are for going over explained that doesn't appear to be your fault. ",routine,173_148,T,gc,0
+Right.,inactive,173_149,P,ack,0
+"Okay. And I don't know what you can do in terms of support, maybe try to get a better awareness of the schedules when they're available and or convey the nature of your problem to them. Customer Support ",routine,173_150,T,gc,0
+Yeah.,inactive,173_151,P,ack,0
+"So that was one issue. Now if you highlight more prominently though, the good mother want to touch on that as well. You did everything you had to do to care for your child?",routine,173_152,T,gc,0
+"Yes,",inactive,173_153,P,op,0
+Are you sure?,routine,173_154,T,crq,0
+"Yeah, ",inactive,173_155,P,cd,0
+okay hundred percent ?,routine,173_156,T,irq,0
+Except for my my thinking I was maybe a little not as present as I should have been.,symp/reasoning,173_157,P,id,-1
+"Okay. And we'll get to that but your behavior behavior. Yeah, you did everything a good mom would do.",routine,173_158,T,gc,0
+Yeah.,inactive,173_159,P,ack,0
+"Okay. So is it okay? If you're doing everything you need to do to think thoughts that don't seem congruent with that, you know, the distract you away from that?",routine,173_160,T,gc,0
+"I guess it's not ideal, but it's okay.",symp/reasoning,173_161,P,id,-1
+It's not ideal. So you'd really rather be have the ability to be really focused on what's going on your child to the exclusion of what's going on other circumstances?,routine,173_162,T,gc,0
+"you know, or at least be able to put my worry about the other circumstances aside for the time for that time period.",symp/reasoning,173_163,P,id,-1
+"So by addressing the employer issue, that might give you a little relief one good mom ish. All right. So here's another opportunity to talk about dysfunctional thoughts. I think that is reflect on whether you're a good mom or not, you're really basing it on this idea that if I'm thinking about something other than my child, I'm in the wrong place in terms of being a good mom. Are you only being distracted?",routine,173_164,T,gc,0
+Right,inactive,173_165,P,ack,0
+so that pushes you on a one to 10 scale?,routine,173_166,T,crq,0
+Yeah,inactive,173_167,P,cd,0
+the more thoughts you have like that you think of it as like pushing you down toward five.,routine,173_168,T,gc,0
+Yeah.,inactive,173_169,P,ack,0
+"Okay. So when you have those thoughts what's an adaptive response or you know, self talk, what can you tell yourself in those moments?",routine,173_170,T,gc,0
+that I'm doing them behaving doing the behaviors that I need to do and the baby doesn't know what I'm thinking so probably not. She doesn't know what I'm distracted or worried. So I'm not doing any harm to her.,symp/reasoning,173_171,P,cr,-1
+Who doesn't know you're distracted or worried?,routine,173_172,T,irq,0
+I guess just me.,inactive,173_173,P,id,-1
+Just you?,inactive,173_174,T,crq,0
+Yeah.,inactive,173_175,P,cd,0
+So the self talk that would be I'm doing what I have to do to be a good mom. And that's what my child says. Right,routine,173_176,T,gc,0
+right.,inactive,173_177,P,ack,0
+"But I have these understandable thoughts that come in where I worry about other things and more or less justice what it is, right? I mean, you're permitted to worry about things life isn't going to be worryfree",routine,173_178,T,gc,0
+true.,inactive,173_179,P,ack,0
+"But we can, we can work to not suffer more than we have to ",routine,173_180,T,gc,0
+right,inactive,173_181,P,ack,0
+That kind of makes sense?,inactive,173_182,T,yq,0
+"Yeah. It makes sense. And, you know, when you say it back to me the things that I'm saying it does sound a little bit irrational, or unhelpful less than useful. ",symp/reasoning,173_183,P,op,0
+"Yeah, it's a little less than useful it's not, you know, I want this important distinction. It's not good or bad right. And those words have a function right in our in our lives, but they're a little dangerous when applied in terms of mental health when they're applied to things like you know, good mom, bad mom. ",routine,173_184,T,gc,0
+Right,inactive,173_185,P,ack,0
+"But doesn't leave a lot of gray area to talk about. improvement. Right? Also, it seems like what you're describing your, your way into the good mom category anyway. Sure. 8 or 10 I think most people would be happy with an eight out of 10. ",routine,173_186,T,gc,0
+TRUE,inactive,173_187,P,ack,0
+"So it's not like you've drifted down toward five before somewhere. Okay. So there's a couple different Yeah, I know we talked about two different subjects, right, but they're related the work situation and situation care for a child. But those are some self talk strategies. So I'd like you to do when you go home today, and I would I would ask you to do it today if you can. Okay, I think it's important in the states in terms of time, near when we're having this conversation. If you could try to document some of those automatic thoughts. Remember, I gave you a worksheet before and then work on some of your own calm adaptive response. ",routine,173_188,T,gc,0
+Okay okay.,inactive,173_189,P,cr,0
+"Maybe around this area or maybe about other areas as well, it doesn't. It's okay. If you have other problems you'd want to apply the model to, but certainly around this issue of the childcare versus the work performance. That's the real struggle that's going on right now inside of you. Is that right?",routine,173_190,T,gc,0
+Yes. Yes.,inactive,173_191,P,op,0
+Do you think you'd be able to have that completed? next week?,routine,173_192,T,orq,0
+"yeah, I think I can handle that. Yeah.",symp/reasoning,173_193,P,od,0
+Okay. So we'll leave it there and I'll see you next week.,inactive,173_194,T,gc,0
+"Okay, thank you. ",inactive,173_195,P,gc,0
+"Thanks, ma'am.",inactive,173_196,T,,
+primary_topic,Anxiety,,,,
+secondary_topic,Self doubt,,,,
+summary,"Patient is sort of preoccupied and anxious this week. Patient is starting to because patient's daughter got sick. Patient feeling guilty when trying to take care of her. Patient daughter woke up one morning with really high fever. she has to be fever free before she can go back to daycare. Patient ot little bit more worried because of missig more time and behind on my work. Patient is mad scramble and kind of catch up and keep up with everything. Therapist asks about taking third day off. It more amplifies to patient because patient was more preoccupied and felt guilty. Patient felt guilty and feels bad mom and mostly on third.Patient didn't feel like they were understanding but i also didn't feel like they were gonna take any punitive action. Patient feels like she is the first mom take a lot of time off for child sick.Patiet been veyr bsy because trying to catch up and get everything handled. patient felt like she wasn't a good mom because of preoccupied. Therapist says what patient is doing is what patient is thinking. So took care of child. Therapist say patient wandered out of the good mom and asks about good employee. Patient used to take care of all the workload and handles all the tasks. Therapist says thats why you feel like you missed last workdays. Patient missed lot of maternity leave. Patient think they would dock the pay if patient didn't havee ny sick days left. Therapist says missing days caused anciety frustration. Patient sometimes start feeling like bad mom. Oatient is feeling some guilt. Patient rate 8 out of 10  for right mothera and said 5 for not good mother. Patient thinks she is not as good mother want to be. Patient wants to be eight or higher.Therapist  talked aboutdysfunctional thinking irration thinking. Therapist says some mother are five and B. Patient need to be eight or 10 that's good. Patient says the traack is more useful for me and maek sense. Therapist says it does have a useful side have unusual side less than useful. Therapist make you a more vigilant but most suffering. Theapost says you're not bad mom, you are in good category. patient is good employee but the way of dying yourself but the perception is that patient is not doing great job. Therapist says its not irrational but its dysfunctional. therapist says patient feels gonna get fired.  Patient become panic and worry after that. Patient didn't go over yet and knows won't go so far as to fire. Patient feel better after thinking that patient is not getting fired. Therapist suggested a self talk and adaptive response to patient and tell you're good mom and good employee. Patient was distracted or worried. Therapist told to adapt self talk to patient that would be more beneficial to the patient. Patient thinks that she can handle this. ",,,,

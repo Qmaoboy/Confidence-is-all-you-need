@@ -1,0 +1,60 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Hi George, how you doing today?",inactive,142_0,T,gt,0
+Okay.,inactive,142_1,P,gt,0
+I'd like to give you a test that measures your thinking and memory. Is that okay with you?,symp/reasoning,142_2,T,crq,0
+Yeah.,inactive,142_3,P,cd,0
+So ask if you have questions and if you could answer as best as you can that would appreciate.,routine,142_4,T,gc,0
+Okay.,inactive,142_5,P,cd,0
+What's today's date?,symp/reasoning,142_6,T,irq,0
+today? Today is 15,symp/reasoning,142_7,P,id,0
+15th. What is today's year?,symp/reasoning,142_8,T,ack,0
+Aaah 15th,symp/reasoning,142_9,P,id,0
+What is the month ?,symp/reasoning,142_10,T,irq,0
+June,symp/reasoning,142_11,P,id,0
+and what day is today?,symp/reasoning,142_12,T,irq,0
+It's Thursday.,symp/reasoning,142_13,P,id,0
+Can you also tell me what season it is?,symp/reasoning,142_14,T,irq,0
+It's hot. It's summer.,symp/reasoning,142_15,P,cd,0
+Can you tell me the name of the building that we're in right now?,symp/reasoning,142_16,T,yq,0
+No.,symp/reasoning,142_17,P,on,0
+What floor Are we on?,symp/reasoning,142_18,T,irq,0
+Hard floor is hard.,symp/reasoning,142_19,P,id,0
+What city are we in?,symp/reasoning,142_20,T,irq,0
+New York ?,symp/reasoning,142_21,P,id,0
+What County are we in ?,symp/reasoning,142_22,T,irq,0
+New Castle,symp/reasoning,142_23,P,id,0
+What state are we in ?,symp/reasoning,142_24,T,irq,0
+Pennsylvania ?,symp/reasoning,142_25,P,id,0
+"George when I asked you to say some objects back to me. Repeat some objects back to me. They are ball, flag tree. Can you repeat those back to me?",symp/reasoning,142_26,T,cv,0
+"Well, flower, plant",symp/reasoning,142_27,P,cr,0
+I would like you to begin with the number 100 and count backward by seven. And I'll let you know when to stop. Go ahead.,symp/reasoning,142_28,T,cv,0
+"93,  7, 14, 21, 32",symp/reasoning,142_29,P,cr,0
+Thats good George t thank you. I would like you to spell the word world backwards.,symp/reasoning,142_30,T,ack,1
+W O R L D,symp/reasoning,142_31,P,cr,0
+Can you recall the three items I mentioned to you a minute ago?,symp/reasoning,142_32,T,yq,0
+No.,symp/reasoning,142_33,P,on,0
+"George, can you tell me what This is ?",symp/reasoning,142_34,T,yq,0
+Yes.,symp/reasoning,142_35,P,op,0
+What it is ?,symp/reasoning,142_36,T,irq,0
+Its a watch,symp/reasoning,142_37,P,id,0
+And can tell you that this is,symp/reasoning,142_38,T,yq,0
+yes.,symp/reasoning,142_39,P,op,0
+What's that?,symp/reasoning,142_40,T,irq,0
+Its a pencil.,symp/reasoning,142_41,P,id,0
+"I'm going to say a phrase to you, I'd like you to repeat it back to me. The phrase is no ifs, ands, or buts.",symp/reasoning,142_42,T,cv,0
+"No ifs, ands or buts.",symp/reasoning,142_43,P,cr,0
+GEORGE You're right handed or left handed ?,symp/reasoning,142_44,T,irq,0
+right handed.,symp/reasoning,142_45,P,id,0
+"I'd like you to take this paper in your right hand, fold the paper in half and put the paper on the floor. ",symp/reasoning,142_46,T,cv,0
+.......,inactive,142_47,P,cr,0
+Thank you.,inactive,142_48,T,gc,1
+......,inactive,142_49,P,gc,0
+"thank you. George in the left side of your chair, you'll find a clipboard. Could you pick that up?",symp/reasoning,142_50,T,gc,0
+Should be a pen on there.,symp/reasoning,142_51,T,cr,0
+....,inactive,142_52,P,gc,0
+"Thank you, George. Now in the same piece of paper, you'll see an image of the top you see that? Could you copy that for me in the bottom section?",,142_53,T,cv,0
+....,inactive,142_54,P,cr,0
+"Thank you, George. This has been helpful. I appreciate you participating.",inactive,142_55,T,ack,1
+summary,"The therapist conducts a test to measure thinking and memory of the patient. The patient answers the date as 15, year as 15, month as June, day as Thursday, seasona as summer. The patient is not able to answer the building's name. The patient responds floor as hard, city as New york, state as Pennsylvania. The patient incorrectly repeats the objects names. The patient counts number 100 backwards by 7 as 93, 7, 14, 21, 32. The patient spells world backwards as world as it is. The patient is not able to recall three items mentioned to them. The patient idenitifes objects as watch and pencil. The patient repeats the phrase ""No if's ands, or but's"" correctly.  The patient is right handed. The therapist asks the patient to fold a paper, pick a clipboard and copy an image. ",,,,
+primary_topic,memory,,,,
+secondary_topic,test,,,,

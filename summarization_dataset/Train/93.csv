@@ -1,0 +1,54 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Jackie, How are you doing today?",inactive,93_0,T,gt,0
+Alrght. How about you?,inactive,93_1,P,gt,0
+I'm doing well. Thanks for asking. I understand you've had some recent difficulties that have brought you to the agency,inactive,93_2,T,gt,0
+"Yeah, I lost my job.",symp/reasoning,93_3,P,id,-1
+You lost your job?,routine,93_4,T,crq,0
+Because I failed drug test.,symp/reasoning,93_5,P,id,0
+You failed a drug test.,routine,93_6,T,crq,0
+"So I have to drive golf carts sometimes for my job and I just really was not paying attention as I was driving through the parking lot and I hit a car. Then think it was a big deal. It doesn't even leave a big mark. Really. The car owner got pretty pissed about it and I found out that I did it. I got admitted to it. So I didn't want to be getting in trouble for it. So, so then they, since it was an accident, you know, I kind of hit my head a little bit to maybe take a drug test, and I had smoked some weed the night before. So I filled it and was fired.",story,93_7,P,id,-1
+Were you aware that this was an accident? You'd be protesting?,routine,93_8,T,yq,0
+"Um, you know, I? I don't I didn't know that. Now. I guess they might have told me at some point, but I I probably wasn't paying attention to it or had it I wasn't prepared for it.",routine,93_9,P,id,0
+So there have been consequences to losing your job.,routine,93_10,T,crq,0
+"Um, yeah, I mean, my parents are not happy. I'm not making any money, obviously. So they, they're not very happy, relying on them for gas money for it. never go anywhere, do anything with my friends ask them for money. So they're kinda, you know, pushing me to get a job and help support myself again.",story,93_11,P,cd,-1
+What type of work to do?,routine,93_12,T,irq,0
+"Um, I work in security, I kind of monitor parking lot, you know, take tickets, things like that.",routine,93_13,P,id,0
+"So, most of those employers would require a drug screen.",routine,93_14,T,crq,0
+"Yeah, that's, that's my problem. I've been trying to look for a new job. And pretty much all of them have required drug tests. So I haven't gotten a new one yet. So that's becoming a problem. So that's why i wanna i want to cut down but I haven't been able to. So I really need a job. I mean, all these things. It's kind of silly that all you know. I find it silly. It should be. Who cares if I smoke a little weed, you know, too. be illegal.",routine,93_15,P,id,0
+But you think it should be illegal?,routine,93_16,T,yq,0
+"Yeah. So I mean, not causing some harm really, and hurt anyone. So So yeah, I really do need a job. So I'm here to kind of get a handle on that.",routine,93_17,P,op,0
+So you want to stop using marijuana all together?,routine,93_18,T,crq,0
+"Yeah, I'm gonna have to get a job, I think No, I don't want a random drug test again.",routine,93_19,P,cd,-2
+"All right, can you tell me about your marijuana use now? Like when was the last time used?",symp/reasoning,93_20,T,irq,0
+"Um, I actually say now at some friends my roommate this morning. Well, not my roommate but my friend that comes over and stays with me sometimes. And we guys did some this 'morning so.",story,93_21,P,id,0
+So recently and how about the coke like when did you start using that for how long?,symp/reasoning,93_22,T,irq,0
+"long time ago, I've been using proudly for Since I mean, since I was in high school, I started that's kind of just a big part of my life. And my friends do it. My friends do. So, yeah.",story,93_23,P,id,0
+Any other drugs or alcohol or anything? ,routine,93_24,T,irq,0
+Just is just marijuana. Yeah.,routine,93_25,P,id,0
+Have you noticed over time you've been using more?,routine,93_26,T,yq,0
+"Yeah, I mean you know, I, I try to cut down a little bit I'll kind of say hello, just smoke a little bit and then you know, I'm hanging with hanging out with my friends will end up just being high for a really long time. And let's just all do all night. So.",routine,93_27,P,op,-1
+So it's consuming a lot of time. ,routine,93_28,T,crq,0
+"Yeah, yeah. Yeah. kind of always thinking about how I'm gonna get more and trying to get home again. And so it really does take up a lot of time and it's kind of a distraction. So",routine,93_29,P,cd,-1
+you have a craving for marijuana,routine,93_30,T,yq,0
+"No, No, I guess not really.",routine,93_31,P,on,0
+"Now, have you had any social problems because your marijuana use?",routine,93_32,T,irq,0
+"let's say other than my work, there's the word mean, my friends I'll do it there's a problem with it. So",routine,93_33,P,id,-1
+are there other important activities that you miss out on because of your marijuana use,routine,93_34,T,yq,0
+"now, I mean, I don't really do a lot so I don't really miss out on much",routine,93_35,P,on,0
+Are there any activities that you engage in that are more dangerous because your marijuana use?,routine,93_36,T,yq,0
+this time Out of my basement and don't really do anything. So,routine,93_37,P,on,0
+do you have any history of mental health issues or medical issues? ,routine,93_38,T,yq,0
+No. No,routine,93_39,P,on,0
+Do you notice any anxiety or physical symptoms when you stop using my one?,routine,93_40,T,yq,0
+"No, I feel feel okay.",routine,93_41,P,on,0
+So how motivated are you to stop using?,symp/reasoning,93_42,T,orq,0
+"Part of me doesn't really want to, but it's something I have to do. You know, I need a new job and I don't want to be relying on my parents for forever. It's pretty annoying. So I'm pretty committed to it. I would say, Yeah,",symp/reasoning,93_43,P,od,0
+you're committed to it. ,routine,93_44,T,crq,0
+Yeah.,routine,93_45,P,op,0
+I'm gonna get you to see a counselor here if that's okay with you.,routine,93_46,T,id,0
+"Yeah, that'd be really helpful. be helpful.",inactive,93_47,P,op,0
+I appreciate you taking this time to tell me what's going on and answer my questions has been helpful.,inactive,93_48,T,gt,0
+Thank you.,inactive,93_49,P,gt,0
+summary,"The patient has lost their job due to failing a drug test. They had to take a drug test because they met with a minor car accident. The patient's parents are not happy and the patient's friends are pushing them to get a job. The patient works as monitoring a parking lot for which mostly a drug test is required. The patient wishes to stop using marijuana since they really need the job. The patient smoked weed just that morning, and has been using coke since high school. The patient loses a lot of time using marijuana. They feel it is a distraction. They do not have any social problems other than work. They do not crave marijuana. They do not have medical or mental health history. They did not miss out on important activities nor engage in dangerous activities. They do not feel any withdrawal symptoms. They feel pretty committed to stop using. The therapist assures to setup the patient with a counselor. ",,,,
+primary_topic,marijuana,,,,
+secondary_topic,drugs,,,,

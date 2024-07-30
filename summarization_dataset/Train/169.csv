@@ -1,0 +1,81 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Hi Joe, How are doing today?",inactive,169_0,T,gt,0
+I'm doing okay,inactive,169_1,P,gt,0
+just okay?,inactive,169_2,T,crq,0
+"Well, I know we've talked before about me thinking about suicide and I'm starting to think about it, you know, like a little bit stronger than before, I think a little bit more clearly.",symp/reasoning,169_3,P,cd,-1
+"So, can you can tell me a little bit more about that?",routine,169_4,T,irq,0
+"Um, well, one we've talked before, I've had the feelings and the thoughts of suicide, but now it's kind of starting to like I'm thinking about it more often. I'm thinking about a little more clearly and that's alarming to me. ",symp/reasoning,169_5,P,id,-1
+Do you want to die?,routine,169_6,T,yq,0
+"Yeah, I will. Yeah, sometimes",symp/reasoning,169_7,P,op,-1
+sometimes?,inactive,169_8,T,crq,0
+"Um, I mean, you know, sometimes I know, It would be scary to try it and my husband would be so hurt, but at the same time, I want to end this. I want to end the feeling that I'm having depression. Yeah. ",symp/reasoning,169_9,P,cd,-1
+Okay. Do you have any plan as to how you would end your life if you decide to do that?,routine,169_10,T,irq,0
+"I mean, I know if I wanted to that we have pills in the cabinet. So it wouldn't be that hard, I could just take the bottle and ",symp/reasoning,169_11,P,id,-1
+just same pills that you prescribed for depression?,routine,169_12,T,crq,0
+Yeah.,inactive,169_13,P,cd,0
+Do you feel like you're going to carry out that plan?,routine,169_14,T,yq,0
+"No, I mean, part of it. That's why I'm nervous because like, I'm worried that I might, but at the same time, You know, I'm afraid to so sometimes I think that I might and sometimes I think I won't. I don't want to but sometimes I get scared that I will.",symp/reasoning,169_15,P,on,-1
+"Today you're a little worried that you will, or you're a little closer to it then than usual. We've talked about this before in the past, you've come in, you've had kind of that same plan to pills and the thoughts and what what stops you those times was stuck in the past.",routine,169_16,T,gc,0
+"In the past, I thought, this will get better. I just have to keep trying, I thought what will my husband feel when I'm gone and my family, my parents, my brother and sister I thought that this is as bad as it can get. It has to get better eventually. But now I'm just starting to feel like I don't think it's gonna get better.",symp/reasoning,169_17,P,gc,-1
+"Alright, so there's times before when you had the same feeling, right? You felt just as bad as you feel now really down hopeless. What happened a few days after that, after the thoughts suicide went away. What was your outlook on life that?",routine,169_18,T,gc,0
+"I mean, I feel I feel a little better. You know, and then I'd say to myself, that was silly, you know, I don't want to do that. I don't, I don't want to end things. You know. It's It's too rash. But you know, it's starting to feel like a permanent problem.",symp/reasoning,169_19,P,id,-1
+So if you feel like this time these suicidal thoughts are markedly different than what you've experienced before.,routine,169_20,T,crq,0
+"I wouldn't say markedly but I would say they're different. They're a little they're stronger,",symp/reasoning,169_21,P,cd,-1
+more intense?,routine,169_22,T,crq,0
+yeah,inactive,169_23,P,cd,0
+"When you think about this, these feelings on before we talked about I know this relationship surrounding relationships, the same thing this time?",routine,169_24,T,irq,-
+"I mean, I guess that has something to do with it, I guess. It's just like when I look to everything, like everything that could be good or everything, just everything like life, my relationships, the future I just look at it and I see despair. I just see everything going wrong. And I just don't see how it could get better. I just don't see it",symp/reasoning,169_25,P,id,-1
+in a sense of hopelessness?,routine,169_26,T,crq,0
+Yes.,inactive,169_27,P,cd,0
+"So this time is different because you feel it's very less situational, less tired of relationships and more, Well, philosophical, you're looking at your outlook and you're saying it's not gonna get any better. What's the point going on? So this is a little bit new territory for you. How long we've been feeling this way with the  intensity right now?",routine,169_28,T,gc,0
+"Probably a week, maybe a little less",symp/reasoning,169_29,P,id,-1
+What was prevented you from hurting yourself those last week?,routine,169_30,T,irq,0
+"I'm afraid to do it. I'm just scared. It's like It's like jumping off a diving board. Like you get up to the edge and you stand there, that's where that",symp/reasoning,169_31,P,id,-1
+"Have you made any gestures to harm yourself? Like if you went and grabbed the pills or went to the medicine cabinet looks at the pills, anything like that. ",routine,169_32,T,irq,0
+"Sometimes I look at them, look at them. ",symp/reasoning,169_33,P,id,-1
+Don't think further than look at them?,routine,169_34,T,irq,0
+"Well, I mean, so I have to take them. It's my prescription. So when it's time I start thinking about it. Like it's more I think about my like, the ideations come even more because it's like a trigger like I'm thinking about the pills. So I go to the cabinet, and I get my pills and I and I take the, the one that I'm supposed to, but I just look at the bottle and I kind of stand there and I just think Instead of putting the bottle back, I could take it with me.",story,169_35,P,id,-1
+And what do you end up doing?,routine,169_36,T,irq,0
+"It takes a while but I put it back. It's It's scary. Like I look into the bottle and I'm afraid because dying is scary, but ",symp/reasoning,169_37,P,id,-1
+and how about the pain that you would cause husband and the rest of your family?,routine,169_38,T,irq,0
+"Yeah, I don't want to do that. ",symp/reasoning,169_39,P,id,-1
+You don't want that?,routine,169_40,T,yq,0
+"I don't. I don't. I don't want my husband to find me, I don't want him to feel like this is his fault. I don't want him to be sad that I'm gone. I don't want him to feel like I feel.",symp/reasoning,169_41,P,on,-1
+"And when relatives of somebody that committed suicide, hear about the suicide? Who do they blame? ",routine,169_42,T,irq,0
+Yeah. It's not it's not their fault. And I know that they wouldn't be able to get over it and I know that they'll be thinking about how bad I felt they'll have to know what it really felt like for me.,symp/reasoning,169_43,P,id,-1
+So I know this is a tough time right? But the good news is you're here talking to me about it. Right? Now you're talking about it. I'm gonna guess that you want to do something for bad to feel better. Are you gonna carry out your plan or you're gonna hurt yourself?,routine,169_44,T,gc,0
+I don't want to,symp/reasoning,169_45,P,on,-1
+are you going to?,routine,169_46,T,yq,0
+"No, I think I think if I can just remember what it'll be like for them. That'll keep me from doing it. You know, it's the times that I forget to think about how they're going to feel that I get closer to the edge. But when I remember, you know, like, It upsets me to think about what it'll be like for them. So if I can remember to think about that and it'll help me not do that. But I think having the pills there in the cabinet like that is a big temptation for me.",symp/reasoning,169_47,P,on,-1
+"Okay, so can we can we do this? Your husband's at home? Right. You mentioned you take two pills once a day?",routine,169_48,T,gc,0
+Yeah.,inactive,169_49,P,ack,0
+Before for bed?,routine,169_50,T,crq,0
+Okay.,inactive,169_51,P,cd,0
+Can we would you be willing to sign a release so I can talk to him. He can hold on to those pills. Just give you the pill each night take one and I will that be okay?,routine,169_52,T,gc,0
+"Yeah, I think I think that would be a good idea.",inactive,169_53,P,id,0
+Is there anything else in the medicine cabinet or anywhere else in the house to give you a danger to?,routine,169_54,T,yq,0
+"I think, I think yeah, I think it would be a good idea to just make sure that everything that was in the medicine cabinet",symp/reasoning,169_55,P,op,-1
+all the tools?,routine,169_56,T,crq,0
+yeah.,inactive,169_57,P,cd,0
+Would he be willing to do that?,routine,169_58,T,yq,0
+"Right. Yeah, I think, yeah, I think that he would be willing to do that. He doesn't. He wants me to get through this. ",symp/reasoning,169_59,P,op,-1
+"Okay. If I get release for the talk you might , sign it?",routine,169_60,T,cv,0
+"Yeah. Oh, I'll do that. ",symp/reasoning,169_61,P,cr,0
+"Okay. Are you familiar before, are you familiar with this concept we talked about before contracting for safety, or the prior time. So, you've been the state similar to this. Can you promise me that you're going to not hurting yourself.",routine,169_62,T,gc,0
+"I can Yeah, I can do that. At least until next week when we meet again, I promise.",symp/reasoning,169_63,P,cr,-1
+"Let's be a little certain that okay, sets up that for a more. ",routine,169_64,T,gc,0
+"Okay, yeah, we can definitely do that I can do that.",symp/reasoning,169_65,P,gc,0
+"I know this is a rough time trying to appreciate how rough it is for you. I want you to keep in mind how you felt after the times before. Now you do tend to pull out of this. And you look back at a lot differently. But in the moment, it's hard to see that. That doesn't necessarily make this any easier. But if you can hang on to we can get through this cycle of depression. You'll probably have a different outlook. If history is any evidence. Does that make sense? ",routine,169_66,T,id,0
+Yeah,inactive,169_67,P,op,0
+All right. So what do you have planned for us today?,routine,169_68,T,irq,0
+"Um, you know, I'm just gonna go home. My husband will be home. work and have dinner, watch TV.",symp/reasoning,169_69,P,id,0
+"So, are you gonna be alone anytime between when you leave here and when you come and see me anymore?",routine,169_70,T,ack,0
+"Um, yeah, I'll probably be home for a little while in the morning, but I have to work so I won't have, you know, I'll be busy.",symp/reasoning,169_71,P,op,0
+"Okay, if these feelings intensified, or you do feel you're gonna act on them, which promised to call me and kill me call 911 ",routine,169_72,T,cv,0
+"Yeah, I'll do that. Okay.",symp/reasoning,169_73,P,cr,0
+I'm gonna get that release so you can talk to your husband. And then see it for a few minutes or so point for more. All right.,routine,169_74,T,gc,0
+Thank you,inactive,169_75,P,gc,0
+"Thanks, Joe.",inactive,169_76,T,gc,0
+primary_topic,Anxiety,,,,
+secondary_topic,depression,,,,
+summary,"patient said therapist that has been thinking about suicide more than before. therapist asked patient to tell a little bit more about that. patient said she had feelings and thoughts of suicide before but now she is thinking more about it and that is bothering her. therapist asks patient if she wants to die and patient said sometimes it would be scary to try it and her husband would be so hurt but she wants to and the feeling of having depression. Therapist asked patient that if she has any plan about how she would end her life. patient said she would take the full bottle pills which is prescribed for depression. therapist asked patient if she is going to carry out the plan and patient said she might do that and she is worried. Therapist said patient that she little worried and she is little closer than usual and they have talked about this in the past and her past stops her from taking pills. therapist asked patient how did she feel when thoughts of suicide went away patient said she felt little better but later she felt more of committing suicide and it's starting to feel like a permanent problem. therapist asked patient if her feelings are stronger and more intense patient replied yes they are more intense. selfish asked patient for how long she has been feeling this, Patient said probably a week, maybe a little less. therapist asked what prevented her from hurting herself last week and patient said she is afraid to do it and it's like a jumping off a diving board. therapist asked patient she has taken pills or taken any step for hurting herself sometimes she looks at the pills and put it back after while because it's scary. patient said she does not want her husband to find out about her problem. therapist said patient that he will talk to her husband and tell him take care of the pills and ask her husband to give 2 pills a day to the patient and to check cabinet for all tools are present properly and this will be good idea for preventing suicide.",,,,

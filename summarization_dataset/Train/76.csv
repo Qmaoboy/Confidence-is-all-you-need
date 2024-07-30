@@ -1,0 +1,63 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Alright, so let's see if we could let's rank those two things. Right so one is everyone's judging me how I was and the other is a poor grade. Which one is larger fear for you?",symp/reasoning,76_0,T,irq,
+I would say maybe like judging.,symp/reasoning,76_1,P,id,
+"Okay, so the grades a concern.",symp/reasoning,76_2,T,crq,
+Yeah but I figured I could do better on the subsequent one but when people are have this opinion of you I feel like that doesn't go away as quickly,symp/reasoning,76_3,P,cd,-1
+What would it mean? If they they thought you were anxious during that presentation?,symp/reasoning,76_4,T,crq,
+I guess I worried that they would think I'm anxious because I don't know what I'm doing or I don't belong there. ,routine,76_5,P,cd,-1
+"So if they notice your anxiety, then they think you don't belong in that level",routine,76_6,T,crq,
+"Yeah. Like, I don't deserve to be in that program.",routine,76_7,P,cd,
+"If they don't recognize those symptoms, they wouldn't think that, do they?",routine,76_8,T,crq,
+they might write that maybe they think that's why I'm anxious or that's why I'm not doing well.,routine,76_9,P,cd,-2
+"Well, how do you feel about your abilities and status in the programming room?",routine,76_10,T,orq,
+"I think you know, typically, I'm one of the top students in my program, and I've seen two Get the concepts pretty well. It's just when I have to demonstrate those concepts or demonstrate via, like a presentation or something, that I'm worried that, you know, maybe I'm an imposter or something, but so I start to question myself. But I think in general that, you know, I'm a pretty good student before this. And I'm doing pretty well in the program.",story,76_11,P,od,1
+"So you're a good student, you recognize that you have this one area where you don't feel like you do a great job. That's presentations. In terms of grade, you really only had one bad presentation. But grades aside, you're anxious. And you're worried your classmates are gonna pick up on them.",story,76_12,T,crq,
+"Yeah, exactly.",inactive,76_13,P,cd,
+Okay. So if they thought you were us were imposter. So if they thought you were imposter to say that that was something they actually believe because of what's been happening. What would that mean? What would it mean to your classmates that you were an imposter?,routine,76_14,T,irq,
+I don't know. Maybe I am. Maybe I don't deserve to be there.,routine,76_15,P,id,-2
+You don't deserve to be there.,inactive,76_16,T,crq,
+like maybe I shouldn't be in this program. I think they should just drop out.,routine,76_17,P,cd,
+"So if they believe you're an imposter based on these physical symptoms, like anxiety and mood that means to you anyway, that that means you shouldn't be on there.",routine,76_18,T,crq,
+Yeah.,inactive,76_19,P,op,
+What's it feel like to say that,routine,76_20,T,orq,
+"Depressing I feel like I've worked really hard. You know, to get through atleast halfway through my program. And it really hurts to think that that will be true.",story,76_21,P,od,-1
+"Just think this whole time you really been given faking Do you really belong there?. So I'd like to move a little bit into evaluating evidence. So in this kind of therapy, we like to look at what, you know, what we're feeling and what we're thinking, and what's we can see what's observable around us. And, you know, that becomes evidence and then we analyze it, evaluate it, okay. You're worried at some level. You're worried that you don't deserve to be where you are right now. Yeah. That you're not good enough. To be a student in this program, yeah, programming. What evidence supports that belief that you're not good enough?",story,76_22,T,id,
+"Now that I'm thinking about it here, I mean, there's not a ton to support. But in on that day, I can think of all sorts of, you know, things to tell myself",story,76_23,P,id,-2
+what's going on that day.,inactive,76_24,T,irq,
+"So maybe like I'm not prepared or because I'm messing up on the presentation that I'm going to get a bad grade and you know, if I can't speak in front of people, how am I going to speak in front of kids as a teacher, you know, one day that it will translate to something else. I can't get past this.",story,76_25,P,id,-1
+"So even if you survived the program, somehow you might be bad at your job",routine,76_26,T,crq,
+yeah,inactive,76_27,P,op,
+any other evidence that points toward you being imposter?,symp/reasoning,76_28,T,irq,
+Besides My bad grade? Not a whole lot.,symp/reasoning,76_29,P,id,1
+Right. So to be safe to say that a lot of that thought of I'm not good enough is kind of based on your feelings of anxiety.,symp/reasoning,76_30,T,cr,
+Yeah. Which are really intense like panic almost in the moment.,symp/reasoning,76_31,P,op,
+Yeah so in a way you're believing With the anxiety will lead you to believe.,symp/reasoning,76_32,T,cr,
+"Yeah, definitely. ",inactive,76_33,P,op,
+"But in the bright light of scrutiny, there are a lot of facts to support the worst case, which is you don't deserve it. How about evidence that refutes that you're not good enough?",routine,76_34,T,id,
+"I would say that, you know, I was accepted into the program. Like there's kind of like, a pretty rigorous sort of testing and stuff, which I passed, to get interviews and such to get into the program. So I did that. Like I said, I'm a pretty good student, all considering, you know, before this kind of flick was happening.",story,76_35,P,id,1
+"Okay, so you've got through a rigorous process to become a student You're doing well. You mentioned before, just the one bad grade right? Okay, so if you have friends in this program, right, if one of them came to you with this, this balance of, you know, one bad grade and some anxiety, yeah, versus passing, you know, rigorous standards and doing well, otherwise, what advice would you give them?",routine,76_36,T,id,
+"I mean, now that you're kind of like talking about it, like, you know, this or that sort of thing. It makes sense. I would probably say that, well, you seem to be doing pretty well so far. You know, that anyone evaluating would look at all of the cumulative how you're doing your performance, rather than that one grade",story,76_37,P,id,1
+would you feel comfortable giving advice to yourself?,routine,76_38,T,orq,
+"I think I tried to sometimes, but my anxiety symptoms kind of like really, like you were saying, your anxiety tells you sort of I think I can think that but I think my anxiety symptoms are such in the moment that it's really hard. You know, and I'm replaying what happened before in my head anticipation predicting will happen again.",story,76_39,P,od,
+"So, so let's look at the the thought and the feeling. If you had to rate the percent that you believed this thought, this belief that you are not good enough to be in the program, like right now right now, yeah, but here with me. How much of your mind believes that that's true?",story,76_40,T,orq,
+"I would say like, you know, a two or three like not very, I don't believe it very much right now because You know, I'm not presenting and it's just you and I not like a group full of people. So that pressure is not there here.",story,76_41,P,od,1
+So right now you're really not buying the idea that you're not good enough.,routine,76_42,T,crq,
+"Yeah, that is correct ",inactive,76_43,P,op,
+"So now let's move to let's say right in the near the end of presentation when that anxiety is there, and the classmates that could be looking at you, it could be negatively evaluating you because you're worried about how much do you believe that thought then?",routine,76_44,T,irq,
+"I don't feel really confident. In that moment. It feels very real. Like, like any moment, they're gonna kick me out. Like, I'm just not doing well. I'm stuffing.",routine,76_45,P,id,
+"Yeah. really intense. So would you think that you were a more accurate evaluator of what's true or not. Now, or when you're in that state of anxiety,",routine,76_46,T,irq,
+"definitely now that anxiety that, you know, heart rate and sweating is not there.",routine,76_47,P,id,
+"So this evaluation, the percent that you believe that true, this evaluation is more accurate?",routine,76_48,T,irq,
+"Yes, I think so.",routine,76_49,P,op,
+"And how much time in any given day would you spend kind of in a mood right now, or you can evaluate accurately?",routine,76_50,T,irq,
+"I would say, you know, when I'm not at risk of presenting, like, I feel like I spend the majority of my time, like, it's not something I worry about all the time, just leading up to and then mostly that day,",routine,76_51,P,id,
+"okay. So the, so you're able to evaluate the way you are now, the vast majority of the time, right? There's a limited amount of time when you're not when there's A lot of motions going through, right? And at those times, you're maybe a little less reliable,",symp/reasoning,76_52,T,crq,
+right. Like my judgment is clouded.,symp/reasoning,76_53,P,op,
+"However, in that moment you still, those thoughts are strong, right? ",routine,76_54,T,yq,
+"Yes, very troubling. ",routine,76_55,P,op,
+"Even though it's a small percentage, it's intense. And you kind of carry that around a little bit.",routine,76_56,T,crq,
+Yeah. Exactly.,inactive,76_57,P,op,
+So I can see why this is frustrating for you.,inactive,76_58,T,id,
+summary,"The patient has a larger fear over everyone judging them. The patient believes other classmates recognise their symptoms of anxiety and may feel the patient does not deserve the program. The patient has had only one bad presentation in terms of grades. But on the day of presentation they think of reasons to mess up and are scared how they are going to speak in front of kids as a teacher in the future. The patient agrees a lot of their anxiety comes from their thought and not evidence. The patient agrees if they were to advice someone else in similar situation, they would assure the other person doing well and only the cumulative grades will be considered. The patient has an anxiety in anticipation that something will happen. The patient agrees their evaluation is clear at other days when they don't have presentation, however they point out that the emotions are intense during the presentation and their judgement is clouded. ",,,,
+primary_topic,anxiety,,,,
+secondary_topic,classroom-presentation,,,,

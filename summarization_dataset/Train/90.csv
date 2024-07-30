@@ -1,0 +1,64 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Jackie, how are you?",inactive,90_0,T,gt,0
+" Okay, How are you?",inactive,90_1,P,gt,0
+thanks for asking. I see that you have signed a release so I could talk to your mother and that she brought you in today.  What's What's going on there?,symp/reasoning,90_2,T,id,0
+They think I have a drinking problem. My family..,symp/reasoning,90_3,P,id,-1
+your family thinks show drinking problem.,symp/reasoning,90_4,T,crq,0
+Yeah. So we really started this was this past weekend. They came to pick me up for my bridal shower. And I was I was drunk when they came to get me so I couldn't go and now everybody's pretty pissed at me.,symp/reasoning,90_5,P,op,0
+So they asked you to come into the agency.,routine,90_6,T,crq,0
+"Yeah, you know, I don't want them to hate me or anything. So I agreed to come.",routine,90_7,P,cd,-1
+Do you believe that you have a drinking problem?,symp/reasoning,90_8,T,yq,0
+"I mean, I like to drink.",symp/reasoning,90_9,P,op,0
+You think It's okay?,routine,90_10,T,yq,0
+Yeah. I like I like it like drinking.,routine,90_11,P,op,0
+"Come on, you mind if I ask you a few questions related to drinking,",routine,90_12,T,yq,0
+that's fine.,routine,90_13,P,op,0
+"So, how often do you drink now?",routine,90_14,T,irq,0
+"Pretty much every day. I drink every day on the weekends for sure. Like, during the week, I'll go to the whatever the best local happy hour is, you know, scope out what's going on. So I'll go after work and have some drinks.",story,90_15,P,id,0
+What about on the weekend?,routine,90_16,T,irq,0
+"weekend I gotta keep to myself. still drink a little whatever I have in the house, but I don't really go out a lot of weekend mostly to stay at home and yeah, drink whatever I have there.",routine,90_17,P,id,0
+"How much you're drinking, let's say on the weekend",routine,90_18,T,irq,0
+"it's hard to keep track of thing. Say a couple cases over maybe like two or three cases of beer throughout the weekend. If there's something on sale, you know, at the liquor store down the street, okay, I like a bottle of vodka or something to go along with it.",routine,90_19,P,id,0
+"All right, how about during the week?",routine,90_20,T,irq,0
+"during the week, I just stayed at the bar for a few hours maybe have like, six or seven drinks and then go home.",routine,90_21,P,id,0
+Are you drinking More than you want to?,routine,90_22,T,yq,0
+"Um, I guess so. I mean, I've kind of tried to make a plan to just say on the weekends to drink some. And that hasn't really kept up because I like to go to the happy hours and stuff.",routine,90_23,P,op,0
+"So, so you've tried to cut down before?",routine,90_24,T,yq,0
+"yeah, it's not really happening. Not really see it happening.",routine,90_25,P,on,0
+Do you have cravings for alcohol?,routine,90_26,T,yq,0
+"Um, you could say so yeah. I'm at work I want to drink and out doing stuff. I want to drink.",routine,90_27,P,op,-1
+So are you using exclusively alcohol or are there other drugs involved?,routine,90_28,T,irq,0
+"Right now just alcohol and all legal stuff . I was impatient. A couple times for cocaine, but I've stopped. That's not really something I want to do anymore. So",routine,90_29,P,id,0
+when was the last time you're impatient?,symp/reasoning,90_30,T,irq,0
+"About four months ago, five months ago,",symp/reasoning,90_31,P,id,0
+four or five months ago? And at that time you use cocaine.,routine,90_32,T,crq,0
+Yeah. I was using,routine,90_33,P,op,0
+And why did you stop using cocaine?,routine,90_34,T,irq,0
+"Well, I graduated from college, I was kind of a partier in college, and then I had to get a job and it's kind of now had a fear of losing my job because of the cocaine and I'd get a drug test and stuff. So that's kind of in the back of my mind with that. So yeah. I think that the treatment helped with that.",story,90_35,P,id,0
+You crave cocaine?,routine,90_36,T,yq,0
+"No, mostly just alcohol. Just",routine,90_37,P,on,0
+how about Your work are you having a trouble keeping your job or your performance your job?,routine,90_38,T,yq,0
+"Um, I think I'm not doing tip top of what I could be doing but yeah, it hasn't really been a problem. I haven't been threatened to be fired or anything like that. But you know, I'll come in late every once in a while but I I sneak in so nobody notices",routine,90_39,P,on,0
+any social problems because of the alcohol use?,routine,90_40,T,irq,0
+"Um, with my family kind of right now. Yeah. Not really getting along with them very well. My friends, though, when I go out them during the week where you get along fine, but they're just not really as fun as they used to be. So sometimes, yeah. Sometimes they want to do stuff and go to the movies or whatever. And the ello mad because I don't want to go I'd rather go party somewhere. So",story,90_41,P,id,0
+you have some social problems. Not so much with your friends a little bit but more with your family,routine,90_42,T,crq,0
+"more with my family. Yeah. I mean, I guess my friends aren't that happy with me but I don't think it's a huge deal. My best friend I haven't talked to in a couple days because she she is mad at me for not coming to dinner with her the other night because I look rather drunk and I want to do that. ",story,90_43,P,cd,0
+Have you found that you're engaging in any activities are physically dangerous because of alcohol?,routine,90_44,T,yq,0
+"Um I've gotten hurt a couple times. I mean, fallen down the steps, but I'm not calling like, skydiving or anything, you know? So I did sprained my ankle a couple months ago because I fell on the steps but Okay.",story,90_45,P,op,0
+Do you find that you have any exacerbation of symptoms you have already? Like any medical or mental health problems made worse by the alcohol?,routine,90_46,T,yq,0
+"It's a pretty healthy. Yeah, yeah.",routine,90_47,P,id,0
+So did you notice the point after you started drinking when you had to increase the amount that you're trying to get the same effect?,routine,90_48,T,yq,0
+" Oh, yeah. ",routine,90_49,P,op,0
+When did that happen?,routine,90_50,T,irq,0
+"I think I kind of go through phases with it, you know, I'll drink a certain amount for a little while and then I'll notice the I'm not drunk anymore, so I'll have to drink some more.",routine,90_51,P,id,0
+When was the last time you noticed that when you had to drink a lot more to get the same effect.,routine,90_52,T,irq,0
+"Let's say like, last weekend, you know, I was Got a couple beers in my house and the few hours have passed and I drank probably like, and 12 beers and I wasn't feeling anything. So start drinking a little faster and let us start, you know, feel a little better.",story,90_53,P,id,0
+How about withdraw? Do you have any symptoms of withdrawal when you stop drinking? Like physical symptoms anxiety?,routine,90_54,T,irq,0
+"I mean, I want some more. For sure. craving",routine,90_55,P,id,0
+"Ok, Jackie, are you open to seeing a counselor here at the agency?",routine,90_56,T,yq,0
+"I think that's what my mom really wants. So, so maybe they'll try it out once or twice and see what happens but I guess to make her happy.",routine,90_57,P,op,-1
+So you are not sure what to try it out. Yeah. I'll get you scheduled to see a counselor. I want to thank you for telling me about what's going on and for answering my questions. It's been helpful.,routine,90_58,T,id,0
+"Yeah, sure.",inactive,90_59,P,gt,0
+summary,"The patient has a drinking problem. The patient drinks two or three cases of beer with a bottle of vodka during weekends. The patient drinks six or seven drinks after work and then go home during the weekdays. The patient has tried to cut down on drinking before but has not been successful. The patient has been impatient five months ago when they used cocaine. It was when they graduated college, but treatment helped them and fear of losing job by drug test is in back of their head. They don't use cocaine anymore, only alcohol. The patient has had issues going late to the job, have preferred drinking over meeting family or best friend. The patient has hurt a couple times by falling off the steps. The patient has had no medical or mental health problems. They feel the need to increase alochol consumption to feel the same effect. The patient crave more if they stop drinking. The therapist assures to setup the patient with a counselor. ",,,,
+primary_topic,drinking,,,,
+secondary_topic,drugs,,,,

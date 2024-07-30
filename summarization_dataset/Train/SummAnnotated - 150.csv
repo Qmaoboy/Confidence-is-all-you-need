@@ -1,0 +1,108 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Hi Ann, How are you doing today ? ",inactive,150_0,T,gt,0
+I guess I'm okay. How are you?,inactive,150_1,P,gt,0
+"I'm well, thanks for asking. So you sau you doing okay, what's going on?",story,150_2,T,gt,0
+"I'm definitely no better than last week. When we talked. I mean, it's been I had some major binges this week. and I don't even honestly know why we're bothering to talk about it. Because I've been down this road before.",story,150_3,P,id,-1
+Umm hmm,story,150_4,T,gc,0
+"I should just, I should just like give up and buy some momos and, you know, just resign myself to the pack. I'm going to get fat and I'm going to stay bad.",story,150_5,P,gc,-1
+Tell me about some of the foods that you've been eating that have been kind of leading to this problem for you.,symp/reasoning,150_6,T,irq,0
+"brownies, brownies, brownies, brownies. And well, that's what got it started. You know, I was great the first half of the week and of staying away from the sugar away from the flour. I signed a stay at home from school, you know, hurt his head. He wanted to bake brownies with my son. Okay, let's bake brownies. So then we eat the whole pan and we bake two more pans. And then it didn't just stay the brownies, you know? Went out like hamburgers, french fries, candy, you know, stopped in wah wah on the way up. It's disgusting. I can't I didn't want to tell you how Because it's disgusting, and the clothes aren't fitting. It's just really, really sad.",symp/reasoning,150_7,P,id,-1
+You've had a rough week ?,routine,150_8,T,yq,0
+Yeah.,routine,150_9,P,op,-1
+"So, let's talk about for a second. I'd like to the kind of your relationship to this problem. How do you how do you view this problem?",symp/reasoning,150_10,T,gc,0
+It's disgusting. It's like it's slavery. Food owns me.,symp/reasoning,150_11,P,id,-3
+So the so the food is in control of this situation?,symp/reasoning,150_12,T,crq,0
+"sounds ridiculous when you say it like that, but that's what it is.",symp/reasoning,150_13,P,cd,-3
+It's in control ?,symp/reasoning,150_14,T,crq,0
+Yeah,symp/reasoning,150_15,P,cd,-3
+"Alright. So, now I want to ask you a couple of questions about the importance and the confidence of changing clearly, you have some desire to change or we wouldn't be be here. ",symp/reasoning,150_16,T,gc,0
+"Oh my god, I would love to Yeah.",symp/reasoning,150_17,P,gc,1
+"So if you're looking at a scale of one to 10, one was, it's not important to change and 10 was extremely important change. This is just how important it is for you to curtail your eating 10 times very important to you.",symp/reasoning,150_18,T,irq,0
+"Yeah, it's very important",symp/reasoning,150_19,P,id,0
+"very important. Okay. So what if I asked the same question except this time? You're confidence. So, one is you're not confident, all you can change, but 10 you're very confident you could change.",symp/reasoning,150_20,T,gc,0
+"I could probably change for half a day. I've done it. And sometimes if I'm lucky, I'll get a week. But overall?",symp/reasoning,150_21,P,id,-1
+overall  yeah,symp/reasoning,150_22,T,cd,0
+it's impossible. Like you want a number at zero.,symp/reasoning,150_23,P,id,-1
+So it's below the below the scale of one to 10 this is,symp/reasoning,150_24,T,crq,0
+Yeah,symp/reasoning,150_25,P,cd,0
+so you can have no confidence at all.,symp/reasoning,150_26,T,crq,0
+"I've tried it. I know. I mean, it's like beating my head against the wall.",symp/reasoning,150_27,P,cd,-3
+"So, on one hand you'd like to, you'd like to stop the eating, It's important to but on the other hand, you don't believe you can do it. ",symp/reasoning,150_28,T,gc,0
+I can't do it.,symp/reasoning,150_29,P,cd,-1
+You can't do it?,symp/reasoning,150_30,T,crq,0
+I can't.,symp/reasoning,150_31,P,cd,0
+"it can't be done. Have there been any other changes you have been able to make, say in the last few years that have been positive.",symp/reasoning,150_32,T,gc,0
+I stopped biting my nails.,symp/reasoning,150_33,P,id,0
+So you had some small successes in terms of making changes.,symp/reasoning,150_34,T,crq,0
+Yeah. Yeah.,symp/reasoning,150_35,P,cd,0
+What do you think makes the this thought I'll just refer to as the food problem so much more powerful ? So much more difficult to tackle?,symp/reasoning,150_36,T,orq,0
+"I wish I know. I mean, there's so many things it's it's everywhere.",symp/reasoning,150_37,P,od,-1
+The food is everywhere?,routine,150_38,T,crq,0
+It is everywhere. I mean,routine,150_39,P,cd,0
+You mentioned before that brownies were the culprit for this last week.,symp/reasoning,150_40,T,crq,0
+"brownies, Hershey bars, Hershey Kisses, Yeah, chocolate.",symp/reasoning,150_41,P,cd,0
+You enjoy chocolate?,symp/reasoning,150_42,T,yq,0
+Yeah.,symp/reasoning,150_43,P,ack,0
+Okay. How about other foods that could be contributing the problem? Maybe you don't enjoy as much as chocolate.,symp/reasoning,150_44,T,irq,0
+" Oh, potato chips. French fries. Mexican food. What else? Cheese?",symp/reasoning,150_45,P,id,-3
+Definitely any of the types of candies ?,symp/reasoning,150_46,T,irq,0
+"start naming Skittles, cherry Starburst basically any candy.",symp/reasoning,150_47,P,id,-3
+Pretty much any candy?,symp/reasoning,150_48,T,crq,0
+Yeah.,symp/reasoning,150_49,P,cd,0
+"So of the candy, so I want to focus just on the candies. Okay, and not to the foods just for now. The thought of like I introduced the idea of stopping eating chocolate. How would you react to that? ",symp/reasoning,150_50,T,gc,0
+Not gonna happen.,symp/reasoning,150_51,P,id,-2
+"That's not gonna happen?  All right,",symp/reasoning,150_52,T,crq,0
+I would love for it to happen.,symp/reasoning,150_53,P,cd,0
+"right, But that's not gonna happen ?",symp/reasoning,150_54,T,crq,0
+I can just tell you I don't even want to pretend.,symp/reasoning,150_55,P,cd,-1
+"So you know that for sure. How about the let's, let's go, for example with the Skittles. What if I introduce the idea of stopping the consumption of Skittles?",symp/reasoning,150_56,T,gc,0
+Just the Candy Skittles ?,symp/reasoning,150_57,P,crq,0
+Just Just that one candy. Yeah.,symp/reasoning,150_58,T,cd,0
+"Why bother that? Like, can I not eat Skittles? Is that what you're saying? Like,",symp/reasoning,150_59,P,id,-1
+"you could. It's up to you whether or not but if I introduced that idea of stopping the consumption of Skittles, how would you react to that?",symp/reasoning,150_60,T,gc,0
+I don't really understand why.,symp/reasoning,150_61,P,id,-1
+"Well, it represents a change in the direction that you want to move.",symp/reasoning,150_62,T,gc,0
+"But if I stopped eating Skittles, I'm still going to eat brownies I'm still going to eat. Yeah,",symp/reasoning,150_63,P,gc,-3
+"we know we know that scenario that you know, you can't really make a change right now from what you're saying. Like that's the idea of stuffing chocolate is not going over well, with you",symp/reasoning,150_64,T,gc,0
+"no, it's not gonna happen.",symp/reasoning,150_65,P,gc,-3
+and that's fine. But the idea of stopping Skittles,symp/reasoning,150_66,T,orq,0
+Its fine.,symp/reasoning,150_67,P,od,0
+that doesn't seem as daunting?,symp/reasoning,150_68,T,yq,0
+No.,symp/reasoning,150_69,P,on,0
+"Would you agree still on, say the 110 scale that it's important to stop Skittles?",symp/reasoning,150_70,T,yq,0
+Yeah.,inactive,150_71,P,op,0
+Okay.,inactive,150_72,T,gc,0
+Yeah.,inactive,150_73,P,gc,0
+How confident are you you could not eat  ?,symp/reasoning,150_74,T,irq,0
+"it's kind of funny now you're talking about it, I've sort of wants Skittles more. But, you know, I like from now till next week when I come in here, I'd say like I am 99% confident I could not eat Skittles and it would not be a major problem.",symp/reasoning,150_75,P,id,-1
+So this is a change that you think you could accomplish.,symp/reasoning,150_76,T,crq,0
+Yeah,symp/reasoning,150_77,P,cd,0
+Even though you're not sure it'll actually contribute to solving the larger problem. We know that that's something that that's an area where you don't really see a change as as likely,symp/reasoning,150_78,T,gc,0
+"If I don't eat Skittles, this week or even for the rest of my life, is it going to solve my problem? No, but will I do it? If that's what you want me to do? Yeah, that's fine.",symp/reasoning,150_79,P,gc,0
+"Well, I would hope it's something that that you would want to do. I mean, what I want is one thing, what you want is really important here. Is this something that mean your Skittles, part of the problem? ",symp/reasoning,150_80,T,orq,0
+"Yeah, ",symp/reasoning,150_81,P,od,0
+small?,symp/reasoning,150_82,T,crq,0
+Yeah,symp/reasoning,150_83,P,cd,0
+"Alrigh. No pun intended, right. But it's a small part of the problem, but you'd agree it's still part of the problem. ",symp/reasoning,150_84,T,gc,0
+"Yeah, sure.",symp/reasoning,150_85,P,gc,0
+Not a huge change. But it's one that we can work on.,symp/reasoning,150_86,T,gc,0
+Alright,symp/reasoning,150_87,P,gc,0
+"And we want you to be able to, you know, genuinely buy into the goal. I mean, if you don't think it's important, we can talk about other areas of change.",symp/reasoning,150_88,T,gc,0
+"No, I guess I see what you're saying. I mean, if I'm gonna be completely honest with you, I Well, that's what I'm paying you for. Right? So I don't think it's gonna work. I'll just tell you that ",symp/reasoning,150_89,P,gc,-1
+"right. You think you could stop eating Skittles, but you don't think it's gonna solve the larger problem or lead to?",symp/reasoning,150_90,T,crq,0
+Exactly.,symp/reasoning,150_91,P,cd,0
+But that's what we have to work with right now. Because the larger problem is not something you mean the way you put it is it has control.,symp/reasoning,150_92,T,gc,0
+Yeah. Yeah.,symp/reasoning,150_93,P,gc,0
+"So if I introduced the idea of stopping brownies, ",symp/reasoning,150_94,T,gc,0
+"no, no, no, sorry.",symp/reasoning,150_95,P,gc,0
+"So let's let's go after the change that we can achieve in this case. You know, it's not perfect. It's not ideal, but it's what you can do. you saw the plan so suffer  so for this week so you can week for this week just Just continue eating Skittles. ",symp/reasoning,150_96,T,gc,0
+Now Skittles alright,symp/reasoning,150_97,P,gc,0
+" And let's see, let's see how we do with that change.",symp/reasoning,150_98,T,gc,0
+So that seemed to make sense.,symp/reasoning,150_99,P,gc,0
+Yeah.,routine,150_100,T,gc,0
+So work with that and I'll see you again week.,routine,150_101,P,gc,0
+Thanks.,inactive,150_102,T,gc,0
+Thank you,inactive,150_103,P,gc,0
+summary,Patient started when she ate brownies. Food is in control of patient's situation. It's disgusting and like it's slavery. Food owns patient. It's important for patient to curtail eating 10 times.,,,,
+primary_topic,Food,,,,
+secondary_topic,Control,,,,

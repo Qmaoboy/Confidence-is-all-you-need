@@ -1,0 +1,74 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+Hi Kylie how are you doing today?,inactive,154_0,T,gt,0
+I'm pretty good. How are you Dr. Grande ?,inactive,154_1,P,gt,0
+I'm doing I'm doing well thanks for asking. What's been going on?,inactive,154_2,T,gt,0
+"Um, so I've, I've been applying to doctor programs for this upcoming fall. And I'm like, I'm kind of stuck because I got into two of the schools that that I was looking at. I get and like I got into both of them and both of their programs are really good. Both of them have like great research track records and kind of what I want to do. ",story,154_3,P,id,-1
+Right,inactive,154_4,T,gc,0
+"And yeah, but the problem is is like I don't know how to decide between the two now.",symp/reasoning,154_5,P,gc,-1
+"Okay, So you, you applied to two places, and you got them both. ",symp/reasoning,154_6,T,crq,0
+Hmm,inactive,154_7,P,cd,0
+It sounds like both have programs that are really well suited to what you want to do?,inactive,154_8,T,yq,0
+Right.,inactive,154_9,P,op,0
+And you're having difficulty deciding which one to go with.,symp/reasoning,154_10,T,irq,0
+"Yeah. Um, yeah, like I've always I've always had trouble, like, within decisiveness and it's like, when I, when I had two choices of something that's very similar, like I always I always get stuck. And I like, it's very hard for me to actually like make a decision",symp/reasoning,154_11,P,id,-1
+"Let's are start to the beginning. You definitely want to go on for a PhD. Okay, so we've established that",story,154_12,T,gc,0
+right.,inactive,154_13,P,gc,0
+"So it's going to be one of these programs either way. So really, the only question you're really left with is which one? ",symp/reasoning,154_14,T,crq,0
+Yeah.,inactive,154_15,P,cd,0
+"So oftentimes, these situations we look at pros and cons, right? Are there any? Well, it sounds like there's a lot of pros to each one. Are there any cons to the one ?",routine,154_16,T,irq,0
+"I mean, really not, not any that I can think of like, I've tried to, like, I've tried to write them down the piece of paper, do the pros and cons and like the pros look very close. And it's like the same number, but I mean, both programs are good. I have connections with like the some of the teachers and both of them. They're both in the same city. Like they're really close to each other. They're, they're both very similar, but like, for some reason, I just, I don't know, it would be easier if there's like some cons to one of them",story,154_17,P,id,-1
+It will make the decision easier if you had some negatives that for one of the programs,routine,154_18,T,gc,0
+right,inactive,154_19,P,gc,0
+"there for the other one. So in a way, you know, I guess this we call quote unquote, good problem",routine,154_20,T,gc,0
+right,inactive,154_21,P,gc,
+"It's a problem, but you're choosing between two alternatives that are both really positive for you, but it's there is a choice, right? It's still tough. And you mentioned before that you had some, in your past you're indecisive. ",symp/reasoning,154_22,T,gc,0
+Yeah.,inactive,154_23,P,cd,0
+"So maybe we can do in this process is help you build decision making skills or contribute to that ability. Because whichever whichever program you get into where you choose, you're gonna have to make decisions later on to ",routine,154_24,T,gc,0
+right,inactive,154_25,P,gc,0
+"and probably vary, or maybe some of those will be easier, maybe some of those choices won't be as easy. So I think this would be a matter of looking at what's important to you. But you mentioned the research agenda already, or agendas at both universities, that's important, too",routine,154_26,T,gc,0
+right,inactive,154_27,P,gc,0
+"What are the aspects and maybe not so much thinking about these two universities, but in general, if you had to rank order them, what aspects are really the most important?",routine,154_28,T,irq,0
+"Um, well, definitely, the research is up there. I definitely want to get that out of out of whichever school I go to. I think something else that's important is for the university to have kind of like maybe a post doctorate plan, whether they have connections with, like businesses where I can get a job like right after graduate or, like if I was going to move into a faculty position, like if they kind of had a pathway that would help set me up for that like that. Those are probably the biggest, like the biggest influencers,",story,154_29,P,id,0
+"The research and not a guarantee, necessarily, but some high probability employment?",inactive,154_30,T,crq,0
+right.,inactive,154_31,P,cd,0
+"So really what we could do here, if you want to look at these two universities, even though we don't really have any negatives to look at, we can rank these positives. So it sounds like both have the research that you're looking for that ",routine,154_32,T,gc,0
+bright,inactive,154_33,P,gc,0
+"they're both there. But if you could rank and maybe you don't have this information right now, but if you could rank them in terms of the next most important aspect, which is really how hard Will you work to find a job? ",routine,154_34,T,irq,0
+Right,inactive,154_35,P,id,0
+"That's, that's kind of what you're saying. ",inactive,154_36,T,gc,0
+"Okay, right. ",inactive,154_37,P,gc,0
+"I mean, it sounds like what you're saying?",inactive,154_38,T,gc,0
+right,inactive,154_39,P,gc,0
+"So, do you have any information? Or is that something you can find?",inactive,154_40,T,irq,0
+"Um, actually, that's I never thought about like that. Like, I guess I could go online and kind of look at a lot of times universities put up like job acceptance rates like afterwards and they put up percentages, kind of like what what people do afterwards. So maybe if I looked at the websites and kind of found information and see like, how many of them go on to be professors or like work in the industry, maybe maybe I should check that out. That might help me",story,154_41,P,id,9
+"that might allow you to have a difference between them because right now, it's like they're just kind of, they're kind of melded together",routine,154_42,T,gc,0
+right,inactive,154_43,P,gc,0
+"You know, you have you have really no way yet to separate them",symp/reasoning,154_44,T,gc,0
+right.,inactive,154_45,P,gc,0
+"So maybe this can build a bit of a discrepancy that the gap between them so you can say, Okay, this one, neither one is bad, right? But this one might be a little better for what I want to do. ",routine,154_46,T,gc,0
+Okay.,inactive,154_47,P,gc,0
+Does that does that kind of make sense?,inactive,154_48,T,yq,0
+"Yeah, that makes sense. Yeah.",inactive,154_49,P,op,0
+"Similarly, as the I think about it, I know whenever I leave speaking with somebody or some situation, that's right, I always think of all the questions I want to ask, right. So when you leave here, you can consider some of the other aspects and like, Think it over like really important to me and try to create that distance between them. So you can look at them as really two separate entities. Another possibility would be to find out this information, maybe talking to representatives from each university. ",routine,154_50,T,gc,0
+Okay,inactive,154_51,P,gc,0
+If they may or may not have more information about potential pros and they might even have some cons right now. I'm sure they'll present a plate manner but they can let you know maybe some of the negatives.,routine,154_52,T,gc,0
+Okay.,inactive,154_53,P,gc,0
+"Associated With the other university, or maybe some of the positives that aren't quite as positive",routine,154_54,T,gc,0
+"right, right, ",inactive,154_55,P,gc,0
+"something that they do well with others, other university doesn't do as well. ",routine,154_56,T,gc,0
+Okay.,inactive,154_57,P,gc,0
+So it sounds like this information gathering would really be your next step.,routine,154_58,T,gc,0
+Yeah. Yeah. I never actually thought about ranking the the pros and going from there. So I think that's a good idea. Yeah.,routine,154_59,P,gc,0
+"One of the things that might be helpful to drive is the importance you place on these different aspects, right. So kind of clarify, and we can we meet again, we'll talk about this, but clarify your values and what's important to you. ",routine,154_60,T,gc,0
+Okay.,inactive,154_61,P,gc,0
+And then that'll help you to kind of rank some of these attributes.,inactive,154_62,T,gc,0
+"Right. Okay. Yeah, that makes sense. ",inactive,154_63,P,ack,0
+"All right. Let's, let's leave it there. And we'll kind of pick up next time with looking at what we talked about. Unless you have any further questions.",story,154_64,T,gc,0
+"No, no, I think, yeah, I think I know what I can do afterwards, no we decided.",inactive,154_65,P,comp,0
+So I'll see you in about a week and we'll pick up there,inactive,154_66,T,gc,0
+Alright sounds good.,inactive,154_67,P,gc,0
+"Thanks, Kyle.",inactive,154_68,T,gc,0
+Hmm,inactive,154_69,P,gc,0
+summary,"Patient is applying for a doctor programs but is stuck between two schools because both the schools have great research tracks. Patient is not getting which program to choose. The patient always had such kind of trouble in making the decision. Therapist asked to make pros and cons table but both the programs were good, so therapist asked cons of the programs. Patient told the pros are very similar but didn't know about cons that much. Therapist started a process to improve decision making skills of patient. Therapist asked to look at the rank of the universites and list down the general benefits of these two schools like post graduation or placement after the program etc. Therapist also told that rank these universities according to the positive points they have. Therapist asked to collect such information and rank them before the next aspect. Patient got to know that patient could go online and put up job acceptance, then it will show a percentage and how many people got jobs as a professor or in industry. Therapist gave an example like whenever patient talk to a therapist, patient will ask all the questions but while leaving consider only the things according to the aspects. If they may not have more information about pros so they consider negative points of the therapist, likewise it is associated with the universities. Some are positive and some aren't quite as positive. So it will give you a clarity regarding choosing either of the unversities.",,,,
+primary_topic,Decision,,,,
+secondary_topic,Therapy,,,,

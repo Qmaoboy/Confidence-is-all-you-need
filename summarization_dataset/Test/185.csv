@@ -1,0 +1,29 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+Hi Chris,inactive,185_0,T,gt,0
+Hi,inactive,185_1,P,gt,0
+"Thanks for coming in today and filling out our survey. I wonder if it's okay, If I go over a couple of the things that that you answered in the survey? ",inactive,185_2,T,gc,0
+"Yeah, that's fine. ",inactive,185_3,P,op,0
+Okay. One of the things that that I noticed is that you are not using any kind of birth control right now.,routine,185_4,T,yq,0
+Yeah.,inactive,185_5,P,op,0
+"And I just wondered if we could talk for a few minutes about some ideas, and I wondered what what your thoughts are about using condoms?",routine,185_6,T,gc,0
+"Well, I've heard stuff about them that I don't really need them and they're not going to do much for me and just kind of absolutely go out and get them. So I don't really use them for that reason.",symp/reasoning,185_7,P,od,0
+You've heard a lot of negative things about condom usage.,symp/reasoning,185_8,T,crq,0
+Yea yes,inactive,185_9,P,cd,0
+"Okay. Okay. So Chris, it's okay if I share with you some of the things that I've learned about condom usage and some of the things that my clients that are around your age have shared with me about condom usage. ",routine,185_10,T,crq,0
+"Yeah, that's fine. ",inactive,185_11,P,cd,0
+"Okay. What some people don't realize and don't know about condoms is that may not only prevent help prevent teen pregnancy, but they can also prevent sexually transmitted infections like Flaminia along with HIV. They're really effective in preventing these things. And there's also a lot of easy ways to get condoms these days that some people don't know, the local health departments have condoms and many times they're free. And local pharmacies, drug stores have condoms. And there are a lot of clinics that have them as well either for a small fee or sometimes they're actually free. And there's some some ways to that people have found carrying them around pretty conveniently, you know, in their car or in their pockets because they're pretty small. What does it sound like? As I'm talking what what are what are some thoughts that are going, going through your mind?",routine,185_12,T,id,0
+"Definitely changing my mind about condoms a little bit, think there's no hurt and just carrying them with me. And if they do protect against all that stuff that you said, that sounds a lot better than what I have heard. I definitely want to avoid all those consequences. ",symp/reasoning,185_13,P,id,0
+Okay. Yeah. You're not interested in becoming a father right now I'm guessing.,routine,185_14,T,crq,0
+Yeah.,inactive,185_15,P,cd,0
+"Okay. Okay. Great. Well, can I ask you? So after this conversation today on a scale of zero to 10, with zero being that it's not at all important to you and 10 being that it's extremely important? Where do you think you fall with how important you know taking a chance on using condoms would be to you now?",routine,185_16,T,irq,0
+"after everything that you've told me, sounds pretty important to me. I like an eight or nine.",routine,185_17,P,id,0
+"Okay. Okay, well, that's great. It sounds like you really have have, you know a plan in mind? What do you think you'll do next Like what do you think would be a next step with you as far as contraception or condoms?",routine,185_18,T,gc,0
+I will go out and look for some condoms and have an open mind to them.,routine,185_19,P,od,0
+"Okay, well, we've got some here at the clinic. Would you like me to give you some on your way out?",routine,185_20,T,gc,0
+yeah,inactive,185_21,P,op,0
+And you can just take them with you.,inactive,185_22,T,gc,0
+yeah sure,inactive,185_23,P,gc,0
+"Great. Well, thank you so much for talking with me today, Chris. It was nice to meet you.",inactive,185_24,T,gc,0
+primary_topic,"Behaviour, misconception",,,,
+secondary_topic,Condom,,,,
+summary,"Patient filled out a survey. Therapist noticed that patient is not using any kind of birth control. Therapists wants to know about the thoughts of condoms in patient's mind. Patient heard a lot of negative thingsabout them and don't really need them and they are not going to do much. So patient don't really use them. Therapist tells that condom prevent teen pregnancy and they also prevent sexually transmitted infections like flaminia along with HIV. Patient mind changed about condoms a little bit, and thinks there is no hurt. Patient was not interested to become father right now. Therapist asks to scale 0 to 10 about using condoms. Patient says eight or nine. Therapist asks patient whats plan in mind about condoms. Patient had open mind to them. Therapist gave some to the patient.",,,,

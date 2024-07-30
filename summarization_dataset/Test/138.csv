@@ -1,0 +1,27 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+" All right, Chris, so I need to talk to you because as you know, we have a zero tolerance policy for drugs and alcohol at this school and as as athletic director, it's my job to check in with our student athletes and make sure everyone's adhering to that rule and I've been hearing some chatter from some other kids about party this weekend, and from what I hear while you were there, and you know, I can't confirm or deny anything. So I'm not at the point where I can give you consequences. But I do want to talk to you about whether or not you're drinking and how, you know, you really can't be doing this as a member of one of our teams.",symp/reasoning,138_0,T,gc,0
+" All right, actually, I do want to speak to you about something that happened during this past weekend. Usually, as you know, I'm an honor student, I usually am studying over the weekend, my parents told me go out to parties, but I kind of use that to my advantage to convince my parents to go to this party that my friends were pressuring me to go to. And when I when I got there, like, I'm not used to this like party environment, where everything that you see in the movies is kind of what happens where you have people just drinking out of the bottle or playing random games with alcohol just to get drunk for no reason. And because I was there in the moment, I felt pressured to do and conform to what everyone else is doing. So I wouldn't be I wouldn't be ostracized. ",story,138_1,P,gc,-1
+"Oh, yeah, I get it. Like, we've all been there. Okay. You know, I was in high school one, too. You know, I drink too. I get it. There's not a ton to do in this town and kids drink but, you know, promise we have these rules and you're on a team, you have to stick by the rules.",routine,138_2,T,ack,0
+"I know that. It's bad for me. It's bad for my body is bad for for, for for being on the team for being an athlete. it hinders my performance. Just I don't know, I feel that my friends pressured me. I don't know if I should, like, go with different friend groups. Maybe I don't know.",routine,138_3,P,ack,-3
+"Yeah, Chris, come on. You're getting peer pressure.",routine,138_4,T,cv,0
+"I don't know. Like, being in a sports team. You feel very, you have to, like, be unified with the group.",routine,138_5,P,cr,0
+"Yeah, well, you're one of the leaders.",routine,138_6,T,gc,0
+"Right and as being one of the leaders, my fellow teammates expect me to be expected To lead not only in the sports but also in social environments. And if that's social, so social custom in our society, so",routine,138_7,P,ack,-1
+maybe you can start leading as a non drinker then,routine,138_8,T,cv,0
+"I could, but that could also backfire on me. I feel that I could be ridiculed for being having the stick up my blood. You know,",routine,138_9,P,cr,-2
+you're a star player who's gonna pick on you.,routine,138_10,T,irq,0
+"I mean, it's just one. I'm just one person.",routine,138_11,P,id,0
+All right.,inactive,138_12,T,ack,0
+" Well, supermom.",inactive,138_13,P,gc,0
+"Yeah. So the issue again, is, I can't be hearing reports about your drinking. I can't be hearing that you're at parties and you can't be seeing pictures on Facebook. You know, there there are rules at this school and in my job, I have to enforce them. So, you know, like I said, I get it. You know, I understand I know what it's like I get that you want to have fun, your teenage years. I get that. But you know, you are start player, we want to keep you on the team. You know, we got to figure out a way to get through this.",routine,138_14,T,cv,-3
+"Okay. Well, I'll dedicate the time not to party and like, no, not not not party, but you get involved with alcohol to that extent. And, like have it publicized on the internet. ",routine,138_15,P,cr,-2
+What do you mean?,routine,138_16,T,crq,0
+"Like on Facebook, all the pictures that you saw on the internet? Like, I will avoid situations where I have to go to a party where I feel pressured to actually drink alcohol and allow what I do in my own private time put on the internet so others can see.",routine,138_17,P,cd,-2
+"All right, yeah, I mean, we got to have a deal here if you're gonna be on the team, okay.",routine,138_18,T,ack,0
+I'll stop.,symp/reasoning,138_19,P,gc,0
+"Alright, you promise?",routine,138_20,T,ack,0
+I promise.,routine,138_21,P,ack,0
+"All right, Jake. All right. We'll see you later.",inactive,138_22,T,gc,0
+summary,The therapist discusses the drinking of the patient who is a student athelete and been at a party recently. The patient felt pressured to attend the party by their friends. The patient agrees it might hinder their performance as an athelete but feels the need to be unified with the group. The therapist suggests to lead the team as a non drinker. The therapist warns the patient that it is their duty to enforce the rules if the patient wishes to stay in the team. The aptient agrees to stop drinking. ,,,,
+primary_topic,drinking,,,,
+secondary_topic,athlete,,,,

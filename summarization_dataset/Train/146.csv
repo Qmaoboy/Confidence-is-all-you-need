@@ -1,0 +1,72 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+Hi Sandra. How are you doing today.,inactive,146_0,T,gt,0
+"I  am  okay, I gues",inactive,146_1,P,gt,0
+Just okay ?,inactive,146_2,T,crq,0
+Yeah.,inactive,146_3,P,cd,0
+I'm going to ask you some questions and give you some problems to solve. Please try to answer them as best as you can. What year is this?,routine,146_4,T,gc,0
+2014,routine,146_5,P,id,0
+2014?,routine,146_6,T,crq,0
+Yeah.,inactive,146_7,P,cd,0
+What season of the year is this?,routine,146_8,T,irq,0
+summertime,routine,146_9,P,id,0
+summertime ?,routine,146_10,T,crq,0
+Yeah,inactive,146_11,P,cd,0
+What is the date today?,routine,146_12,T,irq,0
+10th may,routine,146_13,P,cd,0
+May 10th ?,routine,146_14,T,crq,0
+yeah,inactive,146_15,P,cd,0
+What is the day of the week?,routine,146_16,T,irq,0
+Thursday,routine,146_17,P,id,0
+What month is this?,routine,146_18,T,irq,0
+May,routine,146_19,P,id,0
+Can you tell me what country we're in?,routine,146_20,T,irq,0
+Delaware.,routine,146_21,P,id,0
+What County are we in?,routine,146_22,T,irq,0
+Delaware.,routine,146_23,P,id,0
+What is the name or the address of this building?,routine,146_24,T,irq,0
+Umm I guess,inactive,146_25,P,id,0
+What floor of the building are we on the,routine,146_26,T,irq,0
+bottom floor,routine,146_27,P,id,0
+bottom floor ?,routine,146_28,T,crq,0
+Yeah,inactive,146_29,P,cd,0
+"I am going to name Three objects. After I've said them, I want you to repeat them back to me. Apple, Table,  Penny, can repeat them back to me?",routine,146_30,T,cv,0
+Penny,symp/reasoning,146_31,P,cr,0
+"let me go again. Apple, Table, Penny ",routine,146_32,T,cv,0
+Apple. Table. Apple.,symp/reasoning,146_33,P,cr,0
+Let me try again. Apple Table Penny,routine,146_34,T,cv,0
+Apple Table Penny.,routine,146_35,P,cr,0
+"Okay, good. Remember what they are? Because I'm going to ask you to name them again in a few minutes. Now I'm going to give you a word and ask you to start it forward and backward. The word is world. First, Can you spell the forward ?",routine,146_36,T,cv,0
+Can you say that again ?,routine,146_37,P,crq,0
+the word is the world.,routine,146_38,T,cd,0
+W U R A D,symp/reasoning,146_39,P,cr,0
+"Now, can you spell it backward?",routine,146_40,T,cv,0
+What word in ?,inactive,146_41,P,crq,0
+The word in world ?,routine,146_42,T,cd,0
+D R  W,symp/reasoning,146_43,P,cr,0
+Okay. What were the three objects I asked you to remember.,routine,146_44,T,irq,0
+Table World World,symp/reasoning,146_45,P,id,0
+Okay What is this called?,routine,146_46,T,ci,0
+bracelet,routine,146_47,P,cr,0
+bracelet ?,routine,146_48,T,crq,0
+Yeah,inactive,146_49,P,cd,0
+What is this is called ?,routine,146_50,T,ci,0
+marker.,routine,146_51,P,cr,0
+"I would like to repeat a phrase after me. The phrases, no ifs, ands or buts",routine,146_52,T,cv,0
+"no if, ands, or buts.",routine,146_53,P,cr,0
+I want you to read the words on this page and do it like this.,routine,146_54,T,ci,0
+....,inactive,146_55,P,cr,0
+Thank you. Are you right handed or left handed.,routine,146_56,T,irq,0
+Left handed,routine,146_57,P,id,0
+you're left handed,routine,146_58,T,crq,0
+Yeah,inactive,146_59,P,cd,0
+Take this paper in your left hand. Fold the paper once with both hands and put the paper down on your lap. Okay. You pick up the notebook besides you. Can you write any complete sentence on a piece of paper for me?,routine,146_60,T,ci,0
+.....,inactive,146_61,P,cr,0
+Okay. hang on to the pen there. Here's a drawing. Please copy this drawing on that same piece of paper,routine,146_62,T,ci,0
+....,inactive,146_63,P,cr,0
+copied on the same piece of paper. Yeah sure.,routine,146_64,T,gc,0
+Take a look at,inactive,146_65,P,gc,0
+That concludes this assessment. Sandra. I want to thank you for your participation.,inactive,146_66,T,gc,0
+Thank you,inactive,146_67,P,gc,0
+summary,"Therapist give patient an assessment to test thinking and memory. Therapist starts asking questions regarding, today's date,year, month, day, season, surrounding items etc.Patient answer all the questions correctly. Therapist asks to memorize few objects and reversing words.Patient finds difficulty in this assessment and coudln't do it well.",,,,
+primary_topic,Memory,,,,
+secondary_topic,Memory and thinking,,,,

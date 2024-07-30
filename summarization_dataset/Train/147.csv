@@ -1,0 +1,66 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Hi Ayesha, how you doing today?",inactive,147_0,T,gt,0
+"I'm good,",inactive,147_1,P,gt,0
+doing good.,inactive,147_2,T,crq,0
+yeah,inactive,147_3,P,cd,0
+I'm going to ask you some questions and give you some problems to solve. Please try to answer them as best as you can. Okay. What year is this?,routine,147_4,T,gc,0
+It is 2015,routine,147_5,P,id,0
+Okay. What season of the year is this?,routine,147_6,T,irq,0
+It is beach season.,routine,147_7,P,id,0
+beach season ?,routine,147_8,T,crq,0
+Yeah,inactive,147_9,P,cd,0
+What is the date today?,routine,147_10,T,irq,0
+Tuesday,routine,147_11,P,id,0
+what day of the week is this?,routine,147_12,T,irq,0
+Tuesday,routine,147_13,P,id,0
+What month is this?,routine,147_14,T,irq,0
+It is may,routine,147_15,P,id,0
+Can you tell me what country we are in,routine,147_16,T,irq,0
+America.,routine,147_17,P,id,0
+What County are we in?,routine,147_18,T,irq,0
+"We are in Kent County, Kent County.",routine,147_19,P,id,0
+What city are we in ?,routine,147_20,T,irq,0
+New Castle.,routine,147_21,P,id,0
+What is the name or the address of this building?,routine,147_22,T,irq,0
+We are at Wilmington college.,routine,147_23,P,id,0
+What floor of the building we at?,routine,147_24,T,irq,0
+Two,routine,147_25,P,id,0
+"I am going to name three objects. After I've said them, I want you to repeat them back to me.",routine,147_26,T,cv,0
+Okay.,routine,147_27,P,cr,0
+"Apple, Table, Penny",routine,147_28,T,cv,0
+"Apple, Table, Penny",routine,147_29,P,cr,0
+"remember what they are, Because I'm going to ask you to name them again in a few minutes. ",routine,147_30,T,cv,0
+Okay,inactive,147_31,P,cr,0
+"Now I'm going to give you a word and ask you to spell it forward and backward. The word is world. First, Can you spell it forward?",routine,147_32,T,cv,0
+U O R D,routine,147_33,P,cr,0
+"Now, can you spell it backward",routine,147_34,T,cv,0
+D O O U,symp/reasoning,147_35,P,cv,0
+What were the three objects I asked you to remember?,routine,147_36,T,irq,0
+"Apple, Table  And, um, I don't remember the last. ",symp/reasoning,147_37,P,id,0
+Okay. What is this called?,routine,147_38,T,irq,0
+That's your watch.,routine,147_39,P,id,0
+What is this called?,routine,147_40,T,irq,0
+A pencil,routine,147_41,P,id,0
+"I would like you to repeat a phrase after me. The phrases is no ifs, ands, or buts.",routine,147_42,T,cv,0
+No If no and no buts,routine,147_43,P,cr,0
+I would like you to read the words on this page. I'm going to hold up. Then do what it says.,routine,147_44,T,cv,0
+Close Your eyes.,routine,147_45,P,cr,0
+Okay. Are you right handed or left handed.,routine,147_46,T,irq,0
+"I'm right handed, ",routine,147_47,P,id,0
+right handed ?,routine,147_48,T,crq,0
+Yeah,inactive,147_49,P,cd,0
+"I want you to take this paper in your right hand. Fold the paper once with both hands, and then put the paper down in your lap. ",routine,147_50,T,ci,0
+.....,inactive,147_51,P,cr,0
+"Okay, thank you. All right, if you could pick up the notebook with a piece of paper. I would like you to write any complete sentence on a piece of paper for me, me.",routine,147_52,T,ci,0
+Any?,inactive,147_53,P,cr,0
+Huh hmm,inactive,147_54,T,gc,0
+Okay,inactive,147_55,P,gc,0
+Can i see the sentence? Okay. Here's the drawing. Please copy the drawing on that same piece of paper.,routine,147_56,T,ci,0
+"This is really hard, I got it.",inactive,147_57,P,cr,0
+You got it ?,inactive,147_58,T,crq,0
+Kind of.,inactive,147_59,P,cd,0
+Thank you Ayesha. I appreciate you participating in that assessment.,inactive,147_60,T,gc,0
+Thank you.,inactive,147_61,P,gc,0
+summary,"Therapist give patient an assessment to test thinking and memory. Therapist starts asking questions regarding, today's date,year, month, day, season, surrounding items etc.Patient answer all the questions correctly. Therapist asks to memorize few objects and reversing words.Intially Patient did well but later finds difficulty in this assessment and coudln't do it well.",,,,
+primary_topic,Memory,,,,
+secondary_topic,Memory and thinking,,,,

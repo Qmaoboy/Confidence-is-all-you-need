@@ -1,0 +1,97 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Hi Ann, how are you doing today ?",inactive,149_0,T,gt,0
+"I am Okay, how are you Dr. Grande?",inactive,149_1,P,gt,0
+"I am good, thanks for asking what's been going on?",inactive,149_2,T,gt,0
+Not really a lot of change on the drug front.,symp/reasoning,149_3,P,id,-1
+Mm hmm,inactive,149_4,T,gc,0
+"it's as you know, the the  Adderall I'm really struggling.",symp/reasoning,149_5,P,id,-1
+still struggling with the Adderall?.,symp/reasoning,149_6,T,crq,0
+"Yeah. I'm not sure what to do because I know that I mean, I'm having such a hard time with it. But when I don't have it, I am. I'm just not functioning I'm not able to get As much accomplished",symp/reasoning,149_7,P,cd,-1
+"right, so, go ahead",inactive,149_8,T,gc,0
+well it's it's like it's always there to.,inactive,149_9,P,gc,-1
+It's always available ?,routine,149_10,T,crq,0
+"it's always available, Yeah. Or so much at the time.",symp/reasoning,149_11,P,cd,-1
+You're having some mixed feelings about it. So I'm sensing.,routine,149_12,T,gc,0
+Yeah. Yeah. Like I know I want to stop,symp/reasoning,149_13,P,gc,-1
+you think you think you want to stop?,routine,149_14,T,yq,0
+"Yeah. No, I do. ",symp/reasoning,149_15,P,op,-1
+You do ?,inactive,149_16,T,crq,0
+"Oh my god see, I feel crazy, but I know it would be good if I didn't have it in my life.",symp/reasoning,149_17,P,cd,-3
+But at the same time it is in your life ?,routine,149_18,T,crq,0
+"And I don't know how to get out of that. I mean, the one thing if I didn't live with my roommate, that would be one thing. Like, it wouldn't be in the apartment all the time.",symp/reasoning,149_19,P,cd,-1
+"So you find you have easier access to the Adderall when you're when you're in the house or apartment with your, with your roommate. ",routine,149_20,T,crq,0
+Yeah.,inactive,149_21,P,cd,0
+"So if you physically weren't there, like with your roommate in that apartment?",routine,149_22,T,crq,0
+"Yeah, like if I was oh my god living at home with my parents again or even living with somebody else, I guess. Oh my god, move ? What a hassle but that's I mean, that's the problem. It's just there. It's it's accessible.",symp/reasoning,149_23,P,cd,-1
+"So you're kind of it sounds like you're recognizing that, maybe you don't have the willpower to stop taking the drug when it's right there in front of you.",routine,149_24,T,gc,0
+"Maybe you're right. Yeah, that's that's good. Because before I didn't really want to stop at some, I mean, I definitely sometimes I want to stop, I'm my mind, I'll go back and forth. You know, but for the most part I would like to be without it. You know, I really don't want to deal with this anymore.",symp/reasoning,149_25,P,gc,-1
+"So mostly so so there's still some feelings for you. You want to use it, but mostly you would like to stop ?",routine,149_26,T,gc,0
+"Well, it makes us so easy to get stuff done. I mean, I just take a couple and boom boom boom, I mean,",symp/reasoning,149_27,P,on,-1
+so there's some advantages for you ?,routine,149_28,T,yq,0
+"Yeah, definitely. Definitely. And I'm so used to it. So it's just comfortable and",symp/reasoning,149_29,P,op,-1
+it's comfortable and it allows you To be productive. Are there any downsides to it?,routine,149_30,T,gc,0
+"Well, yeah. When I don't have it, the crash, it's like a really bad crash and I'm not productive. You know, it's it's, and it's gotten worse than it used to be.Like I need it.",symp/reasoning,149_31,P,op,-1
+So it's painful ?,routine,149_32,T,yq,0
+It's painful. Definitely. Definitely. It feels like a trap. I want out.,symp/reasoning,149_33,P,op,-1
+"And one of the ideas you're having was sound like potentially was moving out, moving out of the apartment, because then you wouldn't have access to the who would have access to the Adderall anymore? Or it would be hard to get ?",routine,149_34,T,crq,0
+"Oh my god, like sometimes it's really weird. Sometimes it feels like that's a good idea. And then sometimes I'm like, No, no, I don't want to be You know kind of cut off from it but I think I am come ready. ",symp/reasoning,149_35,P,cd,-2
+You think you're ready for that?,routine,149_36,T,orq,0
+Yeah,inactive,149_37,P,od,0
+And that moving out you really see is what you would need to do. Because stopping while living there is too difficult.,routine,149_38,T,crq,0
+"Yeah, yep, I think you're right.",inactive,149_39,P,cd,0
+"Remember before you've tried to stop living there a few times right or, or last few months and with your roommate having it with your roommate being the one that gives it to you. It just appears that temptation so great for you.",routine,149_40,T,gc,0
+"Yeah, she really doesn't get it. She doesn't understand like, What? What a problem this is for me? She's definitely not supporting me or anything like that. Yeah, God, maybe it would be better",symp/reasoning,149_41,P,gc,-2
+"Well, are there any disadvantages to living with your parents?",routine,149_42,T,irq,0
+"living with my parents at my age, it just feels like a little bit humiliating a lot humiliating. ",symp/reasoning,149_43,P,id,-3
+"Okay, so humiliation would be one.",routine,149_44,T,gc,0
+"Yeah, just this feeling of failure, embarrassment and then my mom just is in my business.",symp/reasoning,149_45,P,gc,-3
+So some clear disadvantages to move into Paris any advantages other than the obvious who would separate you from the  Adderall?,routine,149_46,T,crq,0
+Am I would you buy laundry? fully stocked fridge?,symp/reasoning,149_47,P,cd,0
+Yeah.,inactive,149_48,T,gc,0
+"Yeah, my dad will fill my gas tank up.",symp/reasoning,149_49,P,gc,0
+things that happened before ?,inactive,149_50,T,gc,0
+Uh huh.,inactive,149_51,P,gc,0
+"So there's some disadvantages to this plan, but there's some advantages. And there's a key advantage of being think of narrow.",routine,149_52,T,crq,0
+"Yeah. And it wouldn't necessarily have to be the rest of my life either. Just for now, just to get me out of that apartment with the Drug. Right ?",symp/reasoning,149_53,P,cd,-1
+That would separate you from the drug and you could potentially move out later on.,routine,149_54,T,gc,0
+"Oh my god, do I want to I mean, that that's just it. Like, it's like, it sounds really good until I like really think about it.",symp/reasoning,149_55,P,gc,-2
+"When you really think about it, what comes to mind?",routine,149_56,T,irq,0
+"Oh, like I start to shake like that feeling of, you know, when you really want something, you really want something and you can't get to it. And that desperation that I'm like, right now, I know that, you know, I'm living there, it could be my choice. I could take it, or I could not take it. You know, but at least when I want it, it's there. If I move out, I'm like making that decision for myself. ",symp/reasoning,149_57,P,id,-3
+That's right. It would be.,inactive,149_58,T,gc,0
+I don't know.,inactive,149_59,P,gc,0
+Is it tough?,routine,149_60,T,yq,0
+Yeah,inactive,149_61,P,op,0
+"Before it seemed like you're really more on the side of making this change than not. Clearly, there's still some things you want to consider.",routine,149_62,T,gc,0
+"No, you know, you're right, though. I want out, and it's not really a choice when I'm there. Like I say, I have the choice yes or no, but the choice is always Yes. ",symp/reasoning,149_63,P,cd,-3
+You always end up using the Adderall ?,routine,149_64,T,yq,0
+Yeah.,inactive,149_65,P,op,0
+"So, so make sure I understand the situation overall. You live with your roommate, she has that role and she makes it available to, you use it?",routine,149_66,T,crq,0
+Yeah,inactive,149_67,P,cd,0
+"You've tried to stop that behavior, but that's just not working for you.",routine,149_68,T,crq,0
+"Yeah, yeah, that's so clear. And I don't want to be using it.",symp/reasoning,149_69,P,cd,0
+"You don't want to be using it. But yet you are. Especially because the proximity, right, like cuz you're right there and she has it and it's just tougher to stop that behavior. There's another possible decision, which is moving back home, which has some disadvantages and advantages. ",routine,149_70,T,id,0
+"Yeah, that's true. It would be nice having that fully stocked fridge.",symp/reasoning,149_71,P,gc,0
+so that there's an upside to it.,routine,149_72,T,crq,0
+Yeah,inactive,149_73,P,cd,0
+That would be beyond just not using the drug which would which fit itself It'd be a big victory for you.,routine,149_74,T,gc,0
+Yeah. And my mom would be there to talk to Yeah. Yeah.,routine,149_75,P,gc,0
+So let's do this. It seems like that's the direction you're moving. Right?,routine,149_76,T,crq,0
+Okay.,inactive,149_77,P,cd,0
+"No pun intended with moving. But that's, you're you, you're thinking that might be a better way to go?",routine,149_78,T,crq,0
+Yeah.,inactive,149_79,P,cd,0
+"So, for the next session, let's plan out that and this wouldn't necessarily be doing anything. This would just be let's plan out the steps that you'd have to put in place to move out to move back home, talking to your parents, whatever financial arrangement, have the roommate, getting all your stuff out the logistics of moving, let's just go through the steps. ",routine,149_80,T,gc,0
+Okay.,inactive,149_81,P,gc,0
+"And try to get a firm plan together. And of course, you can always re evaluate and change your mind. ",routine,149_82,T,gc,0
+"Okay, right. ",inactive,149_83,P,gc,0
+"But all we're doing at this point, is just just planning and seeing how it would look. ",routine,149_84,T,gc,0
+This is kind of exciting.,routine,149_85,P,gc,0
+Exciting ?,inactive,149_86,T,crq,0
+"Yeah, it definitely is. I can do that.",routine,149_87,P,cd,0
+So I will see you and next week ?,inactive,149_88,T,gc,0
+okay,inactive,149_89,P,gc,0
+"and we'll pick up where we left off and we'll, we'll start with a planning and we'll see what happens with that. ",inactive,149_90,T,gc,0
+Cool. All right.,inactive,149_91,P,gc,0
+Thanks.,inactive,149_92,T,gc,0
+summary,"Patient couldn't leave drug and struggling to leave it. Patient can't work well without drugs. Drug is always available for patient.  Patient wants to stop but can't leave when it's available. adderall is easily accessible to the patient at house or at apartment with roommate.Therapist saw a change in patient that patient is thinking to stop but doesnt have the willpower to stop. The patient had some advantages of doing drugs like feels comfortable and makes productive. Disdvantage is can't be productive and painful if not consumed. Therapist suggested to move out from the apartment so that patient couldn't access it. Therapist understand that moving out for patient is difficult but its important to stop doing it. Patients feels humiliated at this age to live with parents. Patient had some advantage to live in paris like buying laundry, fully stocked friend etc.Therapist says that it would be helpful to get rid of adderall. Patient was confused with the decision of moving out. Patient get the points of therapist and understand the key advantages,spending time with family so patient agrre to movieng out.",,,,
+primary_topic,Addiction,,,,
+secondary_topic,Drugs,,,,

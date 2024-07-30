@@ -1,0 +1,36 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Hi, Hazel Hey doing today.",inactive,66_0,T,gt,
+Okay.,inactive,66_1,P,gt,
+Okay. Yeah. I know when we met last time for your intake. You were concerned about some presentations that you had to give at school. Yeah. And you want to talk about that today?,symp/reasoning,66_2,T,id,
+"Yes. So, in school. I am in school for teaching. And we have to give presentations a lot as you can imagine, on different things and So it's something that's recurring. And what happened was, I gave a really bad one one time. My way of presentation. Yeah, I wasn't feeling very well. And I gave, I think I was just really tired from studying all night and I gave a really bad presentation. And then like now ever since, like when I've tried to give subsequent presentations, I'm just so nervous, and I'm up there like sweating and like starting to forget what I'm gonna say. And I'm just like, a fear of, of getting up there and having to get a presentation because I feel like I'm gonna bomb it.",story,66_3,P,id,-2
+"Alright, so was there a time for like, recently when you had to give presentations?",symp/reasoning,66_4,T,irq,
+"Yeah, I mean, like, before and earlier in my life, I'm towards the end of my degree. So you know, throughout program I have.",routine,66_5,P,id,
+How would you consider those?,routine,66_6,T,irq,
+"pretty well, I mean, I consider myself a pretty good student. So normally I do pretty well, it seemed to, you know, come out of nowhere.",routine,66_7,P,id,1
+"So this presentation you gave with that received a poor score, maybe it was just an isolated incident.",routine,66_8,T,crq,
+"Yeah, like I was saying I wasn't feeling very well.",routine,66_9,P,cd,-1
+"But that experience has still led to a lot of things anxiety with subsequent presentations,",routine,66_10,T,yq,
+"oh, yeah. Like, I'm worried about my grades suffering as a result. And you know how long well I'm going to do.",routine,66_11,P,op,-1
+"All right. So, would it be okay if we kind of step through the whole process of giving a presentation",routine,66_12,T,yq,
+Sure. All right.,routine,66_13,P,op,
+"Just before I start with that, is this something that leads to anxiety? Like right now or other times are really just in that moment when you're presenting?",routine,66_14,T,irq,
+"Mostly. It's most intense in that moment. And like maybe like leading up to it, like in preparation that I know that this is going to happen. Like, I always know when I'm going to present like, it'll be like the teacher will say, Oh, well, you know, your this Thursday, someone else's next Thursday. So the closer it gets to that event, the more anxious I am, like in anticipation.",story,66_15,P,id,-2
+"Okay, so you start feeling anxiety. A few days before presentation?",routine,66_16,T,crq,
+"Yeah, I would say a few days mostly. ",routine,66_17,P,cd,
+When does it start to get really distressing for you?,routine,66_18,T,irq,
+"like two days before or one day before that? I'm like, Oh, my gosh, like, Am I ready? Like what if I mess up? You know what if Get a bad grade all these like what ifs.",routine,66_19,P,id,-2
+"Okay, so would you be okay if we step into this process and kind of break down the steps of the presentation? Alright, so let's so what's one of the classes you're taking now?",routine,66_20,T,irq,
+"early childhood,",routine,66_21,P,id,
+"So let's say you have a presentation in that class a few days from now. I just have just a normal presentation. Yeah. All right. So, Let's now move to two days out, where you would start to feel a little anxiety about it. Yeah. What's going through your mind at that two day out point?",story,66_22,T,irq,
+"Um, I would say like, Am I prepared enough? Like, did I do enough?",routine,66_23,P,id,
+"All right. So your thought is, did I do enough preparation?",routine,66_24,T,yq,
+"Yeah. Which leads to maybe I did is what I'm really thinking like, I'm not prepared enough as I should be.",routine,66_25,P,op,-2
+"So that's that's the thought you're having 40 hours before the presentation. I'm not prepared enough. And kind of thinking about that thought. And what happens afterward? Do you have a reaction like any type of emotional, affective, affective reaction to that?",story,66_26,T,irq,
+"So at that point, I'm usually like, more like anxious, maybe like irritable a little bit. Mostly.",symp/reasoning,66_27,P,id,-2
+And that goes substantially unchanged that feeling for how long?,symp/reasoning,66_28,T,irq,
+"I'm like The day before it like kind of gets more intense when I'm like nitpicking like, well, I forgot this or I didn't forget this and, you know, remembering what happened last time when I didn't do so well and worrying about my grade, like more thoughts pop in my head of things that I forgot or what if sort of things.",story,66_29,P,id,
+"Right, so the same type of thought just more intense, more intense and the feeling is also more intense.",routine,66_30,T,crq,
+Yes.,routine,66_31,P,cd,
+summary,"The patient is in school for teaching and they have to give presentations on different things. Once they gave a really bad presentation and ever since they have been nervous for subsequent presentations thinking they are going to bomb it. The patient has given presentations comfortably earlier in life and this is just an isolated incident as confirmed by the therapist. They fear if their grades are going to suffer. The patient says it is most intense in the moment that leads up to presentation, in anticipation. The patient starts to feel anxious a few days before and the most distressing moment is two or one day before. The patient feels their fear just before the days leading up to the presentation day, say 40 hours before is if they had prepared enough or they forgot something. Then they feel a little bit anxious and irritable. Towards the end, they nitpick, worry about grade and ask what if sort of things. ",,,,
+primary_topic,anxiety,,,,
+secondary_topic,classroom-presentation,,,,

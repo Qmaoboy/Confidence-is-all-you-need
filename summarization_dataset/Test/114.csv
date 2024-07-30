@@ -1,0 +1,21 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+Did you know you were telling me a few minutes ago about some stuff that's been going on for you recently? That seems to have been quite upsetting for you. I'm wondering if you can give me a bit more information.,inactive,114_0,T,irq,
+"Yeah, look, it hasn't been a good week for me this week and I'm telling you about the problems my boyfriend and we broke up and I'm not coping with i. I'm hurt. Just you don't understand why this is happening one more time. Just one more time. And it's just pushed me over the edge. And it just happens to me all the time.",symp/reasoning,114_1,P,id,-1
+Do you think it'll get any better?,routine,114_2,T,orq,
+"it won't get better and you don't understand. It happens to me all the time. Meaning given to me now, serving in the wrong with me. I feel like there's something really wrong with me. People don't just reject me all the time. I don't know why. ",story,114_3,P,id,
+"So I mean, I can say that you're really upset about this stuff. That's your boyfriend journey. just keeps you just like always happy.",routine,114_4,T,id,
+"Now he doesn't want to talk to me and I feel like if I was, if I was a better person, then this wouldn't happen. I just feel like, isn't because of me. Nobody understands and I just can't do this. I can't do this again.",story,114_5,P,id,
+"I mean, I Has there been other stuff that's been going on for you during the week?",routine,114_6,T,irq,
+He does break up with me just the other day. I cant' sleep and I can't eat And he just keeps going and he just won't answer the phone and why you need me and you just don't,symp/reasoning,114_7,P,id,-1
+"want to know I know that when you break up with someone, it's really upsetting. Over time, this sort of stuff should get better, I think.",routine,114_8,T,id,
+how long?,routine,114_9,P,crq,
+"Well, it just takes a bit of time.",routine,114_10,T,cd,
+I can't make it through the time he may help me get through the time it gets. This time. It just feels like it's never gonna end. When is that?,routine,114_11,P,irq,
+"It certainly sounds really tough. I think it's important that we talk about other stuff also, though, that went on during the week other than the breakup.",routine,114_12,T,id,
+"Just Yeah,",routine,114_13,P,ack,
+I can see that's really upsetting.,routine,114_14,T,id,
+Because He rejected me because I'm not good enough. Maybe there's something inside me that's been broken or something. And I won't even talk to me now. I need someone that say that it's gonna be okay. And it's okay.,symp/reasoning,114_15,P,id,-1
+Sure it will be fine in the long term. Even though it's tough right now.,routine,114_16,T,ack,
+summary,The patient has not been coping well since they have just broken up with their boyfriend. The patient feels there is something wrong with them hence they get rejected. They are not able to sleep or eat. The therapist assures it is gonna be fine in the long term as the patient heeds for assurance.,,,,
+primary_topic,breakup,,,,
+secondary_topic,boyfriend,,,,

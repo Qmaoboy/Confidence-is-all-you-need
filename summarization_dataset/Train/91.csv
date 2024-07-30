@@ -1,0 +1,70 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Jason, I don't want to be here",inactive,91_0,T,gc,-3
+Im here,inactive,91_1,P,gc,0
+you're good?,inactive,91_2,T,yq,0
+"So I've been made to come in and talk to you. because something happened on the bus. And there I may have said something to somebody and they're just like, oh, you can't say that. So they actually said, we're going to take you to jail. from jail. They just called me here.",symp/reasoning,91_3,P,id,0
+Do you know what you're charged with?,symp/reasoning,91_4,T,yq,0
+They didn't explain anything. The government never explains anything. They just don't want me to understand what's going on because they just want to keep me out of captivity.,story,91_5,P,on,-1
+The government. Do you have anyone specific?,story,91_6,T,irq,0
+"nope, it's the entire government, entire government, higher government.",story,91_7,P,id,0
+How long have they been wanting to do this to you?,story,91_8,T,irq,0
+all my life. I've done this all my life. They they're always listening. They're always around. They're always there.,story,91_9,P,id,-2
+always there?,story,91_10,T,crq,0
+"always there. Like, for example, they're in the lights right now. They're listening to everything that we're talking about. So that's the reason why I really can't talk about what happened on the bus because they're just going to use that against and then it's locked me up again. I think we take more minutes.",story,91_11,P,cd,0
+Even taking medications.,symp/reasoning,91_12,T,crq,0
+"Yes, I take the medication, because if I don't take the medication, government comes and takes me away and puts me into a hospital where they force me the medication. And then the lights are always on and they can always hear everything that I'm saying and what I'm thinking and what I'm going to do.",story,91_13,P,id,0
+Do you know what they want to do with that information?,story,91_14,T,irq,0
+"wanting us to take over the world, to take over the world, people in the world, of course, they want to use everything and use everything that everybody knows to use it against them so that they can actually have the world they want in that baby and make everybody pretend that they don't know what's going on. So therefore, they're using everybody's thoughts against themselves, so that the government can use it to their benefit.",story,91_15,P,id,0
+"So what can you do in a situation? Well, you said the government's monitoring everything and they want to put you in jail. If you don't take your medication, do have any options. Are you stuck?",story,91_16,T,irq,0
+"No. So when I'm home, I think I'm perfectly fine because I set up my house in my room to actually make it government proof so that nobody can actually hear see what's going on in there. So when I'm home, I'm perfectly fine.",story,91_17,P,on,0
+"So one option is that being home, being home, you're safe",story,91_18,T,crq,0
+being home and being home I've saved my mom saved my brother's save everybody safe. And being out in the world in the world. That's a nobody safe.,story,91_19,P,cd,0
+Are you safe here?,story,91_20,T,yq,0
+"No, I told you they are employed, and they can hear everything that we're saying right now. So no, we're not safe here.",story,91_21,P,on,-2
+"It's just not safe here. It's not safe out in the world. At home, you're safe",story,91_22,T,cd,0
+"at home and safe in my room, that I mean government.",story,91_23,P,cd,0
+"So if you could have your way you would, you would stay home most of the time all the time?",story,91_24,T,irq,0
+"I would stay home all the time, but I can't stay home because I mean to go and see doctors and talk to people and do the things that the government needs me or wants me to do. But I don't want to do those things because she's in my thoughts and they're trying to use everybody and get sleep. I can't deal with that.",story,91_25,P,id,-2
+"So how how do you know that they're in the lights? Like, how did you discover that?",story,91_26,T,irq,0
+Everybody knows that they're in the light. It's common knowledge. It's common knowledge. Everybody knows that.,story,91_27,P,id,0
+Do you ever hear things that other people can't hear or see things that people can't see?,symp/reasoning,91_28,T,yq,0
+"No, of course, everybody hears the lights talking to you. I don't know what you're talking about. Like everybody hears it. Sometimes it's a whisper. For some people. Sometimes it's a yell. And if you want to not pay attention to what the lights are saying to you, then I don't know what's wrong with you, but everybody can hear it.",story,91_29,P,id,0
+What's the sound like to you?,story,91_30,T,irq,0
+It sounds like a robot talking. It sounds like we need to know this information we need to what do you do.,story,91_31,P,id,-2
+I'm just making some notes. Speaking some weird progress notes Does that worry you?,routine,91_32,T,id,0
+Yes. where your notes gonna go?,routine,91_33,P,op,0
+"Well, this chart will get locked in the chart room down the hall",routine,91_34,T,id,0
+who has access to the chart room.,routine,91_35,P,irq,0
+Mostly everybody works here.,routine,91_36,T,id,0
+Can I get a copy of your notes after you're done?,routine,91_37,P,yq,0
+Does it worry that there's notes?,routine,91_38,T,yq,0
+"Yes, because I might trust you. And I don't know if I do yet. But I don't trust the other people who work here because I don't know if they're working for the government, which they probably are working for the government. So they can actually have access to all of my notes and the things that you're writing down, which I don't know what they are, because you're not going to give me a copy of it yet. And I just don't trust that they can actually get that information and because they're going to use it to their advantage and they're going to give it to the government, which I can't have that. So could you please not take notes?",story,91_39,P,op,0
+"I could not take notes, what kind of information and notes are you worried that the government's gonna get?",story,91_40,T,id,0
+"Well, because I made my room at home government proof, I think they're going to try to steal that technology when I actually create it so that they can then disrupt my room and then everybody else's rooms who are just like mine so that they can then use their mind control to then control me to do the things that they want me to do.",story,91_41,P,id,0
+"So without the protection that your house offers, they could control your mind.",story,91_42,T,crq,0
+"Correct. Without my room, and without the technology and the systems and the things that I created, then the government will be able to control everything that I do.",story,91_43,P,cd,0
+"All right. So can you tell me about your mood through all this, this sounds really stressful you're describing environment where the government's frequently Looking at what you're doing for the feelings are you feel sad or angry?",symp/reasoning,91_44,T,irq,0
+I feel fine,symp/reasoning,91_45,P,id,0
+You feel fine.,routine,91_46,T,crq,0
+"I don't really have any problem Yeah, I just I feel fine. I don't feel happy. I don't feel sad. I just, I'm just here",routine,91_47,P,cd,0
+kind of resigned the government's gonna do this,story,91_48,T,id,0
+"well, the government's gonna do what they're gonna do anyway. So it doesn't matter if I'm happy sad, pissed off angry. any of that the government's going to make me do what they want me to do anyway. So it doesn't matter how I feel.",story,91_49,P,id,0
+Are you worried that something is going to happen a similar will happen on the bus?,routine,91_50,T,yq,0
+"No, because I've learned my lesson to not say those things out loud into to talk about what the government's doing because I can't actually inform anybody else because nobody's listening to me because They're already controlled by the government because they don't have a room like I do at home.",story,91_51,P,on,0
+"To avoid that in the future, because it didn't really, it didn't really work. You weren't able to, to help them understand what's going on.",story,91_52,T,id,0
+"While people don't understand what's going on, then that's their fault. that's their problem. They should have listened to me. And I could actually gave them the technology that they needed to actually create the room so that the government can't hear them.",story,91_53,P,id,0
+But they weren't open to that idea. ,story,91_54,T,crq,0
+No. Quite the opposite. It is completely opposite.,story,91_55,P,id,0
+How are your family relationships?,symp/reasoning,91_56,T,irq,0
+"Okay. Yeah, we live with my mom. She does that she's supposed to she doesn't go in my room because she knows that. She goes into the robots gonna mess up the technology so she stays out.",symp/reasoning,91_57,P,id,-1
+So you get along through okay. Anybody else you have contact with? friends family?,routine,91_58,T,irq,0
+"I talk to people all the time, but they are in my head. We have conversations all the time about how we can actually make the world a better place and then how we can actually go through and then destroy the government or do good. Just pump it up.",story,91_59,P,id,-1
+"Jason Well, I'm sorry to hear that you're under stress. I'm glad to hear your feel like it's okay. You're not down or anxious or anything. This answer these questions for me this has been helpful. And I'm going to recommend you continue to see a counselor here if that's okay. I realize your court ordered didn't come through.",story,91_60,T,id,0
+that would be good,inactive,91_61,P,id,1
+"Well, then I'll put on the schedule. We'll set a time up front, where I'll see you. Let's say in three days. That works?",routine,91_62,T,id,0
+Three days works.,routine,91_63,P,id,0
+"Then we'll go from there. Okay. Thanks, Jason. ",inactive,91_64,T,gt,0
+Thank you.,inactive,91_65,P,gt,0
+summary,"The patient is paranoid about someone sending them to jail. They feel the entire government is against them and always listening and monitoring the patient. The patient feels they have secluded their home and feel safe there. The patient feels they hear voices from the lights like a robot is talking. The patient denies therapist to take notes fearing government might steal them. The patient feels fine despite them describing a stressful environment of government monitoring. They feel government is going to do what they are going to do anyways, so the patient doesn't feel different. The patient lives with thier mom. The patient says their friends are in their head with whom they plan how to make the world a better place. The therapist assures to setup the patient with a counselor in three days. ",,,,
+primary_topic,paranoia,,,,
+secondary_topic,schizophrenia,,,,

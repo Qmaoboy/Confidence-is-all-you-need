@@ -1,0 +1,160 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Hi, Laura, thanks for coming in. ",inactive,139_0,T,gt,0
+Hi,inactive,139_1,P,gt,0
+"So I'm not sure how much you know already about sort of what you're doing here, if it's okay, I'll give you a little rundown. ",inactive,139_2,T,gc,0
+Yeah,inactive,139_3,P,gc,0
+"So basically, we're here I'm just going to talk to you for a little bit about sort of what your goals are for your life, get to know you a little bit better and talk about some different behaviors that you might be engaging in. It's not my job at all, to judge you or to try and change you, you know, basically, I'm going to talk to you about how things are going, any changes you might want to make in your life, how I could help you with that, and just what I can do that's going to be most beneficial for you. Okay. All right. So I guess just to get started, can you tell me a little bit about yourself? ",inactive,139_4,T,gc,0
+"Well, my name is Laura. I'm 17 years old and I'm a senior in high school. Okay. ",inactive,139_5,P,id,0
+And What kinds of things do you plan for your life?,inactive,139_6,T,irq,0
+"Well, hopefully go to college, get, you know, good enough grades to go to college.",inactive,139_7,P,id,0
+That's great. Do you have a plan as to where you might want to go? Or?,inactive,139_8,T,ack,0
+I'm not sure yet. Maybe a few schools in the area I'm looking maybe to apply out of state.,inactive,139_9,P,id,0
+"Oh,  Cool. ",inactive,139_10,T,ack,1
+I might go  for college.,inactive,139_11,P,gc,0
+So kind of keeping your options open.,inactive,139_12,T,crq,0
+"Yeah, definitely.",inactive,139_13,P,cd,0
+Great. And do you have an idea about what you might want to study? or?,inactive,139_14,T,ack,0
+"Yeah, maybe I'm pre law.",inactive,139_15,P,id,0
+"Oh, wow. Okay, that's exciting. ",inactive,139_16,T,ack,2
+Yeah.,inactive,139_17,P,gc,0
+"All right, cool. What do you like to do for fun?",inactive,139_18,T,ack,0
+"Well, I'm on the weekends, I like to hang out with my friends. Maybe you go to like a party or go to the mall to shop. Or if there's like a school related event, we'll go to like a football game or something like that. ",inactive,139_19,P,id,0
+Ahmmm,inactive,139_20,T,gc,0
+Yeah.,inactive,139_21,P,gc,0
+Like to have a good time ?,inactive,139_22,T,crq,0
+Yeah.,inactive,139_23,P,gc,0
+And you have a lot of friends or a few close people or?,inactive,139_24,T,irq,0
+" I would say like a moderate amount. I'm not really, really popular or like I have no friends. I'm like normal.",inactive,139_25,P,id,0
+That's a good way to be Right.,inactive,139_26,T,gc,0
+Yeah.,inactive,139_27,P,gc,0
+"All right. So it sounds like in general, your things are going pretty well for you. How are your grades right now? ",inactive,139_28,T,gc,0
+"They're pretty good A's and B's, so I'm doing okay.",inactive,139_29,P,id,1
+"Okay, great. Well, one thing I want to ask about is, you know, different people have sort of different values or things that are important to them. They might, you know, be really close with family or really have, you know, their friends as being something particularly important. So I'm going to show you just a few things on this sheet and if you can look them are so there's things like belonging, community, cultural identity, family, friendship, modesty, religion, respect, self determination, and spirituality. Which of those do you think is sort of important to you?",routine,139_30,T,gc,0
+"Um, family, definitely. friendship and belonging.",symp/reasoning,139_31,P,id,0
+Okay. What's important to you about your family?,routine,139_32,T,ack,0
+"Well, I, I love them so I want them to think well And I want them to be accepting and love me.",symp/reasoning,139_33,P,id,1
+Okay. You have brothers or sister ?,story,139_34,T,ack,0
+"Yeah, I have one sister.",story,139_35,P,op,0
+"Okay, great. And how about friendship ?",story,139_36,T,gc,0
+friendship. I've grown close to many people that I care about. So I would like them to be accepting of me as well.,story,139_37,P,id,0
+"Great. So being a good friend and having people who are good friends, too, is important. And then what about belonging? You mentioned that one too.",story,139_38,T,gc,0
+Yeah. Just a sense of like fitting in and like getting accepted.,inactive,139_39,P,cd,0
+Yeah. Not wanting to be part of a group.,inactive,139_40,T,crq,0
+"Yeah, kind of. ",inactive,139_41,P,cd,0
+"Okay, great. All right. Well, one of the things I want to talk about is, you know, you mentioned that you like to go out with friends and party and that sort of thing. And I'm curious when you're at the parties, do you ever have any alcohol?",symp/reasoning,139_42,T,gc,0
+"Umm not much, maybe like one or two drinks at the most. ",inactive,139_43,P,op,0
+"Okay, can you tell me a little bit about how alcohol fits into your overall social scene?",symp/reasoning,139_44,T,irq,0
+"I pretty much just have a drink to just have it like so it looks like I'm drinking Even though I'm not so maybe people bug me about drinking or something,",symp/reasoning,139_45,P,id,0
+"okay, you're kind of getting pressure from other people who are drinking and it feels easier for you to hold a drink ",symp/reasoning,139_46,T,ack,0
+have one there and pretend you have it.,inactive,139_47,P,cd,0
+Okay. And do you think that this is most weekends? Or occasionally How often do you think that you are take alchohal,symp/reasoning,139_48,T,ack,0
+one or two weekends a month. The most. No really much,inactive,139_49,P,id,0
+"So one or two weekends a month, You're in a situation where there is alcohol? ",symp/reasoning,139_50,T,crq,0
+Yeah.,inactive,139_51,P,cd,0
+Okay. And what sort of situations are you in?,routine,139_52,T,ack,0
+"Well, just I guess, at a party or something, someone's house. Or even if it's not a party, like a small social gathering, maybe there'll be like a few beers around.",story,139_53,P,id,0
+So mainly just kind of hanging out with friends.,story,139_54,T,crq,0
+Pretty much Yeah.,inactive,139_55,P,cd,0
+Are you ever places where there are parents around or mostly just just with the kids ?,routine,139_56,T,irq,0
+"mostly just with us, but sometimes I'll go to like a close friend's house and like I'm close to your family as well. So Well just hang out. ",story,139_57,P,id,0
+And what about driving?,symp/reasoning,139_58,T,irq,0
+Like drunk driving?,inactive,139_59,P,crq,0
+Yeah. Do you ever go anywhere in a car after you've had alcohol?,symp/reasoning,139_60,T,cd,0
+" Definitely, No, I've never drunk driven. And I've never been in a car with a drunk driver.",story,139_61,P,id,0
+So that's something that you sort of made a decision about.,routine,139_62,T,crq,0
+Because I know that's extremely dangerous.,story,139_63,P,cd,0
+"Okay, what do you know about how that's dangerous? ",routine,139_64,T,ack,0
+"Well, alcohol definitely impairs your judgment. So, I mean, driving under the influence of alcohol can lead to like, crashes and accidents and things like that. So I rather not be in that situation. ",story,139_65,P,id,0
+So you're really trying to be safe and make sure that you're not putting yourself into situations.,routine,139_66,T,crq,0
+Yeah,inactive,139_67,P,cd,0
+"That's great. You know, it's it's tough to do sometimes. And I really commend you for being able to stick with that. ",routine,139_68,T,ack,0
+Yeah.,inactive,139_69,P,gc,0
+"So you mentioned you pretty much will like hold a drink or maybe have a drink or two, what do you think's the most alcohol you've ever had in one day?",symp/reasoning,139_70,T,gc,0
+No more than two drinks.,symp/reasoning,139_71,P,id,0
+Okay. So the absolute most,inactive,139_72,T,crq,0
+"Yeah, those two.",inactive,139_73,P,cd,0
+"Okay, and what kinds of things do you like about alcohol?",routine,139_74,T,irq,0
+"Um, I've never really been drunk. So I can't really say that I like that feeling or not. But it's just I mean, you're just in a good mood. ",symp/reasoning,139_75,P,id,0
+Mm hmm.  So it just kind of makes you feel relaxed.,symp/reasoning,139_76,T,crq,0
+Yeah relax,inactive,139_77,P,cd,0
+Okay. Anything else?,inactive,139_78,T,gc,0
+" Um, no, not really. Like I said, I don't drink that much. So I wouldn't be able to tell you. ",symp/reasoning,139_79,P,gc,0
+"Okay. And I mean, not so good things about alcohol? ",inactive,139_80,T,irq,0
+"Um, definitely. Yeah. I mean, when I'm at parties and stuff, and it's getting a little later, some people that drink like drank too much, they start throwing up or they get hurt, or they're really loud and obnoxious. And that's not fun for anybody.",symp/reasoning,139_81,P,id,0
+"So you've seen a lot of other kids Yeah, had some consequences and decided that's not for you.",routine,139_82,T,crq,0
+"Yeah, ",inactive,139_83,P,cd,0
+I got it. I can understand that. Any other things that you can think of?,routine,139_84,T,gc,0
+" No, I mean, I've never, you know, been friends with anybody. It's gotten to like a serious accident. And so it's just very like obnoxious thing.",symp/reasoning,139_85,P,id,0
+"Okay, well, so, you know, as someone who's not 21 yet, it is underage drinking is something that's not legal, and it is something that is considered pretty risky. So I'm wondering what you think about that, just in terms of how it fits into your life?",symp/reasoning,139_86,T,gc,0
+"Um, I know, it's definitely risky. I mean, I guess we still do it.",symp/reasoning,139_87,P,id,0
+So it's kind of something that it's just there.,inactive,139_88,T,crq,0
+Yeah It's just there.,inactive,139_89,P,cd,0
+"Okay. And I'm curious, you mentioned you know, your friends are important to you and your family's important in sort of fitting in is important to you, and how does alcohol play a role with that? ",routine,139_90,T,gc,0
+"Um, well, definitely not in my family life because my parents don't really condone, okay, alcohol use. But friendships, I mean, when I'm hanging out with my friends, or we're at a party or something, there's usually alcohol involved. ",symp/reasoning,139_91,P,gc,0
+"Okay.  So from your family perspective, that Drinking is not something that fits very well. ",routine,139_92,T,gc,0
+Yeah.,inactive,139_93,P,cd,0
+"And with friends, you feel like it's easier to to hang out with alcohol. Or maybe you wouldn't have as much fun or your friends wouldn't like you as much.",routine,139_94,T,gc,0
+I guess it means this is just there.,inactive,139_95,P,gc,0
+Okay,inactive,139_96,T,gc,0
+so it ties in with the whole belonging.,inactive,139_97,P,gc,0
+"Well, when you think about your drinking and sort of looking forward five years or 10 years, how do you think that drinking might fit in with your life?",routine,139_98,T,irq,0
+"It probably will have a very small role, if any, in my life considering I have big plans for my future. ",story,139_99,P,id,0
+Okay. Can you expand on that a little bit more? What do you mean?,inactive,139_100,T,crq,0
+"I mean, I don't think I would be, you know, drinking as much or going to parties as much if I'm studying for school or in college or trying to get off school, things like that.",symp/reasoning,139_101,P,cd,0
+"Okay, so the alcohol, something that might make it harder to reach your goals?",symp/reasoning,139_102,T,crq,0
+" Yeah, definitely.",inactive,139_103,P,cd,0
+"So when you're sort of looking ahead, how often do you think you might be drinking, say when you get to college ?",routine,139_104,T,irq,0
+"maybe less than I am now. I mean, I don't drink much anyway. So maybe like one drink every once in a blue moon.",symp/reasoning,139_105,P,id,0
+" Okay, so you sort of have a plan to cut back on your drinking eventually.",routine,139_106,T,crq,0
+Yeah definately,inactive,139_107,P,cd,0
+how might that go?,inactive,139_108,T,irq,0
+"Well, I mean, I guess right now I would try to stop in high school. And once I get older, maybe just like, socially once in a while, but not anything bigger.",symp/reasoning,139_109,P,id,0
+"Yeah. So you don't feel the need to make any major changes, but you feel like you could make some adjustments?",routine,139_110,T,ack,0
+"Yeah, definately that's a good thing.",inactive,139_111,P,id,0
+"Okay. How important is it to you to make some adjustments to your drinking on a scale of 1 to 10 where one is not at all important, not something you're thinking about. And 10 is the most important thing, ",routine,139_112,T,irq,0
+maybe five or six.,symp/reasoning,139_113,P,id,0
+And why did you say five or six rather than like two or three?,routine,139_114,T,irq,0
+Because it's not something I do not care about it all but it's not something that's just constantly on my mind that I want to change about myself.,symp/reasoning,139_115,P,id,0
+Okay. So It is something you have thought about.,inactive,139_116,T,ack,0
+Yeah.,inactive,139_117,P,cd,0
+And how confident are you that you could make a change if you decide you wanted to on that same scale?,routine,139_118,T,irq,0
+"I'm pretty confident that I can, considering that I'm not really an alcohol user, per se. I'm not really into that whole scene, so it's gonna be difficult for me.",routine,139_119,P,id,1
+So what number do you think you'd say?,routine,139_120,T,irq,0
+"On a scale of one to 10, If I can quit alchohol?",routine,139_121,P,crq,0
+Yeah,inactive,139_122,T,cd,0
+maybe like an eight or nine.,routine,139_123,P,id,0
+"Okay. All right. Well, kind of keeping that in mind. It sounds like you do have sort of a vague plan to make some adjustments and you're drinking at some point.",routine,139_124,T,crq,0
+Yes.,inactive,139_125,P,cd,0
+" And it's moderately important to you. It's something you would like to do because you have these big goals for yourself. And you actually feel very confident that you could be successful. With it, what sort of gold Do you think might be good to set for today?",routine,139_126,T,ack,0
+"Um, probably to stop. Maybe next Friday I go to I have a drink at all. ",routine,139_127,P,gc,-1
+Okay. Do you feel pretty confident that you could just stop completely?,routine,139_128,T,yq,0
+"Yeah, I mean, I can just tell my friends, my parent, my friends aren't really that pressuring. It's just like outside people that don't really know that well. So I could just tell them, Hey, I don't feel like having a drink today.",routine,139_129,P,op,0
+But what might be some benefits of following through with that goal?,routine,139_130,T,orq,0
+"Definitely, I'll have like, all my senses there and I'll be aware of everything that's going on.",routine,139_131,P,od,0
+Uh huh. Anything else?,inactive,139_132,T,orq,0
+" Um, health concerns? I guess I know, alcohol is bad for your health. So that would be one.",routine,139_133,P,od,0
+"Okay. So it's, it sounds like you're actually pretty comfortable with setting a goal of not drinking anymore, at least at the next party and seeing how it goes.",routine,139_134,T,gc,0
+Yeah.,inactive,139_135,P,gc,0
+Okay. Do you think it would be alright if we met again to kind of check in on how it goes and see if working out for you.,routine,139_136,T,orq,0
+"Yeah, that would be okay.",inactive,139_137,P,od,0
+"All right, great. And then it sounds like some of the benefits you're expecting are health benefits and having an easier time with achieving your academic and career goals and just sort of not having to deal with some of the consequences that your peers do.",routine,139_138,T,ack,0
+Right.,inactive,139_139,P,gc,0
+"Okay. Well, very good. Is there anything else that you think would be important for me to know? ",inactive,139_140,T,irq,0
+How would you advise me to like get maybe my friends to stop drinking?,symp/reasoning,139_141,P,id,0
+"Oh, that's a great question. So a lot of times, kids who are trying to cut back it's harder if their friends are still drinking. And one of the easiest things is trying to have more activities that don't involve alcohol. But of course, that's harder if you're not doing planning. So some of the things that can be useful if you're at a party say, and there's already alcohol there, and there are other kids that maybe aren't your closest friends. Some of the things that I would recommend, since you're interested Are you know, carrying around Different drink that looks like it has alcohol in it. So, you know, even carrying an empty beer bottle or beer can or, you know, if people are having a mixed drink, just having the coke, say without any alcohol mixed into it. Often having anything in your hand is a good barrier for people who are trying to offer you alcohol because you already have something. It kind of prevents them from trying to stuff something else in there. Do you think any of those things might work for you? ",routine,139_142,T,gc,0
+"Yeah, for sure.",inactive,139_143,P,gc,0
+Okay. What about in terms of talking to your friends about it? Have you thought about how you might approach with them? Or is that something else you'd like some tips about about telling them about your plan to stop drinking?,routine,139_144,T,irq,0
+"I was just planning on playing them that I don't really want to drink anymore. That was me. Know, ",inactive,139_145,P,id,0
+your friends would be pretty comfortable with that.,inactive,139_146,T,crq,0
+"Yeah, I mean, that was my closest friends for sure. ",inactive,139_147,P,cd,0
+"Okay, great. Any other concerns or questions? Anything else? I go?",inactive,139_148,T,ack,0
+" No, I think okay. ",inactive,139_149,P,gc,0
+"Okay. So then, like I said, I'll try and see if we can meet up maybe in a few weeks and see how it's going. And then if things are going great then fantastic and if you run into any stumbling blocks and we can maybe problem solve together. ",inactive,139_150,T,gc,0
+Okay.,inactive,139_151,P,gc,0
+Is that  Okay ?,inactive,139_152,T,gc,0
+Yeah.,inactive,139_153,P,gc,0
+All right. Thanks so much.,inactive,139_154,T,gc,0
+No problem,inactive,139_155,P,gc,0
+summary,"The conversation started with an introduction of the therapist and patient. The therapist asks about the patient's school, college, hobbies, and all. The patient used to drink sometimes and was also pressured by friends to drink alcohol. The patient is under age to drink alcohol, but the patient used to do it for friends. The patient has big plans in life but alcohol making it hard to reach the goals. Patient wants to cut down on alcohol when he goes to college. Patient is confident about quitting alcohol. Patient was concerned about his friends as well. Therapist gave some tips to stop their friends from drinking.",,,,
+primary_topic,Addiction,,,,
+secondary_topic,Underage drinking,,,,

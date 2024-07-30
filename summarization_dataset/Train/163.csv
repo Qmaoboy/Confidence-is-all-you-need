@@ -1,0 +1,119 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Hey Michelle, how are you doing today?",inactive,163_0,T,gt,0
+"Umm I am kind of doing, I'm feeling a little bit stressed out",symp/reasoning,163_1,P,gt,-1
+stressed?,routine,163_2,T,crq,0
+"Yeah, I feel like I have a lot on my plate. I have this test that I have to take for work.",symp/reasoning,163_3,P,cd,-1
+What kind of test?,routine,163_4,T,irq,0
+It's like an aptitude test. It has like math problems on it and like scenarios in order for me to move up to the system manager position.,routine,163_5,P,id,-1
+"Now, that's a job that you've been interested in for a while.",routine,163_6,T,crq,0
+"Yes. Yes. So I've been just feeling a lot of anxiety about taking the test and then they actually scheduled for me to take the test. And I want and I just got really overwhelmed. And I started like I felt my heart was racing. I felt like I wish my hands were shaking. And I just really couldn't concentrate on the test. Even though the night before me and my friend that practice problems, and I knew all the answers with no proper like, I didn't miss any of the questions",symp/reasoning,163_7,P,cd,-1
+so you know the material on this test pretty well?,routine,163_8,T,yq,0
+yes.,routine,163_9,P,op,0
+"But the feelings and that the physiological response to heart rate and sweating, that feelings of anxiety plus those physiological responses they got in the way of you completing it, like you were unable to complete it.",symp/reasoning,163_10,T,gc,0
+"No, I wasn't able to complete it. And thankfully, they gave me a chance to come back. I just told him I didn't feel well. So they rescheduled so now I'm feeling a lot of anxiety because I'm scared the same thing is gonna happe, when I go back.",symp/reasoning,163_11,P,gc,-1
+So you weren't you weren't feeling great about taking the test in the first place?,symp/reasoning,163_12,T,irq,0
+"Today, the night before, I felt like I know all the answers, but the minute I walked into the room, all of a sudden, all these fears kind of took over. ",symp/reasoning,163_13,P,id,-1
+But did you know that was coming?,routine,163_14,T,yq,0
+"Yes, ",routine,163_15,P,op,0
+you did ?Okay.,routine,163_16,T,crq,0
+Yes.,routine,163_17,P,cd,0
+So you had some anxiety in advance?,symp/reasoning,163_18,T,crq,0
+"Yes, ",symp/reasoning,163_19,P,cd,0
+"or no, you did. Okay.",inactive,163_20,T,gc,0
+"I had some anxiety the day before. But when I reviewed it with my friend, I'm like, Oh, I know the answers. I thought that would kind of push it down. But I think once I got there, it all came back up to the surface,",symp/reasoning,163_21,P,id,-1
+"erupt in that moment, and that prevented you. What do you think is leading to this?",routine,163_22,T,gc,0
+"Well, I've always kind of struggled with tests. I'm like, I can remember when I was in third grade, I had to take this test, because I was really struggling in math. And I had to pass this test in order to move to the next grade. And I thought just like this test that I was ready for it, I had a tutor, and I felt really prepared for it. And then when I took it, I failed. And I was held back. And I feel like, you know, that was so it was, it was really embarrassing for me to be held back. And I felt like I don't want to say but I did feel like a failure at the time. Because I felt like I really didn't know this. I don't know why I couldn't pass the test.",symp/reasoning,163_23,P,od,-1
+And since that this was third grade.,inactive,163_24,T,gc,0
+Yeah.,inactive,163_25,P,ack,0
+And since that bad testing experience. Have you had trouble with tests since?,story,163_26,T,yq,0
+"Yes, I always feel really anxious. I mean, I'm able to pass tests obviously because I graduated from college. School went on to high school. But it's so hard for me because of this anxiety that I feel that even though I may think I know it, I may still fail the test anyway, maybe like a repeat of what happened.",routine,163_27,P,op,-1
+"Alright, so in third and third grade, you had a really bad testing experience. And as you move forward from there, you've never really been thrilled about taking tests ",inactive,163_28,T,crq,0
+no,inactive,163_29,P,cd,0
+"But you've been able to adapt. You've been able to take them and still, like pass them.",routine,163_30,T,yq,0
+"Yeah, I mean, sometimes I get an A. ",routine,163_31,P,op,0
+"So that's, that's good, right? ",routine,163_32,T,orq,0
+"Yeah. I mean, yeah, it is good. Yeah, it's good.",routine,163_33,P,od,0
+"But this particular test, which is not for scorches for work, yeah, this one, this is more of a stumbling block for you.",inactive,163_34,T,gc,0
+Yes.,inactive,163_35,P,ack,0
+You have any ideas as to what may what may be what may be making this test such a point of anxiety for you?,symp/reasoning,163_36,T,gc,0
+"I think it's just the fact that it's this promotion. So it's like the same thing. Like, if I fail, I'm being held back. And I feel like it's, we live in that moment of being held back. And that, that that's like a fear that I have that, um, that by not being able to pass these tests are holding me back.",symp/reasoning,163_37,P,gc,-1
+So it really that same feeling you've had in third grade. That's coming up with this test.,story,163_38,T,crq,0
+"Yeah, I mean, I didn't put them together until now. But yeah.",story,163_39,P,cd,-1
+"And the other test you take in throughout the rest of grade school in high school they didn't, they didn't have that same value attached to them.",story,163_40,T,gc,0
+"Now because they didn't have all that pressure that it was either win win or lose, basically, ",story,163_41,P,gc,-1
+"you could, you could take them again or take the course again or?",story,163_42,T,crq,0
+or I could take another test to raise the grade if I didn't do good on that.,story,163_43,P,cd,-1
+so you have you maybe had more options in school?,story,163_44,T,yq,0
+"Yes. Was it fail, you know, pass or fail?",story,163_45,P,op,-1
+"Right, So it's the, it's the pressure is the pressure of you need to get through this. And you don't have the safety nets that you had in school? ",story,163_46,T,gc,0
+"Yeah, if I fail it, then I'm not going to be able to get the promotion, I would have to wait. Just like I did not have to wait a certain amount of time. I think an ear before I could take it again.",story,163_47,P,op,-1
+So this a lot of pressure.,symp/reasoning,163_48,T,crq,0
+Yeah it is,symp/reasoning,163_49,P,cd,0
+So is there any time limit to this test for work?,routine,163_50,T,irq,0
+"Um, no, there isn't.",routine,163_51,P,id,-1
+There's no time.,inactive,163_52,T,crq,0
+No,inactive,163_53,P,cd,0
+"How many Is it like a, like a multiple choice? ",inactive,163_54,T,irq,0
+"Yes, it is. ",inactive,163_55,P,id,0
+"Okay. And you seem like, like you said, you said the night before with your friend. ",inactive,163_56,T,gc,0
+Yeah.,inactive,163_57,P,ack,0
+You're really well prepared for it.,inactive,163_58,T,gc,0
+Yes.,inactive,163_59,P,gc,0
+"So I have a few a few thoughts about this. One is I'm wondering you know, we've talked before about cognitive therapy core beliefs. So I'm curious as to what you think about what core beliefs may be operating. For you now with this with this test, this work test",inactive,163_60,T,gc,0
+"that  I could fail that if I fail I could end up being a failure at all, you know, the things that I try",inactive,163_61,P,gc,-1
+"something like, I am a failure or I'm bound to be a failure, I'm destined to be a failure. ",story,163_62,T,orq,0
+I would say like I'm destined to be.,story,163_63,P,od,0
+"Okay, so  destined to be failure. So that, so that, potentially, is a core belief. Right? That's, that's operating.",inactive,163_64,T,gc,0
+"I mean, that's what scares me. That's, that's exactly the thought that I'm thinking when I'm about to take the test. And if I don't pass that, it's just gonna have like this domino effect of failure.",story,163_65,P,gc,-1
+"Okay, so it could be a core belief, but it's also seems like you're still on that thought. Like as you get ready to take that test. You're thinking I'm just destined to be a failure. ",routine,163_66,T,gc,0
+Yeah.,inactive,163_67,P,ack,-1
+And you're having what sounds like a panic response to heart racing.,routine,163_68,T,irq,0
+"Yeah, my hands shaking. ",symp/reasoning,163_69,P,id,-1
+Are you in the room alone? You're taking the test?,symp/reasoning,163_70,T,yq,0
+"Yes, ",symp/reasoning,163_71,P,op,0
+you are. So no one's really seeing you have this. I wouldn't want to call it a panic attack yet we haven't really gotten too far into it. But it sounds like it has some panic like features.,symp/reasoning,163_72,T,gc,0
+Yeah.,symp/reasoning,163_73,P,gc,0
+"Because it's not. It's interfering with you thinking clearly enough to get to the items. So, okay. So one thought I have is you have you ever had panic attacks in the past or anything like this?, the third grade thing?",symp/reasoning,163_74,T,gc,0
+"No, not really. I mean, sometimes I get worked out when I'm about to take a test, okay, but it's only around test.",symp/reasoning,163_75,P,id,-1
+And what happens once you get worked up like once your heart rate increases and You have any other physiological symptoms would,symp/reasoning,163_76,T,irq,0
+want to actually do take the test?,routine,163_77,P,crq,0
+hmmm,routine,163_78,T,cd,0
+"Um, I kind of try to work through it and start trying to answer one question at a time to get to the last question.",routine,163_79,P,id,-1
+"So one one possible strategy here is we talked about the adaptive response. Right? So, which is that thought that you say to yourself that self talk, I wonder if your doctor response couldn't be I can ride this out like you have no time to test? ",routine,163_80,T,gc,0
+"Yeah, that's true. ",routine,163_81,P,cd,0
+"I mean, the panic responses only maintained for so long",routine,163_82,T,gc,0
+and I could also choose like maybe questions that are no the answer to automatically so that could help maybe release some of that stress,routine,163_83,P,gc,-1
+"to get some in a sense to get some minor victories under your belt by like, answering those right you know, you're closer to achieving your goal",routine,163_84,T,gc,0
+"yes and then I feel like I know, at least I know that like, Don't validate the feeling that I maybe I can pass this test.",routine,163_85,P,gc,-1
+"So the more items you you answer correctly, the less anxious you're gonna feel because you're closer to the end of.",routine,163_86,T,crq,0
+"Yeah, definitely. Because then I start to feel more calm because I know that I know these questions are definitely going to be right.",routine,163_87,P,cd,-1
+"So that's so that's one well, that's a cognitive and behavioral strategy, right? Like you can you can wait out the panic. I mean, you're in the room alone.",routine,163_88,T,gc,0
+"Yeah, that's true. Nobody's there. Nobody's gonna see me. I'm kind of trying to get myself together. ",routine,163_89,P,gc,-1
+"Yeah. Now the panic painful. Right, the you know, the panic symptoms are painful. So what you could tell yourself is, this isn't pleasant. But I can write out these symptoms because they only last so long. ",routine,163_90,T,orq,0
+"Probabiy, I could use like self talk. ",routine,163_91,P,od,-1
+"Exactly. Yeah, because usually mean peg symptoms can run you know, five minutes. 10 minutes, 15 minutes. But you have no time limit? ",routine,163_92,T,gc,0
+"Yeah,",routine,163_93,P,cd,0
+"yeah so if you can just kind of use that time to focus on the items, as you mentioned, you could get right. And kind of, at the same time be telling yourself I can ride this out.",story,163_94,T,gc,0
+"Yeah, I mean, I've done that in the past, so I can apply it to this test. ",story,163_95,P,id,0
+So if that's worked for you that ?,routine,163_96,T,crq,0
+"yes, that has worked and I passed. ",routine,163_97,P,cd,1
+"So that's, that's certainly that's certainly one adaptive response to try writing. Another one could be that, although it wouldn't be great to fail, you can retake the test in a year. Right. You could try it. ",inactive,163_98,T,gc,0
+"Yeah, that's true.",inactive,163_99,P,gc,0
+"I mean, I know that's not what you want, but, but the alternative is kind of buying into that automatic thought we know that's not working. Right. The I'm I'm Destin, that was the word right like I'm destined to be a failure. We know that's not working for you. ",inactive,163_100,T,gc,0
+"So even if I have to take the test again and in a year, then I'm not going to be a failure because I still have the chance to take it again. It's not like I'll never be able to take this test again.",inactive,163_101,P,gc,-1
+"Yeah, you just have, you just have another years of study, right? And, of course, you wouldn't have that promotion that time and that would be an outcome, I know you don't want. But it's not the end of your career, It's not like something so drastic it's important to you and I can appreciate that. But it's not the end of your career. You're not going to be unemployed.",inactive,163_102,T,gc,0
+"No, no, definitely not. And just thinking back and relating it back to the third grade, even though I had to stay back. I still managed to, you know, do well the next year and keep moving up. And it hasn't really, in the long run prevented me from doing anything that I've wanted to do.",story,163_103,P,gc,-1
+"So that's great. That's another adaptive response, which you've survived this before.",story,163_104,T,gc,0
+"Yes, I definitely have.",routine,163_105,P,gc,0
+"So this one event, I mean, I had the the incident third grade with the unpleasant experience but this one event you don't want that this kind of fashion. While use your word, your destiny by like this was one that seemed to catch you off guard but the the panic like symptoms. And fortunately your employer is going to give you the chance to retake and try this again. And, and I met you know, so you have I imagine you could you can write out these, these symptoms. And I think you have the other adaptive response, which is I've been successful this before.",routine,163_106,T,gc,0
+"Yeah. I mean, definitely I feel a lot better now because I just know that no matter what happens, I've been here before, and I can get through it as opposed to like that feeling that I'm going to just fail together.",routine,163_107,P,gc,-1
+"Oh, it's so good, when you have to take the test?",routine,163_108,T,irq,0
+on next week.,routine,163_109,P,id,0
+So let's schedule one more appointment right before that.,inactive,163_110,T,gc,0
+"Okay, right. ",inactive,163_111,P,gc,0
+"And we'll, we'll make sure that you have these adaptive responses down and you're ready to go. Okay. And really will kind of focus on the positive outcome. Right. Okay, which is just taking this test taking one item at a time and fighting through some of these physical symptoms you're having, and fighting through the useful thoughts.",symp/reasoning,163_112,T,gc,0
+"Okay. Yeah, I mean, that sounds good. That helped me prepare for the test. ",inactive,163_113,P,gc,1
+"Great. So, Michelle, I'll see you. I'll see you then and work through it. I really appreciate you coming in today.",inactive,163_114,T,gc,0
+summary,Patient is feeling a lot of anxiety when they actually scheduled for patient to take the test. Patient wasn't able to complete exam and they gave patient a chance to come back as patient didn't feel well. Patient had some anxiety in advance the day before. it is a lot of pressure and patient thinks he is bound to be a failure. Patient lives in room alone and hands shaking. Therapist doesn't call it panic attacks. ,,,,
+primary_topic,,,,,
+secondary_topic,,,,,

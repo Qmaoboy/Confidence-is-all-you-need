@@ -1,0 +1,17 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+Such as the police interview that,inactive,120_0,P,crq,
+"Yeah, it's hard ",inactive,120_1,T,cd,-1
+like to go into so much detail. Yeah.,inactive,120_2,P,id,
+"just just just come back to me just come back to the room a little bit. Can you just look up, look up, look up at me. We'll call out I still have can check it out.",routine,120_3,T,id,
+"Brown,",routine,120_4,P,gc,
+"good events trying to get you back back into the room with me. Okay, so just look around the Can you see me this painting that's up here? What do you say to me other paintings? ",story,120_5,T,irq,
+"Oh, yeah. Yeah, cool. Okay. ",inactive,120_6,P,ack,
+"I just want you to catch this for me so we can throw it back to me. Okay, this fell back to me I see that's a good good start back to me. Good Practice saving stay here and stay here in the room with me here. Yeah. And also get your character on that's it. Okay, so just just want you to just to keep in the room with me a bit and sometimes it's a bit bit stressful and overwhelming. Okay, but we're still connected. Okay, you're back there. Okay. How you feeling? completely understand why things are really, really tough at the moment. And that sort of conversations with a place in town could be very stressful for you. ",routine,120_7,T,id,
+Yeah. I get Yeah.,inactive,120_8,P,ack,
+"So maybe a feeling now, where you are? Yeah. Okay, so maybe just want to keep talking. Just remember that we're connected. Okay. And you're here with me. Yeah. Yeah. So tell me a little bit more. So your mom came to, to the to the statement?",routine,120_9,T,irq,
+"Oh, yes. So um, so mom was with me. Yeah. They came over. And they were two detectives. Yeah. And they, yeah, they just wanted to know everything and it took like hours.",symp/reasoning,120_10,P,id,
+And how are you feeling now after you've done it all?,inactive,120_11,T,irq,
+"It was really understandable. It's completely, you know, understandable that sometimes it's difficult to talk. And sometimes you can afford back to tough times. Yeah. So we just keep talking. I would keep talking like this",routine,120_12,T,id,
+summary,"Therapist started session with basic questions like room, paintings etc. Therapist asked patient to catch and throwback kind of simple stuff. Therapist made him realise his problems and patient was curing gradually. Therapist kept patient on talking continuously to understand more about the issue. patient was good enough to follow the routine even it feels tough.",,,,
+primary_topic,Depression,,,,
+secondary_topic,Stress,,,,

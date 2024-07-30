@@ -1,0 +1,58 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Hi Kylie, How are you doing today?",inactive,151_0,T,gt,0
+I'm doing all right. not doing too bad.  How are you doing Dr. Grande ?,inactive,151_1,P,gt,0
+Not bad. Thanks for asking. What brings you in?,inactive,151_2,T,gt,0
+"Um, so my girlfriend saw your ad in the paper. And she saw like out of some of the things that you work on one of them is smoking cessation and it bothers her that I smoke. Um, so she has been nagging me for like weeks to come in and talk to you. So I figured I would just kind of come in just so she would stop bugging me about it.",story,151_3,P,id,0
+So you came into therapy today? Because your girlfriend pressured you?,story,151_4,T,crq,0
+"Yeah, I mean, it's just it's easier for me like if I come in here and talk to you like That's it. I can spend like 45 minutes with you compared to ours or her nagging me through the week so",story,151_5,P,cd,0
+so you weighed the cost benefit and decided to come in ?,story,151_6,T,crq,0
+"Yeah, I mean, it's covered by insurance. It's just 45 minutes of my time, but",story,151_7,P,cd,0
+"and what she would like you to do, and this is her goal, not yours would be to stop smoking. Yeah. Tell me what your goal is?",symp/reasoning,151_8,T,gc,0
+"I don't really have one. Like, I don't think smoking is that bad. Well, I mean, smoking can be bad, but like it doesn't it's never bothered me like I I don't know. It's like, I really don't have any goals to come in besides just having herself on you may.",symp/reasoning,151_9,P,id,-1
+So do you have a goal of quitting smoking?,symp/reasoning,151_10,T,yq,0
+"No, not at all. Now there's I don't know. There's like so many good things about smoking. I get one what really got me into it was I smoke a lot at work because it gives me like one on one time with the boss. So like the fact that I can get that time with my boss is make worth it. ",symp/reasoning,151_11,P,on,-1
+Can you tell us some of the not so good things about smoking?,symp/reasoning,151_12,T,irq,0
+"Um, I it's just a, it's how I meet people. So like, if I like, I'll have cigarettes on me, but like, I don't have a lighter and that kind of like keeps me from finishing off the pack. Because I can finish off a pack a day. But if I don't have a lighter than, like, I carry the cigarettes around with me. And then if I see other people are smoking, I can go and ask for a lighter and that's always kind of went away and to get to these groups and I've just met so many different people from from smoking like",symp/reasoning,151_13,P,id,-1
+"So smoking, the way you're presenting it, there's been a positive thing in your life ?",symp/reasoning,151_14,T,yq,0
+"Yeah, I mean, like I only do it socially. So that's Yeah.",symp/reasoning,151_15,P,op,0
+Are there any negative aspects to smoking?,symp/reasoning,151_16,T,irq,0
+"I mean, yeah, I mean, everyone, everyone knows smoking is unhealthy. But like I don't, I don't smoke a lot. Like I only only smoke from time to time and it's mostly just on the weekends. So it's like, I don't know, occasionally I go by smoker for the weekends, I might have like a cough. Maybe I get like a heavy cough on Mondays Tuesdays, part of me is gone by Wednesday. So it's not really that big of a deal.",symp/reasoning,151_17,P,id,-1
+So you don't seem like you're too worried about the negative aspects ?,symp/reasoning,151_18,T,irq,0
+"Now. I mean, like the obviously is unhealthy. But like one of the things I'm trying to do in my life now is get out there and meet new people and like the benefit of being able to do that smoking is better than like giving it up for health reasons. I think.",symp/reasoning,151_19,P,id,0
+"So I wanna ask you a question. I want you to give a response between one and 10 as is called scaling And it's to do with the importance of stopping smoking. So one would be, it's not important to, and 10 would be, it's extremely important to you, where do you think you'd put that number? ",symp/reasoning,151_20,T,gc,0
+"I don't know. Maybe like, like a two. like it'd be cool to get rid of the cough on Mondays but that getting rid of that is not worth everything else I get from smoking.",symp/reasoning,151_21,P,id,-3
+So not particularly important?,symp/reasoning,151_22,T,crq,0
+Yeah,symp/reasoning,151_23,P,cd,0
+"Now, let me ask you the same question except instead of importance, how confident are you about confidence? How confident are you that you could quit smoking on a scale of one sound one being not confident all and 10 being extremely confident.",story,151_24,T,gc,0
+"I could say probably like an eight or nine like I could I could give it up actually I gave it up recently like for like a month and I didn't even crave it but eventually like just seeing all my friends got smoking like I missed that. So I just started off again, but I don't know if I like if I really wanted to give it up. Forget I'm sure I could",story,151_25,P,id,-3
+"So stopping smoking is not important to you, but you're fairly confident you could if you decided to quit. So, based on kind of where you are in terms of it doesn't seem like you're interested in stopping smoking, what would be a goal? How could we spend this time so that it would be productive?",symp/reasoning,151_26,T,gc,0
+"I don't know. Like, I guess it would It would help to be able to, like explain to my girlfriend that like the stuff that I get from smoking and like you You seem you kind of seem like you get it so like, I don't know, maybe figure out ways to like explain to her the things that I get from smoking to like, I don't know just kind of help her like realize why I do it other than just to kill myself.",symp/reasoning,151_27,P,id,-3
+So to help her to understand why smoking works for you.,symp/reasoning,151_28,T,crq,0
+Yeah.,symp/reasoning,151_29,P,cd,-
+"That's that's one goal than any other goals you could think of I mean, you came in, in part because you're well, that seemed to appear like you came in completely because your girlfriend pressured you. ",story,151_30,T,crq,0
+Yeah.,story,151_31,P,cd,0
+So any other relational goals you might want to work on there?,story,151_32,T,irq,0
+"Well, no, we haven't really been like we've been fighting a lot because of the smoking. So I think like, maybe figuring out ways like to maybe communicate better or like having like good fights in a way like I don't ascribe that but like having fights that are productive like that just don't always end like with us just like going our separate ways or like one of us leaving the house but like, I guess being able to like wrap up a fight so it doesn't last for like days.",story,151_33,P,id,-1
+So productive communication and productive arguments,story,151_34,T,crq,0
+"right yeah, yeah. ",story,151_35,P,cd,0
+So so one goal would be to illustrate clearly the advantages of smoking to your girlfriend.,story,151_36,T,orq,0
+Right,story,151_37,P,od,0
+She understands how important it is to you,,151_38,T,crq,0
+Yeah.,,151_39,P,cd,0
+"Because it does seem like it's really important to you. But another would be to work on your relation, your relational style, so that you, you can end argument and feel like you're not at a stalemate?",story,151_40,T,crq,0
+"right Yeah, yeah, I think that'd be cool. ",story,151_41,P,cd,1
+"All right. Well, you want to make those two goals. We work one so we can spend this time going up too fast. ",story,151_42,T,gc,0
+"Yeah, I can do it that it's kind of like killing two birds with one stone.",story,151_43,P,gc,0
+"Does that make sense to me. Well, that's what we'll do. So what I'd like to do, I'll see you again and about a week. ",routine,151_44,T,gc,0
+"Right, right. ",routine,151_45,P,gc,0
+So if you could reflect on some of these changes you think you can make with this relationship where you could do in the relationship to be a more effective communicator. Because a lot of this revolves around communication.,story,151_46,T,gc,0
+yeah,story,151_47,P,gc,0
+"communicating the advantages of smoking, but also communicating in the arguing, so that you have productive end to these arguments, right. So it's really more moving from arguments to collegial conversations that have a positive result. ",symp/reasoning,151_48,T,gc,0
+"Yeah. Yeah, that'd be cool. We can do that. ",symp/reasoning,151_49,P,gc,1
+"Okay. So if you could work on kind of thinking that through, and then next time we meet, we'll talk about those different goals and maybe ways to make some small changes in that relationship to to meet those goals. ",story,151_50,T,gc,0
+Right. All right. Sounds good.,story,151_51,P,gc,0
+All right. Thanks for coming in Kylie.,inactive,151_52,T,gc,0
+Thank you.,inactive,151_53,P,gc,0
+summary,"smoking can be bad, but it doesn't it's never bothered me like I don't know. I get one what really got me into it was I smoke a lot at work because it gives me like one on one time with the boss. I can finish off a pack a day. Because I can finish off a pack a day. Because I can finish off a pack a day. But if I don't have a lighter than, like, I carry the cigarettes around with me .",,,,
+primary_topic,Smoking,,,,
+secondary_topic,Habit,,,,

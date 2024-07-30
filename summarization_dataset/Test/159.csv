@@ -1,0 +1,113 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Okay, so I noticed on your diary card that you have that you did cut.",symp/reasoning,159_0,T,crq,0
+Yep.,inactive,159_1,P,cd,0
+"Okay, so let's talk about that a little bit. When what day did that happen on? ",routine,159_2,T,gc,0
+Tuesday,routine,159_3,P,id,0
+"Tuesday? Okay, so where were you on Tuesday when you first had the thought that you wanted to cut?",routine,159_4,T,irq,0
+Where I usually always am at school. I was on my Walker. That's stupid girl.,story,159_5,P,id,-3
+What was going on at your locker?,routine,159_6,T,irq,0
+Melanie was talking about Tim my Tim. My boyfriend and I know it was it was my Tim she was talking about I just wanted to punch her so bad.,story,159_7,P,id,-3
+"Okay, so you were sending out your locker and you heard somebody say something about Tim that you didn't want to hear. ",routine,159_8,T,gc,0
+"Yeah, she was talking about him. And he had he didn't text me the night before. So who knows what's going on? ",routine,159_9,P,cd,-3
+What were you feeling right then?,routine,159_10,T,irq,0
+so angry. so angry,routine,159_11,P,id,-3
+on a scale of one to 10  how angry would you say you were ?,symp/reasoning,159_12,T,irq,0
+like a nine,symp/reasoning,159_13,P,id,-3
+pretty angry then?,routine,159_14,T,crq,0
+Yeah.,inactive,159_15,P,cd,0
+What did you do right then? You ride your locker. What's the next thing you did after you heard it?,routine,159_16,T,irq,0
+"The next thing I did, I slammed my locker. And I walked down to the gym but what I wanted to do was push her adn punch her.",story,159_17,P,id,-3
+"So I know that the gym is usually to the place where you cut, because you said you can go behind the bleachers people don't usually see you there.",routine,159_18,T,gc,0
+Yeah.,inactive,159_19,P,gc,0
+"Okay, so we're between hearing the person talking about Tim and going to the gym. Where did you decide to cut? Because you said you were also feeling like punching somebody. There must have been a point where you decided I'm going to cut.",routine,159_20,T,gc,0
+I think it was right after I slammed my locker and thought I can't punch her. I'm going to get in trouble. I'm going to go cut.,routine,159_21,P,id,-3
+"Okay, so that was when you decided to cut. You went down to the gym. ",routine,159_22,T,crq,0
+Mm hmm.,inactive,159_23,P,cd,-3
+And what happened when you got there?,routine,159_24,T,irq,0
+"Well, nobody was there because gym classes are in the morning so I knew that nobody was going to come in the gym. So I went behind the bleachers.",routine,159_25,P,id,-3
+What did you use to cut ?,symp/reasoning,159_26,T,irq,0
+the pencil that I have always used,symp/reasoning,159_27,P,id,-3
+the same pencil as usual?,routine,159_28,T,yq,0
+Yeah,inactive,159_29,P,op,0
+the the metal tip.,routine,159_30,T,crq,0
+Yeah.,inactive,159_31,P,cd,0
+"Okay, that was a pencil that you were saying that you were going to get rid of.",routine,159_32,T,crq,0
+"Yeah, I know. It's just it's it's my favorite pencil. I, I use it for school. And I just it's my favorite pencil. ",routine,159_33,P,cd,-3
+"Okay, so you still have the pencil you got under the bleachers. You say you were feeling angry still. Are you still on the scale of one to 10 where were you when you got under the bleachers.",routine,159_34,T,gc,0
+I was still like was still pretty high maybe like an eight and a half though because I I knew I knew I was gonna cut,routine,159_35,P,id,-3
+"Okay, ",inactive,159_36,T,gc,0
+so it like came down a little bit,routine,159_37,P,gc,-3
+what were you thinking at that point?,routine,159_38,T,irq,0
+Well I thought a couple things I thought I'm glad I kept this pencil and that I'm just so pissed that I just want to cut so badly.,routine,159_39,P,id,-3
+So you have your pencil Where did you cut ?,symp/reasoning,159_40,T,irq,0
+on my leg.,symp/reasoning,159_41,P,id,-3
+How many times ?,symp/reasoning,159_42,T,irq,0
+three,symp/reasoning,159_43,P,id,0
+"How deep did you cut where it was a deep enough that you needed a band aid, Did you need more than a band aid?",routine,159_44,T,irq,0
+"No, I mean, I guess I could have used a band aid but whatever.",routine,159_45,P,id,-3
+But it wasn't so deep that you needed something more?,routine,159_46,T,irq,0
+No.,routine,159_47,P,id,-3
+Okay. Right after you cut Where were you on the scale of one to 10 with your feeling with your anger?,symp/reasoning,159_48,T,irq,0
+Like a three,symp/reasoning,159_49,P,id,-3
+"three, what were you thinking right afterwards?",routine,159_50,T,irq,0
+That felt good. I feel better. And I'm gonna have to talk to Michelle about this.,routine,159_51,P,id,-3
+Did that feeling last you for the rest of the day?,routine,159_52,T,irq,0
+"The Feeling better? Yeah, for the most part. Yeah, it did",routine,159_53,P,id,-1
+"Okay, so that's what happened right afterwards ? ",routine,159_54,T,irq,0
+Mm hmm.,inactive,159_55,P,gc,0
+"Later in the day, are we thinking about the cutting?",routine,159_56,T,irq,0
+"Well, I kind of forgot about it. ",routine,159_57,P,id,-3
+Okay.,inactive,159_58,T,gc,0
+"But then I just started thinking about it again, right before bad, and just feeling really guilty that I cut. Because I knew I was going to have to talk about it with you. And I just I mean, I, the night time I just, I constantly think about what happened that day and then what the next day is going to be like, I mean, you know, it's usually a pretty hard time.",story,159_59,P,id,-3
+I know night is a really difficult time for you is everything seems worse at night. Yeah. So you were thinking back at a back on it then and you were feeling guilty?,routine,159_60,T,gc,0
+Yeah.,routine,159_61,P,cd,0
+Sounds like you weren't feeling so good about it then as you were in the afternoon.,routine,159_62,T,gc,0
+No. That always seems to happen.,routine,159_63,P,gc,-3
+Sounds like for you cutting works for a little while but it doesn't last?,routine,159_64,T,crq,0
+"Yeah, I guess so.",routine,159_65,P,cd,-1
+I knew you've also been working on doing less cutting.,routine,159_66,T,gc,0
+I've been doing pretty good,routine,159_67,P,gc,0
+you have you've been working really hard. I'm just wondering if we can find something that might last that you can feel good about later that you won't have those guilty feelings?,routine,159_68,T,gc,0
+"Yeah, maybe. I mean, those guilty feelings really suck.",routine,159_69,P,gc,-3
+"Okay, so with the cutting it sounds like the point where you decided to cut out your locker. what triggered it was hearing that girl talking about Tim.",routine,159_70,T,gc,0
+"Yeah, cuz she's stupid.",routine,159_71,P,gc,-3
+"Okay, it sounds like you're also already having a pretty bad day. You said he hadn't called. He hadn't been texting us. And that was on your mind?",routine,159_72,T,gc,0
+Yeah. That's right.,routine,159_73,P,op,0
+"So I'm wondering if that point, if we can think of two things that you can try differently next time instead of the cutting.",routine,159_74,T,gc,0
+Okay,inactive,159_75,P,gc,0
+that'll bring that anger from a nine down a little bit.,routine,159_76,T,gc,0
+"It's not going to bring it down all the way to a three, though. I'll tell you that much.",routine,159_77,P,gc,-3
+It might not. But it'll bring it down a little bit. Maybe each thing you try brings it down a little bit more.,routine,159_78,T,gc,0
+All right,inactive,159_79,P,gc,0
+maybe there'll be things will feel good about later. You won't have to worry about that guilty feeling coming back.,routine,159_80,T,gc,0
+All right.,inactive,159_81,P,gc,0
+"So the first thing is that pencil, it sounds like it's comforting to have it. ",routine,159_82,T,gc,0
+"Yeah, it is.",inactive,159_83,P,gc,0
+"It also sounds like it's tempting, What do you think about that?",routine,159_84,T,gc,0
+"I mean, Only if I am in the mood to cut it's tempting",routine,159_85,P,od,-3
+having that pencil is going to make it harder to try other things. When you've been talking about how you're really committed to not cutting any more or cutting less,routine,159_86,T,gc,0
+"Yeah, I am.",routine,159_87,P,gc,0
+Sounds like that pencils standing in your way.,routine,159_88,T,gc,0
+"Yeah, maybe.",routine,159_89,P,gc,0
+"What do you think about getting rid of the pencil this time, choosing a different favorite pencil that maybe you can't cut with. ",symp/reasoning,159_90,T,orq,0
+"I mean, maybe only, only if it's can be like a really cool pencil",routine,159_91,P,od,0
+That way you can still have something that can be your favorite but which won't tempt you. That'll make it easier to try the two things.,routine,159_92,T,gc,0
+Yeah.,inactive,159_93,P,gc,0
+"Okay, what do you think our first thing should be? What do you think you can try? You just heard somebody say something you don't want to hear you're feeling pretty angry. What can you do in that moment?",symp/reasoning,159_94,T,gc,0
+"Oh, what I do a lot at home when my mom's bothering me and saying stuff I don't want to hear I put my headphones on.",symp/reasoning,159_95,P,id,-3
+Do you have your headphones with you at  school?,routine,159_96,T,yq,0
+"Yeah, they they they actually they let me keep them on in school.",routine,159_97,P,op,0
+Is that something you'd be willing to try next time?,routine,159_98,T,irq,0
+I think so. there's a there's a few songs that usually helped me so I think so.,routine,159_99,P,id,-3
+"Okay, that sounds like a good one to try. So we have headphones, we need to come up with One more. What do you think you'd like to try?",routine,159_100,T,gc,0
+"Well, I really like my teacher, Mrs. Xion. So she seems to always kind of be there when I need to talk. And her rooms kind of right down the hallway from my locker than the same hallway. So I guess I could talk to her. ",symp/reasoning,159_101,P,od,-3
+"That sounds like a good option. That's our goal is to keep pushing, cutting further down the list, and keep adding things that you're going to try first. And you're right that the first thing you try, it might not bring you all the way down to a two or three, but it might bring you down a little bit. And each thing you try might bring you down just a little bit more. So you have to be willing to try a few things. Can you do that?",routine,159_102,T,gc,0
+"I can, but I really want like a cooler pencil though, like, like a cooler pencil, so I don't know, maybe, maybe we could go look for a pencil together.",routine,159_103,P,yq,0
+I think that's a good idea.,routine,159_104,T,gc,0
+"Okay, I'd like that. ",inactive,159_105,P,gc,0
+Okay. Thank you for answering all my questions on this. You did a great job with this chain and I know it wasn't easy.,inactive,159_106,T,gc,0
+Yeah. You're welcome.,inactive,159_107,P,gc,0
+Let's go look for a pencil.,inactive,159_108,T,gc,0
+summary,"The patient has been angry that another girl had been talking about their boyfriend Tim near their locker the other day. They were angry at a score of 9 out of 10. The patient decided to go to the gym behind the bleachers to cut themselves, by using their favorite pencil with metal head. They cut on their leg three times. The patient scored their anger 3 out of 10 after the cut. The patient felt guilty for cutting themselves. The therapist suggests to think of alternatives, and asks to buy a new favorite pencil and get rid of metal head pencil. They discuss another idea to put on headphones if they wish to avoid to hear things that make them angry. The patient suggested that they will talk to Mrs. Xion who seems to be kind. The therapist assures these ideas if tried will slowly help and accompanies the patient to buy a new pencil. ",,,,
+primary_topic,harm,,,,
+secondary_topic,cut-self,,,,

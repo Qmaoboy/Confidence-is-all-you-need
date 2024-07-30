@@ -1,0 +1,18 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Hi, August I'm Angie. I'm one of the nurses here.",inactive,166_0,T,gt,0
+I'm not feeling very well. I am very sad. I am. I'm really scared.I want to run away.,symp/reasoning,166_1,P,id,-2
+"Okay. All right. Well, I'm sorry to hear that. When you're sad what helps you feel better?",inactive,166_2,T,gc,-1
+Coming to the hospital,inactive,166_3,P,gc,0
+okay. What else helps you feel better? I see you have a phone there. Do you play any games on that?,routine,166_4,T,irq,0
+"Yes, I know lots of good games. ",routine,166_5,P,id,0
+"Okay, well, why don't you play one of your games that might help you feel better and I'm gonna go and come back in a few minutes. Okay?",routine,166_6,T,gc,0
+Okay.,inactive,166_7,P,ack,0
+"Okay, that's good. August, you feeling better now? ",routine,166_8,T,gc,0
+I am feeling a bit better.,routine,166_9,P,op,-1
+"Good. Okay, that's really good. And this time when you go back home, when you go home, can you talk to your group home worker, let him or her know that you've been here again, and that you were feeling sad again. ",routine,166_10,T,gc,0
+"Yes, I can do that.",inactive,166_11,P,gc,0
+"Okay, great. I'm gonna go get the doctor. ",inactive,166_12,T,gc,0
+Okay.,inactive,166_13,P,gc,0
+primary_topic,Anxiety,,,,
+secondary_topic,Fear,,,,
+summary,"Patient was not feeling well, sad and scared. Therapist asked patient when you feel sad what helps you feel better?  and patient tha tdo you play any games on phone. Patient knew lot of games. Therapist asks to play one of the game which makes feel better and therapist gonna comeback in a few minutes. When therpist asked patient you feeling better now? Patient was feeling better. Therapist suggests to talk to the group home worker and let him or her know that you've been here again and you were feeling sad again.",,,,

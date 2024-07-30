@@ -1,0 +1,138 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"Hey Jill, how are you doing today?",routine,174_0,T,gt,0
+"I am All right, I'm a little bit stressed out right now. ",symp/reasoning,174_1,P,gt,-1
+"Little stressed, What's going on?",routine,174_2,T,irq,0
+"Well, as you know, I'm in a graduate program right now. And I'm just really coming to the near the end of my program and I'm just finding it increasingly difficult. I'm just really stressed with how things have been going. ",symp/reasoning,174_3,P,id,-1
+"Okay, we've talked about some different struggles you've had as you balance work and school and everything. What specifically is bothering now it seems like you're a little more distressed today.",routine,174_4,T,gc,0
+"Well, I don't I don't, I don't really know. It's just I am, as I've told you, before, I take school really seriously and I really strive to do well, well in school and well on my assignments and I just feel like I'm not performing, as well as I needed to",symp/reasoning,174_5,P,id,-1
+what kind of grades you've been getting lately?,routine,174_6,T,irq,0
+"Well, I've been getting A's,",symp/reasoning,174_7,P,id,0
+anything else?,inactive,174_8,T,yq,0
+No,inactive,174_9,P,on,0
+"Okay. That's usually considered pretty good, right?",routine,174_10,T,gc,0
+Yeah. I just feel like it's getting harder to get the As,symp/reasoning,174_11,P,ack,-1
+"okay, you're working hard to get the same grade?",routine,174_12,T,yq,0
+"right, It used to be so easy for me to do what my teachers expect and to get good grades. Now I feel like it's, it's really a struggle and I'm not doing as well as I need to and I'm constantly worried about not doing this well.",symp/reasoning,174_13,P,op,-1
+Have you been getting any feedback from professors or your classmates about your performance?,routine,174_14,T,irq,0
+"My teachers all seem to think I'm doing well. They actually I see To get good feedback on my assignments, but I feel like I feel like I just to make sure I'm doing well. I really focus on like the details like making sure that the instructions are really clear, like I'm doing everything, like perfectly as an Instructure instructor wants because I'm really afraid that you know, if I'm not really clear on what the assignment is, then maybe I won't do it the right way. ",story,174_15,P,id,-1
+"Alright, so before when you got A's you were working hard to have a job but not to the level of precision in terms of like the detail in the assignment that you are now. You're trying to get more information about the assignments, you're working harder to get the same grade that used to get before",routine,174_16,T,gc,0
+"right like I find myself like emailing the teacher like almost like obsessively, like trying to, to clarify the assignment and to make sure do they think I'm doing well in class and and what not.",symp/reasoning,174_17,P,ack,-1
+"So when you're when you're having this feeling that I guess it's a feeling of anxiety or stress, yeah. What's going through your mind? What are you thinking about?",routine,174_18,T,irq,0
+"Well, I guess I'm just feeling that, you know, I've worked really hard, this whole program and I don't want to mess it up now or, you know, because if I don't get these grades, and I feel like what was the use, if I met, then I'm going to be ruining all this hard work, that I've done this whole program if I kind of, if I don't maintain that level of, you know, like you said, precision, I feel like like that I've let myself down or that I'm a failure because I'm, I just slacked off at the end of the program and it's so close to being done.",symp/reasoning,174_19,P,id,-1
+So what grade would you have to receive for you to feel like you have failed,routine,174_20,T,irq,0
+probably less than an A. Anything other than A,symp/reasoning,174_21,P,id,-1
+right below an A isn't A minus?,routine,174_22,T,irq,0
+"I mean, I guess I would be okay with that, but I wouldn't be really happy with it. ",symp/reasoning,174_23,P,id,-1
+What about A plus?,routine,174_24,T,irq,0
+I wouldn't be that excited about that.,symp/reasoning,174_25,P,id,-1
+a B?,routine,174_26,T,irq,0
+I wouldn't be happy with that.,symp/reasoning,174_27,P,id,-1
+"No, no, it'd be worse. Okay. So an A you can tolerate an A minus you're not exactly sure but you think you could",routine,174_28,T,gc,0
+yeah.,inactive,174_29,P,ack,0
+But a B plus and a B?,routine,174_30,T,irq,0
+"to me like, like an A minus I would maybe be okay with but like, below that like to me like a B, whether it's like a B minus A B, A, B plus it's all B, and that's not an",symp/reasoning,174_31,P,id,-1
+so what would it mean to you if you received a B?,routine,174_32,T,irq,0
+"that I didn't try hard enough, but there's something else I could have done to to do better that I was like, slacking or I didn't read the directions right or I didn't have enough responses or make my paper long enough. I just didn't do enough. ",symp/reasoning,174_33,P,id,-1
+But you didn't try hard enough that you didn't do enough. What would it mean If that were true?,routine,174_34,T,irq,0
+If I didn't try hard enough that I was lazy.,symp/reasoning,174_35,P,id,-1
+That you were lazy?,routine,174_36,T,irq,0
+"Yeah, that I could have tried harder and I didn't. So why didn't I try? I didn't, maybe I didn't care. I was lazy. Kind of like what's the use? If you're not gonna try your best and why try it all?",symp/reasoning,174_37,P,id,-1
+"Okay, now we we've talked before about automatic thoughts and cognitive distortions right in other sessions and one of the cognitive distortions is this idea that unuseful type of thinking and Aaron thinking is when you think of everything in terms of like, Black or White, all or nothing? So sounds like you have a little tolerance for like an A minus you're not completely there. But generally, it's kind of an A of some type, right? Or you're not interested. Right. So we get down to you didn't try hard enough and if that were true, the new would be lazy. Right? Which, you know, having senior these last few sessions is clear to me. You're not lazy. But that's the body.",routine,174_38,T,gc,0
+Yes.,inactive,174_39,P,ack,0
+"Now, it seems that earlier in your earlier years in the program, this was the Acer effortless for you, but you'd have to work as hard for them. ",routine,174_40,T,gc,0
+Yeah,inactive,174_41,P,ack,0
+what's what do you think has changed?,routine,174_42,T,orq,0
+"I'm not quite sure. Like it didn't stress me out as much in the beginning of the program. Like I really like school. But now I feel like I'm static because it's anxiety producing for me because, you know, I'm constantly worried",symp/reasoning,174_43,P,od,-1
+"You mentioned part of it was you can get close to the end, right. So is there anything else?",routine,174_44,T,irq,0
+"Well, the only thing I can think of is we have the same students throughout our program. But I guess this semester there's a new student in the program and I know that you mentioned and it seems like she's kind of really stressing me out. And also well see throughout the program, I kind of considered myself like to be the student who got the best grades and there's this award at the end of the program for doing really well. And I kind of made it a goal of mine to get this award at the end because I felt like that would show that I really tried hard this program really meant a lot to me. I think You know, it would show people who viewed Did that, you know, I really busted my butt and, and did a good job in this program. And for the whole program so far, you know, that was me like that was I was kind of the front runner, I guess for this award. And this semester, there's a new student and then come to find out like she had a 4.0 in her other program. So,",story,174_45,P,id,-1
+"so if I'm reading you, right, you you really didn't have any competition for this award that you were aware of. Right? And now you feel like you really do,",routine,174_46,T,crq,0
+"right like I feel like the pressures on like, I felt like I tried so hard, this whole program and now like this new person comes in, and she might want a different me so I really need to go above and beyond to make sure that I'm still on track.",symp/reasoning,174_47,P,cd,-1
+"I'm paradoxically that's caused you to be more anxious and more stressed and your performing but you're still getting the A's which are working harder to get the A's,",routine,174_48,T,gc,0
+right. And it's causing me a lot of anxiety with school where it's not as enjoyable for me as it once was.,symp/reasoning,174_49,P,ack,-1
+"So what would it mean if you couldn't get the award if you didn't with the, what's the name of the new was first name with a new choice choice? Okay, but of choice once award, and you didn't want me?",routine,174_50,T,gc,0
+"I guess part of me feels like them. Why did I do the program? if, you know, part of me feels like if you're not going to be the best why try? So if, if she got the award over me, then it's kind of like, why did I work so hard this whole time, like I could have been slacking this whole time and just skated by so why did I bust my butt? If it was all for nothing? I don't have anything to show for it. ",symp/reasoning,174_51,P,id,-1
+So its all or nothing if you don't win the award.,routine,174_52,T,gc,0
+"I mean, I guess it's not the only thing that matters so part of me feels that way sometimes that I have these thoughts that if I don't try my hardest and do well and win this award, then why do I try so hard the rest of the time, but like it negates all the positive things. This that this, you know, kind of like the end result like if you tried hard the whole race and then you lose, you know, at the end.",symp/reasoning,174_53,P,gc,-1
+"Right, but you're not really losing a race because you would still graduate?",routine,174_54,T,gc,0
+Yeah.,inactive,174_55,P,ack,0
+"You're you're just not getting a word, which you would like, right and which would be great. Right, and certainly accomplishment. But the reason you came to the program was to get the degree,",routine,174_56,T,gc,0
+"right and even know about the award until probably like the second year anyway, so that wasn't the reason I entered. But,",symp/reasoning,174_57,P,gc,0
+but it's now it's now taken on some importance for you winning award has been a real goal.,routine,174_58,T,gc,0
+Yeah.,inactive,174_59,P,ack,0
+"So with the new student choice coming in, I have this increased competition. ",routine,174_60,T,gc,0
+Right.,inactive,174_61,P,ack,0
+"And that's causing me anxiety is caused you to work hard for the same grade. All right. So, as we talked before, you have a tendency to be, I mean, this as a compliment a little perfectionistic. Right. I don't think it's necessarily a bad thing. It is taking too far, It can be right it can be not useful. Ever hear the phrase Perfect is the enemy of good. No. Does that make sense what that might mean? ",routine,174_62,T,gc,0
+Yeah.,inactive,174_63,P,op,0
+Yeah. So this desire to be perfect or to win the award is potentially causing you not even to perform well. Right?,routine,174_64,T,crq,0
+Right,inactive,174_65,P,cd,-1
+you're still getting the A's but it's called the anxiety and you're working hard and,routine,174_66,T,gc,0
+"right now I'm not even I feel like when I read, like, I'm so stressed with it from reading the right thing and memorizing every word that I'm not retaining all the information, so it could and it's starting to like impact school.",symp/reasoning,174_67,P,gc,-1
+So is there any way that you cannot win the award and still walk away? having accomplished worthy goals? Or does it have to be the award or none of this was worth it?,routine,174_68,T,gc,0
+"I mean, it kind of sounds silly when you when you're reflecting it back to me how, you know that I have to read the words like I, I think that it makes sense. You know, that wasn't my goal going into it. You know, why does it matter so much to me that there's different degrees of success. I think if you've said before that is Not all about the award, I think I would be happy with just, you know, getting the degree and all the stuff that I've learned. And I would feel like it was, if I didn't get the award rather, I would feel like it was still a worthwhile journey. But in the moment, sometimes it's really upsetting at the thought of not getting the award. But that's a possibility. ",symp/reasoning,174_69,P,id,-1
+Your word validates all the hard work you've done.,routine,174_70,T,gc,0
+"Right, exactly. ",inactive,174_71,P,ack,0
+"And in your mind, losing the award invalidates all the hard work you've done, right? But in reality, there's probably a between ground there might have been a shade of gray, where you're still an excellent student, you still graduate, you just don't have an extra plaque hanging on the wall, whatever the word is, right. That's really all you'd be missing. Right?",routine,174_72,T,gc,0
+yep,inactive,174_73,P,cd,0
+With this award have any impact on employment?,routine,174_74,T,irq,0
+"I don't think so I am thinking about I don't think of a long term many people would know about it besides me, or if I put it, you know, on a resume or something, but I don't think it would make that much of a difference.",symp/reasoning,174_75,P,id,-1
+"And you didn't know about it when you first came in, and you're already working hard.",routine,174_76,T,gc,0
+"right at the beginning, I didn't even know about it.",symp/reasoning,174_77,P,ack,0
+"So in a sense, and of course, we can't do this, for the sense of you could forget about the award. Right? You probably win it.",routine,174_78,T,gc,0
+"Right, Right.",inactive,174_79,P,ack,0
+"Because you're already doing so well. But the thought of this potential failure, right away the word that's holding you back,",routine,174_80,T,gc,0
+"right, It makes me it makes me paranoid to make mistakes or to try and take risks or to really, you know, do well because I'm so worried about judgment, like from my teachers, if I'm doing well enough. ",symp/reasoning,174_81,P,gc,-1
+"Yeah, there's no there's no tolerance for any type of mistake?",routine,174_82,T,orq,0
+Right. Right.,inactive,174_83,P,od,-1
+"So so now that with the award out there, you really feel like you can't make any type of mistake or you just go right to, to a catastrophe?",routine,174_84,T,irq,0
+"Right, like I'm walking on eggshells, and I'm just expecting my grades to tank if I if I kind of like deviate from that line.",symp/reasoning,174_85,P,id,-1
+"So free so for you to feel better about this one way, I guess right would be to not help have to not place so much value in way.",routine,174_86,T,gc,0
+It's really hard.,symp/reasoning,174_87,P,gc,0
+"Yeah, you really want that. And it would be great. And that's okay. Right? We talked about the adaptive responses before, right? What are what's your automatic thought you have when you're sitting there and trying to get every assignment right and you you're kind of vaguely thinking about not losing or not winning this award was the automatic thought that comes to mind?",routine,174_88,T,gc,0
+"if I'm you If I want when I'm just doing the work,",symp/reasoning,174_89,P,id,-1
+"yeah, when you're doing your work, and you sense that anxiety come on, right as you start maybe vaguely thinking about winning or losing this award, right? Like it's losing it Really? What's going through your mind right that moment?",routine,174_90,T,gc,0
+I guess I'm just kind of like running through a checklist. Did I do this? Did I do this? Did I do this? Making sure I did everything that was expected of me,symp/reasoning,174_91,P,id,-1
+to ensure that you're gonna get that award?,routine,174_92,T,crq,0
+Right.,inactive,174_93,P,cd,0
+"Right. So at a higher level, one of your thoughts is, I must win that award. ",routine,174_94,T,gc,0
+Right.,inactive,174_95,P,ack,0
+"Does that make sense? I mean, that that's probably somewhere. Is there any type of adaptive response you could apply that moment, that statement, or kind of, well, that's an absolute statement, right? I must win that award. Is there any type of adaptive response you could play at that moment that could counteract that on thought",routine,174_96,T,gc,0
+That  I must win the award?,symp/reasoning,174_97,P,cr,0
+Yeah.,inactive,174_98,T,ack,0
+"I guess I could say that, you know, this, the award is something local to my university and no one's going to know about it in the grand scheme of things. So it won't really impact future employment or what my colleagues think of me. You know, if I, if I don't get the award that they won't think less of me.",symp/reasoning,174_99,P,gc,-1
+"Okay, so so you could say, it'd be nice to win the award. But in the end, it's not really gonna make the difference in my life in terms of my career",routine,174_100,T,gc,0
+right.,inactive,174_101,P,ack,0
+"and, and that's a fair, adaptive response, right? You do want to win it, right? Truthfully, and it would be nice to win it right. Who doesn't want to win the award, right? But if you don't, you were still good student. You're still gonna be a good connection and your career still good before. Do you believe in that adaptive response? Do you believe that adaptive response is true?",routine,174_102,T,gc,0
+"I feel like sometimes I do. And then sometimes it's really hard in the heat of the moment to kind of talk myself down from that, that kind of spiral of not doing this assignment, right? I'm not doing well. I'm going to get to be in this class, I'm going to lose this award. So I feel like it starts. It's hard in the moment to spiral out of that.",symp/reasoning,174_103,P,od,-1
+So what percentage of the time Do you believe that adaptive response is true?,routine,174_104,T,irq,0
+"Maybe like half the time,",symp/reasoning,174_105,P,id,-1
+so 50% of time?,routine,174_106,T,crq,0
+right? depends on what's going on in my stress.,symp/reasoning,174_107,P,cd,-1
+"And the other half, you're not really buying. ",routine,174_108,T,gc,0
+Right,inactive,174_109,P,ack,0
+"Okay. All right. So what advice Well, let's use choice, right? choices in the same situation, in a sense, in that she's, well, maybe not knowing what she is working toward this award as well",routine,174_110,T,gc,0
+I don't even know she knows about the award.,symp/reasoning,174_111,P,cr,0
+Let's assume. Let's assume she knows about it. Right? He's in a similar situation. What advice would you give her?  She's kind of obsessing about this in the same way that you are.,routine,174_112,T,gc,0
+"Yeah. I think I would tell her that, you know, the rest of the class sees that she's doing well. Her teachers give her positive feedback. So all science would point towards that you're doing really well and you're being very successful in the program that you're getting positive feedback from them. So that all the signs the feedback is telling you you're doing a really good job.",symp/reasoning,174_113,P,cr,-1
+"Your advice to her seems positive and uplifting. Mostly, your advice to her is more positive, uplifting what you're telling yourself internally,",routine,174_114,T,gc,0
+definitely it is.,inactive,174_115,P,ack,0
+So if that advices adequate. I feel It is adequate and appropriate for her. Why isn't it adequate probably for you?,routine,174_116,T,gc,0
+"I don't know sometimes I feel like I just hold myself to a higher standard than I hold other people to like if some a friend of mine like Joyce would come and tell me the same situation, you know, I'd be able to give her a whole bunch of, you know, suggestions or some positive feedback, but it's really hard for me sometimes because I hold myself to a higher standard than other people.",symp/reasoning,174_117,P,id,-1
+"But you would agree your advice to choice as you frame it to me is useful, right? But you're just having trouble applying that to yourself?",routine,174_118,T,crq,0
+Yes.,inactive,174_119,P,cd,0
+"Smooth. That's what you need to work on a bit. So you can kind of see the logic of all this, but your feelings don't match.",routine,174_120,T,gc,0
+"Correct. Makes sense in my head and I would know what to tell someone else but I don't always believe it. When I say to myself,",symp/reasoning,174_121,P,gc,-1
+"Alright, so here's what I want you to do. You familiar with the thought record that I introduced you in the first session where you can outline your situation and your feelings and you've explained all this to me, I want you to actually complete one thought records. ",routine,174_122,T,gc,0
+Okay,inactive,174_123,P,cr,0
+"I know after having set it all might seem like doubling the work. But I think it's something changes when you write something down. Okay, I have to face it on paper. And also, it's a good tool to remember exactly what you're thinking. And then work through the adaptive response section and their smiles at the bottom of thought record questions you can ask yourself to help you form that adaptive response. And maybe write out a few different ones. But there's plenty of room on the forum. You see it, right, ",routine,174_124,T,gc,0
+right.,inactive,174_125,P,ack,0
+"That's actually the largest grid cell is the one on adaptive responses, that the responses don't have to be short. like yours wasn't short. There's really good they can they can be long and they can So be realistic, like, I'd like to win. It would be good to win. But Alice should have to be successful. ",routine,174_126,T,gc,0
+Okay,inactive,174_127,P,cr,0
+"I thinl  the adaptive response kicked out is to the downside of not having success, okay? It doesn't have to be completely positive. Okay, has to be realistic and useful. And, as importantly, you have to believe it. Okay, there's a place on there to note what percentage you believe that you could write that in. Okay, I know we'll look at that from week to week and, you know, as we move closer to your graduation, hopefully it'll bring you some relief for missing anxiety.  ",routine,174_128,T,gc,0
+Okay,inactive,174_129,P,ack,0
+that's sounds like a good plan?,inactive,174_130,T,yq,0
+Hmm,inactive,174_131,P,op,0
+Thanks.,inactive,174_132,T,gc,0
+Thanks.,inactive,174_133,P,gc,0
+primary_topic,Anxiety,,,,
+secondary_topic,Education,,,,
+summary,"Patient a little bit stressed out right now. as patient in a graduate program right now. And patient just really coming to the near the end of program and patient just finding it increasingly difficult.Therapist talked about some different struggles patient had as patient balance work and school and everything. Patient feel like getting harder. Patient feels like struggle to get good grades.Patient slacked off at the end. Patient things that he gets less than A but patient is not happy with less than A.  Patient thinks that he can do better and feels like lazy aand thinks that patient could have tried harder.  Therapist explains about automatic thoughts and cognitive distortion in  other session. Patient constantly worried. Patient feels like she's stressing me out. Patient things that he is slacking for whole time and just skated. Patient try hard rest of the time and negates all the positive things. Therapist explained that anxiety is caused to work hard for the same grade and says the phrase perfect is enemy of good.  and desire to be perfect or to win the award is potentially causing not even to perform well. and its called anxiety .Patient is stressed when reading and memorizing.Therapist said losing the award invalidates patients hard work. Patient becaome paranoid to make mistake or to try take risks.Therapist suggest apdaptive response before, right whats your automatic thought and patient feeling kind of vaguly thinking about not losing or not winning this award was the automatic thought.Therapist tells that patient is good student and gonna be good connection and your career still good before.Patient would tell her that she was really good. Therapist said she is  positive and uplifting and more positive.",,,,

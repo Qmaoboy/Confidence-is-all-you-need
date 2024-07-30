@@ -1,0 +1,20 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"So you mentioned before that when you wake up in the morning, you you don't want to go to work, what's going through your mind?",symp/reasoning,134_0,T,irq,
+"I'm gonna have to, you know, hear what my coworkers have to say about what's going on. I might make another mistake. Who knows if I'm going to find out that something terrible happened to these kids when I go back to work? I guess a lot of stuff like that.",symp/reasoning,134_1,P,id,-2
+"So looking into one I'm going to make a mistake. That kind of connects to what we were talking about before it says the uncertainty, you're not sure of your own skills and you're afraid of an error that's going to be costly. So when you think that thought, I'm gonna make a mistake, so this is when you're, when you're in bed before you start your day, and you have that thought, what happens right then?",routine,134_2,T,id,
+"I feel more anxious. You know, I think about like, what could happen to somebody else if I make a mistake, like kids going to the wrong home or, you know, not being with their parents when their parents you know, we're not doing anything wrong. And I just feel really like overwhelmed and it gets hard to breathe and I just want to go back to sleep and not have to face anything.",symp/reasoning,134_3,P,id,-2
+So there's emotional consequences. And then the behaviors. You don't want to get out of bed.,symp/reasoning,134_4,T,id,
+And then a lot more lately because I have trouble getting out of it.,symp/reasoning,134_5,P,id,-2
+"When you're staying in bed, are you under more thoughts coming up?",symp/reasoning,134_6,T,irq,
+"So this is really weighing on you. And he was edified these thoughts that seem to be connected with feelings that are unpleasant, and behaviors are unpleasant, but also maybe not useful.",routine,134_7,T,id,
+"Yeah, they're keeping me from getting the work and stuff like that.",symp/reasoning,134_8,P,cd,
+"So we have a reference point for later on as we continue counseling. I'd like to scale this problem like maybe on a scale of one to 10, where 10 represents feelings that are nearly unbearable, right? And one not really a problem. How do you feel on that scale? Where do you rate yourself right now?",routine,134_9,T,irq,
+"Right now in this moment, probably like a five. Around the middle. Yeah, like I'm really stressed out but I not like when I'm in bed, like I can't get out of bed, that kind of thing.",symp/reasoning,134_10,P,id,-2
+How would you rate yourself when you're in bed before you go to work?,routine,134_11,T,irq,
+Probably like an eight.,routine,134_12,P,id,
+"So an eight sometimes nine, right now five, so still not feeling great. Have you had to pick an emotion of standing out above the rest in anxiety, sadness, sense of dread. What would be the worst right now?",symp/reasoning,134_13,T,irq,
+Right now probably anxiety.,symp/reasoning,134_14,P,id,-2
+"So five, on a scale 10 inside is really standing out more",symp/reasoning,134_15,T,id,
+summary,The patient is very anxious about what happened at work. Patient taking stress on consequences if the patient goes to work or not. So the patient is confused between going and not going to work.  Therapist explained the uncertainty of patient's choices and skills. Therapist understands the patient's unpleasant thoughts and feelings while going to bed. Patient  marked 5 on a scale of 10. It shows the Patient is completely uncertain about the work decision. ,,,,
+primary_topic,Anxiety,,,,
+secondary_topic,Stress,,,,

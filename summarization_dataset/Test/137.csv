@@ -1,0 +1,53 @@
+Utterance,Sub topic,ID,Type,Dialogue_Act,Emotion
+"So, Chris, I wanted to talk to, you know, you're one of our star athletes and really value you as a team player. As athletic director, one of my job's is to kind of keep tabs on the players and make sure everybody is performing at their best and something came up this weekend, I've been hearing some chatter about a big party that went down and understand you were there. And so I wanted to talk to you a little bit about how partying and alcohol fits in your life right now. ",symp/reasoning,137_0,T,gc,0
+"Okay. Oh, actually could I can find something new. That doesn't bother me lately. Well, prior to that party, like as you know, I'm an honor student and my parents like they keep me very, like, kick kept down out of the lake Salt Lake social life, and I own About a month ago, my friends invited me to a party and they use the fact that all I'm always doing my homework and always studying that to allow me to go to the party. And on. ",story,137_1,P,gc,0
+Hmm umm,inactive,137_2,T,gc,0
+"Well, that party, I managed to convince my parents I would spend the night at my friend's house. ",story,137_3,P,id,0
+Ahmm,inactive,137_4,T,gc,0
+Hmm,inactive,137_5,P,gc,0
+Alright.,inactive,137_6,T,ack,0
+"So I, that's when I started drinking was a unique experience, as you could say, I guess you can say, and I don't know, It was fun, at least in that moment. So I kept doing it. Then this past weekend, instead of studying for an exam, I asked my I begged my mom to let me go to another party and she kind of knew what I was doing. She asked me to like to promise her Oh, no alcohol, no drugs, man, I'll pick you up by 12. Our surprise is told us basically when the party starts, but I saw that whatever I saw, I thought to myself that I'll, I'll come out figure it out to delay her coming to me and later. ",story,137_7,P,id,0
+Uhh hmm,inactive,137_8,T,ack,0
+"So later, so she promised that she dropped me off. I promised her no alcohol, no nothing. So we go out Have fun like I've, I've been having, and I was drinking. And then it's time, the time came for her to pick me up. And as soon as I couldn't delay her for hanging out, and as soon as she picked me up and I stepped in the car, she said, You drank vodka. And I'm like, I didn't know what to say. I just looked at the floor, and I feel terrible. Because I betrayed my mother. I broke my trust with her that she expected me not to indulge in alcohol. And that's exactly what I did.",story,137_9,P,id,0
+"So here you are. You're an honor student, your star athlete, you've kind of been doing everything you've been told for all these years. And maybe last month sometime you started getting more involved in the party scene and it was fun at first, but now you're already noticing some consequence",routine,137_10,T,ack,0
+right. Like I've been noticing I've been more lethargic and apathetic towards schoolwork.,routine,137_11,P,gc,-1
+Ahhh hmmm.,inactive,137_12,T,ack,0
+"Really, I kind of just sit in class like my mind is elsewhere, especially on the way weekends where instead of instead of studying, I'm caught up with my friends trying to find where we can get alcohol based on their age and, and stuff like that. ",symp/reasoning,137_13,P,id,0
+It has really changed your focus. What do you like about drinking?,routine,137_14,T,ack,0
+" I don't know it. It's because I'm a very reserved person, for the most part, not well, not when I'm doing sports, but like, like a social environment, I tend to keep to myself. Because I'm very self conscious, I would say and when I drink, I feel like it relaxes me I'm able to talk or engage with other people more easily. And it's just.",routine,137_15,P,id,-1
+"So, it helps you kind of  loosen up feel more relaxed. ",routine,137_16,T,crq,0
+Exactly.,inactive,137_17,P,cd,0
+"Sounds like you're noticing quite a few not so good things about alcohol though. Mom got mad at you. You're having decreased focus, you're kind of not doing so well in school, maybe any other things ?",routine,137_18,T,crq,0
+"Just different group friends of group girlfriends, like the different people that I'm hanging out. Not with because certain people are associated with that type of scene. So that that's also changed.",story,137_19,P,cd,0
+"So your your friends that you were hanging out with, there's a little tension there now",routine,137_20,T,crq,0
+"a little bit because not all of them are into that. So like, I'm in one group of friends and I will talk to another person within another group of friends and they just happen to invite me to that first party.",story,137_21,P,cd,0
+hmm hmm.,inactive,137_22,T,ack,0
+" So since then, I've been hanging out more with them getting to know them. But I could also see that on just living life, I guess. But that's also not fair to them that I'm not there for them as much as I was before, as they are there for me. Yeah. ",story,137_23,P,cd,0
+"Well, given that you've sort of noticed all these changes where it's affecting your friendships, it's affecting your studying and it's affecting your relationship with your mom. Where do you think you should kind of go from here? ",routine,137_24,T,ack,0
+"Oh, I should I should stop. I mean, like, I'm not, not unrealistic. ",routine,137_25,P,od,0
+Yeah,inactive,137_26,T,ack,0
+"I understand that. situations like this will happen. It's just up to me not to take it so far where I can't remember the night before. If I'm puking, all I remember is a toilet. ",routine,137_27,P,gc,0
+Umm,inactive,137_28,T,gc,0
+"That's, that's not worth it either. And I have to slowly build back my trust with my mother because that was that's a big blow as little or, like as it may seem to the other people like to me that it's a big thing.",routine,137_29,P,id,-1
+Your mom is really important to you ?,routine,137_30,T,yq,0
+" of course, ",routine,137_31,P,ack,0
+how confident are you that you could actually change your drinking or even cut down or quit?,symp/reasoning,137_32,T,irq,0
+I'm pretty confident,symp/reasoning,137_33,P,id,0
+especially on a scale of 1 to 10 where one is not at all and 10 is completely what number ?,routine,137_34,T,cd,0
+probably like an eight or nine I'm I can't be in time because nothing's attend my field. There's too many factors but I feel like I'm determined to,routine,137_35,P,id,0
+Why did you say eight or nine rather than six or seven?,routine,137_36,T,crq,0
+Because I don't know I feel determined to to make sure this happens because I don't like how I felt after I betrayed my mother. I don't like remembering that the feeling of like vomiting.,routine,137_37,P,cd,-2
+Umm hmm,inactive,137_38,T,ack,0
+"It's not a pleasant experience. It's not something that I wish to enjoy. So like, even if I do drink, I don't want to drink to the point where that happens. Like all the fun that I have, then prior to that, just it's not worth it's not worth drinking.",routine,137_39,P,id,-1
+Right? What do you think's a realistic goal for you then?,routine,137_40,T,ack,0
+"To make sure I have my studies? Well, first, try to get back my trust with my mother.",routine,137_41,P,id,0
+Okay,inactive,137_42,T,ack,0
+"Then just focus on my studies. Then if I have time for leisure time, like I'll go party with my friends and just be as a party with them doesn't mean I have to drink and I do. One cup is not gonna do anything to my life either. But I'd prefer not to do that I prefer just make sure",routine,137_43,P,id,0
+"your goals to not drink at all, or if you are at a party a maximum of one at the very moment.",routine,137_44,T,crq,0
+" Exactly. Just so I take part with the social convention, but it's not. Hey, guys. It's about doing the Yeah.",routine,137_45,P,cd,0
+"Chris, I really appreciate you talking with me about this. I know it seems like something that's been on your mind as it is. And, you know, like I said, I really care about you, as a student and an athlete and want what's best for you. So I'm glad we were able to talk about this, it really seems like you have a good plan going forward. You know, really striving for not drinking alcohol at all. And if you find yourself in a situation where there's alcohol, making sure to have that limit of one drink maximum. Sounds like something that'll work for you.",routine,137_46,T,gc,0
+And thank you for listening and listening to me.,inactive,137_47,P,gc,0
+"Yeah, it's my pleasure. It's part of my job and part I like best so we better hurry up and get changed for practice.",inactive,137_48,T,gc,0
+summary,"The patient is a star athelete and the therapist is counseling about their alcohol habits. The patient share their experience of how drinking is affecting their life replacing studies and how they felt terrible about disappointing their mother as they broke their trust. The patient feels they lost focus on schoolwork and keep discussing about drinking with friends. The patient says they are a reserved person and drinking helps to relax them. The patient has also switched friends to hang out more with people who drink. The patient is pretty confident to cut down on drinking as they wish to build the trust back with their mother. The therapist discusses the goals with the patient as to focus on studies, cut down on drinking and have utmost one drink as a social convention. ",,,,
+primary_topic,drinking,,,,
+secondary_topic,schoolwork,,,,
