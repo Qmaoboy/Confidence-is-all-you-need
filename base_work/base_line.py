@@ -2,6 +2,7 @@
 from LLM_API import *
 from qadataset_dataloader import qadataset_dataloader
 from rouge_score import rouge_scorer
+import os
 from tqdm import tqdm
 from util import *
 from prompt_strategy import prompter
