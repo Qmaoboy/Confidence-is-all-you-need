@@ -13,14 +13,28 @@
 ## Preprocessing- Data Download
 Please Download the .json File throught google drive link below and unzip to folder respsectively:
 - [Google Link](https://drive.google.com/file/d/1iZJbT_majQFzFjEUSw6ZfFNMqZOwuZLB/view?usp=sharing)
-
+- Make Sure the api_key is provided in the api_key.yml format
 
 ## How to Run
 ### PACE
 - Enter Folder **PACE**
-```
-python pipline.py
-```
+    - Setup *datasets*, *strategies*, *api_model* for evaluation the result
+        ```
+            # 'natural_questions','din0s/asqa',"triviaQA",
+            datasets = ["din0s/asqa"]
+            # strategies = ['vanilla']
+            strategies = ['vanilla','cot','multi_step']
+            sim_models = 'Cos_sim'
+
+            ## API model
+            api_model = 'gpt-3.5-turbo-0125'
+            # api_model = 'gpt-4-turbo'
+            # api_model = 'claude-3-5-sonnet-20240620'
+        ```
+    - Run the bash command:
+        ```
+        python pipline.py
+        ```
 ### CAPR
 - Enter Folder **CAPR**
     - For **Inference**
