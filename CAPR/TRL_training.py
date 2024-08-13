@@ -184,11 +184,11 @@ def main():
     # torch.cuda_set_device(1)
 
     Training_Config={
-        "dataset_path":f'response_result/20240601/triviaQA_gpt-3.5-turbo-0125_vanilla_QA.json',
-        'deliminator':"06122032_vanilla_f1_r1_trivia_withPACE",
-        'max_epoch': 8,
-        'trian_batch_size':8,
-        'Batch_accumulate_size':32 # min : 128, Max: 64
+        "dataset_path":f'response_result/20240601/triviaQA_gpt-3.5-turbo-0125_vanilla_QA.json', ## Training Data
+        'deliminator':"06122032_vanilla_f1_r1_trivia_withPACE", ## Save_File deliminator
+        'max_epoch': 8, ## Training Epoch
+        'trian_batch_size':8, ## Training Batch Size
+        'Batch_accumulate_size':32 ## Training Batch Accumulate Size min : 128, Max: 64
     }
 
     # pretrained_model_path=""
