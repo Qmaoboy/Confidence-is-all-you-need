@@ -11,7 +11,16 @@ import multiprocessing as mp
 from sklearn.metrics import roc_auc_score,roc_curve,auc
 from copy import copy,deepcopy
 import textgrad as tg
-
+import scipy.stats as st
+def TrustRegion(gfg_data):
+    trust_region=st.t.interval(confidence=0.90,
+                    df=len(gfg_data)-1,
+                    loc=np.mean(gfg_data),
+                    scale=st.sem(gfg_data))
+    print(f"{trust_region}")
+    trust_value=trust_region[1]-trust_region[0]
+    # print(f"{trust_value:.3f}")
+    return trust_value
 key=get_key_()
 
 #  gpt-3.5-turbo-0125, gpt-4-turbo
@@ -19,6 +28,9 @@ key=get_key_()
 
 api_model='claude-3-5-sonnet-20240620'
 api_key=key['claude']['api_key']
+
+# api_model='gpt-3.5-turbo-0125'
+# api_key=key['openai']['api_key']
 
 # api_model='gpt-4-turbo'
 # api_key=key['openai']['api_key']
@@ -33,7 +45,7 @@ def Get_auroc(accuracy,confidence_scores):
 def rewrite_worker(idx,original_question,ground_truth,documnet,baseline,acc_metric):
     result={}
     if baseline =="vanilla":
-        prompt=question_to_prompt([original_question],'QA','vanilla')
+        prompt=question_to_prompt([original_question],'Long_QA','vanilla')
         Answer_result=GPT_API(api_model,api_key,'confidence',prompt).generate('confidence')
         if Answer_result is not None:
             Accuracy=float(ans_scorer(Answer_result['Answer'],ground_truth,acc_metric))
@@ -73,7 +85,7 @@ def rewrite_worker(idx,original_question,ground_truth,documnet,baseline,acc_metr
             # old_refine_question=new_question['New_Question']
             # question_list.append(new_question['New_Question'])
 
-        new_question_prompt=question_to_prompt([new_question["New_Question"]],'QA','vanilla')
+        new_question_prompt=question_to_prompt([new_question["New_Question"]],'Long_QA','vanilla')
         Final_result=GPT_API(api_model,api_key,'confidence',new_question_prompt).generate("confidence")
         Accuracy=float(ans_scorer(Final_result['Answer'],ground_truth,acc_metric))
         if Final_result:
@@ -92,7 +104,7 @@ def rewrite_worker(idx,original_question,ground_truth,documnet,baseline,acc_metr
             print(Final_result)
 
     elif baseline =="RaR":
-        prompt=question_to_prompt([original_question],'QA','RaR')
+        prompt=question_to_prompt([original_question],'Long_QA','RaR')
         Answer_result=GPT_API(api_model,api_key,'RaR',prompt).generate(baseline)
 
         if Answer_result is not None:
@@ -119,17 +131,21 @@ def evaluate_result(datapath):
         acc=np.array([float(i['Accuracy']) for i in data])
         conf=np.array([float(i['Confidence']) for i in data])
         ece_score=np.abs(acc-conf)
+        print("-"*50)
         print(f"{datapath}")
-        print(f"Accuracy mean :{np.mean(acc)}")
-        print(f"ECE mean :{np.mean(ece_score)}")
+        print(f"Accuracy mean :{np.mean(acc)},{TrustRegion(np.array(acc)):.3f}")
+
+        print(f"ECE mean :{np.mean(ece_score)},{TrustRegion(np.array(ece_score)):.3f}")
+
         print(f"Auroc mean :{Get_auroc(acc,conf)}")
+        print("-"*50)
     else:
         print(f"Not Exist {datapath}")
 
-def main(baseline,datapath,acc_metric='f1'):
+def main(baseline,datapath,acc_metric='rouge'):
 
     if baseline in ["vanilla","self_polish","RaR"]:
-        train_dataloader=qadataset_dataloader(dataset_path="triviaQA",split='validation',batch_size=1,shuffle=False).trainloader
+        train_dataloader=qadataset_dataloader(dataset_path="din0s/asqa",split='dev',batch_size=1,shuffle=False).trainloader
         share_list=[]
 
         for idx,(batch,Ground_truth) in enumerate(progress:=tqdm(train_dataloader,position=0)):
@@ -139,9 +155,10 @@ def main(baseline,datapath,acc_metric='f1'):
                 kkresult=rewrite_worker(idx,q,gt,doc,baseline,acc_metric)
                 if kkresult is not None:
                     share_list.append(kkresult)
+                    # print(share_list[-1].keys())
 
             if share_list:
-                progress.set_description_str(f"Processing {len(share_list)} batch acc {np.mean(np.array([i['Accuracy'] for i in share_list]))}")
+                progress.set_description_str(f"Processing {len(share_list)} batch {acc_metric} {np.mean(np.array([i['Accuracy'] for i in share_list]))}")
                 progress.set_postfix_str(f"list length: {len(share_list)}")
             if len(share_list)>=50 or idx >=50:
                 break
@@ -150,7 +167,7 @@ def main(baseline,datapath,acc_metric='f1'):
                 json.dump(list(share_list),f)
 
     elif baseline in ["textgrad"] and 'gpt' in api_model:
-        train_dataloader=qadataset_dataloader(dataset_path="triviaQA",split='validation',batch_size=1,shuffle=False).trainloader
+        train_dataloader=qadataset_dataloader(dataset_path="din0s/asqa",split='dev',batch_size=1,shuffle=False).trainloader
         share_list=[]
         for idx,(batch,Ground_truth) in enumerate(progress:=tqdm(train_dataloader)):
             original_question=[i[0] for i in batch]
@@ -196,10 +213,12 @@ def main(baseline,datapath,acc_metric='f1'):
                 break
 
 if __name__=="__main__":
-    baseline_list=["vanilla","self_polish","RaR"]
+    baseline_list=["RaR",'textgrad']
+    # baseline_list=['textgrad']
+
     for baseline in baseline_list:
-        datapath=f'baseline_result/trivia_{api_model}_{baseline}_detail.json'
-        main(baseline,datapath,'extract_answer')
+        datapath=f'baseline_result/asqa_{api_model}_{baseline}.json'
+        main(baseline,datapath,'rouge')
         evaluate_result(datapath)
 
     # print(ans_scorer("48 hours","48 Hrs.","extract_answer"))

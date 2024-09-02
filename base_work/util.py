@@ -23,7 +23,9 @@ from LLM_API import GPT_API
 def ans_scorer(new_ans,original_ans,method):
     ## Compare Result
     if 'rouge' in method:
-        result=rouge_scorer.RougeScorer(['rouge1', 'rouge2', 'rougeL'], use_stemmer=True).score(new_ans,original_ans)['rougeL'].fmeasure
+
+        result=rouge_scorer.RougeScorer(['rouge1', 'rouge2', 'rougeL'], use_stemmer=True).score(new_ans,original_ans)['rougeL']
+        result=result.fmeasure
     elif 'f1' in method:
         acc_func=acc_metric("f1")
         result=acc_func.compute_acc([str(new_ans)],[str(original_ans)])[0]

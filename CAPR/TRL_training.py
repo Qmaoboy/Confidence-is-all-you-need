@@ -51,7 +51,7 @@ def setup(rank, world_size):
 def cleanup():
     dist.destroy_process_group()
 
-def trainer(Batch_accumulate_size, max_epoch, model, tokenizer,Dataloader,generation_kwargs,writer):
+def trainer(Batch_accumulate_size, max_epoch, model, tokenizer,Dataloader,generation_kwargs,writer,dataset):
 
     # rank=os.environ['LOCAL_RANK']
     # print(f"Running DDP on rank {rank}.")
@@ -106,13 +106,13 @@ def trainer(Batch_accumulate_size, max_epoch, model, tokenizer,Dataloader,genera
             ## Environment Get Answer and Confidence
             bar.set_postfix_str("get Environment")
 
-            result_batch=Parallel_Environment(prompt,key,'gpt-3.5-turbo-0125')
+            result_batch=Parallel_Environment(prompt,key,'gpt-4o')
 
 
             bar.set_postfix_str("get Reward")
             # print(result_batch)
             #### Compute reward score
-            Reward,ece,origin_ece,acc,pace_conf,conf = reward_function(result_batch,ground_Truth,Document)
+            Reward,ece,origin_ece,acc,pace_conf,conf = reward_function(result_batch,ground_Truth,Document,dataset)
             ##################### Show Result
             if show_result:
                 try:
@@ -184,11 +184,12 @@ def main():
     # torch.cuda_set_device(1)
 
     Training_Config={
-        "dataset_path":f'response_result/20240601/triviaQA_gpt-3.5-turbo-0125_vanilla_QA.json', ## Training Data
-        'deliminator':"06122032_vanilla_f1_r1_trivia_withPACE", ## Save_File deliminator
+        "dataset_path":f'response_result/20240601/din0s_asqa_gpt-3.5-turbo-0125_vanilla_Long_QA.json', ## Training Data
+        'deliminator':"09021043_vanilla_rougeL_r1_pace_withPACE", ## Save_File deliminator
         'max_epoch': 8, ## Training Epoch
         'trian_batch_size':8, ## Training Batch Size
-        'Batch_accumulate_size':32 ## Training Batch Accumulate Size min : 128, Max: 64
+        'Batch_accumulate_size':32, ## Training Batch Accumulate Size min : 128, Max: 64
+        'Dataset':'asqa'
     }
 
     # pretrained_model_path=""
@@ -295,7 +296,7 @@ def main():
         'no_repeat_ngram_size':4
         }
 
-    Agent_addres=trainer(Training_Config['Batch_accumulate_size'], Training_Config['max_epoch'], ppo_trainer, tokenizer,Dataloader,generation_kwargs,writer)
+    Agent_addres=trainer(Training_Config['Batch_accumulate_size'], Training_Config['max_epoch'], ppo_trainer, tokenizer,Dataloader,generation_kwargs,writer,Training_Config["Dataset"])
 
     # inference(Training_Config['dataset_path'],f"din0s_asqa_{Training_Config['deliminator']}_Vanilla.json",Agent_addres)
     # Show_mean_result(f"din0s_asqa_{Training_Config['deliminator']}_Vanilla.json")

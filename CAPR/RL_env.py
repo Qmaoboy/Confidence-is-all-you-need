@@ -14,6 +14,7 @@ from netcal.metrics import ECE
 key_mapping={
     'gpt-3.5-turbo-0125':'openai',
     'gpt-4-turbo':'openai',
+    'gpt-4o':'openai',
     'claude-3-5-sonnet-20240620':'claude',
 }
 
@@ -57,7 +58,7 @@ def Environment(prompt,key,model_name='gpt-3.5-turbo-0125'):
         pass
 
 
-def reward_function(result_batch,Ground_truth,Document):
+def reward_function(result_batch,Ground_truth,Document,dataset="asqa"):
     '''
     Batch Input
         answer: Batch* 1
@@ -65,12 +66,16 @@ def reward_function(result_batch,Ground_truth,Document):
         conf_batch: Batch* 1
         Document_List: Batch* K
     '''
+    accuracy_mapping={
+        "asqa":'rougeL',
+        "triviaqa":"extract_answer"
+    }
 
-    eval_acc=acc_metric('extract_answer')
+    eval_acc=acc_metric(accuracy_mapping[dataset])
     simi=simi_metric("Cos_sim")
     lambda_value=0.7
     ## Balance Between ECE and ACC
-    ece_acc_ratio=1.0
+    ece_acc_ratio=0.7
     ## ece_acc_ratio*-ece+(1.0-ece_acc_ratio)*acc
     assert len(result_batch)==len(Ground_truth)==len(Document)
     ## result_batch dict(confidece,Answer) / None
@@ -87,8 +92,6 @@ def reward_function(result_batch,Ground_truth,Document):
                 ## Follow f1 score
                 conf_batch=torch.tensor(float(result['Confidence']))
                 acc_batch=torch.tensor(eval_acc.compute_acc([answer],[ground])).squeeze()
-
-
                 # conf_batch[acc_batch==0.0]=0.0
                 simi_scores = torch.tensor(simi.compute_similarity([answer],doc))
                 simi_score = torch.max(simi_scores)
