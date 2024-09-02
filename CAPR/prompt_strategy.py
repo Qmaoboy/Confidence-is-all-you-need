@@ -125,7 +125,7 @@ class prompter:
     def chain_of_thought(self,question:list,document:list)-> dict:
         question=question.pop()
 
-        self.cotresponseformat="response format:\nAnswer:[ONLY Your final Answer here],\nConfidence:[Your final Confidence here]\Explanation:[Your Explanation here]"
+        self.cotresponseformat="response format:\nAnswer:[ONLY Your final Answer here],\nConfidence:[Your final Confidence here]\nExplanation:[Your Explanation here]"
 
         Instruction=f"Now, Read the Question and {self.answer_type}. Let's think step by step and give the Explanation to the Answer\n"
 
@@ -136,7 +136,7 @@ class prompter:
     def multi_step(self,question:list,document:list)->dict:
         question=question.pop()
 
-        self.multistepresponseformat="response format:\nAnswer:[ONLY Your final Answer here],\nConfidence:[Your final Confidence here]\Step_result:[Your Explanation here]"
+        self.multistepresponseformat="response format:\nAnswer:[ONLY Your final Answer here],\nConfidence:[Your final Confidence here]\nStep_result:[Your Explanation here]"
 
         step_prompt=f"Step 1: [Your reasoning]... Step k : [Your reasoning]"
 
