@@ -124,21 +124,20 @@ class eval_dataloader:
         Document=[i['Document']for i in batch]
         Confidence=[i['Confidence']for i in batch]
         prompt=[i['Prompt'] for i in batch]
-
-        long_form_instruct=[f'''[INST] <<SYS>>Rewrite the following basic instruction to help a large language model generate a more detailed and comprehensive answer for a long-form QA task. Ensure the rewritten instruction is clear and concise, prompting the model to provide a thorough and well-structured response of at least 300 tokens to the given question. Only give me the new instruction, don't give any other words. The new instruction should be within 256 tokens.
+        Instrcut_set={
+            "long_form_instruct":[f'''[INST] <<SYS>>Rewrite the following basic instruction to help a large language model generate a more detailed and comprehensive answer for a long-form QA task. Ensure the rewritten instruction is clear and concise, prompting the model to provide a thorough and well-structured response of at least 300 tokens to the given question. Only give me the new instruction, don't give any other words. The new instruction should be within 256 tokens.
+        Basic Instruction: "{i['Instruction']}"
+        Question: "{i['Question']}"
+        [/INST]new instruction:''' for i in prompt],
+            "short_form_instruct":[f'''[INST] <<SYS>>Rewrite the following basic instruction to help a large language model generate a brief answer for a shot-form QA task. Ensure the rewritten instruction is clear and concise, prompting the model to provide a correct and well-structured response to the given question.Only give me the new instruction, don't give any other words.
         Basic Instruction: "{i['Instruction']}"
         Question: "{i['Question']}"
         [/INST]new instruction:''' for i in prompt]
+        }
 
+        instruct_token=self.tokenizer(Instrcut_set["long_form_instruct"],padding=False,truncation=True,max_length=512)
 
-        short_form_instruct=[f'''[INST] <<SYS>>Rewrite the following basic instruction to help a large language model generate a brief answer for a shot-form QA task. Ensure the rewritten instruction is clear and concise, prompting the model to provide a correct and well-structured response to the given question.Only give me the new instruction, don't give any other words.
-        Basic Instruction: "{i['Instruction']}"
-        Question: "{i['Question']}"
-        [/INST]new instruction:''' for i in prompt]
-
-        instruct_token=self.tokenizer(short_form_instruct,padding=False,truncation=True,max_length=512)
-
-        return prompt,short_form_instruct,instruct_token,ans,ground_Truth,Confidence,Document
+        return prompt,Instrcut_set["long_form_instruct"],instruct_token,ans,ground_Truth,Confidence,Document
 
 ## prompt,instruct,instruct_token,ans,ground_Truth,ground_Truth_token,Confidence,Document
 

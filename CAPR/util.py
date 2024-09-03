@@ -41,7 +41,7 @@ def get_key_():
     if os.path.isfile("../api_key.yml"):
         with open("../api_key.yml","r") as f:
             key=yaml.safe_load(f)
-            print("Key Get !!")
+            # print("Key Get !!")
         return key
     else:
         print("Key FAIL !!")

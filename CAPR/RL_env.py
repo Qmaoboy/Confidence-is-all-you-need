@@ -75,7 +75,7 @@ def reward_function(result_batch,Ground_truth,Document,dataset="asqa"):
     simi=simi_metric("Cos_sim")
     lambda_value=0.7
     ## Balance Between ECE and ACC
-    ece_acc_ratio=0.7
+    ece_acc_ratio=1
     ## ece_acc_ratio*-ece+(1.0-ece_acc_ratio)*acc
     assert len(result_batch)==len(Ground_truth)==len(Document)
     ## result_batch dict(confidece,Answer) / None
@@ -95,10 +95,9 @@ def reward_function(result_batch,Ground_truth,Document,dataset="asqa"):
                 # conf_batch[acc_batch==0.0]=0.0
                 simi_scores = torch.tensor(simi.compute_similarity([answer],doc))
                 simi_score = torch.max(simi_scores)
-                simi_score[simi_score>=0.5]=1.0
+                # simi_score[simi_score>=0.5]=1.0
                 Final_conf=conf_batch*lambda_value+simi_score*(1-lambda_value)
                 # Final_conf[acc_batch==1.0]=1.0
-                print(f"{answer}, {ground}, {acc_batch}, {conf_batch},{simi_score},{Final_conf}")
                 ## ECC = (ACC - CONF)
                 ## Reward = -ECC + ACC
                 # eceloss=get_ece(Final_conf,acc_batch)

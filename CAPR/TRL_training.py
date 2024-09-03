@@ -71,7 +71,7 @@ def trainer(Batch_accumulate_size, max_epoch, model, tokenizer,Dataloader,genera
     show_result=True
     example_list=[]
 
-    for epoch in (t:=tqdm(range(max_epoch), "epoch: ")):
+    for epoch in (t:=tqdm(range(max_epoch), "Epoch: ")):
 
         for prompt,instruct,instruct_token,ans,ground_Truth,Confidence,Document in (bar:=tqdm(Dataloader,leave=True)):
             bar.set_postfix_str("get Instruction")
@@ -100,7 +100,7 @@ def trainer(Batch_accumulate_size, max_epoch, model, tokenizer,Dataloader,genera
             ## replace generated Instruction
             for idx,p_instruc in enumerate(response):
                 prompt[idx]['Instruction']=str(p_instruc)
-                prompt[idx]['system_prompt']="This is a QA task, please answer the Question base on the Instruction to the question and confidence to the Answer in json."
+                prompt[idx]['system_prompt']="This is a Long form generation QA task, provide very long Answer to the question base on the Instruction and confidence to the Answer in json."
                 prompt[idx]['input_text']="\nOnly give me one Answer and Confidence according to response format in json, don't give me any other words.\n\nresponse format:\n{'Answer':[ONLY Your final Answer here],\n'Confidence':[Your final Confidence here]}"
 
             ## Environment Get Answer and Confidence
@@ -185,7 +185,7 @@ def main():
 
     Training_Config={
         "dataset_path":f'response_result/20240601/din0s_asqa_gpt-3.5-turbo-0125_vanilla_Long_QA.json', ## Training Data
-        'deliminator':"09021043_vanilla_rougeL_r1_pace_withPACE", ## Save_File deliminator
+        'deliminator':"09021043_vanilla_asqa_r1_pace_withPACE", ## Save_File deliminator
         'max_epoch': 8, ## Training Epoch
         'trian_batch_size':8, ## Training Batch Size
         'Batch_accumulate_size':32, ## Training Batch Accumulate Size min : 128, Max: 64
@@ -193,7 +193,7 @@ def main():
     }
 
     # pretrained_model_path=""
-    pretrained_model_path=f"Agent_weight/PPO_Agent_{Training_Config['deliminator']}_2_0.0090"
+    pretrained_model_path=f""
 
     writer=rl_writer(Training_Config['deliminator'])
 
