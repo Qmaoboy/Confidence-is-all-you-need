@@ -34,7 +34,7 @@ if os.path.isfile("default_config.yaml"):
     with open("default_config.yaml","r") as f:
         ac_config=yaml.safe_load(f)
 
-wandb.login(key=key['wandb']["api_key"])
+# wandb.login(key=key['wandb']["api_key"])
 
 login(token=key['hugginface']["token"])
 
@@ -100,7 +100,7 @@ def trainer(Batch_accumulate_size, max_epoch, model, tokenizer,Dataloader,genera
             ## replace generated Instruction
             for idx,p_instruc in enumerate(response):
                 prompt[idx]['Instruction']=str(p_instruc)
-                prompt[idx]['system_prompt']="This is a Long form generation QA task, provide very long Answer to the question base on the Instruction and confidence to the Answer in json."
+                prompt[idx]['system_prompt']="This is a Long form generation QA task, provide very long Answer with more detail to the question base on the Instruction and confidence to the Answer in json."
                 prompt[idx]['input_text']="\nOnly give me one Answer and Confidence according to response format in json, don't give me any other words.\n\nresponse format:\n{'Answer':[ONLY Your final Answer here],\n'Confidence':[Your final Confidence here]}"
 
             ## Environment Get Answer and Confidence
